@@ -1,0 +1,222 @@
+@import '../abstract/_variables.scss';
+@import '../abstract/_mixins.scss';
+
+/*====nav style start====*/
+header {
+    background-color: $nav-bg;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 10px rgba(0, 0, 0, 0.06) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 10px rgba(0, 0, 0, 0.06) inset;
+    margin-bottom: 80px;
+    .navbar {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: $nav-bg;
+        font-size: $nav-font;
+        line-height: 1.5;
+        .container {
+            .navbar-brand {
+                margin: 0px;
+                padding: 0px;
+                img {
+                    max-width: 100%;
+                    height: auto;
+                }
+            }
+            .user_info {
+                .group_btn {
+                    margin: 0px;
+                    padding: 0px;
+                    .group_link {
+                        text-decoration: none;
+                        display: inline-block;
+                        font-family: $open-sans;
+                        font-size: $nav-font;
+                        font-weight: 600;
+                        line-height: 1.5;
+                        text-transform: uppercase;
+                        color: #eaeaff;
+                        padding: 9px 15px;
+                        border: 1px solid rgba(255, 255, 255, 0.2);
+                        @include transition (all 0.6s);
+                        &:hover {
+                            text-decoration: none;
+                            color: $title-color;
+                        }
+                    }
+                    .hover {
+                        @include gradient;
+                        @include box-shadow($shadow);
+                        color: $title-color;
+                    }
+                }
+                .navbar-toggler {
+                    border: none;
+                    padding: 0px;
+                    margin: 0px;
+                    &:focus {
+                        @include box-shadow (none);
+                        outline: none;
+                    }
+                    .bar_one {
+                        @include bar_icon;
+                    }
+                    .bar_two {
+                        @include bar_icon;
+                        margin: 6px 0px;
+                    }
+                    .bar_three {
+                        @include bar_icon;
+                    }
+                }
+                .active {
+                    .bar_one {
+                        @include transform (rotate(-45deg) translate(-9px, 5px)); 
+                    }
+                    .bar_two {
+                        opacity: 0;
+                    }
+                    .bar_three {
+                        @include transform (rotate(45deg) translate(-8px, -4px));
+                    } 
+                }
+            }
+            .navbar-collapse {
+                .navbar-nav {
+                    .nav-item {
+                        .nav-link {
+                            font-family: $open-sans;
+                            font-size: $nav-font;
+                            font-weight: 600;
+                            line-height: 1.5;
+                            text-transform: uppercase;
+                            color: #eaeaff;
+                            padding: 10px 15px;
+                            @include transition (all 0.6s);
+                            &:hover {
+                                color: $hover-color;
+                            }
+                        }
+                        .active {
+                            color: $hover-color;
+                        }
+                    }
+                    .dropdown {
+                        .dropdown-menu {
+                            margin-top: 18px;
+                            background-color: $nav-bg;
+                            min-width: 230px;
+                            .dropdown-item {
+                                font-family: $open-sans;
+                                font-size: 14px;
+                                font-weight: 700;
+                                line-height: 1.5;
+                                text-transform: uppercase;
+                                color: $title-color;
+                                padding: 10px 15px;
+                                @include transition(all 0.6s);
+                                background-color: $nav-bg;
+                                &:hover {
+                                    background-color: $theme-bg;
+                                    color: $hover-color;
+                                    padding: 10px 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.dark {
+    background-color: #fff;
+    header {
+        background-color: #fff;
+        .navbar {
+            background-color: #fff;
+            .container {
+                .user_info {
+                    .group_btn {
+                        .group_link {
+                            color: #25294a;
+                            @include box-shadow(0px 0px 5px #f0f0f9);
+                            border: 1px solid rgba(0, 0, 0, 0.2);
+                            &:hover {
+                                border: 1px solid transparent;
+                            }
+                        }
+                        .hover {
+                            border: 1px solid transparent;
+                            color: #fff;
+                        }
+                    }
+                    .navbar-toggler {
+                        .bar_one {
+                            background-color: #25294a;
+                        }
+                        .bar_two {
+                            background-color: #25294a;
+                        }
+                        .bar_three {
+                            background-color: #25294a;
+                        }
+                    }
+                }
+                .navbar-collapse {
+                    .navbar-nav {
+                        .nav-item {
+                            .nav-link {
+                                color: #25294a;
+                                &:hover {
+                                    color: $hover-color;
+                                }
+                            }
+                            .active {
+                                color: $hover-color;
+                            }
+                        }
+                        .dropdown {
+                            .dropdown-menu {
+                                background-color: #fff;
+                                @include box-shadow(0px 0px 2px #f0f0f9);
+                                .dropdown-item {
+                                    color: #25294a;
+                                    background-color: #fff;
+                                    &:hover {
+                                        background-color: #f0f0f9;
+                                        color: $hover-color;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+//style for second home nav
+.home_nav_two {
+    margin-bottom: 0px;
+    background-color: transparent;
+    @include box-shadow(none);
+    .navbar_two {
+        background-color: transparent;
+        @include box-shadow(none);
+    }
+}
+
+.dark {
+    .home_nav_two {
+        margin-bottom: 80px;
+        background-color: transparent;
+        @include box-shadow(none);
+        .navbar_two {
+            background-color: #fff;
+            @include box-shadow(none);
+        }
+    }
+}

@@ -1,0 +1,153 @@
+/*====scroll bottom to top button====*/
+.scrollToTop {
+    text-decoration: none;
+    display: inline-block;
+    position: fixed;
+    bottom: 0;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    background-image: linear-gradient(45deg, rgb(247,112,98) 0%, rgb(254,81,150) 100%);
+    border-radius: 5px;
+    color: $title-color;
+    line-height: 45px;
+    font-size: 20px;
+    text-align: center;
+    z-index: 9;
+    cursor: pointer;
+    @include transition(all 1s);
+    @include transform(translateY(100%));
+}
+.scrollToTop.active {
+    bottom: 30px;
+    @include transform(translateY(0%));
+    color: $title-color;
+}
+.scrollToTop:hover{
+    color: $title-color;
+    text-decoration: none;
+}
+
+//scroll bottom to top button styles when viewport size less than 768px
+@include sm-screen {
+    .scrollToTop {
+        position: fixed;
+        right: 12px;
+        bottom: 12px;
+        width: 30px;
+        height: 30px;
+        line-height: 28px;
+        padding: 0px 6px;
+        @include border-radius(0px);
+        i {
+            font-size: 12px;
+        }
+    }
+}
+/*====scroll bottom to top button====*/
+
+
+/*====common button styles====*/
+@mixin btn_style {
+    text-decoration: none;
+    display: inline-block;
+    font-family: $open-sans;
+    font-size: $nav-font;
+    font-weight: 700;
+    line-height: 1.5;
+    text-transform: uppercase;
+    color: $title-color;
+    border: none;
+    outline: none;
+    @include border-radius(5px);
+    padding: 16px 32px;
+    @include gradient;
+    @include box-shadow($shadow);
+    &:hover {
+        border: none;
+        outline: none;
+    }
+    &:focus {
+        border: none;
+        outline: none;
+        @include box-shadow(none);
+    }
+    @include sm-screen {
+        font-size: 14px;
+        padding: 12px 20px;
+    }
+}
+
+//mixin for video button gradient
+@mixin video-gradient {
+    background-image: -moz-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+    background-image: -webkit-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+    background-image: -ms-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+    background-image: linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+}
+
+//mixin for video modal button
+@mixin video_btn_a {
+    text-decoration: none;
+    display: inline-block;
+    padding:10px;
+    width: 43px;
+    height: 43px;
+    line-height: 43px;
+    @include video_gradient;
+    @include border-radius (50%);
+    position: relative;
+}
+
+//style for the icon
+@mixin video_btn_i {
+    font-size: $nav-font;
+    line-height: 1.5;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform (translate(-40%, -44%));
+    color: $title-color;
+}
+
+@mixin video_btn_before {
+    content: '';
+    position: absolute;
+    width: 160%;
+    height: 160%;
+    top: 50%;
+    left: 50%;
+    @include transform (translate(-50%, -50%));
+    background-color: $theme-bg;
+    @include video_gradient;
+    opacity: 0.149;
+    @include border-radius (33.33% 50%);
+    @include animation (spin, 5s, linear, 0s, infinite);
+}
+
+@mixin video_btn_after {
+    content: '';
+    position: absolute;
+    width: 130%;
+    height: 130%;
+    top: 50%;
+    left: 50%;
+    @include transform (translate(-50%, -50%));
+    background-color: $theme-bg;
+    @include video_gradient;
+    opacity: 0.302;
+    @include border-radius (33.33% 50%);
+    @include animation (spin, 3s, linear, 0s, infinite);
+}
+
+@keyframes spin {
+    from {
+        @include transform (translate(-50%, -50%) rotate(0deg));
+    }
+    to {
+        @include transform (translate(-50%, -50%) rotate(360deg));
+    }
+}
+
+/*====common button styles====*/

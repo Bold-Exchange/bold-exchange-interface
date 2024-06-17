@@ -1,0 +1,41 @@
+/*===================main scss sources start================*/
+
+//abstracts
+@import "./abstract/variables";
+@import "./abstract/mixins";
+
+//base
+@import "./base/reset";
+@import "./base/typography";
+@import "./base/base";
+
+//components
+@import "./components/preloader";
+@import "./components/buttons";
+@import "./components/forms";
+
+
+//layout
+@import "./layout/header";
+@import "./layout/banner";
+@import "./layout/slider";
+@import "./layout/sections";
+@import "./layout/sidebar";
+@import "./layout/footer";
+
+
+
+//pages
+@import "./pages/user-portfolio";
+@import "./pages/user-about";
+@import "./pages/league";
+@import "./pages/profile";
+@import "./pages/trade";
+@import "./pages/affiliate";
+@import "./pages/rules";
+
+//responsive styles
+@import "./responsive/responsive";
+
+
+/*===================main scss sources end================*/

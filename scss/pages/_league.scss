@@ -1,0 +1,374 @@
+.page_wrapper {
+    .body_content {
+        .main_content {
+            .row {
+                .col-xl-9 {
+                    .inner_left {
+                        .league_cover_wrapper {
+                            .league_info {
+                                padding: 120px 0px 128px;
+                                text-align: center;
+                                background-repeat: no-repeat;
+                                background-size: cover;
+                                background-position: center center;
+                                @include border-radius(5px 5px 0px 0px);
+                                p {
+                                    font-family: $rubik;
+                                    font-size: 36px;
+                                    font-weight: 400;
+                                    line-height: 1.278;
+                                    color: rgb( 255, 138, 0 );
+                                }
+                                .name {
+                                    font-family: $rubik;
+                                    font-size: 50px;
+                                    font-weight: bold;
+                                    line-height: 1.2;
+                                    color: $title-color;
+                                    margin-top: 5px;
+                                }
+                            }
+                            .players_tab_wrapper {
+                                .tab_btn_wrapper {
+                                    background-color: $sidebar-bg;
+                                    padding: 24px 0px 71px;
+                                    .tab_btnp {
+                                        font-family: $open-sans;
+                                        font-size: 18px;
+                                        font-weight: bold;
+                                        line-height: 1.556;
+                                        color: $title-color;
+                                        padding: 10px 20px;
+                                        @include transition( all 0.6s);
+                                        border: none;
+                                        outline: none;
+                                        @include box-shadow(none);
+                                        display: inline-block;
+                                        &:hover {
+                                            color: rgb( 245, 49, 127 );
+                                        }
+                                        &:focus {
+                                            border: none;
+                                            outline: none;
+                                        }
+                                    }
+                                    .activ {
+                                        color: rgb( 245, 49, 127 );
+                                    }
+                                }
+                                .player_search_tab_wrapper {
+                                    background-color: #3a398a;
+                                    padding:17px 15px;
+                                    position: relative;
+                                    top: -47px;
+                                    margin-bottom: -47px;
+                                    @include border-radius(60px);
+                                    margin-bottom: 60px;
+                                    max-width: 768px;
+                                    margin: 0px auto -47px;
+                                    form {
+                                        position: relative;
+                                        input {
+                                            padding: 15px 180px 15px 40px;
+                                            @include border-radius(60px);
+                                            background-color: rgba(42, 41, 91, 0.302);
+                                            border: 1px solid rgba(190, 174, 255, 0.3);
+                                            font-family: $open-sans;
+                                            font-size: 18px;
+                                            line-height: 1.556;
+                                            font-weight: 400;
+                                            color: $title-color;
+                                            &::placeholder {
+                                                font-family: $open-sans;
+                                                font-size: 18px;
+                                                line-height: 1.556;
+                                                font-weight: 400;
+                                                color: rgba(179, 163, 255, 0.6);
+                                            }
+                                            &:focus {
+                                                @include box-shadow(none);
+                                                border: 1px solid rgba(190, 174, 255, 1);
+                                            }
+                                        }
+                                        .btn {
+                                            @include btn_style;
+                                            @include border-radius (40px);
+                                            padding: 3px 35px;
+                                            position: absolute;
+                                            top: 9px;
+                                            right: 10px;
+                                            i {
+                                                font-size: 24px;
+                                                display: inline-block;
+                                                margin-right: 10px;
+                                                line-height: 1.5;
+                                            }
+                                        }
+                                    }
+                                }
+                                .player_search_tabs {
+                                    margin-top: 40px;
+                                    overflow-x: auto;
+                                    .players_responsive_table_wrapper {
+                                        .table {
+                                            border-collapse: separate;
+                                            border-spacing: 0px 25px;
+                                            tr {
+                                                background-color: $tr;
+                                                
+                                                td {
+                                                    vertical-align: middle;
+                                                    padding: 15px 12px;
+                                                    &:first-child {
+                                                        @include border-radius(60px 0px 0px 60px);
+                                                        padding-left: 20px;
+                                                    }
+                                                    &:last-child {
+                                                        @include border-radius(0px 60px 60px 0px);
+                                                        padding-right: 20px;
+                                                    }
+                                                }
+                                                .profile_info {
+                                                    .d-flex {
+                                                        .wrapper {
+                                                            a {
+                                                                text-decoration: none;
+                                                                display: inline-block;
+                                                                width: 79px;
+                                                                height: 79px;
+                                                                background-color: #800dbc;
+                                                                @include border-radius(50%);
+                                                                border: 2px solid red;
+                                                                img {
+                                                                    max-width: 55px;
+                                                                    height: auto;
+                                                                    border: none;
+                                                                    outline: none;
+                                                                }
+                                                                &:hover {
+                                                                    text-decoration: none;
+                                                                    outline: none;
+                                                                }
+                                                            }
+                                                        }
+                                                        .player_name {
+                                                            margin-left: 20px;
+                                                            a {
+                                                                text-decoration: none;
+                                                                display: inline-block;
+                                                                font-family: $rubik;
+                                                                font-size: 20px;
+                                                                font-weight: 700;
+                                                                line-height: 1.5;
+                                                                color: $title-color;
+                                                                &:hover {
+                                                                    text-decoration: none;
+                                                                }
+                                                            }
+                                                            p {
+                                                                font-family: $open-sans;
+                                                                font-size: 12px;
+                                                                font-weight: 600;
+                                                                color: #ffe27e;
+                                                                line-height: 1.667;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                .price_range {
+                                                    .d-flex {
+                                                        .price {
+                                                            margin: 0px 40px 0px 0px;
+                                                            p {
+                                                                &:first-child {
+                                                                    font-family: $rubik;
+                                                                    font-size: 18px;
+                                                                    font-weight: 700;
+                                                                    line-height: 1.889;
+                                                                    color: $title-color;
+                                                                    i {
+                                                                        color: $title-color;
+                                                                    }
+                                                                }
+                                                                &:last-child {
+                                                                    font-size: 14px;
+                                                                    font-family: $open-sans;
+                                                                    color: rgb(31, 160, 42);
+                                                                    font-weight: 700;
+                                                                    line-height: 1.714;
+                                                                    i {
+                                                                        color: rgb(31, 160, 42);
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                        .charts {
+                                                            margin-top: -6px;
+                                                        }
+                                                    }
+                                                }
+                                                .sell_buy {
+                                                    .btn_wrapper {
+                                                        .btn {
+                                                            text-decoration: none;
+                                                            display: inline-block;
+                                                            font-family: $open-sans;
+                                                            font-size: 14px;
+                                                            font-weight: 700;
+                                                            line-height: 1.75;
+                                                            background-color: transparent;
+                                                            text-transform: uppercase;
+                                                            color: $title-color;
+                                                            padding: 3px 20px;
+                                                            border: 1px solid rgb(190, 174, 255);
+                                                            @include border-radius(40px);
+                                                            margin: 0px 5px;
+                                                            &:hover {
+                                                                text-decoration: none;
+                                                                @include gradient;
+                                                                border: 1px solid transparent;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .show_wrapper {
+                                        margin-top: 0px;
+                                        padding: 30px 0px 30px;
+                                        a {
+                                            text-decoration: none;
+                                            display: inline-block;
+                                            font-family: $open-sans;
+                                            font-size: 18px;
+                                            font-weight: bold;
+                                            line-height: 1.556;
+                                            color: #a3b5ff;
+                                            padding: 10px 40px;
+                                            border: 1px solid #2A3370;
+                                            @include border-radius(25px);
+                                            @include transition(all 0.6s);
+                                            &:hover {
+                                                text-decoration: none;
+                                                color: $title-color;
+                                                border: 1px solid $title-color;
+                                            }
+                                        }
+                                    }
+                                    display: none;
+                                }
+                                .activ {
+                                    display: inherit;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.dark {
+    .page_wrapper {
+        .body_content {
+            .main_content {
+                .row {
+                    .col-xl-9 {
+                        .inner_left {
+                            .league_cover_wrapper {
+                                .players_tab_wrapper {
+                                    .tab_btn_wrapper {
+                                        background-color: #fff;
+                                        @include box-shadow(0px 0px 10px #f0f0f9);
+                                        .tab_btnp {
+                                            color: #25294a;
+                                            &:hover {
+                                                color: rgb( 245, 49, 127 );
+                                            }
+                                        }
+                                        .activ {
+                                            color: rgb( 245, 49, 127 );
+                                        }
+                                    }
+                                    .player_search_tab_wrapper {
+                                        background-color: #fff;
+                                        @include box-shadow(0px 0px 20px #f0f0f9);
+                                        form {
+                                            input {
+                                                background-color: #f0f0f9;
+                                                color: #25294a;
+                                                &::placeholder {
+                                                    color: #25294a;
+                                                }
+                                            }
+                                            
+                                        }
+                                    }
+                                    .player_search_tabs {
+                                        .players_responsive_table_wrapper {
+                                            .table {
+                                                tr {
+                                                    background-color: #fff;
+                                                    @include box-shadow(0px 0px 30px #f0f0f9);
+                                                    .profile_info {
+                                                        .d-flex {
+                                                            .player_name {
+                                                                a {
+                                                                    color: #25294a;
+                                                                }
+                                                                p {
+                                                                    color: $hover-color;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                    .price_range {
+                                                        .d-flex {
+                                                            .price {
+                                                                p {
+                                                                    &:first-child {
+                                                                        color: #25294a;
+                                                                        i {
+                                                                            color: #25294a;
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                    .sell_buy {
+                                                        .btn_wrapper {
+                                                            .btn {
+                                                                color: #25294a;
+                                                                &:hover {
+                                                                    @include gradient;
+                                                                    border: 1px solid transparent;
+                                                                    color: #fff;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .show_wrapper {
+                                            a {
+                                                color: #25294a;
+                                                &:hover {
+                                                    color: #25294a;
+                                                    border: 1px solid #25294a;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

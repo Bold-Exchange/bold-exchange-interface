@@ -1,0 +1,3665 @@
+//responsive style when viewport size greater than 425px
+@include min-screen(1920px) {
+    //home banner
+    .home_banner_wrapper {
+        //background-image: url("../images/home_banner/home_banner_lg_bg.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: center center;
+    }
+
+    //home two banner
+    .home_two_banner_wrapper {
+        //background-image: url("../images/home_banner/home_two_banner_lg_bg.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: center center;
+    }
+
+    //player search wrapper
+    .player_search_wrapper {
+        background-color: transparent;
+        //background-image: url("../images/player_search/hockey.png"), url("../images/player_search/basketball.png");
+        background-repeat: no-repeat, no-repeat;
+        background-size: auto, auto;
+        background-position: left 0px bottom 70px, right 0px bottom 20px;
+    }
+
+    //about banner
+    .about_banner_wrapper {
+        background-position: right 300px bottom 0px, left top;
+    }
+
+    //play banner
+    .play_banner_wrapper {
+        background-position: right 200px bottom 0px, left top;
+    }
+
+    //faq banner
+    .faq_banner_wrapper {
+        background-position: right 300px bottom 0px, left top;
+    }
+
+    //user panel layouts
+    .page_wrapper {
+        .body_content {
+            .top_bar {
+                .top_bar_wrapper {
+                    margin-left: 60px;
+                    @include transition(all 0.6s);
+                }
+                .collapse_margin {
+                    margin-left: 0px;
+                }
+            }
+            .main_content {
+                .row {
+                    .col-xl-9 {
+                        .inner_left {
+                            margin-left: 60px;
+                            @include transition(all 0.6s);
+                        }
+                        .inner_active {
+                            margin-left: 0px;
+                        }
+                    }
+                    .col-xl-3 {
+                        .inner_right {
+                            margin-left: 50px;
+                        }
+                    }
+                }
+                .row {
+                    .col-xl-9 {
+                        .user_footer {
+                            margin-left: 60px;
+                            @include transition (all 0.6s);
+                        }
+                        .footer_collapse {
+                            margin-left: 0px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//responsive style when viewport size greater than 1400px
+@include xxl-screen {
+    //user panel layouts
+    .page_wrapper {
+        .body_content {
+            .top_bar {
+                .top_bar_wrapper {    
+                    .search_bar {
+                        margin-left: 320px;
+                        @include transition(all 0.6s);
+                    }
+                    .search_collapse {
+                        margin-left: 0px;
+                    }
+                }  
+            }
+            .main_content {
+                .row {
+                    .col-xl-3 {
+                        padding-left: 80px;
+                        @include transition(all 0.6s);
+                    }
+                    .side_collapse_padding {
+                        padding-left: 0px;
+                    }
+                }
+            }
+        }
+    }
+
+    section {
+        .container {
+            .play_row {
+                .col-lg-7 {
+                    background-image: none;
+                    position: relative;
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        top: -100px;
+                        left: 0px;
+                        right: -100px;
+                        bottom: -100px;
+                        //background-image: url("../images/play/circle.png");
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        background-position: center center;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//responsive style when viewport size greater than 1200px
+@include xl-screen {
+    //navbar
+    header {
+        .navbar {
+            .container {
+                .user_info {
+                    .group_btn {
+                        margin-left: 0px;
+                        border-left: 1px solid rgba(255, 255, 255, 0.4);
+                        .group_link {
+                            padding: 9px 30px;
+                            box-sizing: border-box;
+                            border: 1px solid rgba(255, 255, 255, 0.2);
+                            @include border-radius(30px);
+                        }
+                        .log_in {
+                            margin: 0px 15px 0px 30px;
+                        }
+                    }
+                }
+                .navbar-collapse {
+                    .navbar-nav {
+                        .nav-item {
+                            .pd_right {
+                                padding-right: 30px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //home banner
+    .home_banner_wrapper {
+        //background-image: url("../images/home_banner/home_banner_lg_bg.png");
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-position: center top;
+        .container {
+            .home_banner_row {
+                .col-lg-5 {
+                    .inner {
+                        .btn_wrapper {
+                            margin-bottom: 87px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //slider
+    .slider_wrapper {
+        position: relative;
+        top: -205px;
+        margin-bottom: -215px;
+        .container {
+            .slider_row {
+                .owl-nav {
+                    margin: 0px;
+                    padding: 0px;
+                    .owl-prev {
+                        width: 30px;
+                        height: 30px;
+                        text-align: center;
+                        background-color: black;
+                        background-image: -moz-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                        background-image: -webkit-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                        background-image: -ms-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                        background-image: linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                        @include border-radius(50%);
+                        position: absolute;
+                        left: -20px;
+                        top: 50%;
+                        @include transform(translateY(-50%));
+                        i {
+                            font-size: 12px;
+                            color: $title-color;
+                        }
+                        &:hover {
+                            background-image: none;
+                            background-color: #313c87;
+                        }
+                    }
+                    .owl-next {
+                        width: 30px;
+                        height: 30px;
+                        text-align: center;
+                        background-color: black;
+                        background-image: -moz-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                        background-image: -webkit-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                        background-image: -ms-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                        background-image: linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                        @include border-radius(50%);
+                        position: absolute;
+                        right: -20px;
+                        top: 50%;
+                        @include transform(translateY(-50%));
+                        i {
+                            font-size: 12px;
+                            color: $title-color;
+                        }
+                        &:hover {
+                            background-image: none;
+                            background-color: #313c87;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //work section
+    section {
+        .container {
+            .work_row {
+                .col-lg-4 {
+                    .inner {
+                        .arrow_container {
+                            position: relative;
+                            &::before {
+                                content: "";
+                                position: absolute;
+                                top: 50%;
+                                left: -95px;
+                                width: 52px;
+                                height: 21px;
+                                //background-image: url("../images/work/arrow_left.png");
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                                background-position: center;
+                            }
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                top: 50%;
+                                right: -95px;
+                                width: 52px;
+                                height: 21px;
+                                //background-image: url("../images/work/arrow_right.png");
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                                background-position: center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //buy section
+    .second_buy {
+        position: relative;
+        top: -320px;
+        margin-bottom: -320px;
+    }
+
+    //play section
+    section {
+        .container {
+            .play_row {
+                .col-lg-7 {
+                    background-image: none;
+                    position: relative;
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        top: -100px;
+                        left: 0px;
+                        right: -20px;
+                        bottom: -100px;
+                        //background-image: url("../images/play/circle.png");
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        background-position: center center;
+                    }
+                }
+            }
+        }
+    }
+
+    //home banner two
+    .home_two_banner_wrapper {
+        //background-image: url("../images/home_banner/home_two_banner_lg_bg.png");
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-position: center top;
+        padding-bottom: 167px;
+    }
+
+    //player search wrapper
+    .player_search_wrapper {
+        background-color: transparent;
+        //background-image: url("../images/player_search/hockey.png"), url("../images/player_search/basketball.png");
+        background-repeat: no-repeat, no-repeat;
+        background-size: 300px 400px, 300px 400px;
+        background-position: left 0px top 200px, right 0px top 100px;
+        position: relative;
+        top: -182px;
+        margin-bottom: -182px;
+    }
+
+    //game slider section
+    .game_wrapper {
+        padding-bottom: 305px;
+        .container {
+            .game_slider_row {
+                .owl-nav {
+                    margin: 0px;
+                    padding: 0px;
+                    .owl-prev {
+                        width: 30px;
+                        height: 30px;
+                        text-align: center;
+                        background-color: black;
+                        background-image: -moz-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                        background-image: -webkit-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                        background-image: -ms-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                        background-image: linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                        @include border-radius(50%);
+                        position: absolute;
+                        left: -20px;
+                        top: 50%;
+                        @include transform(translateY(-50%));
+                        i {
+                            font-size: 12px;
+                            color: $title-color;
+                        }
+                        &:hover {
+                            background-image: none;
+                            background-color: #313c87;
+                        }
+                    }
+                    .owl-next {
+                        width: 30px;
+                        height: 30px;
+                        text-align: center;
+                        background-color: black;
+                        background-image: -moz-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                        background-image: -webkit-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                        background-image: -ms-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                        background-image: linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                        @include border-radius(50%);
+                        position: absolute;
+                        right: -20px;
+                        top: 50%;
+                        @include transform(translateY(-50%));
+                        i {
+                            font-size: 12px;
+                            color: $title-color;
+                        }
+                        &:hover {
+                            background-image: none;
+                            background-color: #313c87;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //counter section
+    .counter_wrapper {
+        .container {
+            .counter_content_wrapper {
+                .counter_row {
+                    padding-left: 60px;
+                    padding-right: 60px;
+                }
+            }
+        }
+    }
+
+    //contact banner
+    .contact_banner_wrapper {
+        .container {
+            background-position: right 23px bottom 65px;
+        }
+    }
+
+    //contact section
+    .contact_form_wrapper {
+        position: relative;
+        top: -187px;
+        margin-bottom: -187px;
+        .container {
+            .contact_row {
+                .col-lg-4 {
+                    .left_side_content {
+                        margin-top: 98px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//responsive style when viewport size less than 1800px
+@include max-screen(1800px) {
+    .page_wrapper {
+        .body_content {
+            .main_content {
+                .row {
+                    .col-xl-9 {
+                        .inner_left {
+                            .tab_wrapper {
+                                .profile_tab {
+                                    .followers_row_first {
+                                        .col-lg-6 {
+                                            .left_col {
+                                                padding: 50px 12px;
+                                                .d-sm-flex {
+                                                    .friends_wrapper {
+                                                        .info_wrapper {
+                                                            margin-left: 10px;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+//responsive style when viewport size less than 1600px
+@include max-screen(1600px) {
+    //user panel layout
+    .page_wrapper {
+        .body_content {
+            .main_content {
+                .row {
+                    .col-xl-9 {
+                        .inner_left {
+                            //user about style
+                            .profile_info_wrapper {
+                                .tag_icon_wrapper {
+                                    margin-left: 40px;
+                                    margin-top: 80px;
+                                }
+                                .tab_wrapper {
+                                    padding-left: 10px;
+                                }
+                            }
+                            //user portfolio style
+                            .container-fluid {
+                                .row {
+                                    .col-lg-4 {
+                                        .cmn_st {
+                                            .title_wrapper {
+                                                .title {
+                                                    font-size: 14px;
+                                                }
+                                            }
+                                            h5 {
+                                                font-size: 20px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .table_content_wrapper {
+                                .table-responsive {
+                                    .table { 
+                                        thead {
+                                            tr {
+                                                th {
+                                                    font-size: 14px;
+                                                    padding: 15px 10px;
+                                                    font-weight: 400;
+                                                    &:first-child {
+                                                        padding-left: 15px;
+                                                    }
+                                                    &:last-child {
+                                                        padding-right: 15px;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        tbody {
+                                            tr {
+                                                td {
+                                                    padding: 15px 10px;
+                                                    &:first-child {
+                                                        padding-left: 15px;
+                                                    }
+                                                    &:last-child {
+                                                        padding-right: 15px;
+                                                    }
+                                                }
+                                                .player_info {
+                                                    .wrapper {
+                                                        .info_wrapper {
+                                                            a {
+                                                                font-size: 16px;
+                                                            }
+                                                            p {
+                                                                font-size: 12px;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                .change, .earning {
+                                                    font-size: 14px;
+                                                    font-weight: 400;
+                                                    i {
+                                                        display: inline-block;
+                                                        font-size: 14px;
+                                                        padding: 0px 5px;
+                                                    }
+                                                }
+                                                .price, .bought, .share {
+                                                    font-size: 14px;
+                                                    font-weight: 400;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .profile_cover_wrapper {
+                                .price_info_wrapper {
+                                    .hst {
+                                        .row {
+                                            .shares, .price {
+                                                h4 {
+                                                    font-size: 18px;
+                                                    i {
+                                                        font-size: 18px;
+                                                    }
+                                                }
+                                                p {
+                                                    font-size: 14px;
+                                                }
+                                            }
+                                            .change {
+                                                h4 {
+                                                    font-size: 18px;
+                                                    i {
+                                                        font-size: 18px;
+                                                    }
+                                                    span {
+                                                        font-size: 16px;
+                                                        line-height: 1.417;
+                                                    }
+                                                }
+                                                p {
+                                                    font-size: 14px;
+                                                }
+                                            }
+                                            .btns {
+                                                .btn {
+                                                    font-size: 13px;
+                                                    margin: 5px 0px;
+                                                    padding: 3px 12px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .row {
+                    .col-xl-9 {
+                        .user_footer {
+                            .container-fluid {
+                                .footer_nav {
+                                    .col-lg-7 { 
+                                        .nav {
+                                            .nav-item {
+                                                .nav-link {
+                                                    margin: 0px 15px;
+                                                }
+                                                .ml-0 {
+                                                    margin-left: 0px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .col-lg-5 {
+                                        margin-top: 35px;
+                                        margin-bottom: 18px;
+                                        .nav {
+                                            .nav-item {
+                                                .nav-link {
+                                                    padding: 0px;
+                                                    margin: 0px 15px;
+                                                    img {
+                                                        width: 120px;
+                                                        height: auto;
+                                                    }
+                                                }
+                                                .mr-0 {
+                                                    margin-right: 0px;
+                                                }
+                                                .ml-0 {
+                                                    margin-left: 0px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+//responsive style when viewport size less than 1400px
+@include max-screen(1399px) {
+    //user panel layouts
+    .page_wrapper {
+        .sidebar {
+            max-width: 320px;
+            position: fixed;
+            top: 0px;
+            bottom: 0px;
+            right: -320px;
+            .brand_wrapper {
+                padding: 20px 0px;
+                .brand {
+                    img {
+                        max-width: 130px;
+                        height: 40px;
+                    }
+                }
+            }
+        }
+        .sidebar_active {
+            right: 0px;
+        }
+        .body_content {
+            width: 100%;
+            margin: 0px;   
+        }
+        .body_active {
+            margin-left: 0;
+            width: 100%;
+        }
+    }
+}
+
+//responsive style when viewport size less than 1200px
+@include lg-screen {
+    //navbar
+    header {
+        .navbar {
+            .container {
+                .user_info {
+                    .group_btn {
+                        .group_link {
+                            margin: 0px 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //home banner
+    .home_banner_wrapper {
+        // background-image: url("../images/home_banner/home_banner_sm_bg.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: left top;
+        .container {
+            .home_banner_row {
+                .col-lg-7 {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    //slider
+    .slider_wrapper {
+        .container {
+            .slider_row {
+                .slider_items {
+                    width: 305px;
+                    padding: 15px 10px;
+                    .left_col {
+                        .img_wrapper {
+                            width: 120px;
+                            height: 120px;
+                            a {
+                                width: 75px;
+                                height: 75px;
+                            }
+                        }
+                    }
+                    .right_col {
+                        .price_line {
+                            .rate {
+                                p {
+                                    margin-left: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //home two banner
+    .home_two_banner_wrapper {
+        // background-image: url("../images/home_banner/home_two_banner_sm_bg.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: left top;
+        .container {
+            .home_banner_row {
+                .col-lg-7 {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    //player search section
+    .player_search_wrapper {
+        .container {
+            .input_search_wrapper {
+                @include border-radius(0px);
+                form {
+                    input {
+                        @include border-radius(0px);
+                    }
+                    .btn {
+                        @include border-radius(0px);
+                    }
+                }
+            }
+            .player_info_wrapper {
+                @include border-radius(0px);
+            }
+        }
+    }
+
+    //game slider section
+    .game_wrapper {
+        .container {
+            .game_slider_row{
+                .slider_items {
+                    max-width: 305px;
+                    .inner {
+                        background-color: $nav-bg;
+                        .slider_body {
+                            padding: 24px 12px;
+                        }
+                        .slider_footer {
+                            padding: 10px 12px;
+                            background-color: rgba(0, 0, 0, 0.7);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //about wrapper
+    .about_banner_wrapper {
+        background-size: 50% 50%, cover;
+    }
+
+    //counter section
+    .counter_wrapper {
+        .container {
+            .counter_content_wrapper {
+                .counter_row {
+                    .col-lg-4 {
+                        .counter_content {
+                            .right_col {
+                                .counter {
+                                    font-size: 30px;
+                                    line-height: 1.278;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //team section
+    .team_wrapper {
+        .container {
+            .team_row {
+                .members_info {
+                    .inner {
+                        .outline_hex {
+                            width: 216px;
+                            height: 216px;
+                            .inline_hex {
+                                width: 200px;
+                                height: 200px;
+                                img {
+                                    max-width: 90%;
+                                }
+                            }
+                        }
+                        h4 {
+                            a {
+                                font-size: 20px;
+                                line-height: 1.417;
+                                text-align: center;
+                            }
+                        }
+                        p {
+                            font-size: 16px;
+                            line-height: 1.9;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //play banner
+    .play_banner_wrapper {
+        background-size: 50% 50%, 100% 100%;
+    }
+
+    //video section
+    section {
+        .container {
+            .video_wrapper {
+                width: 100%;
+                height: 400px;
+            }
+        }
+    }
+
+    //faq banner
+    .faq_banner_wrapper {
+        background-size: auto, cover;
+    }
+
+    //contact section
+    .contact_form_wrapper {
+        .container {
+            .contact_row {
+                .col-lg-4 {
+                    .left_side_content {
+                        h1 {
+                            font-size: 30px;
+                            line-height: 1.278;
+                        }
+                    }
+                }
+                .col-lg-7 {
+                    .right_side_content {
+                        .form_wrapper {
+                            h1 {
+                                font-size: 30px;
+                                line-height: 1.278;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //experience section
+    section {
+        .container {
+            .experience {
+                // background-image: url("../images/experience/basketball_player.png"), url("../images/experience/football_player.png"), url("../images/experience/bg.png");
+                background-repeat: no-repeat, no-repeat, no-repeat;
+                background-size: 300px 300px, 300px 300px, contain;
+                background-position: left bottom 40px, right top 50px, left 0px bottom 0px;
+            }
+        }
+    }
+
+    //user panel layouts
+    .page_wrapper {
+        .sidebar {
+            max-width: 250px;
+            right: -250px;
+            .sidebar_footer {
+                .right_col {
+                    .switch_wrapper {
+                        padding: 5px 0px;
+                    }
+                }
+            }
+        }
+        .body_content {
+            .top_bar {
+                .top_bar_wrapper {
+                    .search_bar {
+                        .form {
+                            form {
+                                min-width: 100%;
+                                input {
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .main_content {
+                .row {
+                    .col-xl-3 {
+                        position: static!important;
+                        height: 100%;
+                        width: 100%;
+                        padding-top: 0px;
+                        margin-top: 60px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//responsive style when viewport size less than 992px
+@include md-screen {
+    //navbar
+    header {
+        margin-bottom: 71px;
+        .navbar {
+            .container {
+                .navbar-brand {
+                    img {
+                        width: 130px;
+                        height: 40px;
+                    }
+                }
+                .user_info {
+                    .group_btn {
+                        margin: 0px 20px;
+                        .group_link {
+                            margin: 0px 10px;
+                            font-size: 14px;
+                        }
+                    }
+                }
+                .navbar-collapse {
+                    margin: 25px 0px;
+                    border: 2px solid white;
+                    border-left: none;
+                    border-right: none;
+                    max-height: 290px;
+                    overflow: auto;
+                    .navbar-nav {
+                        .nav-item {
+                            .nav-link {
+                                margin: 2px 0px;
+                                padding: 15px 20px;
+                                font-size: 14px;
+                                background-color: $theme-bg;
+                            }
+                        }
+                        .d-block {
+                            .nav-link {
+                                border: 0px solid rgba(255, 255, 255, 0.2);
+                                &:hover {
+                                    color: $title-color;
+                                }
+                            }
+                            .hover {
+                                @include gradient;
+                                box-shadow: $shadow;
+                                color: $title-color;
+                            }
+                        }
+                        .dropdown {
+                            .dropdown-menu {
+                                margin-top: 0px;
+                                border-top: 1px solid rgba(255, 255, 255, 0.4);
+                                border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+                                @include border-radius(0px);
+                                li {
+                                    .dropdown-item {
+                                        font-size: 13px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .dark {
+        header {
+            .navbar {
+                .container {
+                    .navbar-collapse {
+                        border: 2px solid #25294a;
+                        border-left: none;
+                        border-right: none;
+                        @include box-shadow(0px 0px 10px #f0f0f9);
+                        .navbar-nav {
+                            .nav-item {
+                                .nav-link {
+                                    background-color: #fff;
+                                    @include box-shadow(0px 0px 5px #f0f0f9);
+                                    &:hover {
+                                        background-color: #fff;
+                                        color: $hover-color;
+                                        padding-left: 25px;
+                                    }
+                                }
+                            }
+                            .d-block {
+                                .nav-link {
+                                    border: 0px solid rgba(255, 255, 255, 0.2);
+                                    &:hover {
+                                        color: $title-color;
+                                    }
+                                }
+                                .hover {
+                                    @include gradient;
+                                    box-shadow: $shadow;
+                                    color: $title-color;
+                                }
+                            }
+                            .dropdown {
+                                .dropdown-menu {
+                                    margin-top: 0px;
+                                    border-top: 1px solid rgba(255, 255, 255, 0.4);
+                                    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+                                    @include border-radius(0px);
+                                    li {
+                                        .dropdown-item {
+                                            font-size: 13px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    //second home nav
+    .home_nav_two {
+        background-color: $nav-bg;
+        @include box-shadow($shadow);
+        margin-bottom: 71px;
+        .navbar_two {
+            background-color: $nav-bg!important;
+        }
+    }
+
+    .dark {
+        .home_nav_two {
+            background-color: #fff;
+            margin-bottom: 71px;
+            .navbar_two {
+                background-color: #fff!important;
+            }
+        }
+    }
+
+    //slider
+    .slider_wrapper {
+        padding-top: 100px;
+        padding-bottom: 100px;
+        .container {
+            .slider_row {
+                .slider_items {
+                    width: 343px;
+                    margin: auto;
+                }
+            }
+        }
+    }
+
+    //work section
+    section {
+        .container {
+            .work_row {
+                padding-bottom: 70px;
+            }
+        }
+    }
+    .second_work {
+        padding-top: 105px;
+    }
+
+    .third_work {
+        padding-top: 74px;
+    }
+
+    //buy section
+    section {
+        .container {
+            .buy_wrapper {
+                padding: 65px 12px 60px;
+                .buy_row {
+                    padding-bottom: 12px;
+                }
+            }
+        }
+    }
+    .second_buy {
+        margin-top: 100px;
+    }
+
+    //play section
+    section {
+        .container {
+            .play_row {
+                padding-top: 62px;
+                padding-bottom: 74px;
+                .col-lg-5 {
+                    .inner {
+                        .inner_row {
+                            @include transform(skewX(0deg));
+                            margin: 30px 0px;
+                            .inner_col {
+                                @include transform(skewX(0deg));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //invite section
+    section {
+        .container {
+            .invite_wrapper {
+                padding-top: 65px;
+                padding-bottom: 80px;
+                background-size: cover;
+            }
+        }
+    }
+
+    //testimonial section
+    .testimonial_section {
+        padding: 90px 0px 60px;
+    }
+
+    //accordion section
+    .accordion_section {
+        .container {
+            .accordion_wrapper {
+                padding-bottom: 62px;
+                .title_wrapper {
+                    padding-top: 95px;
+                }
+            }
+        }
+    }
+
+    //home two banner
+    .home_two_banner_wrapper {
+        padding-top: 80px;
+        .container {
+            .home_banner_row {
+                .col-lg-7 {
+                    display: block;
+                    margin-top: 40px;
+                }
+            }
+        }
+    }
+
+    //player search wrapper
+    .player_search_wrapper {
+        padding-top: 100px;
+        .container {
+            .player_info_wrapper {
+                @include border-radius(0px);
+                .player_info_row {
+                    .col-md-5 {
+                        margin-top: 20px;
+                        margin-bottom: 20px;
+                    }
+                    .col-md-7 {
+                        margin-top: 20px;
+                        margin-bottom: 20px;
+                    }
+                    .col-md-12 {
+                        margin-top: 20px;
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    //game slider section
+    .game_wrapper {
+        padding-top: 95px;
+        padding-bottom: 95px;
+        .container {
+            .game_slider_row{
+                .slider_items {
+                    max-width: 343px;
+                    margin: auto;
+                }
+            }
+        }
+    }
+
+    //about banner
+    .about_banner_wrapper {
+        padding-top: 90px;
+        padding-bottom: 93px;
+    }
+
+    //passion section
+    .passion_wrapper {
+        padding-top: 63px;
+        padding-bottom: 67px;
+    }
+
+    //counter section
+    .counter_wrapper {
+        .container {
+            .counter_content_wrapper {
+                padding-top: 93px;
+                padding-bottom: 73px;
+            }
+        }
+    }
+
+    //team section
+    .team_wrapper {
+        padding-top: 94px;
+        padding-bottom: 70px;
+    }
+
+    //video section
+    section {
+        .container {
+            .video_wrapper {
+                width: 100%;
+                height: 300px;
+            }
+        }
+    }
+
+    //faq section
+    .faq_section_wrapper {
+        padding-bottom: 74px;
+        .container, .container-fluid {
+            .accordion_wrapper {
+                .title_wrapper {
+                    padding-top: 95px;
+                }
+            }
+        }
+    }
+
+    //contact banner
+    .contact_banner_wrapper {
+        .container {
+            background-size: 463px 200px;
+            background-position: right 0px bottom 0px;
+        }
+    }
+
+    //contact section
+    .contact_form_wrapper {
+        padding-top: 67px;
+        .container {
+            .contact_row {
+                .col-lg-4 {
+                    .left_side_content {
+                        .inner_row {
+                            .inner_right {
+                                h4 {
+                                    font-size: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .col-lg-7 {
+                    .right_side_content {
+                        .form_wrapper {
+                            width: 100%;
+                            @include border-radius(0px);
+                            form {
+                                .mb-3 {
+                                    input {
+                                        @include border-radius(0px);
+                                    }
+                                    textarea {
+                                        @include border-radius(0px);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //form
+    .form_bg {
+        padding-top: 140px;
+        padding-bottom: 100px;
+    }
+
+    //experience section
+    section {
+        .container {
+            .experience {
+                // background-image: url("../images/experience/basketball_player.png"), url("../images/experience/football_player.png"), url("../images/experience/bg.png");
+                background-repeat: no-repeat, no-repeat, no-repeat;
+                background-size: 200px 200px, 200px 200px, contain;
+                background-position: left bottom 40px, right top 50px, left 0px bottom 0px;
+                padding: 95px 0px 78px;
+            }
+        }
+    }
+
+    //footer section
+    footer {
+        padding-top: 70px;
+        .container {
+            .footer_nav {
+                .col-lg-7 {
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    .nav {
+                        .nav-item {
+                            .nav-link {
+                                margin: 8px 15px;
+                            }
+                            .ml-0 {
+                                margin-left: 0px;
+                            }
+                        }
+                    }
+                }
+                .col-lg-5 {
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    .nav {
+                        .nav-item {
+                            .nav-link {
+                                margin: 8px 15px;
+                            }
+                            .ml-0 {
+                                margin-left: 0px;
+                            }
+                        }
+                    }
+                }
+            }
+            .footer_copyright {
+                .col-lg-7 {
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                }
+                .col-lg-5 {
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    padding-bottom: 15px;
+                }
+            }
+        }
+    }
+
+    //user panel layouts
+    .page_wrapper {
+        .body_content {
+            .top_bar {
+                .top_bar_wrapper {
+                    .search_bar {
+                        .form {
+                            form {
+                                input {
+                                    font-size: 14px;
+                                    &::placeholder {
+                                        font-size: 14px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .user_bar {
+                        .dollar_wrapper {
+                            a {
+                                font-size: 14px;
+                                padding: 5px 10px;
+                                margin: 0px 10px;
+                            }
+                        }
+                        .wallet_wrapper {
+                            a {
+                                font-size: 14px;
+                                padding: 5px 10px;
+                                margin: 0px 10px;
+                                i {
+                                    &::before {
+                                        font-size: 14px;
+                                    }
+                                }
+                            }
+                        }
+                        .notification_wrapper {
+                            a {
+                                font-size: 14px;
+                                padding: 5px 10px;
+                                margin: 0px 10px;
+                                i {
+                                    &::before {
+                                        font-size: 14px;
+                                    }
+                                }
+                            }
+                            &::after {
+                                display: none;
+                            }
+                        }
+                        .profile_wrapper {
+                            margin: 0px 10px;
+                        }
+                    }
+                }
+            }
+        }
+        .main_content {
+            .row {
+                .col-xl-9 {
+                    .inner_left {
+                        //user poftfolio page
+                        .table_content_wrapper {
+                            h5 {
+                                font-size: 22px!important;
+                            }
+                            .table-responsive {
+                                overflow-x: auto;
+                                .table {
+                                    width: 991px;
+                                    margin: auto;
+                                }
+                                &::-webkit-scrollbar {
+                                    width: 6px;
+                                    height: 6px;
+                                }
+                                &::-webkit-scrollbar-track {
+                                    background-color: $sidebar-bg;
+                                }
+                                &::-webkit-scrollbar-thumb {
+                                    background-color: $head-bg;
+                                    @include border-radius(5px);
+                                }
+                            }
+                        }
+                        //player search styles
+                        .league_cover_wrapper {
+                            .league_info {
+                                padding: 100px 12px 108px;
+                                p {
+                                    font-size: 24px!important;
+                                }
+                                .name {
+                                    font-size: 38px!important;
+                                }
+                            }
+                            .players_tab_wrapper {
+                                .player_search_tabs {
+                                    .players_responsive_table_wrapper {
+                                        .table {
+                                            tr {
+                                                td {
+                                                    &:first-child {
+                                                        padding-left: 12px!important;
+                                                        @include border-radius(0px!important);
+                                                    }
+                                                    &:last-child {
+                                                        padding-right: 12px!important;
+                                                        margin-right: 12px;
+                                                        @include border-radius(0px!important);
+                                                    }
+                                                }
+                                                .profile_info {
+                                                    .d-flex {
+                                                        .wrapper {
+                                                            a {
+                                                                width: 69px;
+                                                                height: 69px;
+                                                                img {
+                                                                    max-width: 45px;
+                                                                    height: auto;
+                                                                    border: none;
+                                                                    outline: none;
+                                                                }
+                                                            }
+                                                        }
+                                                        .player_name {
+                                                            a {
+                                                                font-size: 16px!important;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                .price_range {
+                                                    .d-flex {
+                                                        .price {
+                                                            margin: 0px 40px 0px 0px;
+                                                            p {
+                                                                &:first-child {
+                                                                    font-size: 16px;
+                                                                }
+                                                                &:last-child {
+                                                                    font-size: 14px;
+                                                                }
+                                                            }
+                                                        }
+                                                        .charts {
+                                                            margin-top: -6px;
+                                                        }
+                                                    }
+                                                }
+                                                .sell_buy {
+                                                    .btn_wrapper {
+                                                        .btn {
+                                                            padding: 3px 20px;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .fan_price_chart_wrapper {
+                            .row {
+                                .col-md-6 {
+                                    .pri_wrapper {
+                                        margin-top: 0px;
+                                    }
+                                }
+                            }
+                        }
+                        .history_wrapper {
+                            .game_table_wrapper {
+                                .table_responsive {
+                                    overflow-x: auto;
+                                    &::-webkit-scrollbar {
+                                        height: 6px;
+                                    }
+                                    &::-webkit-scrollbar-track {
+                                        background-color: $sidebar-bg;
+                                    }
+                                    &::-webkit-scrollbar-thumb {
+                                        background-color: $head-bg;
+                                        @include border-radius(5px);
+                                    }
+                                    .table {
+                                        width: 991px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .row {
+                .col-xl-9 {
+                    .user_footer {
+                        padding-top: 70px;
+                        .container-fluid {
+                            .footer_nav {
+                                .col-lg-7 {
+                                    margin-top: 20px;
+                                    margin-bottom: 20px;
+                                    .nav {
+                                        .nav-item {
+                                            .nav-link {
+                                                margin: 8px 15px;
+                                            }
+                                            .ml-0 {
+                                                margin-left: 0px;
+                                            }
+                                        }
+                                    }
+                                }
+                                .col-lg-5 {
+                                    margin-top: 20px!important;
+                                    margin-bottom: 20px!important;
+                                    .nav {
+                                        .nav-item {
+                                            .nav-link {
+                                                margin: 8px 15px;
+                                            }
+                                            .ml-0 {
+                                                margin-left: 0px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .footer_copyright {
+                                .col-lg-7 {
+                                    margin-top: 20px;
+                                    margin-bottom: 20px;
+                                }
+                                .col-lg-5 {
+                                    margin-top: 20px;
+                                    margin-bottom: 20px;
+                                    padding-bottom: 15px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//responsive style when viewport size less than 768px
+@include sm-screen {
+    //second home nav
+    .home_nav_two {
+        margin-bottom: 70px;
+    }
+    .dark {
+        .home_nav_two {
+            margin-bottom: 70px;
+        }
+    }
+
+    .page_wrapper {
+        .main_content {
+            .row {
+                .col-xl-9 {
+                    .inner_left {
+                        .league_cover_wrapper {
+                            .players_tab_wrapper {
+                                .player_search_tabs {
+                                    .players_responsive_table_wrapper {
+                                        overflow-x: auto;
+                                        .table {
+                                            min-width: 768px;
+                                            margin: auto;
+                                        }
+                                        &::-webkit-scrollbar {
+                                            width: 6px;
+                                            height: 6px;
+                                        }
+                                        &::-webkit-scrollbar-track {
+                                            background-color: #fff;
+                                        }
+                                        &::-webkit-scrollbar-thumb {
+                                            background-color: #25294a;
+                                            @include border-radius(5px);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .fan_price_chart_wrapper {
+                            .row {
+                                .col-md-6 {
+                                    .pri_wrapper {
+                                        margin-top: 40px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //home banner
+    .home_banner_wrapper {
+        padding-top: 60px;
+        padding-bottom: 80px;
+        .container {
+            .home_banner_row {
+                .col-lg-5 {
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    .inner {
+                        .btn_wrapper {
+                            .trade_btn {
+                                a {
+                                    padding: 16px 25px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .col-lg-7 {
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+
+    //slider
+    .slider_wrapper {
+        padding-top: 80px;
+        padding-bottom: 80px;
+        .container {
+            .slider_row {
+                .slider_items {
+                    max-width: 100%;
+                    margin: auto!important;
+                    padding: 15px 12px;
+                    .left_col {
+                        .img_wrapper {
+                            width: 110px;
+                            height: 110px;
+                            a {
+                                width: 75px;
+                                height: 75px;
+                            }
+                        }
+                    }
+                    .right_col {
+                        h5 {
+                            a {
+                                font-size: 18px;
+                            }
+                        }
+                        .price_line {
+                            .price {
+                                p {
+                                    font-size: 16px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //work section
+    section {
+        .container {
+            .work_row {
+                padding-bottom: 55px;
+                .col-lg-4 {
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+    .second_work {
+        padding-top: 85px;
+    }
+    .third_work {
+        padding-top: 54px;
+    }
+
+    //buy section
+    section {
+        .container {
+            .buy_wrapper {
+                padding: 45px 12px;
+                .buy_row {
+                    padding: 0px 0px 10px;
+                    .col-lg-6 {
+                        .right_inner {
+                            .inner_row {
+                                margin: 15px 0px;
+                                .left_col {
+                                    .inner {
+                                        img {
+                                            max-width: 72px;
+                                            height: 82px;
+                                        }
+                                    }
+                                }
+                                .right_col {
+                                    margin-left: 20px;
+                                    .inner {
+                                        .para {
+                                            font-weight: 700;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .second_buy {
+        margin-top: 80px;
+    }
+
+    //play section
+    section {
+        .container {
+            .play_row {
+                padding-top: 46px;
+                padding-bottom: 54px;
+                .col-lg-7 {
+                    background-position: center bottom;
+                }
+            }
+        }
+    }
+
+    //invite section
+    section {
+        .container {
+            .invite_wrapper {
+                padding: 45px 12px 60px;
+                .invite_row {
+                    .col-lg-8 {
+                        .inner {
+                            h1 {
+                                font-size: 30px;
+                                line-height: 1.278;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //testimonial section
+    .testimonial_section {
+        padding: 75px 0px 55px;
+        .container {
+            .testimonial_row {
+                .col-lg-4 {
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    .inner {
+                        max-width: 356px;
+                        margin: auto;
+                    }
+                }
+            }
+        }
+    }
+    .second_testimonial {
+        padding-bottom: 55px;
+    }
+
+    //accordion section
+    .accordion_section {
+        .container {
+            .accordion_wrapper {
+                padding-bottom: 42px;
+                .title_wrapper {
+                    padding-top: 75px;
+                }
+                .accordion {
+                    .accordion-item {
+                        .accordion-header {
+                            .accordion-button {
+                                font-size: 20px;
+                                padding: 20px 12px;
+                                img {
+                                    width: 30px;
+                                    height: 30px;
+                                }
+                            }
+                        }
+                        .accordion-collapse {
+                            .accordion-body {
+                                padding: 20px 12px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //home two banner
+    .home_two_banner_wrapper {
+        padding-top: 63px;
+        padding-bottom: 80px;
+        .container {
+            .home_banner_row {
+                .col-lg-5 {
+                    .inner {
+                        #videoModal {
+                            .modal-dialog {
+                                .modal-content {
+                                    .modal-body {
+                                        iframe {
+                                            width: 100%;
+                                            height: 100%;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //player search wrapper
+    .player_search_wrapper {
+        padding-top: 80px;
+        .container {
+            .input_search_wrapper {
+                padding: 12px 10px;
+                form {
+                    input {
+                        padding: 17px 135px 17px 10px;
+                        font-size: 16px;
+                        line-height: 1.556;
+                        &::placeholder {
+                            font-size: 16px;
+                            line-height: 1.556;
+                        }
+                    }
+                    .btn {
+                        padding: 5px 15px;
+                        font-size: 16px;
+                        line-height: 1.556;
+                        position: absolute;
+                        top: 7px;
+                    }
+                }
+            }
+        }
+    }
+
+    //game slider section
+    .game_wrapper {
+        padding-top: 75px;
+        padding-bottom: 75px;
+        background-size: cover;
+        .container {
+            .title_wrapper {
+                a {
+                    margin-top: 30px;
+                }
+            }
+            .game_slider_row{
+                .slider_items {
+                    max-width: 350px;
+                    margin: auto!important;
+                }
+            }
+        }
+    }
+
+    //passion section
+    .passion_wrapper {
+        padding-top: 43px;
+        padding-bottom: 47px;
+    }
+
+    //counter section
+    .counter_wrapper {
+        .container {
+            .counter_content_wrapper {
+                padding-top: 73px;
+                padding-bottom: 63px;
+                .counter_row {
+                    .col-lg-4 {
+                        margin-top: 20px;
+                        margin-bottom: 20px;
+                        .counter_content {
+                            .right_col {
+                                .counter {
+                                    font-size: 30px;
+                                    line-height: 1.278;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //team section
+    .team_wrapper {
+        padding-top: 74px;
+        padding-bottom: 60px;
+        .container {
+            .team_row {
+                .members_info {
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+
+    //play banner
+    .play_banner_wrapper {
+        background-size: 50% 45%, cover;
+        background-position: right 0px bottom 0px, left top;
+        padding-top: 90px;
+        padding-bottom: 95px;
+    }
+
+    //video section
+    section {
+        .container {
+            .video_wrapper {
+                width: 100%;
+                height: 300px;
+                @include border-radius(5px);
+                iframe {
+                    width: 100%;
+                    height: 100%;
+                    @include border-radius(5px);
+                }
+                .poster {
+                    @include border-radius(5px);
+                    .dlt_btn {
+                        width: 150px;
+                        .left {
+                            width: 35px;
+                            height: 35px;
+                        }
+                    }
+                    img {
+                        @include border-radius(5px);
+                    }
+                }
+            }
+        }
+    }
+
+    //faq banner
+    .faq_banner_wrapper {
+        background-size: contain, cover;
+        background-position: right 0px bottom 0px, left top;
+        padding-top: 90px;
+        padding-bottom: 94px;
+    }
+
+    //faq section
+    .faq_section_wrapper {
+        padding-bottom: 54px;
+        .container, .container-fluid {
+            .accordion_wrapper {
+                .title_wrapper {
+                    background-size: 100% 100%;
+                    padding-top: 75px;
+                }
+            }
+            .faq_row {
+                .col-lg-2 {
+                    padding-left: 0px;
+                    padding-right: 0px;
+                }
+                .col-lg-10 {
+                    padding-left: 0px;
+                    padding-right: 0px;
+                    .faq {
+                        h3 {
+                            font-size: 30px;
+                            line-height: 1.278;
+                            margin-bottom: 20px;
+                        }
+                        .accordion {
+                            .accordion-item {
+                                .accordion-header {
+                                    .accordion-button {
+                                        font-size: 20px;
+                                        padding: 20px 12px;
+                                        img {
+                                            width: 30px;
+                                            height: 30px;
+                                        }
+                                    }
+                                }
+                                .accordion-collapse {
+                                    .accordion-body {
+                                        padding: 20px 12px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //contact banner
+    .contact_banner_wrapper {
+        .container {
+            background-size: 363px 150px;
+            background-position: right 0px bottom 0px;
+            padding-top: 90px;
+            padding-bottom: 92px;
+        }
+    }
+
+    //contact section
+    .contact_form_wrapper {
+        padding-top: 47px;
+        .container {
+            .contact_row {
+                .col-lg-4 {
+                    .left_side_content {
+                        h1 {
+                            font-size: 26px;
+                            line-height: 1.278;
+                        }
+                        .read {
+                            a {
+                                font-size: 16px;
+                            }
+                        }
+                        .inner_row {
+                            .inner_right {
+                                h4 {
+                                    font-size: 18px;
+                                }
+                                p {
+                                    font-size: 16px;
+                                    line-height: 1.556;
+                                }
+                            }
+                        }
+                    }
+                }
+                .col-lg-7 {
+                    .right_side_content {
+                        .form_wrapper {
+                            padding: 50px 12px;
+                            h1 {
+                                font-size: 26px;
+                                line-height: 1.278;
+                            }
+                            form {
+                                .mb-3 {
+                                    label {
+                                        font-size: 16px;
+                                        line-height: 1.556;
+                                    }
+                                    input {
+                                        padding: 12px 24px;
+                                        @include border-radius(0px);
+                                    }
+                                    textarea {
+                                        padding: 12px 24px;
+                                        font-size: 16px;
+                                        line-height: 1.556;
+                                        @include border-radius(0px);
+                                    }
+                                }
+                                .check {
+                                    input[type=checkbox]{
+                                        margin-top: 6px;
+                                    }
+                                }
+                                .btn {
+                                    font-size: 16px;
+                                    line-height: 1.556;
+                                    width: 230px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //form
+    .form_bg {
+        padding-top: 120px;
+        padding-bottom: 80px;
+        .container {
+            .form_container {
+                @include border-radius(0px);
+                .form_header {
+                    .registration_logo {
+                        padding: 0px 30px;
+                        @include border-radius(0px);
+                        &::before {
+                            width: 235px;
+                            height: 65px;
+                            @include border-radius(0px);
+                        }
+                        &::after {
+                            width: 250px;
+                            height: 80px;
+                            @include border-radius(0px);
+                        }
+                    }
+                }
+                form {
+                    .mb-3 {
+                        input {
+                            padding: 15px 15px 15px 15px;
+                            @include border-radius(0px);
+                        }
+                        .show_password {
+                            input {
+                                padding: 15px 60px 15px 15px;
+                            }
+                            i {
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                    button[type=submit] {
+                        @include border-radius(0px);
+                    }
+                    .form_footer {
+                        .social_container {
+                            .facebook {
+                                @include border-radius(0px);
+                                a {
+                                    padding: 10px;
+                                }
+                            }
+                            .google {
+                                @include border-radius(0px);
+                                a {
+                                    padding: 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //experience section
+    section {
+        .container {
+            .experience {
+                // background-image: url("../images/experience/basketball_player.png"), url("../images/experience/football_player.png"), url("../images/experience/bg.png");
+                background-repeat: no-repeat, no-repeat, no-repeat;
+                background-size: 150px 150px, 150px 150px, contain;
+                background-position: left bottom 40px, right bottom 80px, left 0px bottom 0px;
+                padding: 77px 0px 58px;
+            }
+        }
+    }
+
+    //experience section
+    footer {
+        padding-top: 50px;
+    }
+
+    //user panel layout
+    .page_wrapper {
+        .sidebar {
+            .brand_wrapper {
+                .close_sidenav {
+                    @include transition(all 0.6s);
+                    i {
+                        &::before {
+                            font-size: 16px;
+                            line-height: 1;
+                        }
+                    }
+                }
+            }
+        }
+        .body_content {
+            .top_bar {
+                .top_bar_wrapper {
+                    .search_bar {
+                        .form {
+                            position: relative;
+                            form {
+                                position: absolute;
+                                top: 58px;
+                                left: 0px;
+                                width: 300px;
+                                z-index: 1;
+                                display: none;
+                                input {
+                                    width: 100%;
+                                    padding: 13px 40px 13px 15px;
+                                    @include border-radius(0px);
+                                }
+                            }
+                            .show_search {
+                                display: block;
+                            }
+                            .search_toggle {
+                                text-decoration: none;
+                                display: inline-block;
+                                font-size: 14px;
+                                line-height: 1.5;
+                                padding: 5px 10px;
+                                margin: 0px 10px;
+                                border: 1px solid #464593;
+                                @include border-radius(5px);
+                                i {
+                                    &::before {
+                                        display: inline-block;
+                                        font-size: 14px;
+                                        line-height: 1;
+                                        color: #666699;
+                                    }
+                                }
+                                &:hover {
+                                    text-decoration: none;
+                                }
+                            }
+                        }
+                    }
+                    .user_bar {
+                        .profile_wrapper {
+                            .drop {
+                                .drop_content {
+                                    right: 0px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .main_content {
+                .row {
+                    .col-xl-9 {
+                        .inner_left {
+                            //user about styles
+                            .cover_img {
+                                @include border-radius(0px);
+                                position: relative;
+                                &::after {
+                                    content: '';
+                                    position: absolute;
+                                    top: 0%;
+                                    left: 0%;
+                                    bottom: 0%;
+                                    right: 0%;
+                                    width: 100%;
+                                    height: 100%;
+                                    background-color: rgba(0, 0, 0, 0.8);
+                                }
+                                .profile_lg_wrapper {
+                                    margin: 0px 0px 0px 20px;
+                                    z-index: 1;
+                                    padding: 40px 0px;
+                                    .profile_content {
+                                        width: 120px;
+                                        height: 120px;
+                                        bottom: 0px;
+                                        margin-top: 0px;
+                                        a {
+                                            padding: 3px;
+                                            border-width: 3px;
+                                            img {
+                                                max-width: 70px;
+                                                height: 70px;
+                                                @include border-radius(50%);
+                                            }
+                                        }
+                                        span {
+                                            font-size: 12px;
+                                            width: 30px;
+                                            height: 30px;
+                                        }
+                                    }
+                                    .profile_info {
+                                        margin-left: 20px;
+                                        padding-bottom: 0px;
+                                        p {
+                                            font-size: 14px;
+                                        }
+                                        a {
+                                            font-size: 20px;
+                                        }
+                                    }
+                                }
+                            }
+                            .profile_info_wrapper {
+                                .tag_icon_wrapper {
+                                    padding: 0px 8px;
+                                    margin-left: 0px;
+                                    margin-top: 0px;
+                                    .tag_icon {
+                                        a {
+                                            width: 30px;
+                                            height: 30px;
+                                            margin: 0px 3px;
+                                            i {
+                                                &::before {
+                                                    font-size: 14px;
+                                                    line-height: 1.5;
+                                                }
+                                            }
+                                        }
+                                        .badge {
+                                            width: 40px;
+                                            height: 40px;
+                                            margin-left: 0px;
+                                        }
+                                    }
+                                }
+                                .tab_wrapper {
+                                    .tab_btn_wrapper {
+                                        a {
+                                            padding: 15px 5px;
+                                            margin-right: 10px;
+                                        }
+                                    }
+                                }
+                            }
+                            .tab_wrapper {
+                                .tab_btn_row {
+                                    padding: 10px 20px 0px 20px;
+                                }
+                                #about {
+                                    ul {
+                                        li {
+                                            font-size: 16px;
+                                        }
+                                    }
+                                    .revenue_chart_wrapper {
+                                        padding: 30px 12px;
+                                        .row {
+                                            .col-md-8 {
+                                                .left_col {
+                                                    .d-flex {
+                                                        h4 {
+                                                            font-size: 20px;
+                                                        }
+                                                    }
+                                                    .revenue_chart {
+                                                        #revenue {
+                                                            height: 250px!important;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            .col-md-4 {
+                                                margin-top: 30px;
+                                                .income_chart_wrapper {
+                                                    .balance {
+                                                        font-size: 20px!important;
+                                                    }
+                                                    #incomeChart {
+                                                       max-width: 320px;
+                                                    }
+                                                }
+                                                .invest_chart_wrapper {
+                                                    margin-bottom: 0px;
+                                                    .invest {
+                                                        font-size: 20px!important;
+                                                    }
+                                                    #investChart {
+                                                        max-width: 320px;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .profile_tab {
+                                    .search_wrapper {
+                                        padding: 20px 12px;
+                                        #searchFriend {
+                                            .input_wrapper {
+                                                margin-bottom: 20px;
+                                                width: 100%;
+                                                input {
+                                                    @include border-radius(0px);
+                                                    font-size: 14px;
+                                                    padding: 8px 30px 8px 12px;
+                                                    &::placeholder {
+                                                        font-size: 14px;
+                                                    }
+                                                }
+                                                .flaticon-loupe {
+                                                    &::before {
+                                                        right: 12px;
+                                                    }
+                                                }
+                                            }
+                                            .submit_wrapper {
+                                                button {
+                                                    font-size: 14px;
+                                                    @include border-radius(0px);
+                                                    i {
+                                                        font-size: 20px;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        #searchFriend2 {
+                                            .input_wrapper {
+                                                margin-bottom: 20px;
+                                                width: 100%;
+                                                input {
+                                                    @include border-radius(0px);
+                                                    font-size: 14px;
+                                                    padding: 8px 30px 8px 12px;
+                                                    &::placeholder {
+                                                        font-size: 14px;
+                                                    }
+                                                }
+                                                .flaticon-loupe {
+                                                    &::before {
+                                                        right: 12px;
+                                                    }
+                                                }
+                                            }
+                                            .submit_wrapper {
+                                                button {
+                                                    font-size: 14px;
+                                                    @include border-radius(0px);
+                                                    i {
+                                                        font-size: 20px;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .show_wrapper {
+                                        a {
+                                            font-size: 16px;
+                                            padding: 8px 30px;
+                                        }
+                                    }
+                                }
+                            }
+                            //player search styles
+                            .league_cover_wrapper {
+                                .league_info {
+                                    padding: 80px 12px 88px;
+                                    p {
+                                        font-size: 20px!important;
+                                    }
+                                    .name {
+                                        font-size: 30px!important;
+                                    }
+                                }
+                                .players_tab_wrapper {
+                                    .tab_btn_wrapper {
+                                        background-color: $sidebar-bg;
+                                        padding: 18px 0px 18px;
+                                        .tab_btnp {
+                                            font-size: 16px;
+                                        }
+                                    }
+                                    .player_search_tab_wrapper {
+                                        background-color: #3a398a;
+                                        padding: 15px 12px;
+                                        @include border-radius(0px);
+                                        margin-bottom: 60px;
+                                        position: static;
+                                        top:0px;
+                                        form {
+                                            position: relative;
+                                            input {
+                                                padding: 8px 16px;
+                                                @include border-radius(0px);
+                                                font-size: 14px;
+                                                &::placeholder {
+                                                    font-size: 14px;
+                                                }
+                                                &:focus {
+                                                    @include box-shadow(none);
+                                                    border: 1px solid rgba(190, 174, 255, 1);
+                                                }
+                                            }
+                                            .btn {
+                                                @include btn_style;
+                                                @include border-radius (0px);
+                                                padding: 3px 35px!important;
+                                                position: static;
+                                                display: block;
+                                                margin-top: 15px;
+                                                i {
+                                                    font-size: 22px;
+                                                    display: inline-block;
+                                                    margin-right: 10px;
+                                                    line-height: 1.5;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    #best {
+                                        .players_responsive_table_wrapper {
+                                            overflow-x: scroll;
+                                            &::-webkit-scrollbar {
+                                                height: 6px;
+                                            }
+                                            &::-webkit-scrollbar-track {
+                                                background-color: $sidebar-bg;
+                                            }
+                                            &::-webkit-scrollbar-thumb {
+                                                background-color: $head-bg;
+                                                @include border-radius(5px);
+                                            }
+                                            .table {
+                                                width: 768px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .profile_cover_wrapper {
+                                .cover_wrapper {
+                                    background-repeat: no-repeat;
+                                    background-size: cover;
+                                    background-position: center center;
+                                    min-height: 300px;
+                                    padding: 40px 20px;
+                                    position: relative;
+                                    z-index: 1;
+                                    .profile_wrapper {
+                                        position: static;
+                                        bottom: 0px;
+                                        margin-top: 0px;
+                                        z-index: 9;
+                                        .img_wrapper {
+                                            a {
+                                                img {
+                                                    width: 140px;
+                                                    height: 160px;
+                                                }
+                                            }
+                                        }
+                                        .info_wrapper {
+                                            margin-left: 20px;
+                                            padding-top: 0px;
+                                            a {
+                                                font-size: 20px;
+                                            }
+                                            p {
+                                                font-size: 18px;
+                                            }
+                                        }
+                                    }
+                                    &::before {
+                                        content: '';
+                                        position: absolute;
+                                        top: 0px;
+                                        left: 0px;
+                                        right: 0px;
+                                        bottom: 0px;
+                                        width: 100%;
+                                        height: 100%;
+                                        background-color: rgba(0,0,0,0.4);
+                                    }
+                                }
+                                .price_info_wrapper {
+                                    padding-left: 0px;
+                                    .hst {
+                                        .row {
+                                            .col-sm {
+                                                padding: 15px 12px;
+                                            }
+                                        }
+                                    }
+                                }
+                                .labels_wrapper {
+                                    padding: 13px 12px 30px;
+                                    .row {
+                                        .col-md {
+                                            margin-top: 0px;
+                                            border: 1px solid $border-color;
+                                            padding: 15px 12px;
+                                            &:last-child {
+                                                border: 1px solid $border-color;
+                                            }
+                                            .number {
+                                                font-size: 12px;
+                                            }
+                                            .name {
+                                                font-size: 14px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .fan_price_chart_wrapper {
+                                .row {
+                                    .col-md-6 {
+                                        .fantasy_wrapper {
+                                            padding: 30px 12px 20px;
+                                        }
+                                        .pri_wrapper {
+                                            padding: 30px 12px 20px;
+                                        }
+                                    }
+                                }
+                            }
+                            .next_wrapper {
+                                .next_game {
+                                    .left_game {
+                                        padding-top: 15px;
+                                    }
+                                    .right_game {
+                                        margin-top: 20px;
+                                    }
+                                }
+                                .labels_wrapper {
+                                    padding: 15px 12px 40px;
+                                    border: none;
+                                    .row {
+                                        .col-md {
+                                            margin-top: 0px;
+                                            border: 1px solid $border-color;
+                                            padding: 15px 12px;
+                                            &:last-child {
+                                                border: 1px solid $border-color;
+                                            }
+                                            .number {
+                                                font-size: 12px;
+                                            }
+                                            .name {
+                                                font-size: 14px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .range_wrapper {
+                                padding: 40px 0px;
+                                margin-bottom: 100px;
+                                .btns {
+                                    .trd_tab {
+                                        padding: 8px 20px;
+                                    }
+                                }
+                                .trade_tab {
+                                    .content {
+                                        .tit {
+                                            font-size: 16px;
+                                        }
+                                    }
+                                    .wrap {
+                                        margin-top: 20px;
+                                        margin-bottom: 30px;
+                                        .rangee_wrapper {
+                                            background-color: #4346b1;
+                                            padding: 5px 10px;
+                                            @include border-radius(60px);
+                                            .minus {
+                                                i {
+                                                    font-size: 18px;
+                                                }
+                                            }
+                                            .number {
+                                                p {
+                                                    font-size: 18px;
+                                                }
+                                            }
+                                            .plus {
+                                                i {
+                                                    font-size: 18px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .txt_wrapper {
+                                        .d-flex {
+                                            margin: 10px 0px;
+                                            .sha {
+                                                font-size: 14px;
+                                                font-weight: 400;
+                                            }
+                                            .val {
+                                                font-size: 14px;
+                                                font-weight: 400;
+                                            }
+                                        }
+                                        .tot {
+                                            border-top: 1px dashed $title-color;
+                                            margin-top: 20px;
+                                            padding-top: 10px;
+                                        }
+                                        a {
+                                            font-size: 14px;
+                                            padding: 8px 24px;
+                                        }
+                                    }
+                                }
+                            }
+                            .affiliate_cover {
+                                padding: 60px 12px;
+                                background-size: cover;
+                                .row {
+                                    .col-sm-4 {
+                                        h1 {
+                                            font-size: 24px;
+                                        }
+                                        p {
+                                            font-size: 16px;
+                                        }
+                                    }
+                                }
+                            }
+                            .copy_wrapper {
+                                padding: 20px 0px;
+                                .affiliate_link {
+                                    padding: 20px;
+                                    @include border-radius(0px);
+                                    .link_wrapper {
+                                        padding: 25px 12px;
+                                        @include border-radius(0px);
+                                        .left {
+                                            .link_icon {
+                                                margin: 0px auto 20px;
+                                            }
+                                            .link_text {
+                                                margin-top: 0px;
+                                                span {
+                                                    font-size: 14px;
+                                                    margin-left: 5px;
+                                                }
+                                            }
+                                        }
+                                        .right {
+                                            margin-top: 30px;
+                                            .btn {
+                                                font-size: 14px;
+                                                padding: 8px 20px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .affi_income {
+                                background-color: $sidebar-bg;
+                                max-width: 768px;
+                                margin: 90px auto 40px;
+                                @include border-radius(5px);
+                                padding: 30px 12px;
+                                .wrapper {
+                                    .reffarel {
+                                        padding: 30px 20px;
+                                        margin: 0px 20px;
+                                        background-color: $tr;
+                                        @include border-radius(5px);
+                                        margin: 20px 0px;
+                                        .left {
+                                            margin-right: 20px;
+                                        }
+                                        .right {
+                                            h3 {
+                                                font-size: 20px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .rules_cover {
+                                height: 250px;
+                                padding-top: 60px;
+                                h1 {
+                                    font-size: 24px;
+                                }
+                            }     
+                        }
+                    }
+                }
+                .row {
+                    .col-xl-9 {
+                        .user_footer {
+                            padding-top: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//responsive style when viewport size less than 576px
+@include xs-screen {
+    //navbar
+    header {
+        margin-bottom: 70px;
+    }
+
+    //work section
+    section {
+        .container {
+            .work_row {
+                .col-lg-4 {
+                    .inner {
+                        .content_wrapper {
+                            width: 235px;
+                            height: 235px;
+                            .content {
+                                width: 205px;
+                                height: 205px;
+                                img {
+                                    max-width: 124px;
+                                    height: auto;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //play section 
+    section {
+        .container {
+            .play_row {
+                .col-lg-5 {
+                    .inner {
+                        .inner_row {
+                            @include transform(skewX(0deg));
+                            margin: 30px 0px;
+                            padding: 12px;
+                            .inner_col {
+                                @include transform(skewX(0deg));
+                                .left_col {
+                                    margin-right: 15px;
+                                }
+                                .right_col {
+                                    h5 {
+                                        font-size: 18px;
+                                        line-height: 1.5;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .col-lg-7 {
+                    background-position: center bottom;
+                }
+            }
+        }
+    }
+
+    //testimonial section
+    section {
+        .container {
+            .testimonial_row {
+                .col-lg-4 {
+                    .inner {
+                        padding: 30px 12px;
+                    }
+                }
+            }
+        }
+    }
+
+    //accordion section
+    .accordion_section {
+        .container {
+            .accordion_wrapper {
+                .title_wrapper {
+                    padding-left: 12px;
+                    padding-right: 12px;
+                    background-position: top center;
+                }
+                .accordion {
+                    .accordion-item {
+                        .accordion-header {
+                            .accordion-button {
+                                font-size: 18px;
+                                img {
+                                    width: 30px;
+                                    height: 30px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //player search wrapper
+    .player_search_wrapper {
+        .container {
+            .input_search_wrapper {
+                padding: 20px 12px;
+                form {
+                    position: static;
+                    input {
+                        padding: 17px 10px;
+                        font-size: 16px;
+                        line-height: 1.556;
+                        &::placeholder {
+                            font-size: 16px;
+                            line-height: 1.556;
+                        }
+                    }
+                    .btn {
+                        padding: 5px 15px;
+                        font-size: 16px;
+                        line-height: 1.556;
+                        position: static;
+                        margin: 20px 0px 10px;
+                    }
+                }
+            }
+            .player_info_wrapper {
+                padding: 20px 12px;
+                .player_info_row {
+                    .col-md-7 {
+                        .player_price {
+                            .price {
+                                margin: 0px 20px;
+                                p {
+                                    &:first-child {
+                                        font-size: 14px;
+                                        line-height: 1.556;
+                                    }
+                                    &:last-child {
+                                        font-size: 12px;
+                                        line-height: 1.556;
+                                    }
+                                }
+                            }
+                            .value_chart {
+                                img {
+                                    max-width: 100px;
+                                    height: auto;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //game slider section
+    .game_wrapper {
+        .container {
+            .title_wrapper {
+                a {
+                    border: 1px solid rgba(255, 255, 255, 1);
+                }
+            }
+            .game_slider_row{
+                .slider_items {
+                    max-width: 350px;
+                    margin: auto!important;
+                    .inner {
+                        .slider_body {
+                            .left_col {
+                                a {
+                                    img {
+                                        width: 49px;
+                                        height: 53px;
+                                    }
+                                }
+                            }
+                            .mid_col {
+                                img {
+                                    width: 18px;
+                                    line-height: 53px;
+                                }
+                            }
+                            .right_col {
+                                a {
+                                    img {
+                                        width: 49px;
+                                        height: 53px;
+                                    }
+                                }
+                            }
+                        }
+                        .slider_footer {
+                            p {
+                                margin: 0px 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //about banner
+    .about_banner_wrapper {
+        background-size: 70% 45%, cover;
+        background-position: right -15px bottom 0px, left top;
+    }
+
+    //counter section
+    .counter_wrapper {
+        .container {
+            .counter_content_wrapper {
+                .counter_row {
+                    .col-lg-4 {
+                        .counter_content {
+                            max-width: 336px;
+                            margin: auto;
+                            @include border-radius(0px);
+                            .left_col {
+                                img {
+                                    max-width: 80%;
+                                }
+                            }
+                            .right_col {
+                                .counter {
+                                    font-size: 26px;
+                                    line-height: 1.278;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //play banner
+    .play_banner_wrapper {
+        background-size: 70% 45%, cover;
+        background-position: right -15px bottom 0px, left top;
+    }
+
+    //video section
+    section {
+        .container {
+            .video_wrapper {
+                width: 100%;
+                height: 200px;
+            }
+        }
+    }
+
+    //faq banner
+    .faq_banner_wrapper {
+        background-size: 50% 55%, cover;
+        background-position: right 0px bottom 0px, left top;
+    }
+
+    //faq section
+    .faq_section_wrapper {
+        .container, .container-fluid {
+            .accordion_wrapper {
+                .title_wrapper {
+                    padding-left: 12px;
+                    padding-right: 12px;
+                    background-position: top center;
+                }
+            }
+            .faq_row {
+                .col-lg-10 {
+                    .faq {
+                        h3 {
+                            font-size: 24px;
+                            line-height: 1.278;
+                        }
+                        .accordion {
+                            .accordion-item {
+                                .accordion-header {
+                                    .accordion-button {
+                                        font-size: 18px;
+                                        img {
+                                            width: 30px;
+                                            height: 30px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //contact banner
+    .contact_banner_wrapper {
+        .container {
+            background-size: 180px 100px;
+            background-position: right 0px bottom 0px;
+        }
+    }
+
+    //form
+    .form_bg {
+        .container {
+            .form_container {
+                padding: 30px 12px;
+                @include border-radius(0px);
+                .form_header {
+                    .registration_logo {
+                        padding: 0px 10px;
+                        @include border-radius(0px);
+                        &::before {
+                            width: 165px;
+                            height: 55px;
+                            @include border-radius(0px);
+                        }
+                        &::after {
+                            width: 175px;
+                            height: 65px;
+                            @include border-radius(0px);
+                        }
+                        img {
+                            max-width: 130px;
+                        }
+                    }
+                }
+                form {
+                    .mb-3 {
+                        input {
+                            padding: 15px 15px 15px 15px;
+                            @include border-radius(0px);
+                            &::placeholder {
+                                font-size: 15px;
+                                line-height: 1.556;
+                            }
+                        }
+                        .show_password {
+                            input {
+                                padding: 15px 50px 15px 15px;
+                            }
+                            i {
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                    button[type=submit] {
+                        font-size: 16px;
+                        line-height: 1.556;
+                        padding: 15px;
+                        @include border-radius(0px);
+                    }
+                    .form_footer {
+                        span {
+                            font-size: 16px;
+                            line-height: 1.556;
+                        }
+                        .social_container {
+                            .facebook {
+                                margin: 25px 5px 25px 0px;
+                                justify-content: center;
+                                @include border-radius(0px);
+                                a {
+                                    font-size: 14px;
+                                    line-height: 1.556;
+                                    padding: 10px 0px;
+                                    img {
+                                        width: 20px;
+                                    }
+                                }
+                            }
+                            .google {
+                                margin: 25px 0px 25px 5px;
+                                justify-content: center;
+                                @include border-radius(0px);
+                                a {
+                                    font-size: 14px;
+                                    line-height: 1.556;
+                                    padding: 10px 0px;
+                                    img {
+                                        width: 20px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //experience section
+    section {
+        .container {
+            .experience {
+                padding-right: 12px;
+                padding-left: 12px;
+                // background-image: url("../images/experience/basketball_player.png"), url("../images/experience/football_player.png"), url("../images/experience/bg.png");
+                background-repeat: no-repeat, no-repeat, no-repeat;
+                background-size: 80px 80px, 80px 80px, contain;
+                background-position: left bottom 100px, right bottom 20px, left 0px bottom 0px;
+            }
+        }
+    }
+
+    //footer section
+    footer {
+        .container {
+            .footer_nav {
+                .col-lg-5 {
+                    .nav {
+                        .nav-item {
+                            .nav-link {
+                                img {
+                                    max-width: 110px;
+                                    height: auto;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //user panel layouts
+    .page_wrapper {
+        .body_content {
+            .top_bar {
+                .top_bar_wrapper {
+                    .search_bar {
+                        .form {
+                            form {
+                                position: absolute;
+                                top: 58px;
+                                left: 0px;
+                                width: 230px;
+                                z-index: 1;
+                                display: none;
+                                input {
+                                    padding: 13px 40px 13px 15px;
+                                    width: 100%;
+                                    @include border-radius(0px);
+                                }
+                            }
+                        }
+                    }
+                    .user_bar {
+                        .dollar_wrapper {
+                            display: none;
+                        }
+                        .wallet_wrapper {
+                            display: none;
+                        }
+                        .profile_wrapper {
+                            margin: 0px 5px;
+                        }
+                    }
+                }
+            }
+            .main_content {
+                .row {
+                    .col-xl-9 {
+                        .inner_left {
+                            .profile_info_wrapper {
+                                .tag_icon_wrapper {
+                                    padding-top: 10px;
+                                    margin-left: 0px;
+                                    .follow_wrapper {
+                                        max-width: 350px;
+                                        margin: 30px auto 10px;
+                                        .following {
+                                            padding-right: 20px;
+                                        }
+                                    }
+                                }
+                            }
+                            .tab_wrapper {
+                                .tab_btn_row {
+                                    padding: 10px 0px 0px 0px;
+                                    .tab_btn_wrapper {
+                                        margin-top: 10px;
+                                        .tab_btn {
+                                            padding: 15px 10px 25px;
+                                            margin-right: 0px;
+                                            font-size: 14px;
+                                        }
+                                        .dr_btn {
+                                            padding: 15px 10px 25px;
+                                            margin-right: 15px;
+                                            font-size: 14px;
+                                        }
+                                    }
+                                }
+                                .profile_tab {
+                                    .followers_row_first {
+                                        .col-lg-6 {
+                                            .left_col {
+                                                padding: 50px 12px;
+                                                .d-sm-flex {
+                                                    .friends_wrapper {
+                                                        .info_wrapper {
+                                                            margin-top: 30px;
+                                                        }
+                                                    }
+                                                    .icon_wrapper {
+                                                        margin: 30px 0px;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .profile_cover_wrapper {
+                                .price_info_wrapper {
+                                    margin: 0px;
+                                    padding: 0px 12px;
+                                    .hst {
+                                        border: none;
+                                        .row {
+                                            .col-sm {
+                                                padding: 20px 12px;
+                                                border: none;
+                                                border: 1px solid $border-color;
+                                                margin-top: 15px;
+                                                &:first-child {
+                                                    margin-top: 15px;
+                                                }
+                                                
+                                            }
+                                            .btns {
+                                                border: none;
+                                            }
+                                        }
+                                    }
+                                    .sta {
+                                        .row {
+                                            .col-sm {
+                                                &:first-child {
+                                                    margin-top: 0px;
+                                                }
+                                                &:last-child {
+                                                    border: 1px solid $border-color;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .date_wrapper {
+                                margin-bottom: 0px;
+                                .d-sm-flex {
+                                    padding: 0px 12px;
+                                    .left {
+                                        h3 {
+                                            font-size: 20px;
+                                        }
+                                    }
+                                    .right_date {
+                                        padding: 10px 20px;
+                                        margin-top: 20px;
+                                        .left {
+                                            p {
+                                                font-size: 12px;
+                                            }
+                                        }
+                                        .right {
+                                            i {
+                                                font-size: 20px;
+                                            }
+                                        }
+                                    }
+                                }
+                                .date_table {
+                                    margin-top: 30px;
+                                    overflow-x: scroll;
+                                    .table {
+                                        width: 576px;
+                                        tbody {
+                                            tr {
+                                                td {
+                                                    font-size: 14px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .show_friends {
+                                    a {
+                                        font-size: 14px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .row {
+                    .col-xl-9 {
+                        .user_footer {
+                            .container-fluid {
+                                .footer_nav {
+                                    .col-lg-5 {
+                                        .nav {
+                                            .nav-item {
+                                                .nav-link {
+                                                    img {
+                                                        max-width: 110px;
+                                                        height: auto;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .col-xl-3 {
+                        .inner_right {
+                            position: static;
+                            width: 100%;
+                            .member_wrapper {
+                                max-width: 100%;
+                                margin: auto;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//responsive style when viewport size less than 425px
+@include xxs-screen {
+    //user panel layouts
+    .page_wrapper {
+        .body_content {
+            .top_bar {
+                .top_bar_wrapper {
+                    .search_bar {
+                        .show_hide {
+                            margin: 0px 5px 0px 0px;
+                        }
+                        .form {
+                            .search_toggle {
+                                margin: 0px 5px;
+                            }
+                        }
+                    }
+                    .user_bar {
+                        .dollar_wrapper {
+                            a {
+                                margin: 0px 5px;
+                            }
+                        }
+                        .wallet_wrapper {
+                            a {
+                                margin: 0px 5px;
+                            }
+                        }
+                        .notification_wrapper {
+                            a {
+                                margin: 0px 5px;
+                            }
+                        }
+                    }
+                }
+            }
+            .main_content {
+                .row {
+                    .col-xl-9 {
+                        .inner_left {
+                            .profile_cover_wrapper {
+                                .cover_wrapper {
+                                    background-repeat: no-repeat;
+                                    background-size: cover;
+                                    background-position: center center;
+                                    min-height: 300px;
+                                    padding: 40px 12px;
+                                    .profile_wrapper {
+                                        position: static;
+                                        bottom: 0px;
+                                        margin-top: 0px;
+                                        .img_wrapper {
+                                            a {
+                                                img {
+                                                    width: 100px;
+                                                    height: 120px;
+                                                }
+                                            }
+                                        }
+                                        .info_wrapper {
+                                            margin-left: 12px;
+                                            padding-top: 0px;
+                                            a {
+                                                font-size: 20px;
+                                            }
+                                            p {
+                                                font-size: 14px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .col-xl-3 {
+                        .inner_right {
+                            .member_wrapper {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,360 @@
+.page_wrapper {
+    .body_content {
+        .main_content {
+            .row {
+                .col-xl-9 {
+                    .inner_left {
+                        .affiliate_cover {
+                            padding: 80px 12px;
+                            background-repeat: no-repeat;
+                            background-size: 100% 100%;
+                            background-position: center center;
+                            @include border-radius(5px);
+                            .row {
+                                .col-sm-4 {
+                                    h1 {
+                                        font-family: $rubik;
+                                        font-size: 36px;
+                                        line-height: 1.278;
+                                        color: $title-color;
+                                    }
+                                    p {
+                                        font-size: 18px;
+                                        font-family: $open-sans;
+                                        font-weight: bold;
+                                        line-height: 1.556;
+                                        color: rgb(235, 237, 255);
+                                        margin-top: 15px;
+                                    }
+                                }
+                            }
+                        }
+                        .copy_wrapper {
+                            background-color: $sidebar-bg;
+                            padding: 20px;
+                            margin-bottom: 46px;
+                            .affiliate_link {
+                                max-width: 768px;
+                                margin: auto;
+                                padding: 20px;
+                                background-color: #5a4bcc;
+                                @include border-radius(60px);
+                                position: relative;
+                                bottom: -66px;
+                                margin-top: -46px;
+                                .link_wrapper {
+                                    padding: 5px 10px;
+                                    border: 1px solid $border-color;
+                                    @include border-radius(60px);
+                                    background-color: #4c3eb9;
+                                    .left {
+                                        .link_icon {
+                                            width: 40px;
+                                            height: 40px;
+                                            background-color: #5351fb;
+                                            @include border-radius(50%);
+                                            margin-right: 10px;
+                                            cursor: pointer;
+                                            i {
+                                                display: inline-block;
+                                                font-size: 20px;
+                                                color: $title-color;
+                                            }
+                                        }
+                                        .link_text {
+                                            font-family: $open-sans;
+                                            font-size: 18px;
+                                            line-height: 1.556;
+                                            color: $title-color;
+                                            span {
+                                                font-family: $open-sans;
+                                                font-size: 14px;
+                                                line-height: 1.75;
+                                                color: rgb(0, 204, 162);
+                                                margin-left: 5px;
+                                            }
+                                        }
+                                    }
+                                    .right {
+                                        .btn {
+                                            border: none;
+                                            outline: none;
+                                            @include box-shadow(none);
+                                            font-family: $open-sans;
+                                            font-size: 16px;
+                                            font-weight: 400;
+                                            line-height: 1.556;
+                                            text-transform: uppercase;
+                                            color: $title-color;
+                                            padding: 8px 24px;
+                                            background-color: black;
+                                            @include border-radius(60px);
+                                            @include transition(all 0.6s);
+                                            background-image: -moz-linear-gradient( 135deg, rgb(245,49,127) 0%, rgb(255,124,110) 100%);
+                                            background-image: -webkit-linear-gradient( 135deg, rgb(245,49,127) 0%, rgb(255,124,110) 100%);
+                                            background-image: -ms-linear-gradient( 135deg, rgb(245,49,127) 0%, rgb(255,124,110) 100%);
+                                            background-image: linear-gradient( 135deg, rgb(245,49,127) 0%, rgb(255,124,110) 100%);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .affi_income {
+                            background-color: $sidebar-bg;
+                            max-width: 768px;
+                            margin: 90px auto 40px;
+                            @include border-radius(5px);
+                            padding: 30px 12px;
+                            .wrapper {
+                                .reffarel {
+                                    padding: 30px 20px;
+                                    margin: 0px 20px;
+                                    background-color: $tr;
+                                    @include border-radius(5px);
+                                    width: 100%;
+                                    .left {
+                                        margin-right: 20px;
+                                        img {
+                                            display: inline-block;
+                                            border: none;
+                                            outline: none;
+                                            width: 50px;
+                                            height: 50px;
+                                        }
+                                    }
+                                    .right {
+                                        h3 {
+                                            font-size: 24px;
+                                            font-family: $rubik;
+                                            color: rgb(255, 255, 255);
+                                            line-height: 1.357;
+                                        }
+                                        p {
+                                            font-size: 16px;
+                                            font-family: $open-sans;
+                                            color: rgb(34, 184, 104);
+                                            line-height: 1.75;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .date_wrapper {
+                            background-color: $sidebar-bg;
+                            max-width: 768px;
+                            margin: 0px auto 40px;
+                            @include border-radius(5px);
+                            padding: 30px 0px;
+                            .d-sm-flex {
+                                padding: 0px 30px;
+                                .left {
+                                    h3 {
+                                        font-family: $rubik;
+                                        font-size: 24px;
+                                        line-height: 1.357;
+                                        color: $title-color;
+                                    }
+                                }
+                                .right_date {
+                                    padding: 10px 30px;
+                                    background-color: #2c2c5e;
+                                    @include border-radius(60px);
+                                    border: 1px solid $border-color;
+                                    .left {
+                                        p {
+                                            font-size: 14px;
+                                            font-family: $open-sans;
+                                            line-height: 2;
+                                            color: $title-color;
+                                        }
+                                    }
+                                    .right {
+                                        margin-left: 50px;
+                                        cursor: pointer;
+                                        i {
+                                            display: inline-block;
+                                            font-size: 24px;
+                                            color: #a2a0c4;
+                                        }
+                                    }
+                                }
+                            }
+                            .date_table {
+                                margin-top: 40px;
+                                .table {
+                                    thead {
+                                        tr {
+                                            vertical-align: middle;
+                                            th {
+                                                font-size: 14px;
+                                                font-family: $rubik;
+                                                color: rgb(176, 187, 222);
+                                                text-transform: uppercase;
+                                                line-height: 2;
+                                                text-align: center;
+                                            }
+                                        }
+                                    }
+                                    tbody {
+                                        tr {
+                                            border-top: 1px solid $border-color;
+                                            border-bottom: 1px solid $border-color;
+                                            vertical-align: middle;
+                                            background-color: $table-bg;
+                                            td {
+                                                font-size: 16px;
+                                                font-family: $open-sans;
+                                                color: rgb(215, 217, 255);
+                                                line-height: 1.75;
+                                                text-align: center;
+                                                span {
+                                                    font-size: 12px;
+                                                    line-height: 2;
+                                                }
+                                                
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .show_friends {
+                                padding-top: 10px;
+                                a {
+                                    text-decoration: none;
+                                    display: inline-block;
+                                    font-size: 16px;
+                                    font-family: $open-sans;
+                                    color: rgb(178, 172, 242);
+                                    line-height: 1.75;
+                                    @include transition(all 0.6s);
+                                    i {
+                                        display: inline-block;
+                                        font-size: 14px;
+                                        color: $title-color;
+                                        margin-top: 3px;
+                                    }
+                                    &:hover {
+                                        text-decoration: none;
+                                        color: $title-color;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.dark {
+    .page_wrapper {
+        .body_content {
+            .main_content {
+                .row {
+                    .col-xl-9 {
+                        .inner_left {
+                            .copy_wrapper {
+                                background-color: #fff;
+                                @include box-shadow(0px 0px 20px #f0f0f9);
+                                .affiliate_link {
+                                    background-color: #fff;
+                                    @include box-shadow(0px 0px 10px #f0f0f9);
+                                    .link_wrapper {
+                                        border: 1px solid #ddd;
+                                        background-color: #f0f0f9;
+                                        .left {
+                                            .link_icon {
+                                                background-color: #fff;
+                                                i {
+                                                    color: #25294a;
+                                                }
+                                            }
+                                            .link_text {
+                                                color: #25294a;
+                                                span {
+                                                    color: $hover-color;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .affi_income {
+                                background-color: #fff;
+                                @include box-shadow(0px 0px 20px #f0f0f9);
+                                .wrapper {
+                                    .reffarel {
+                                        background-color: #f0f0f9;
+                                        @include box-shadow(0px 0px 20px #f0f0f9);
+                                        .right {
+                                            h3 {
+                                                color: #25294a;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .date_wrapper {
+                                background-color: #fff;
+                                @include box-shadow(0px 0px 20px #f0f0f9);
+                                .d-sm-flex {
+                                    .left {
+                                        h3 {
+                                            color: #25294a;
+                                        }
+                                    }
+                                    .right_date {
+                                        background-color: #f0f0f9;
+                                        .left {
+                                            p {
+                                                color: #25294a;
+                                            }
+                                        }
+                                        .right {
+                                            i {
+                                                color: #25294a;
+                                            }
+                                        }
+                                    }
+                                }
+                                .date_table {
+                                    .table {
+                                        thead {
+                                            tr {
+                                                th {
+                                                    color: #25294a;
+                                                }
+                                            }
+                                        }
+                                        tbody {
+                                            tr {
+                                                border-top: 1px solid #fff;
+                                                border-bottom: 1px solid #fff;
+                                                background-color: #f0f0f9;
+                                                td {
+                                                    color: #25294a;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .show_friends {
+                                    a {
+                                        color: #25294a;
+                                        i {
+                                            color: #25294a;
+                                        }
+                                        &:hover {
+                                            color: #25294a;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

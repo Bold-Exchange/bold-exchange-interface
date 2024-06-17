@@ -1,0 +1,259 @@
+/*====login and sign up form start====*/
+.form_bg {
+    background-color: $theme-bg;
+    // background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    padding-top: 166px;
+    padding-bottom: 120px;
+    .container {
+        .form_container {
+            max-width: 730px;
+            margin: auto;
+            padding: 30px 50px;
+            background-color: $form-bg;
+            @include border-radius(20px);
+            @include box-shadow($shadow_two);
+            .form_header {
+                text-align: center;
+                position: relative;
+                top: -55px;
+                margin-bottom: -55px;
+                .registration_logo {
+                    text-decoration: none;
+                    display: inline-block;
+                    padding: 0px 60px;
+                    @include video-gradient;
+                    @include border-radius(30px);
+                    position: relative;
+                    z-index: 1;
+                    img {
+                        max-width: 100%;
+                    }
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        @include transform (translate(-50%, -50%));
+                        width: 295px;
+                        height: 70px;
+                        @include video-gradient;
+                        @include border-radius(30px);
+                        opacity: 0.502;
+                        z-index: -1;
+                    }
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        @include transform (translate(-50%, -50%));
+                        width: 310px;
+                        height: 85px;
+                        @include video-gradient;
+                        @include border-radius(30px);
+                        opacity: 0.402;
+                        z-index: -2;
+                    }
+                }
+            }
+            form {
+                .form_title {
+                    max-width: 280px;
+                    margin: 73px auto 54px;
+                    text-align: center;
+                }
+                .mb-3 {
+                    padding-bottom: 10px;
+                    label {
+                        color: $title-color;
+                        margin-bottom: 24px;
+                    }
+                    input {
+                        background-color: $form-bg;
+                        padding: 20px 30px;
+                        border: 1px solid rgb(99, 66, 255);
+                        color: #ececff;
+                        @include border-radius(10px);
+                        &::placeholder {
+                            font-family: $open-sans;
+                            font-size: 18px;
+                            line-height: 1.556;
+                            font-weight: 400;
+                            color: #535f8e;
+                        }
+                    }
+                    .show_password {
+                        position: relative;
+                        input {
+                            padding: 20px 80px 20px 30px;
+                        }
+                        i {
+                            position: absolute;
+                            left: 95%;
+                            top: 50%;
+                            transform: translate(-95%, -50%);
+                            display: inline-block;
+                            font-size: 20px;
+                            color: #535f8e;
+                            cursor: pointer;
+                        }
+                    }
+                    #forgot {
+                        text-decoration: none;
+                        display: inline-block;
+                        margin-top: 25px;
+                        color: $link;
+                        &:hover {
+                            text-decoration: none;
+                            color: $link;
+                        }
+                    }
+                }
+                button[type=submit] {
+                    width: 100%;
+                    border: none;
+                    outline: none;
+                    padding: 20px;
+                    font-family: $open-sans;
+                    font-size: 18px;
+                    line-height: 1.556;
+                    font-weight: 700;
+                    background-color: $section-bg;
+                    @include gradient;
+                    @include box-shadow ($shadow);
+                    @include border-radius(10px);
+                    margin: 34px 0px 18px;
+                    &:focus {
+                        @include box-shadow (none);
+                    }
+                }
+                .form_footer {
+                    text-align: center;
+                    span {
+                        display: inline-block;
+                        font-family: $open-sans; //ref variables line 8
+                        font-size: 18px;
+                        font-weight: 700;
+                        line-height: 1.556;
+                        color: #a2add8;
+                        margin-top: 6px;
+                    }
+                    .social_container {
+                        .facebook {
+                            flex-grow: 6;
+                            margin: 25px 15px 25px 0px;
+                            text-align: center;
+                            border: 1px solid rgb(99,66,255);
+                            @include border-radius(10px);
+                            a {
+                                text-decoration: none;
+                                padding: 15px;
+                                img {
+                                    width: 32px;
+                                    border: none;
+                                }
+                                &:hover {
+                                    text-decoration: none;
+                                    color: $para-color;
+                                }
+                            }
+                        }
+                        .google {
+                            flex-grow: 6;
+                            margin: 25px 0px 25px 15px;
+                            text-align: center;
+                            border: 1px solid rgb(99,66,255);
+                            @include border-radius(10px);
+                            a {
+                                text-decoration: none;
+                                padding: 15px;
+                                img {
+                                    width: 32px;
+                                    border: none;
+                                }
+                                &:hover {
+                                    text-decoration: none;
+                                    color: $para-color;
+                                }
+                            }
+                        }
+                    }
+                    p {
+                        color: $para-color;
+                        margin-bottom: 30px;
+                        a {
+                            text-decoration: none;
+                            display: inline-block;
+                            color: $link;
+                            &:hover {
+                                text-decoration: none;
+                                color: $link;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.dark {
+    .form_bg {
+        .container {
+            .form_container {
+                background-color: #fff;
+                @include box-shadow(0px 0px 5px #f0f0f9);
+                form {
+                    .form_title {
+                        color: #25294a;
+                    }
+                    .mb-3 {
+                        label {
+                            color: #25294a;
+                        }
+                        input {
+                            background-color: #f0f0f9;
+                            border: 1px solid transparent;
+                            color: #25294a;
+                            &::placeholder {
+                                color: #25294a;
+                            }
+                        }
+                    }
+                    .form_footer {
+                        span {
+                            color: #25294a;
+                        }
+                        .social_container {
+                            .facebook {
+                                .para {
+                                    color: #25294a;
+                                    &:hover {
+                                        color: $hover-color;
+                                    }
+                                }
+                            }
+                            .google {
+                                .para {
+                                    color: #25294a;
+                                    &:hover {
+                                        color: $hover-color;
+                                    }
+                                }
+                            }
+                        }
+                        p {
+                            color: #25294a;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*====login and sign up form end====*/

@@ -1,0 +1,136 @@
+/*====footer style start====*/
+footer {
+    background-color: $theme-bg;
+    padding-top: 87px;
+    .container {
+        .footer_nav {
+            .col-lg-7 { 
+                margin-top: 35px;
+                margin-bottom: 18px;
+                .nav {
+                    .nav-item {
+                        .nav-link {
+                            font-family: $open-sans;
+                            font-size: $nav-font;
+                            font-weight: 700;
+                            line-height: 1.5;
+                            text-transform: uppercase;
+                            color: $title-color;
+                            padding: 0px;
+                            margin: 0px 30px;
+                            img {
+                                max-width: 100%;
+                                height: auto;
+                                border: none;
+                                outline: none;
+                                &:focus {
+                                    border: none;
+                                    outline: none;
+                                }
+                            }
+                        }
+                        .ml-0 {
+                            margin-left: 0px;
+                        }
+                    }
+                }
+            }
+            .col-lg-5 {
+                margin-top: 35px;
+                margin-bottom: 18px;
+                .nav {
+                    .nav-item {
+                        .nav-link {
+                            padding: 0px;
+                            margin: 0px 30px;
+                            img {
+                                max-width: 100%;
+                                height: auto;
+                                border: none;
+                                outline: none;
+                                @include border-radius(0px);
+                                &:focus {
+                                    border: none;
+                                    outline: none;
+                                }
+                            }
+                        }
+                        .mr-0 {
+                            margin-right: 0px;
+                        }
+                    }
+                }
+            }
+        }
+        hr {
+            margin: 15px 0px;
+            width: 100%;
+            height: 1px;
+            background-color: $border-color;
+            opacity: 1;
+        }
+        .footer_copyright {
+            .col-lg-7 {
+                margin-top: 10px;
+                margin-bottom: 10px;
+                p {
+                    a {
+                        text-decoration: none;
+                        display: inline-block;
+                        font-size: $para-font;
+                        font-weight: 700;
+                        line-height: 1.556;
+                        color: $title-color;
+                        &:hover {
+                            text-decoration: underline;
+                            color: $title-color;
+                        }
+                    }
+                }
+            }
+            .col-lg-5 {
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
+
+.dark {
+    footer {
+        background-color: #fff;
+        .container {
+            .footer_nav {        
+                .col-lg-7 { 
+                    .nav {
+                        .nav-item {
+                            .nav-link {
+                                color: #25294a;
+                            }
+                        }
+                    }
+                }
+            }
+            .footer_copyright {
+                .col-lg-7 {
+                    p {
+                        color: #25294a;
+                        a {
+                            color: #25294a;
+                            &:hover {
+                                color: $hover-color;
+                            }
+                        }
+                    }
+                }
+                .col-lg-5 {
+                    .para {
+                        color: #25294a;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*====footer style end====*/

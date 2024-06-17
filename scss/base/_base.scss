@@ -1,0 +1,87 @@
+/*====spacing start====*/
+
+.pt-120 {
+    padding-top: 120px;
+}
+
+.pb-120 {
+    padding-bottom: 120px;
+}
+
+.p-120 {
+    padding: 120px;
+}
+
+
+.mt-120 {
+    margin-top: 120px;
+}
+
+.mb-120 {
+    margin-bottom: 120px;
+}
+
+.m-120 {
+    margin: 120px;
+}
+
+.mt-80 {
+    margin-bottom: 80px;
+}
+
+@include md-screen {
+    .pt-120 {
+        padding-top: 100px;
+    }
+    
+    .pb-120 {
+        padding-bottom: 100px;
+    }
+    
+    .p-120 {
+        padding: 100px;
+    }
+}
+
+@include sm-screen {
+    .pt-120 {
+        padding-top: 80px;
+    }
+    
+    .pb-120 {
+        padding-bottom: 80px;
+    }
+    
+    .p-120 {
+        padding: 80px;
+    }
+}
+
+
+@include xs-screen {
+    .pt-120 {
+        padding-top: 70px;
+    }
+    
+    .pb-120 {
+        padding-bottom: 70px;
+    }
+    
+    .p-120 {
+        padding: 70px;
+    }
+
+    .mt-120 {
+        margin-top: 100px;
+    }
+    
+    .mb-120 {
+        margin-bottom: 100px;
+    }
+    
+    .m-120 {
+        margin: 100px;
+    }
+    
+}
+/*====spacing end====*/

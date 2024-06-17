@@ -1,0 +1,164 @@
+/*=======typography style start========*/
+
+//mixin for banner title
+.hero_title {
+    font-family: $rubik;
+    font-size: $hero-font;
+    font-weight: 700;
+    line-height: 1.167;
+    color: $title-color;
+}
+
+//mixin for section title
+.section_title {
+    font-family: $rubik;
+    font-size: $title-font;
+    font-weight: 700;
+    line-height: 1.2;
+    color: $title-color;
+}
+
+.dark {
+    .section_title {
+        color: #25294a;
+    }
+}
+
+//mixin for section info
+.section_info {
+    font-family: $open-sans; //ref variables line 4
+    font-size: $info-font;
+    font-weight: 400;
+    line-height: 1.556;
+    color: $info-color; //ref variables line 22
+}
+
+.dark {
+    .section_info {
+        color: #25294a;
+    }
+}
+
+//mixin for section info
+.para {
+    font-family: $open-sans; //ref variables line 4
+    font-size: $para-font;
+    font-weight: 400;
+    line-height: 1.556;
+    color: $para-color; //ref variables line 22
+}
+
+
+//mixin for form title
+.form_title {
+    font-family: $rubik;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: $title-color;
+}
+
+//mixin for form label
+.form-label {
+    font-family: $rubik; //ref variables line 9
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.556;
+    color: #ececff;
+}
+
+//secondary font
+.secondary {
+    font-family: $rubik;
+    font-size: $secondary-font;
+    color: $secondary-color;
+    font-weight: 700;
+    line-height: 1.417;
+}
+
+//section title and info styles when viewport size less than 1200px and greater than 992px
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .hero_title {
+        font-size: 50px;
+        line-height: 1.167;
+    }
+    
+    .section_title {
+        font-size: 40px;
+        line-height: 1.2;
+    }
+
+    .form_title {
+        font-size: 34px;
+        line-height: 1.25;
+    }
+}
+
+//section title and info styles when viewport size less than 992px and greater than 768px
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .hero_title {
+        font-size: 50px;
+        line-height: 1.167;
+    }
+    
+    .section_title {
+        font-size: 40px;
+        line-height: 1.2;
+    }
+
+    .form_title {
+        font-size: 34px;
+        line-height: 1.25;
+    }
+}
+
+//section title and info styles when viewport size less than 768px and greater than 576px
+@media screen and (min-width: 576px) and (max-width: 767px) {
+    .hero_title {
+        font-size: 44px;
+        line-height: 1.167;
+    }
+
+    .section_title {
+        font-size: 34px;
+        line-height: 1.2;
+    }
+    .form_title {
+        font-size: 30px;
+        line-height: 1.25;
+    }
+}
+
+//section title and info styles when viewport size less than 576px
+@media screen and (max-width: 575px) {
+    .hero_title {
+        font-size: 36px;
+        line-height: 1.167;
+    }
+
+    .section_title {
+        font-size: 30px;
+        line-height: 1.2;
+    }
+    .form_title {
+        font-size: 26px;
+        line-height: 1.25;
+    }
+
+    .section_info {
+        font-size: 16px;
+        line-height: 1.556;
+    }
+
+    .para {
+        font-size: 16px;
+        line-height: 1.556;
+    }
+
+    .secondary {
+        font-size: 20px;
+        line-height: 1.417;
+    }
+}
+
+/*=======typography style end==========*/

@@ -1,0 +1,2020 @@
+//user about page style
+.page_wrapper {
+    .body_content {
+        .main_content {
+            .row {
+                .col-xl-9 {
+                    .inner_left {
+                        .cover_img {
+                            width: 100%;
+                            height: 315px;
+                            background-color: $section-bg;
+                            background-repeat: no-repeat;
+                            background-size: cover;
+                            background-position: center center;
+                            @include border-radius(5px);
+                            position: relative;
+                            .profile_lg_wrapper {
+                                margin: 0px 40px;
+                                .profile_content {
+                                    position: relative;
+                                    width: 168px;
+                                    height: 168px;
+                                    background-color: $sidebar-bg;
+                                    padding: 20px;
+                                    @include border-radius(50%);
+                                    bottom: -84px;
+                                    margin-top: -84px;
+                                    a {
+                                        text-decoration: none;
+                                        display: inline-block;
+                                        padding: 5px;
+                                        border-width: 5px;
+                                        border-style: solid;
+                                        border-color:  #6544f5 #6544f5 #4495f5 #404766;
+                                        @include border-radius(50%);
+                                        img {
+                                            max-width: 119px;
+                                            height: 119px;
+                                            @include border-radius(50%);
+                                        }
+                                    }
+                                    span {
+                                        font-family: $rubik;
+                                        font-size: 14px;
+                                        font-weight: 500;
+                                        line-height: 0.875;
+                                        width: 40px;
+                                        height: 40px;
+                                        background-color: $section-bg;
+                                        background-image: -moz-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                        background-image: -webkit-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                        background-image: -ms-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                        background-image: linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                        border: 5px solid $sidebar-bg;
+                                        @include border-radius(50%);
+                                        position: absolute;
+                                        top: 60%;
+                                        right: 10px;
+                                    }
+                                }
+                                .profile_info {
+                                    margin-left: 40px;
+                                    padding-bottom: 10px;
+                                    p {
+                                        font-size: $para-font;
+                                        font-family: $rubik;
+                                        font-weight: 400;
+                                        line-height: 1.556;
+                                        color: $title-color;
+                                    }
+                                    a {
+                                        text-decoration: none;
+                                        display: inline-block;
+                                        font-size: 24px;
+                                        font-family: $rubik;
+                                        font-weight: bold;
+                                        line-height: 1.447;
+                                        text-transform: uppercase;
+                                        color: $title-color;
+                                    }
+                                }
+                            }
+                        }
+                        .profile_info_wrapper {
+                            padding-top: 20px;
+                            padding-bottom: 20px;
+                            background-color: $sidebar-bg;
+                            .tag_icon_wrapper {
+                                margin-left:  250px;
+                                .tag_icon {
+                                    a {
+                                        text-decoration: none;
+                                        display: inline-block;
+                                        width: 45px;
+                                        height: 45px;
+                                        margin: 0px 5px;
+                                        border: 1px solid #4B4A73;
+                                        @include border-radius(50%);
+                                        i {
+                                            &::before {
+                                                display: inline-block;
+                                                font-size: 20px;
+                                                line-height: 1.5;
+                                                color: $user-text;
+                                                @include transition (all 0.6s);
+                                            }
+                                        }
+                                        &:hover {
+                                            i {
+                                                &::before {
+                                                    color: $title-color;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .badge {
+                                        width: 55px;
+                                        height: 55px;
+                                        background-image: -moz-radial-gradient( 50% 50%, rgb(215,153,255) 0%, rgb(149,79,193) 100%);
+                                        background-image: -webkit-radial-gradient( 50% 50%, rgb(215,153,255) 0%, rgb(149,79,193) 100%);
+                                        background-image: -ms-radial-gradient( 50% 50%, rgb(215,153,255) 0%, rgb(149,79,193) 100%);
+                                        background-image: radial-gradient( 50% 50%, rgb(215,153,255) 0%, rgb(149,79,193) 100%);
+                                        margin: 0px 10px 0px -12px;
+                                        position: relative;
+                                        &::after {
+                                            content: '';
+                                            position: absolute;
+                                            right: -10px;
+                                            top: 0px;
+                                            bottom: 0px;
+                                            width: 1px;
+                                            height: 100%;
+                                            background-color: #373864;
+                                        }
+                                    }
+                                }
+                                .follow_wrapper {
+                                    position: relative;
+                                    max-width: 400px;
+                                    padding-right: 0px;
+                                    .follower, .following {
+                                        .icon {
+                                            i {
+                                                &::before {
+                                                    font-size: 14px;
+                                                    line-height: 24px;
+                                                    color: $user-text;
+                                                }
+                                            }
+                                        }
+                                        .amount {
+                                            margin-left: 8px;
+                                            a {
+                                                text-decoration: none;
+                                                display: inline-block;
+                                                font-family: $open-sans;
+                                                font-size: 14px;
+                                                line-height: 1.778;
+                                                font-weight: 400;
+                                                text-transform: uppercase;
+                                                color: $title-color;
+                                                &:hover {
+                                                    text-decoration: none;
+                                                }
+                                            }
+                                            p {
+                                                font-family: $open-sans;
+                                                font-size: 10px;
+                                                line-height: 2;
+                                                font-weight: bold;
+                                                text-transform: uppercase;
+                                                color: $user-text;
+                                            }
+                                        }
+                                    }
+                                    &::after {
+                                        content: "";
+                                        position: absolute;
+                                        left: 50%;
+                                        top: 50%;
+                                        @include transform(translate(-50%, -50%));
+                                        height: 30px;
+                                        width: 1px;
+                                        background-color: rgba( 132, 139, 164, 0.302 );
+                                    }
+                                }
+                            }
+                        }
+                        .tab_wrapper {
+                            .tab_btn_row {
+                                padding: 10px 20px 0px 40px;
+                                margin: 0px 0px;
+                                background-color: $sidebar-bg;
+                                .tab_btn_wrapper {
+                                    padding: 0px;
+                                    .tab_btn, .dr_btn {
+                                        text-decoration: none;
+                                        display: inline-block;
+                                        font-family: $rubik;
+                                        font-size: 16px;
+                                        font-weight: bold;
+                                        line-height: 1.714;
+                                        color: #EEEDFE;
+                                        padding: 15px 0px;
+                                        margin-right: 30px;
+                                        @include transition(all 0.6s);
+                                        border: none;
+                                        outline: none;
+                                        @include box-shadow(none);
+                                        position: relative;
+                                        span {
+                                            display: inline-block;
+                                            font-family: $rubik;
+                                            font-size: 12px;
+                                            font-weight: 400;
+                                            line-height: 1.667;
+                                            padding-left: 8px;
+                                            color: #AEA9CF;
+                                        }
+                                        &::after {
+                                            content: '';
+                                            position: absolute;
+                                            bottom: 0px;
+                                            left: 0px;
+                                            right: 0px;
+                                            width: 0%;
+                                            height: 2px;
+                                            background-color: #671860;
+                                            @include transition(all 0.6s);
+                                        }
+                                        &:hover {
+                                            border: none;
+                                            outline: none;
+                                            &::after {
+                                                width: 100%;
+                                            }
+                                        }
+                                    }
+                                    .f_drop {
+                                        display: inline-block;
+                                        position: relative;
+                                        .f_con {
+                                            position: absolute;
+                                            top: 100%;
+                                            left: 0px;
+                                            width: 180px;
+                                            z-index: 9;
+                                            display: none;
+                                            .tab_btn {
+                                                display: block;
+                                                margin-right: 0px;
+                                                background-color: $section-bg;
+                                                padding: 15px 30px;
+                                                font-size: 14px;
+                                                @include border-radius(0px);
+                                            }
+                                        }
+                                    }
+                                    .active {
+                                        &::after {
+                                            width: 100%;
+                                        }
+                                    }
+                                }
+                                .social_wrapper {
+                                    a {
+                                        text-decoration: none;
+                                        display: inline-block;
+                                        font-size: 16px;
+                                        margin: 0px 5px;
+                                        width: 35px;
+                                        height: 35px;
+                                        background-color: blue;
+                                        @include border-radius(50%);
+                                        text-align: center;
+                                        i {
+                                            display: inline-block;
+                                            font-size: 16px;
+                                            color: $title-color;
+                                        }
+                                        &:hover {
+                                            text-decoration: none;
+                                        }
+                                    }
+                                    .fb {
+                                        background-color: rgb(55, 99, 210);
+                                    }
+                                    .tw {
+                                        background-color: rgb(26, 188, 255);
+                                    }
+                                    .ins {
+                                        background-color: rgb(248, 70, 141);
+                                    }
+                                }
+                            }
+                            .profile_tab {
+                                display: none;
+                            }
+                            .active {
+                                display: inherit;
+                            }
+                            #about {
+                                h3 {
+                                    font-family: $rubik;
+                                    font-size: 28px;
+                                    font-weight: bold;
+                                    line-height: 1.357;
+                                    color: $title-color;
+                                    margin-top: 55px;
+                                }
+                                .para {
+                                    margin: 20px 0px 34px;
+                                }
+                                ul {
+                                    list-style-type: none;
+                                    margin-bottom: 50px;
+                                    li {
+                                        list-style-type: none;
+                                        margin: 7px 0px;
+                                        i {
+                                            display: inline-block;
+                                            font-size: 18px;
+                                            padding-right: 8px;
+                                        }
+                                    }
+                                }
+                                .revenue_chart_wrapper {
+                                    background-color: rgb( 52, 58, 106 );
+                                    @include border-radius(8px);
+                                    padding: 30px;
+                                    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+                                    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+                                    margin-bottom: 40px;
+                                    .row {
+                                        .col-md-8 {
+                                            .left_col {
+                                                .d-flex {
+                                                    h4 {
+                                                        font-family: $rubik;
+                                                        font-size: 24px;
+                                                        font-weight: bold;
+                                                        line-height: 1.417;
+                                                        color: $title-color;
+                                                    }
+                                                    .dropdown {
+                                                        .dropdown-toggle {
+                                                            font-family: $open-sans;
+                                                            font-size: 16px;
+                                                            font-weight: 400;
+                                                            line-height: 1.5;
+                                                            color: rgb( 167, 174, 227 );
+                                                            background-color: transparent;
+                                                            border: none;
+                                                            outline: none;
+                                                            @include box-shadow(none);
+                                                            @include transition(all 0.6s);
+
+                                                            &::after {
+                                                                display: none;
+                                                            }
+                                                            i {
+                                                                display: inline-block;
+                                                                font-size: 12px;
+                                                                margin: 2px 0px 0px 5px;
+                                                            }
+                                                            &:hover {
+                                                                color: $title-color;
+                                                            }
+                                                        }
+                                                        .dropdown-menu {
+                                                            background-color: rgb( 52, 58, 106 );
+                                                            padding: 0px;
+                                                            margin: 0px;
+                                                            height: 200px;
+                                                            overflow-y: auto;
+                                                            li {
+                                                                padding: 0px;
+                                                                margin: 0px;
+                                                                .dropdown-item {
+                                                                    font-family: $open-sans;
+                                                                    font-size: 14px;
+                                                                    line-height: 1.5;
+                                                                    color: $title-color;
+                                                                    background-color: $sidebar-bg;
+                                                                    padding: 8px 16px;
+                                                                    margin: 2px 0px;
+                                                                    @include transition(all 0.6s);
+                                                                    &:hover {
+                                                                        background-color: rgb( 52, 58, 106 );
+                                                                    }
+                                                                }
+                                                            }
+                                                            &::-webkit-scrollbar {
+                                                                width: 6px;
+                                                            }
+                                                            &::-webkit-scrollbar-track {
+                                                                background-color: $sidebar-bg;
+                                                            }
+                                                            &::-webkit-scrollbar-thumb {
+                                                                background-color: $head-bg;
+                                                                @include border-radius(5px);
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                .revenue_chart {
+                                                    margin-top: 20px;
+                                                    #revenue {
+                                                       width: 100%;
+                                                       height: 350px;
+                                                       .apexcharts-tooltip {
+                                                        box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
+                                                        &.apexcharts-theme-light .apexcharts-tooltip-title {
+                                                            font-family: $open-sans!important;
+                                                            background-color: #12CCA9;
+                                                            border-bottom: 0;
+                                                            font-weight: bold;
+                                                            color: $title-color;
+                                                        }
+                                                        .apexcharts-tooltip-text-label {
+                                                            font-weight: bold;
+                                                            font-family: $open-sans;
+                                                            font-size: 12px;
+                                                            color: #000000;
+                                                        }
+                                                        .apexcharts-tooltip-text-value {
+                                                            font-weight: bold;
+                                                            font-family: $open-sans;
+                                                            font-size: 12px;
+                                                            color: #000000;
+                                                        }
+                                                    }
+                                                    .apexcharts-svg {
+                                                        @include border-radius(0px 0px 8px 0px);
+                                                    }   
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .col-md-4 {
+                                            .right_col {
+                                                .nav {
+                                                    margin: 0px;
+                                                    padding: 0px;
+                                                    .nav-item {
+                                                        margin: 0px;
+                                                        padding: 0px;
+                                                        .nav-link {
+                                                            margin: 0px;
+                                                            padding: 6px 0px;
+                                                            font-family: $open-sans;
+                                                            font-size: 14px;
+                                                            line-height: 1.6;
+                                                            font-weight: bold;
+                                                            color: rgb( 167, 174, 227 );
+                                                            @include border-radius(15px);
+                                                            &:hover {
+                                                                background-color: #5b63af;
+                                                                color: $title-color;
+                                                            }
+                                                        }
+                                                        .active {
+                                                            background-color: #5b63af;
+                                                            color: $title-color;
+                                                        }
+                                                    }
+                                                }
+                                                .income_chart_wrapper {
+                                                    margin-top: 45px;
+                                                    .balance {
+                                                        margin: 0px;
+                                                        font-family: $rubik;
+                                                        font-size: 28px;
+                                                        line-height: 1.357;
+                                                        font-weight: bold;
+                                                        color: #3DF5C1;
+                                                    }
+                                                    p {
+                                                        font-family: $open-sans;
+                                                        font-size: 16px;
+                                                        line-height: 1.5;
+                                                        font-weight: 400;
+                                                        color: #B1B8EE;
+                                                        margin-bottom: 10px;
+                                                    }
+                                                    #incomeChart {
+                                                        .apexcharts-tooltip {
+                                                            box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
+                                                            &.apexcharts-theme-light .apexcharts-tooltip-title {
+                                                                font-family: $open-sans!important;
+                                                                background-color: #12CCA9;
+                                                                border-bottom: 0;
+                                                                font-weight: bold;
+                                                                color: $title-color;
+                                                            }
+                                                            .apexcharts-tooltip-text-label {
+                                                                font-weight: bold;
+                                                                font-family: $open-sans;
+                                                                font-size: 12px;
+                                                                color: #000000;
+                                                            }
+                                                            .apexcharts-tooltip-text-value {
+                                                                font-weight: bold;
+                                                                font-family: $open-sans;
+                                                                font-size: 12px;
+                                                                color: #000000;
+                                                            }
+                                                        }
+                                                        .apexcharts-svg {
+                                                            @include border-radius(0px 0px 8px 0px);
+                                                        }   
+                                                    }
+                                                }
+                                                .invest_chart_wrapper {
+                                                    margin-top: 50px;
+                                                    .invest {
+                                                        margin: 0px;
+                                                        font-family: $rubik;
+                                                        font-size: 28px;
+                                                        line-height: 1.357;
+                                                        font-weight: bold;
+                                                        color: #93a4ff;
+                                                    }
+                                                    p {
+                                                        font-family: $open-sans;
+                                                        font-size: 16px;
+                                                        line-height: 1.5;
+                                                        font-weight: 400;
+                                                        color: #B1B8EE;
+                                                        margin-bottom: 10px;
+                                                    }
+                                                    #investChart {
+                                                        .apexcharts-tooltip {
+                                                            box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
+                                                            &.apexcharts-theme-light .apexcharts-tooltip-title {
+                                                                font-family: $open-sans!important;
+                                                                background-color: #93a4ff;
+                                                                border-bottom: 0;
+                                                                font-weight: bold;
+                                                                color: $title-color;
+                                                            }
+                                                            .apexcharts-tooltip-text-label {
+                                                                font-weight: bold;
+                                                                font-family: $open-sans;
+                                                                font-size: 12px;
+                                                                color: #000000;
+                                                            }
+                                                            .apexcharts-tooltip-text-value {
+                                                                font-weight: bold;
+                                                                font-family: $open-sans;
+                                                                font-size: 12px;
+                                                                color: #000000;
+                                                            }
+                                                        }
+                                                        .apexcharts-svg {
+                                                            @include border-radius(0px 0px 8px 0px);
+                                                        }   
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .profile_tab {
+                                .search_wrapper {
+                                    background-color: $sidebar-bg;
+                                    padding: 20px;
+                                    margin: 40px 0px 20px;
+                                    @include border-radius(12px);
+                                    @include box-shadow(0px 0px 40px 0px rgba(94, 92, 154, 0.06));
+                                    #searchFriend {
+                                        margin: 0px;
+                                        padding: 0px;
+                                        .input_wrapper {
+                                            width: 450px;
+                                            height: 50px;
+                                            position: relative;
+                                            input {
+                                                background-color: #393F74;
+                                                border: 2px solid transparent;
+                                                outline: none;
+                                                width: 100%;
+                                                height: 100%;
+                                                @include border-radius(10px);
+                                                padding: 8px 50px 8px 16px;
+                                                font-family: $open-sans;
+                                                font-size: 16px;
+                                                font-weight: 400;
+                                                line-height: 1.5;
+                                                color: $title-color;
+                                                &::placeholder {
+                                                    font-family: $open-sans;
+                                                    font-size: 16px;
+                                                    font-weight: 400;
+                                                    line-height: 1.5;
+                                                    color: #7B7AB6;
+                                                }
+                                                &:focus {
+                                                    border: 2px solid $title-color;
+                                                }
+                                            }
+                                            .flaticon-loupe {
+                                                display: inline-block;
+                                                &::before {
+                                                    display: inline-block;
+                                                    font-size: 16px;
+                                                    line-height: 1.5;
+                                                    color: #7B7AB6;
+                                                    position: absolute;
+                                                    right: 20px;
+                                                    top: 50%;
+                                                    @include transform(translateY(-50%));
+                                                }
+                                            }
+                                        }
+                                        .submit_wrapper {
+                                            button {
+                                                background-color: transparent;
+                                                border: none;
+                                                outline: none;
+                                                padding: 8px 30px;
+                                                font-family: $open-sans;
+                                                font-size: 14px;
+                                                font-weight: bold;
+                                                line-height: 1.714;
+                                                color: #DDDFFF;
+                                                border: 1px solid #2A3370;
+                                                @include border-radius(10px);
+                                                @include transition(all 0.6s);
+                                                i {
+                                                    display: inline-block;
+                                                    font-size: 24px;
+                                                    line-height: 1.5;
+                                                    color: #73aef2;
+                                                    margin-right: 10px;
+                                                }
+                                                &:hover {
+                                                    border: 1px solid $title-color;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    #searchFriend2 {
+                                        margin: 0px;
+                                        padding: 0px;
+                                        .input_wrapper {
+                                            width: 450px;
+                                            height: 50px;
+                                            position: relative;
+                                            input {
+                                                background-color: #393F74;
+                                                border: 2px solid transparent;
+                                                outline: none;
+                                                width: 100%;
+                                                height: 100%;
+                                                @include border-radius(10px);
+                                                padding: 8px 50px 8px 16px;
+                                                font-family: $open-sans;
+                                                font-size: 16px;
+                                                font-weight: 400;
+                                                line-height: 1.5;
+                                                color: $title-color;
+                                                &::placeholder {
+                                                    font-family: $open-sans;
+                                                    font-size: 16px;
+                                                    font-weight: 400;
+                                                    line-height: 1.5;
+                                                    color: #7B7AB6;
+                                                }
+                                                &:focus {
+                                                    border: 2px solid $title-color;
+                                                }
+                                            }
+                                            .flaticon-loupe {
+                                                display: inline-block;
+                                                &::before {
+                                                    display: inline-block;
+                                                    font-size: 16px;
+                                                    line-height: 1.5;
+                                                    color: #7B7AB6;
+                                                    position: absolute;
+                                                    right: 20px;
+                                                    top: 50%;
+                                                    @include transform(translateY(-50%));
+                                                }
+                                            }
+                                        }
+                                        .submit_wrapper {
+                                            button {
+                                                background-color: transparent;
+                                                border: none;
+                                                outline: none;
+                                                padding: 8px 30px;
+                                                font-family: $open-sans;
+                                                font-size: 14px;
+                                                font-weight: bold;
+                                                line-height: 1.714;
+                                                color: #DDDFFF;
+                                                border: 1px solid #2A3370;
+                                                @include border-radius(10px);
+                                                @include transition(all 0.6s);
+                                                i {
+                                                    display: inline-block;
+                                                    font-size: 24px;
+                                                    line-height: 1.5;
+                                                    color: #73aef2;
+                                                    margin-right: 10px;
+                                                }
+                                                &:hover {
+                                                    border: 1px solid $title-color;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .followers_row_first {
+                                    .col-lg-6 {
+                                        .left_col {
+                                            padding: 50px 12px;
+                                            margin-top: 20px;
+                                            border: 1px solid #3C447F;
+                                            @include border-radius(5px);
+                                            .d-sm-flex {
+                                                .friends_wrapper {
+                                                    .profile_wrapper {
+                                                        .profile_content {
+                                                            position: relative;
+                                                            width: 70px;
+                                                            height: 70px;
+                                                            margin: auto;
+                                                            .profile {
+                                                                text-decoration: none;
+                                                                display: inline-block;
+                                                                padding: 3px;
+                                                                border-width: 3px;
+                                                                border-style: solid;
+                                                                border-color:  #6544f5 #6544f5 #4495f5 #404766;
+                                                                @include border-radius(50%);
+                                                                img {
+                                                                    width:60px;
+                                                                    height: 60px;
+                                                                    border: none;
+                                                                }
+                                                                &:hover {
+                                                                    text-decoration: none;
+                                                                }
+                                                            }
+                                                            span {
+                                                                font-family: $rubik;
+                                                                font-size: 10px;
+                                                                font-weight: 500;
+                                                                line-height: 2;
+                                                                width: 25px;
+                                                                height: 25px;
+                                                                background-color: $section-bg;
+                                                                background-image: -moz-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                                                background-image: -webkit-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                                                background-image: -ms-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                                                background-image: linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                                                border: 3px solid $sidebar-bg;
+                                                                @include border-radius(50%);
+                                                                position: absolute;
+                                                                top: 60%;
+                                                                right: -5px;
+                                                            }
+                                                        }
+                                                        h5 {
+                                                            margin-top: 10px;
+                                                            a {
+                                                                text-decoration: none;
+                                                                display: inline-block;
+                                                                font-family: $rubik;
+                                                                font-size: $para-font;
+                                                                font-weight: bold;
+                                                                line-height: 1.556;
+                                                                text-transform: uppercase;
+                                                                color: $user-title;
+                                                                &:hover {
+                                                                    text-decoration: none;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                    .info_wrapper {
+                                                        margin-left: 20px;
+                                                        .name {
+                                                            text-decoration: none;
+                                                            display: inline-block;
+                                                            font-family: $rubik;
+                                                            font-size: 16px;
+                                                            font-weight: bold;
+                                                            line-height: 1.5;
+                                                            color: #EFF2FF;
+                                                            &:hover {
+                                                                text-decoration: none;
+                                                            }
+                                                        }
+                                                        .percentage {
+                                                            font-family: $open-sans;
+                                                            font-size: 14px;
+                                                            font-weight: bold;
+                                                            line-height: 1.429;
+                                                            color: #a3b5ff;
+                                                        }
+                                                    }
+                                                }
+                                                .icon_wrapper {
+                                                    a {
+                                                        text-decoration: none;
+                                                        display: inline-block;
+                                                        width: 30px;
+                                                        height: 30px;
+                                                        background-color: transparent;
+                                                        border: 1px solid #4B4A73;
+                                                        @include border-radius (50%);
+                                                        @include transition(all 0.6s);
+                                                        margin: 4px 2px;
+                                                        i {
+                                                            &::before {
+                                                                display: inline-block;
+                                                                font-size: 14px;
+                                                                line-height: 1.5;
+                                                                color: $title-color;
+                                                            }
+                                                        }
+                                                        &:hover {
+                                                            text-decoration: none;
+                                                            border: 1px solid $title-color;
+                                                        }
+                                                    }
+                                                }
+                                                .follow_wrapper {
+                                                    a {
+                                                        text-decoration: none;
+                                                        display: inline-block;
+                                                        font-family: $open-sans;
+                                                        font-size: 14px;
+                                                        font-weight: 400;
+                                                        line-height: 1.714;
+                                                        color: #a3b5ff;
+                                                        padding: 6px 16px;
+                                                        border: 1px solid #2A3370;
+                                                        @include border-radius(20px);
+                                                        @include transition(all 0.6s);
+                                                        &:hover {
+                                                            text-decoration: none;
+                                                            border: 1px solid $title-color;
+                                                            color: $title-color;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                //followers two styles
+                                .followers_two_row {
+                                    margin-top: 35px;
+                                    .col-lg-4 {
+                                        .followers_col {
+                                            margin-top: 25px;
+                                            .member_wrapper {
+                                                -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+                                                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+                                                .bg_head {
+                                                    height: 80px;
+                                                    background-color: $sidebar-bg;
+                                                    @include border-radius(5px 5px 0px 0px);
+                                                    img {
+                                                        width: 100%;
+                                                        height: 100%;
+                                                    }
+                                                }
+                                                .profile_wrapper {
+                                                    background-color: $sidebar-bg;
+                                                    .profile_content {
+                                                        position: relative;
+                                                        width: 90px;
+                                                        height: 90px;
+                                                        margin: auto;
+                                                        padding: 15px;
+                                                        background-color: $sidebar-bg;
+                                                        @include border-radius(50%);
+                                                        top: -45px;
+                                                        margin-bottom: -45px;
+                                                        .profile {
+                                                            text-decoration: none;
+                                                            display: inline-block;
+                                                            padding: 3px;
+                                                            border-width: 3px;
+                                                            border-style: solid;
+                                                            border-color:  #6544f5 #6544f5 #4495f5 #404766;
+                                                            @include border-radius(50%);
+                                                            img {
+                                                                width: 100%;
+                                                                height: auto;
+                                                                border: none;
+                                                            }
+                                                            &:hover {
+                                                                text-decoration: none;
+                                                            }
+                                                        }
+                                                        span {
+                                                            font-family: $rubik;
+                                                            font-size: 10px;
+                                                            font-weight: 500;
+                                                            line-height: 2;
+                                                            width: 25px;
+                                                            height: 25px;
+                                                            background-color: $section-bg;
+                                                            background-image: -moz-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                                            background-image: -webkit-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                                            background-image: -ms-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                                            background-image: linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                                            border: 3px solid $sidebar-bg;
+                                                            @include border-radius(50%);
+                                                            position: absolute;
+                                                            top: 60%;
+                                                            right: 10px;
+                                                        }
+                                                    }
+                                                    h5 {
+                                                        margin-top: 0px;
+                                                        a {
+                                                            text-decoration: none;
+                                                            display: inline-block;
+                                                            font-family: $rubik;
+                                                            font-size: 14px;
+                                                            font-weight: 400;
+                                                            line-height: 1.429;
+                                                            text-transform: uppercase;
+                                                            color: #f1f4ff;
+                                                            &:hover {
+                                                                text-decoration: none;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                .follow_wrapper {
+                                                    padding: 15px 0px 27px;
+                                                    position: relative;
+                                                    background-color: $sidebar-bg;
+                                                    .follower, .following {
+                                                        .icon {
+                                                            i {
+                                                                &::before {
+                                                                    font-size: 14px;
+                                                                    line-height: 24px;
+                                                                    color: $user-text;
+                                                                }
+                                                            }
+                                                        }
+                                                        .amount {
+                                                            margin-left: 8px;
+                                                            a {
+                                                                text-decoration: none;
+                                                                display: inline-block;
+                                                                font-family: $open-sans;
+                                                                font-size: 14px;
+                                                                line-height: 1.778;
+                                                                font-weight: 400;
+                                                                text-transform: uppercase;
+                                                                color: $title-color;
+                                                                &:hover {
+                                                                    text-decoration: none;
+                                                                }
+                                                            }
+                                                            p {
+                                                                font-family: $open-sans;
+                                                                font-size: 10px;
+                                                                line-height: 2;
+                                                                font-weight: bold;
+                                                                text-transform: uppercase;
+                                                                color: $user-text;
+                                                            }
+                                                        }
+                                                    }
+                                                    &::after {
+                                                        content: "";
+                                                        position: absolute;
+                                                        left: 50%;
+                                                        top: 50%;
+                                                        @include transform(translate(-50%, -50%));
+                                                        height: 30px;
+                                                        width: 1px;
+                                                        background-color: rgba( 132, 139, 164, 0.302 );
+                                                    }
+                                                }
+                                                .follow_btn {
+                                                    padding: 25px 0px;
+                                                    background-color: $sidebar-bg;
+                                                    @include border-radius(0px 0px 5px 5px);
+                                                    border-top: 1px solid #272C50;
+                                                    a {
+                                                        text-decoration: none;
+                                                        display: inline-block;
+                                                        font-family: $open-sans;
+                                                        font-size: 14px;
+                                                        font-weight: 400;
+                                                        line-height: 1.714;
+                                                        color: #9baeff;
+                                                        padding: 5px 30px;
+                                                        border: 1px solid #272c50;
+                                                        background-color: $sidebar-bg;
+                                                        @include border-radius(30px);
+                                                        @include transition(all 0.6s);
+                                                        &:hover {
+                                                            text-decoration: none;
+                                                            color: $title-color;
+                                                            background-image: -moz-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                                            background-image: -webkit-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                                            background-image: -ms-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                                            background-image: linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .show_wrapper {
+                                    margin-top: 20px;
+                                    padding: 30px 0px;
+                                    a {
+                                        text-decoration: none;
+                                        display: inline-block;
+                                        font-family: $open-sans;
+                                        font-size: 18px;
+                                        font-weight: bold;
+                                        line-height: 1.556;
+                                        color: #a3b5ff;
+                                        padding: 10px 40px;
+                                        border: 1px solid #2A3370;
+                                        @include border-radius(25px);
+                                        @include transition(all 0.6s);
+                                        &:hover {
+                                            text-decoration: none;
+                                            color: $title-color;
+                                            border: 1px solid $title-color;
+                                        }
+                                    }
+                                }
+                            }
+                            #stats {
+                                margin: 50px 0px 40px;
+                                .revenue_chart_wrapper {
+                                    background-color: rgb( 52, 58, 106 );
+                                    @include border-radius(8px);
+                                    padding: 30px;
+                                    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+                                    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+                                    .row {
+                                        .col-md-8 {
+                                            .left_col {
+                                                .d-flex {
+                                                    h4 {
+                                                        font-family: $rubik;
+                                                        font-size: 24px;
+                                                        font-weight: bold;
+                                                        line-height: 1.417;
+                                                        color: $title-color;
+                                                    }
+                                                    .dropdown {
+                                                        .dropdown-toggle {
+                                                            font-family: $open-sans;
+                                                            font-size: 16px;
+                                                            font-weight: 400;
+                                                            line-height: 1.5;
+                                                            color: rgb( 167, 174, 227 );
+                                                            background-color: transparent;
+                                                            border: none;
+                                                            outline: none;
+                                                            @include box-shadow(none);
+                                                            @include transition(all 0.6s);
+
+                                                            &::after {
+                                                                display: none;
+                                                            }
+                                                            i {
+                                                                display: inline-block;
+                                                                font-size: 12px;
+                                                                margin-left: 2px;
+                                                            }
+                                                            &:hover {
+                                                                color: $title-color;
+                                                            }
+                                                        }
+                                                        .dropdown-menu {
+                                                            background-color: rgb( 52, 58, 106 );
+                                                            padding: 0px;
+                                                            margin: 0px;
+                                                            height: 200px;
+                                                            overflow-y: auto;
+                                                            li {
+                                                                padding: 0px;
+                                                                margin: 0px;
+                                                                .dropdown-item {
+                                                                    font-family: $open-sans;
+                                                                    font-size: 14px;
+                                                                    line-height: 1.5;
+                                                                    color: $title-color;
+                                                                    background-color: $sidebar-bg;
+                                                                    padding: 8px 16px;
+                                                                    margin: 2px 0px;
+                                                                    @include transition(all 0.6s);
+                                                                    &:hover {
+                                                                        background-color: rgb( 52, 58, 106 );
+                                                                    }
+                                                                }
+                                                            }
+                                                            &::-webkit-scrollbar {
+                                                                width: 6px;
+                                                            }
+                                                            &::-webkit-scrollbar-track {
+                                                                background-color: $sidebar-bg;
+                                                            }
+                                                            &::-webkit-scrollbar-thumb {
+                                                                background-color: $head-bg;
+                                                                @include border-radius(5px);
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                .revenue_chart {
+                                                    margin-top: 20px;
+                                                    #revenueDuplicate {
+                                                       width: 100%;
+                                                       height: 350px;
+                                                       .apexcharts-tooltip {
+                                                        box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
+                                                        &.apexcharts-theme-light .apexcharts-tooltip-title {
+                                                            font-family: $open-sans!important;
+                                                            background-color: #12CCA9;
+                                                            border-bottom: 0;
+                                                            font-weight: bold;
+                                                            color: $title-color;
+                                                        }
+                                                        .apexcharts-tooltip-text-label {
+                                                            font-weight: bold;
+                                                            font-family: $open-sans;
+                                                            font-size: 12px;
+                                                            color: #000000;
+                                                        }
+                                                        .apexcharts-tooltip-text-value {
+                                                            font-weight: bold;
+                                                            font-family: $open-sans;
+                                                            font-size: 12px;
+                                                            color: #000000;
+                                                        }
+                                                    }
+                                                    .apexcharts-svg {
+                                                        @include border-radius(0px 0px 8px 0px);
+                                                    }   
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .col-md-4 {
+                                            .right_col {
+                                                .nav {
+                                                    margin: 0px;
+                                                    padding: 0px;
+                                                    .nav-item {
+                                                        margin: 0px;
+                                                        padding: 0px;
+                                                        .nav-link {
+                                                            margin: 0px;
+                                                            padding: 6px 0px;
+                                                            font-family: $open-sans;
+                                                            font-size: 14px;
+                                                            line-height: 1.6;
+                                                            font-weight: bold;
+                                                            color: rgb( 167, 174, 227 );
+                                                            @include border-radius(15px);
+                                                            &:hover {
+                                                                background-color: #5b63af;
+                                                                color: $title-color;
+                                                            }
+                                                        }
+                                                        .active {
+                                                            background-color: #5b63af;
+                                                            color: $title-color;
+                                                        }
+                                                    }
+                                                }
+                                                .income_chart_wrapper {
+                                                    margin-top: 45px;
+                                                    .balance {
+                                                        margin: 0px;
+                                                        font-family: $rubik;
+                                                        font-size: 28px;
+                                                        line-height: 1.357;
+                                                        font-weight: bold;
+                                                        color: #3DF5C1;
+                                                    }
+                                                    p {
+                                                        font-family: $open-sans;
+                                                        font-size: 16px;
+                                                        line-height: 1.5;
+                                                        font-weight: 400;
+                                                        color: #B1B8EE;
+                                                        margin-bottom: 10px;
+                                                    }
+                                                    #incomeChartDuplicate {
+                                                        .apexcharts-tooltip {
+                                                            box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
+                                                            &.apexcharts-theme-light .apexcharts-tooltip-title {
+                                                                font-family: $open-sans!important;
+                                                                background-color: #12CCA9;
+                                                                border-bottom: 0;
+                                                                font-weight: bold;
+                                                                color: $title-color;
+                                                            }
+                                                            .apexcharts-tooltip-text-label {
+                                                                font-weight: bold;
+                                                                font-family: $open-sans;
+                                                                font-size: 12px;
+                                                                color: #000000;
+                                                            }
+                                                            .apexcharts-tooltip-text-value {
+                                                                font-weight: bold;
+                                                                font-family: $open-sans;
+                                                                font-size: 12px;
+                                                                color: #000000;
+                                                            }
+                                                        }
+                                                        .apexcharts-svg {
+                                                            @include border-radius(0px 0px 8px 0px);
+                                                        }   
+                                                    }
+                                                }
+                                                .invest_chart_wrapper {
+                                                    margin-top: 50px;
+                                                    .invest {
+                                                        margin: 0px;
+                                                        font-family: $rubik;
+                                                        font-size: 28px;
+                                                        line-height: 1.357;
+                                                        font-weight: bold;
+                                                        color: #93a4ff;
+                                                    }
+                                                    p {
+                                                        font-family: $open-sans;
+                                                        font-size: 16px;
+                                                        line-height: 1.5;
+                                                        font-weight: 400;
+                                                        color: #B1B8EE;
+                                                        margin-bottom: 10px;
+                                                    }
+                                                    #investChartDuplicate {
+                                                        .apexcharts-tooltip {
+                                                            box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
+                                                            &.apexcharts-theme-light .apexcharts-tooltip-title {
+                                                                font-family: $open-sans!important;
+                                                                background-color: #93a4ff;
+                                                                border-bottom: 0;
+                                                                font-weight: bold;
+                                                                color: $title-color;
+                                                            }
+                                                            .apexcharts-tooltip-text-label {
+                                                                font-weight: bold;
+                                                                font-family: $open-sans;
+                                                                font-size: 12px;
+                                                                color: #000000;
+                                                            }
+                                                            .apexcharts-tooltip-text-value {
+                                                                font-weight: bold;
+                                                                font-family: $open-sans;
+                                                                font-size: 12px;
+                                                                color: #000000;
+                                                            }
+                                                        }
+                                                        .apexcharts-svg {
+                                                            @include border-radius(0px 0px 8px 0px);
+                                                        }   
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .col-xl-3 {
+                    .inner_right {
+                        .member_row {
+                            .member_col {
+                                margin-bottom: 25px;
+                                .member_wrapper {
+                                    .bg_head {
+                                        height: 80px;
+                                        background-color: $sidebar-bg;
+                                        @include border-radius(5px 5px 0px 0px);
+                                        img {
+                                            width: 100%;
+                                            height: 100%;
+                                        }
+                                    }
+                                    .profile_wrapper {
+                                        background-color: $sidebar-bg;
+                                        .profile_content {
+                                            position: relative;
+                                            width: 90px;
+                                            height: 90px;
+                                            margin: auto;
+                                            padding: 15px;
+                                            background-color: $sidebar-bg;
+                                            @include border-radius(50%);
+                                            top: -45px;
+                                            margin-bottom: -45px;
+                                            .profile {
+                                                text-decoration: none;
+                                                display: inline-block;
+                                                padding: 3px;
+                                                border-width: 3px;
+                                                border-style: solid;
+                                                border-color:  #6544f5 #6544f5 #4495f5 #404766;
+                                                @include border-radius(50%);
+                                                img {
+                                                    width: 100%;
+                                                    height: auto;
+                                                    border: none;
+                                                }
+                                                &:hover {
+                                                    text-decoration: none;
+                                                }
+                                            }
+                                            span {
+                                                font-family: $rubik;
+                                                font-size: 10px;
+                                                font-weight: 500;
+                                                line-height: 2;
+                                                width: 25px;
+                                                height: 25px;
+                                                background-color: $section-bg;
+                                                background-image: -moz-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                                background-image: -webkit-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                                background-image: -ms-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                                background-image: linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                                border: 3px solid $sidebar-bg;
+                                                @include border-radius(50%);
+                                                position: absolute;
+                                                top: 60%;
+                                                right: 10px;
+                                            }
+                                        }
+                                        h5 {
+                                            margin-top: 0px;
+                                            a {
+                                                text-decoration: none;
+                                                display: inline-block;
+                                                font-family: $rubik;
+                                                font-size: 14px;
+                                                font-weight: bold;
+                                                line-height: 1.429;
+                                                text-transform: uppercase;
+                                                color: #f1f4ff;
+                                                &:hover {
+                                                    text-decoration: none;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .follow_wrapper {
+                                        padding: 15px 0px 27px;
+                                        position: relative;
+                                        background-color: $sidebar-bg;
+                                        .follower, .following {
+                                            .icon {
+                                                i {
+                                                    &::before {
+                                                        font-size: 14px;
+                                                        line-height: 24px;
+                                                        color: $user-text;
+                                                    }
+                                                }
+                                            }
+                                            .amount {
+                                                margin-left: 8px;
+                                                a {
+                                                    text-decoration: none;
+                                                    display: inline-block;
+                                                    font-family: $open-sans;
+                                                    font-size: 14px;
+                                                    line-height: 1.778;
+                                                    font-weight: 400;
+                                                    text-transform: uppercase;
+                                                    color: $title-color;
+                                                    &:hover {
+                                                        text-decoration: none;
+                                                    }
+                                                }
+                                                p {
+                                                    font-family: $open-sans;
+                                                    font-size: 10px;
+                                                    line-height: 2;
+                                                    font-weight: bold;
+                                                    text-transform: uppercase;
+                                                    color: $user-text;
+                                                }
+                                            }
+                                        }
+                                        &::after {
+                                            content: "";
+                                            position: absolute;
+                                            left: 50%;
+                                            top: 50%;
+                                            @include transform(translate(-50%, -50%));
+                                            height: 30px;
+                                            width: 1px;
+                                            background-color: rgba( 132, 139, 164, 0.302 );
+                                        }
+                                    }
+                                    .income_wrapper {
+                                        padding: 15px 0px;
+                                        background-color: $sidebar-bg;
+                                        border-top: 4px double #272c50;
+                                        border-bottom: 4px double #272c50;
+                                        .income_amount {
+                                            font-family: $rubik;
+                                            font-size: $para-font;
+                                            font-weight: bold;
+                                            line-height: 1.556;
+                                            color: #3df5c1;
+                                            i {
+                                                display: inline-block;
+                                                font-size: $para-font;
+                                                line-height: 1.556;
+                                                color: #3df5c1;
+                                            }
+                                        }
+                                        span {
+                                            font-family: $open-sans;
+                                            font-size: 14px;
+                                            font-weight: 400;
+                                            line-height: 1.714;
+                                            color: #b1b8ee;
+                                        }
+                                        .percentage {
+                                            .income_percent {
+                                                font-family: $rubik;
+                                                font-size: $para-font;
+                                                font-weight: bold;
+                                                line-height: 1.556;
+                                                color: #9eadff;
+                                            }
+                                            span {
+                                                font-family: $open-sans;
+                                                font-size: 14px;
+                                                font-weight: 400;
+                                                line-height: 1.714;
+                                                text-transform: uppercase;
+                                                color: #b1b8ee;
+                                            }
+                                        }
+                                    }
+                                    .follow_btn {
+                                        padding: 15px 0px;
+                                        background-color: $sidebar-bg;
+                                        @include border-radius(0px 0px 5px 5px);
+                                        a {
+                                            text-decoration: none;
+                                            display: inline-block;
+                                            font-family: $open-sans;
+                                            font-size: 14px;
+                                            font-weight: 400;
+                                            line-height: 1.714;
+                                            color: #9baeff;
+                                            padding: 5px 30px;
+                                            border: 1px solid #272c50;
+                                            background-color: $sidebar-bg;
+                                            @include border-radius(30px);
+                                            @include transition(all 0.6s);
+                                            &:hover {
+                                                text-decoration: none;
+                                                color: $title-color;
+                                                background-image: -moz-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                                background-image: -webkit-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                                background-image: -ms-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                                background-image: linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.dark {
+    .page_wrapper {
+        .body_content {
+            .main_content {
+                .row {
+                    .col-xl-9 {
+                        .inner_left {
+                            .cover_img {
+                                .profile_lg_wrapper {
+                                    .profile_content {
+                                        background-color: #fff;
+                                        span {
+                                            border: 5px solid #fff;
+                                        }
+                                    }
+                                }
+                            }
+                            .profile_info_wrapper {
+                                background-color: #fff;
+                                @include box-shadow(0px 0px 50px #f0f0f9);
+                                .tag_icon_wrapper {
+                                    .tag_icon {
+                                        a {
+                                            i {
+                                                &::before {
+                                                    color: #25294a;
+                                                }
+                                            }
+                                            &:hover {
+                                                i {
+                                                    &::before {
+                                                        color: $user-text;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .follow_wrapper {
+                                        .follower, .following {
+                                            .icon {
+                                                i {
+                                                    &::before {
+                                                        color: #25294a;
+                                                    }
+                                                }
+                                            }
+                                            .amount {
+                                                a {
+                                                    color: #25294a;
+                                                }
+                                                p {
+                                                    color: #25294a;
+                                                }
+                                            }
+                                        }
+                                        &::after {
+                                            background-color: #25294a;
+                                        }
+                                    }
+                                }
+                            }
+                            .tab_wrapper {
+                                .tab_btn_row {
+                                    background-color: #fff;
+                                    @include box-shadow(0px 0px 50px #f0f0f9);
+                                    .tab_btn_wrapper {
+                                        .tab_btn, .dr_btn {
+                                            color: #25294a;
+                                        }
+                                        .f_drop {
+                                            .f_con {
+                                                .tab_btn {
+                                                    background-color: #fff;
+                                                    @include box-shadow(0px 0px 10px #f0f0f9);
+                                                }
+                                            }
+                                        }
+                                        .active {
+                                            &::after {
+                                                width: 100%;
+                                            }
+                                        }
+                                    }
+                                }
+                                #about {
+                                    h3 {
+                                        color: #25294a;
+                                    }
+                                    .para {
+                                        color: #25294a;
+                                    }
+                                    ul {
+                                        li {
+                                            color: #25294a;
+                                            i {
+                                                color: #25294a;
+                                            }
+                                        }
+                                    }
+                                    .revenue_chart_wrapper {
+                                        background-color: #fff;
+                                        @include box-shadow(0px 0px 20px #f0f0f9);
+                                        .row {
+                                            .col-md-8 {
+                                                .left_col {
+                                                    .d-flex {
+                                                        h4 {
+                                                            color: #25294a;
+                                                        }
+                                                        .dropdown {
+                                                            .dropdown-toggle {
+                                                                color: #25294a;
+                                                                &:hover {
+                                                                    color: #25294a;
+                                                                }
+                                                            }
+                                                            .dropdown-menu {
+                                                                background-color: #fff;
+                                                                @include box-shadow(0px 0px 15px #f0f0f9);
+                                                                li {
+                                                                    .dropdown-item {
+                                                                        background-color: #fff;
+                                                                        color: #25294a;
+                                                                        &:hover {
+                                                                            background-color: rgb( 52, 58, 106 );
+                                                                            color: #fff;
+                                                                        }
+                                                                    }
+                                                                }
+                                                                &::-webkit-scrollbar {
+                                                                    width: 6px;
+                                                                }
+                                                                &::-webkit-scrollbar-track {
+                                                                    background-color: #fff;
+                                                                }
+                                                                &::-webkit-scrollbar-thumb {
+                                                                    background-color: #25294a;
+                                                                    @include border-radius(5px);
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            .col-md-4 {
+                                                .right_col {
+                                                    .nav {
+                                                        .nav-item {
+                                                            .nav-link {
+                                                                color: #25294a;
+                                                                &:hover {
+                                                                    background-color: #5b63af;
+                                                                    color: $title-color;
+                                                                }
+                                                            }
+                                                            .active {
+                                                                background-color: #5b63af;
+                                                                color: $title-color;
+                                                            }
+                                                        }
+                                                    }
+                                                    .income_chart_wrapper {
+                                                        p {
+                                                            color: #25294a;
+                                                        }
+                                                    }
+                                                    .invest_chart_wrapper {
+                                                        p {
+                                                            color: #25294a;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .profile_tab {
+                                    .search_wrapper {
+                                        background-color: #fff;
+                                        @include box-shadow(0px 0px 15px #f0f0f9);
+                                        #searchFriend {
+                                            @include box-shadow(0px 0px 0px #f0f0f9);
+                                            .input_wrapper {
+                                                input {
+                                                    background-color: #f0f0f9;
+                                                    color: #25294a;
+                                                    &::placeholder {
+                                                        color: #25294a;
+                                                    }
+                                                    &:focus {
+                                                        border: 2px solid #25294a;
+                                                    }
+                                                }
+                                                .flaticon-loupe {
+                                                    display: inline-block;
+                                                    &::before {
+                                                        color: #25294a;
+                                                    }
+                                                }
+                                            }
+                                            .submit_wrapper {
+                                                button {
+                                                    color: #25294a;
+                                                    &:hover {
+                                                        border: 1px solid #25294a;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        #searchFriend2 {
+                                            @include box-shadow(0px 0px 0px #f0f0f9);
+                                            .input_wrapper {
+                                                input {
+                                                    background-color: #f0f0f9;
+                                                    color: #25294a;
+                                                    &::placeholder {
+                                                        color: #25294a;
+                                                    }
+                                                    &:focus {
+                                                        border: 2px solid #25294a;
+                                                    }
+                                                }
+                                                .flaticon-loupe {
+                                                    display: inline-block;
+                                                    &::before {
+                                                        color: #25294a;
+                                                    }
+                                                }
+                                            }
+                                            .submit_wrapper {
+                                                button {
+                                                    color: #25294a;
+                                                    &:hover {
+                                                        border: 1px solid #25294a;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .followers_row_first {
+                                        .col-lg-6 {
+                                            .left_col {
+                                                .d-sm-flex {
+                                                    .friends_wrapper {
+                                                        .info_wrapper {
+                                                            .name {
+                                                                color: #25294a;
+                                                            }
+                                                        }
+                                                    }
+                                                    .icon_wrapper {
+                                                        a {
+                                                            i {
+                                                                &::before {
+                                                                    color: #25294a;
+                                                                }
+                                                            }
+                                                            &:hover {
+                                                                border: 1px solid #25294a;
+                                                            }
+                                                        }
+                                                    }
+                                                    .follow_wrapper {
+                                                        a {
+                                                            color: #25294a;
+                                                            @include box-shadow(0px 0px 10px #f0f0f9);
+                                                            &:hover{
+                                                                border: 1px solid #25294a;
+                                                                color: #25294a;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    //followers two styles
+                                    .followers_two_row {
+                                        .col-lg-4 {
+                                            .followers_col {
+                                                .member_wrapper {
+                                                    .bg_head {
+                                                        background-color: #fff;
+                                                    }
+                                                    .profile_wrapper {
+                                                        background-color: #fff;
+                                                        .profile_content {
+                                                            background-color: #fff;
+                                                        }
+                                                        h5 {
+                                                            a {
+                                                                color: #25294a;
+                                                            }
+                                                        }
+                                                    }
+                                                    .follow_wrapper {
+                                                        background-color: #fff;
+                                                        .follower, .following {
+                                                            .icon {
+                                                                i {
+                                                                    &::before {
+                                                                        color: #25294a;
+                                                                    }
+                                                                }
+                                                            }
+                                                            .amount {
+                                                                a {
+                                                                    color: #25294a;
+                                                                }
+                                                                p {
+                                                                    color: #25294a;
+                                                                }
+                                                            }
+                                                        }
+                                                        &::after {
+                                                            background-color: #25294a;
+                                                        }
+                                                    }
+                                                    .follow_btn {
+                                                        background-color: #fff;
+                                                        border-top: 1px solid #f0f0f9;
+                                                        a {
+                                                            color: #25294a;
+                                                            background-color: #fff;
+                                                            @include box-shadow(0px 0px 15px #f0f0f9);
+                                                            &:hover {
+                                                                text-decoration: none;
+                                                                color: $title-color;
+                                                                background-image: -moz-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                                                background-image: -webkit-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                                                background-image: -ms-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                                                background-image: linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                                                border: 1px solid transparent;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .show_wrapper {
+                                        a {
+                                            color: #25294a;
+                                            border: 1px solid #25294a;
+                                            &:hover {
+                                                color: #25294a;
+                                                border: 1px solid #25294a;
+                                            }
+                                        }
+                                    }
+                                }
+                                #stats {
+                                    .revenue_chart_wrapper {
+                                        background-color: #fff;
+                                        @include box-shadow(0px 0px 30px #f0f0f9);
+                                        .row {
+                                            .col-md-8 {
+                                                .left_col {
+                                                    .d-flex {
+                                                        h4 {
+                                                            color: #25294a;
+                                                        }
+                                                        .dropdown {
+                                                            .dropdown-toggle {
+                                                                color: #25294a;
+                                                                &:hover {
+                                                                    color: #25294a;
+                                                                }
+                                                            }
+                                                            .dropdown-menu {
+                                                                background-color: #fff;
+                                                                @include box-shadow(0px 0px 20px #f0f0f9);
+                                                                li {
+                                                                    .dropdown-item {
+                                                                        background-color: #f0f0f9;
+                                                                        color: #25294a;
+                                                                        &:hover {
+                                                                            background-color: rgb( 52, 58, 106 );
+                                                                            color: #fff;
+                                                                        }
+                                                                    }
+                                                                }
+                                                                &::-webkit-scrollbar {
+                                                                    width: 6px;
+                                                                }
+                                                                &::-webkit-scrollbar-track {
+                                                                    background-color: #fff;
+                                                                }
+                                                                &::-webkit-scrollbar-thumb {
+                                                                    background-color: #25294a;
+                                                                    @include border-radius(5px);
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            .col-md-4 {
+                                                .right_col {
+                                                    .nav {
+                                                        .nav-item {
+                                                            .nav-link {
+                                                                color: #25294a;
+                                                                &:hover {
+                                                                    background-color: #5b63af;
+                                                                    color: $title-color;
+                                                                }
+                                                            }
+                                                            .active {
+                                                                background-color: #5b63af;
+                                                                color: $title-color;
+                                                            }
+                                                        }
+                                                    }
+                                                    .income_chart_wrapper {
+                                                        p {
+                                                            color: #25294a;
+                                                        }
+                                                    }
+                                                    .invest_chart_wrapper {
+                                                        p {
+                                                            color: #25294a;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .col-xl-3 {
+                        .inner_right {
+                            .member_row {
+                                .member_col {
+                                    .member_wrapper {
+                                        @include box-shadow(0px 0px 30px #f0f0f9);
+                                        .bg_head {
+                                            background-color: #fff;
+                                        }
+                                        .profile_wrapper {
+                                            background-color: #fff;
+                                            .profile_content {
+                                                background-color: #fff;
+                                                span {
+                                                    border: 3px solid #fff;
+                                                }
+                                            }
+                                            h5 {
+                                                a {
+                                                    color: #25294a;
+                                                    &:hover {
+                                                        text-decoration: none;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .follow_wrapper {
+                                            background-color: #fff;
+                                            .follower, .following {
+                                                .icon {
+                                                    i {
+                                                        &::before {
+                                                            color: #25294a;
+                                                        }
+                                                    }
+                                                }
+                                                .amount {
+                                                    a {
+                                                        color: #25294a;
+                                                        &:hover {
+                                                            text-decoration: none;
+                                                        }
+                                                    }
+                                                    p {
+                                                        color: #25294a;
+                                                    }
+                                                }
+                                            }
+                                            &::after {
+                                                background-color: #25294a;
+                                            }
+                                        }
+                                        .income_wrapper {
+                                            background-color: #fff;
+                                            border-top: 4px double #f0f0f9;
+                                            border-bottom: 4px double #f0f0f9;
+                                            span {
+                                                color: #25294a;
+                                            }
+                                            .percentage {
+                                                span {
+                                                    color: #25294a;
+                                                }
+                                            }
+                                        }
+                                        .follow_btn {
+                                            background-color: #fff;
+                                            a {
+                                                background-color: #fff;
+                                                @include box-shadow(0px 0px 15px #f0f0f9);
+                                                color: #25294a;
+                                                &:hover {
+                                                    text-decoration: none;
+                                                    color: $title-color;
+                                                    background-image: -moz-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                                    background-image: -webkit-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                                    background-image: -ms-linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                                    background-image: linear-gradient( 45deg, rgb(215,61,245) 0%, rgb(143,61,245) 100%);
+                                                    border: 1px solid transparent;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

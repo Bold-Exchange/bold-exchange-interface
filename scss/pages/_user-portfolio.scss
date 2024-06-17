@@ -1,0 +1,398 @@
+.page_wrapper {
+    .body_content {
+        .main_content {
+            .row {
+                .col-xl-9 {
+                    margin-bottom: 0px;
+                    .inner_left {                   
+                        .container-fluid {
+                            padding: 0px;
+                            .row {
+                                .col-lg-4 {
+                                    margin-bottom: 25px;
+                                    .cmn_st {
+                                        padding: 30px 20px 0px;
+                                        background-color: rgb(61, 68, 122);
+                                        @include border-radius(8px);
+                                        .title_wrapper {
+                                            .title {
+                                                font-family: $rubik;
+                                                font-size: 16px;
+                                                font-weight: 600;
+                                                line-height: 1.75;
+                                                color: $title-color;
+                                            }
+                                            .value {
+                                                font-family: $open-sans;
+                                                font-size: 13px;
+                                                font-weight: bold;
+                                                line-height: 1.846;
+                                                text-transform: uppercase;
+                                                color: rgb(95, 222, 50);
+                                                i {
+                                                    display: inline-block;
+                                                    font-size: 10px;
+                                                    margin-right: 5px;
+                                                }
+                                                img {
+                                                    display: inline-block;
+                                                    width: 11px;
+                                                    height: 12px;
+                                                    margin-left: 5px;
+                                                }
+                                            }
+                                        }
+                                        h5 {
+                                            font-family: $open-sans;
+                                            font-size: 24px;
+                                            font-weight: bold;
+                                            line-height: 1.167;
+                                            color: rgb(255, 198, 0);
+                                            margin-top: 10px;
+                                        }
+                                        .chart_wrapper { 
+                                            margin-right: -20px;
+                                            #valueChart {
+                                                .apexcharts-tooltip {
+                                                    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
+                                                    &.apexcharts-theme-light .apexcharts-tooltip-title {
+                                                        font-family: $open-sans!important;
+                                                        background-color: $secondary-color;
+                                                        border-bottom: 0;
+                                                        font-weight: bold;
+                                                        color: $title-color;
+                                                    }
+                                                    .apexcharts-tooltip-text-label {
+                                                        font-weight: bold;
+                                                        font-family: $open-sans;
+                                                        font-size: 12px;
+                                                        color: #000000;
+                                                    }
+                                                    .apexcharts-tooltip-text-value {
+                                                        font-weight: bold;
+                                                        font-family: $open-sans;
+                                                        font-size: 12px;
+                                                        color: #000000;
+                                                    }
+                                                }
+                                                .apexcharts-svg {
+                                                   @include border-radius(0px 0px 8px 0px);
+                                                }
+                                                
+                                            }
+                                            #balanceChart {
+                                                .apexcharts-tooltip {
+                                                    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
+                                                    &.apexcharts-theme-light .apexcharts-tooltip-title {
+                                                        font-family: $open-sans!important;
+                                                        background-color: #12CCA9;
+                                                        border-bottom: 0;
+                                                        font-weight: bold;
+                                                        color: $title-color;
+                                                    }
+                                                    .apexcharts-tooltip-text-label {
+                                                        font-weight: bold;
+                                                        font-family: $open-sans;
+                                                        font-size: 12px;
+                                                        color: #000000;
+                                                    }
+                                                    .apexcharts-tooltip-text-value {
+                                                        font-weight: bold;
+                                                        font-family: $open-sans;
+                                                        font-size: 12px;
+                                                        color: #000000;
+                                                    }
+                                                }
+                                                .apexcharts-svg {
+                                                    @include border-radius(0px 0px 8px 0px);
+                                                }                                             
+                                            }
+                                            #earningsChart {
+                                                .apexcharts-tooltip {
+                                                    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
+                                                    &.apexcharts-theme-light .apexcharts-tooltip-title {
+                                                        font-family: $open-sans!important;
+                                                        background-color: #A05BFF;
+                                                        border-bottom: 0;
+                                                        font-weight: bold;
+                                                        color: $title-color;
+                                                    }
+                                                    .apexcharts-tooltip-text-label {
+                                                        font-weight: bold;
+                                                        font-family: $open-sans;
+                                                        font-size: 12px;
+                                                        color: #000000;
+                                                    }
+                                                    .apexcharts-tooltip-text-value {
+                                                        font-weight: bold;
+                                                        font-family: $open-sans;
+                                                        font-size: 12px;
+                                                        color: #000000;
+                                                    }
+                                                }
+                                                .apexcharts-svg {
+                                                    @include border-radius(0px 0px 8px 0px);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .table_content_wrapper {
+                            h5 {
+                                font-family: $open-sans;
+                                font-size: 28px;
+                                font-weight: bold;
+                                line-height: 1.357;
+                                color: $title-color;
+                                margin: 50px 0px 2px;
+                            }
+                            .watchTitle {
+                                margin-top: 34px;
+                            }
+                            .table-responsive {
+                                .table {
+                                    border-collapse: separate;
+                                    border-spacing: 0px 25px;
+                                    thead { 
+                                        tr {
+                                            background-color: $head-bg;
+                                            th {
+                                                text-align: left;
+                                                font-family: $rubik;
+                                                font-size: 18px;
+                                                font-weight: bold;
+                                                line-height: 1.556;
+                                                color: $title-color;
+                                                padding: 20px 10px 21px;
+                                                &:first-child {
+                                                    @include border-radius(5px 0px 0px 5px);
+                                                }
+                                                &:last-child {
+                                                    @include border-radius(0px 5px 5px 0px);
+                                                }
+                                            }
+                                        }
+                                    }
+                                    tbody {
+                                        tr {
+                                            background-color: $tr;
+                                            td {
+                                                color: $title-color;
+                                                text-align: left;
+                                                padding: 15px 10px;
+                                                vertical-align: middle;
+                                                &:first-child {
+                                                    @include border-radius(5px 0px 0px 5px);
+                                                }
+                                                &:last-child {
+                                                    @include border-radius(0px 5px 5px 0px);
+                                                }
+                                            }
+                                            .player_info {
+                                                .wrapper {
+                                                    .img_wrapper {
+                                                        margin-right: 15px;
+                                                        position: relative;
+                                                        a {
+                                                            text-decoration: none;
+                                                            display: inline-block;
+                                                            width: 70px;
+                                                            height: 70px;
+                                                            background-color: #980bf5;
+                                                            border: 2px solid Red;
+                                                            @include border-radius(50%);
+                                                            img {
+                                                                width: 55px;
+                                                                height: 60px;
+                                                                @include border-radius(50%);
+                                                                border: none;
+                                                                outline: none;
+                                                            }
+                                                            &:hover {
+                                                                text-decoration: none;
+                                                            }
+                                                        }
+                                                        .league {
+                                                            position: absolute;
+                                                            bottom: 0%;
+                                                            left: 50%;
+                                                            @include transform (translateX(-50%));
+                                                            width: 40px;
+                                                            height: 20px;
+                                                            font-size: 10px;
+                                                            font-weight: bold;
+                                                            text-transform: uppercase;
+                                                            font-family: $open-sans;
+                                                            line-height: 2;
+                                                            color: $title-color;
+                                                            background-color: black;
+                                                            text-align: center;
+                                                            @include border-radius(20px);
+                                                            @include nba;
+                                                        }
+                                                    }
+                                                    .info_wrapper {
+                                                        display: inline-block;
+                                                        a {
+                                                            text-decoration: none;
+                                                            display: inline-block;
+                                                            font-size: 20px;
+                                                            font-family: $rubik;
+                                                            font-weight: bold;
+                                                            line-height: 1.5;
+                                                            color: $title-color;
+                                                            &:hover {
+                                                                text-decoration: none;
+                                                            }
+                                                        }
+                                                        p {
+                                                            font-family: $open-sans;
+                                                            font-size: 12px;
+                                                            font-weight: 400;
+                                                            line-height: 1.667;
+                                                            color: $secondary-color;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            .change, .earning {
+                                                font-size: 18px;
+                                                font-family: $open-sans;
+                                                font-weight: bold;
+                                                line-height: 1.556;
+                                                color: #1FA02A;
+                                                i {
+                                                    display: inline-block;
+                                                    font-size: 14px;
+                                                    padding: 0px 5px;
+                                                }
+                                            }
+                                            
+                                            .price, .bought, .share {
+                                                font-family: $rubik;
+                                                font-size: 18px;
+                                                font-weight: bold;
+                                                line-height: 1.889;
+                                                color: $title-color;
+                                                
+                                            }
+                                            .sell_btn {
+                                                font-family: $open-sans;
+                                                font-size: 16px;
+                                                font-weight: bold;
+                                                line-height: 1.75;
+                                                text-transform: uppercase;
+                                                color: $title-color;
+                                                background-color: transparent;
+                                                padding: 5px 25px;
+                                                border: 1px solid $title-color;
+                                                border-color: rgba(190, 174, 255,0.3);
+                                                @include border-radius(25px);
+                                                @include transition(all 0.6s);
+                                                &:hover {
+                                                    text-decoration: none;
+                                                    background-color: #980bf5;
+                                                    border-color: $title-color;
+                                                }
+                                            }
+                                            .buy_sell {
+                                                a {
+                                                    &:last-child {
+                                                        margin-left: 20px;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.dark {
+    .page_wrapper {
+        .body_content {
+            .main_content {
+                .row {
+                    .col-xl-9 {
+                        .inner_left {                   
+                            .container-fluid {
+                                .row {
+                                    .col-lg-4 {
+                                        .cmn_st {
+                                            background-color: #fff;
+                                            @include box-shadow(0px 0px 25px #f0f0f9);
+                                            .title_wrapper {
+                                                .title {
+                                                    color: #25294a;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .table_content_wrapper {
+                                h5 {
+                                    color: #25294a;
+                                }
+                                .table-responsive {
+                                    .table {
+                                        thead { 
+                                            tr {
+                                                background-color: #fff;
+                                                @include box-shadow(0px 0px 15px #f0f0f9);
+                                                th {
+                                                    color: #25294a;
+                                                }
+                                            }
+                                        }
+                                        tbody {
+                                            tr {
+                                                background-color: #fff;
+                                                @include box-shadow(0px 0px 15px #f0f0f9);
+                                                td {
+                                                    color: #25294a;
+                                                }
+                                                .player_info {
+                                                    .wrapper {
+                                                        .info_wrapper {
+                                                            a {
+                                                                color: #25294a;
+                                                            }
+                                                            p {
+                                                                color: $hover-color;
+                                                            }
+                                                        }
+                                                    }
+                                                }                         
+                                                .price, .bought, .share {
+                                                    color: #25294a;
+                                                    
+                                                }
+                                                .sell_btn {
+                                                    color: #25294a;
+                                                    @include box-shadow(0px 0px 15px #f0f0f9);
+                                                    &:hover {
+                                                        background-color: #980bf5;
+                                                        color: #fff;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

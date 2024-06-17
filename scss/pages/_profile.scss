@@ -1,0 +1,614 @@
+.page_wrapper {
+    .body_content {
+        .main_content {
+            .row {
+                .col-xl-9 {
+                    .inner_left {
+                        .profile_cover_wrapper {
+                            .cover_wrapper {
+                                background-repeat: no-repeat;
+                                background-size: cover;
+                                background-position: center center;
+                                min-height: 300px;
+                                padding: 40px 30px;
+                                .profile_wrapper {
+                                    position: relative;
+                                    bottom: -90px;
+                                    margin-top: -90px;
+                                    .img_wrapper {
+                                        a {
+                                            text-decoration: none;
+                                            display: inline-block;
+                                            border: none;
+                                            outline: none;
+                                            &:hover {
+                                                text-decoration: none;
+                                                border: none;
+                                                outline: none;
+                                            }
+                                            img {
+                                                border: none;
+                                                outline: none;
+                                                @include border-radius(10px);
+                                                width: 160px;
+                                                height: 180px;
+                                            }
+                                        }
+                                    }
+                                    .info_wrapper {
+                                        margin-left: 30px;
+                                        padding-top: 40px;
+                                        a {
+                                            text-decoration: none;
+                                            display: inline-block;
+                                            font-family: $rubik;
+                                            font-size: 28px;
+                                            line-height: 1.357;
+                                            color: $title-color;
+                                            &:hover {
+                                                text-decoration: none;
+                                            }
+                                        }
+                                        p {
+                                            font-family: $rubik;
+                                            font-size: 22px;
+                                            line-height: 1.273;
+                                            color: rgb(255, 198, 0);
+                                        }
+                                    }
+                                }
+                            }
+                            .price_info_wrapper {
+                                padding-left: 220px;
+                                background-color: $sidebar-bg;
+                                .hst {
+                                    border-bottom: 1px solid $border-color;
+                                    .row {
+                                        .col-sm {
+                                            padding: 20px 0px;
+                                            border-right: 1px solid $border-color;
+                                            &:last-child {
+                                                border: none;
+                                            }
+                                            &:first-child {
+                                                padding-left: 10px;
+                                            }
+                                        }
+                                        .shares, .price {
+                                            h4 {
+                                                font-family: $rubik;
+                                                font-size: 24px;
+                                                line-height: 1.417;
+                                                color: $title-color;
+                                                i {
+                                                    display: inline-block;
+                                                    font-size: 24px;
+                                                    line-height: 1.417;
+                                                }
+                                                span {
+                                                    font-size: 12px;
+                                                    color: rgb(160, 164, 215);
+                                                }
+                                            }
+                                            p {
+                                                font-family: $rubik;
+                                                font-size: 16px;
+                                                line-height: 1.5;
+                                                color: #69c0ff;
+                                            }
+                                        }
+                                        .change {
+                                            h4 {
+                                                font-family: $rubik;
+                                                font-size: 24px;
+                                                line-height: 1.417;
+                                                color: rgb(31, 160, 42);
+                                                i {
+                                                    font-size: 24px;
+                                                    display: inline-block;
+                                                    line-height: 1.417;
+                                                }
+                                                span {
+                                                    display: inline-block;
+                                                    font-size: 16px;
+                                                    position: relative;
+                                                    bottom: 0px;
+    
+                                                }
+                                            }
+                                            p {
+                                                font-family: $rubik;
+                                                font-size: 16px;
+                                                line-height: 1.5;
+                                                color: #69c0ff;
+                                            }
+                                        }
+                                        .btns {
+                                            .btn {
+                                                background-color: transparent;
+                                                border: none;
+                                                outline: none;
+                                                @include box-shadow(none);
+                                                font-size: 16px;
+                                                font-family: $open-sans;
+                                                text-transform: uppercase;
+                                                font-weight: bold;
+                                                line-height: 1.75;
+                                                padding: 0px 15px;
+                                                border: 1px solid rgba(190, 174, 255, 0.3);
+                                                margin: 0px 5px;
+                                                @include border-radius(10px);
+                                                @include transition(all 0.6s);
+                                                &:hover {
+                                                    background-color: #800dbc;
+                                                    border: 1px solid $title-color;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .sta {
+                                    border: none;
+                                    padding: 20px 0px;
+                                    .row {
+                                        .col-sm {
+                                            padding: 0px;
+                                        }
+                                    }
+                                }
+                            }
+                            .labels_wrapper {
+                                padding: 20px 0px;
+                                background-color: $sidebar-bg;
+                                .row {
+                                    .col-md {
+                                        .number {
+                                            font-family: $open-sans;
+                                            font-size: 14px;
+                                            font-weight: 400;
+                                            line-height: 1.714;
+                                            color: $title-color;
+                                        }
+                                        .name {
+                                            font-family: $rubik;
+                                            font-size: 16px;
+                                            font-weight: 400;
+                                            line-height: 1.75;
+                                            font-weight: 600;
+                                            color: #69c0ff;
+                                        }
+                                        border-right: 1px solid $border-color;
+                                        &:last-child {
+                                            border: none;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .fan_price_chart_wrapper {
+                            margin-top: 40px;
+                            .row {
+                                .col-md-6 {
+                                    .fantasy_wrapper {
+                                        background-color: rgb(32, 36, 66); 
+                                        padding: 30px 12px 30px;
+                                        @include border-radius(5px);
+                                        h6 {
+                                            font-family: $rubik;
+                                            font-size: 18px;
+                                            font-weight: bold;
+                                            line-height: 1.5;
+                                            color: $title-color;
+                                            margin: 0px 0px 10px 20px;
+                                        }
+                                        #fantasyChart {
+                                            min-height: 250px!important;
+                                            width: 100%!important;
+                                            .apexcharts-tooltip {
+                                                box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
+                                                &.apexcharts-theme-light .apexcharts-tooltip-title {
+                                                    font-family: $open-sans!important;
+                                                    background-color: #007AD8;
+                                                    border-bottom: 0;
+                                                    font-weight: bold;
+                                                    color: $title-color;
+                                                }
+                                                .apexcharts-tooltip-text-label {
+                                                    font-weight: bold;
+                                                    font-family: $open-sans;
+                                                    font-size: 12px;
+                                                    color: #000000;
+                                                }
+                                                .apexcharts-tooltip-text-value {
+                                                    font-weight: bold;
+                                                    font-family: $open-sans;
+                                                    font-size: 12px;
+                                                    color: #000000;
+                                                }
+                                            }
+                                            .apexcharts-svg {
+                                               @include border-radius(0px 0px 8px 0px);
+                                            }
+                                        }                                       
+                                    }
+                                    .pri_wrapper {
+                                        background-color: rgb(32, 36, 66); 
+                                        padding: 30px 12px 30px;
+                                        @include border-radius(5px);
+                                        h6 {
+                                            font-family: $rubik;
+                                            font-size: 18px;
+                                            font-weight: bold;
+                                            line-height: 1.5;
+                                            color: $title-color;
+                                            margin: 0px 0px 10px 20px;
+                                        }
+                                        #priceChart {
+                                            min-height: 250px!important;
+                                            width: 100%!important;
+                                            .apexcharts-tooltip {
+                                                box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
+                                                &.apexcharts-theme-light .apexcharts-tooltip-title {
+                                                    font-family: $open-sans!important;
+                                                    background-color: #007AD8;
+                                                    border-bottom: 0;
+                                                    font-weight: bold;
+                                                    color: $title-color;
+                                                }
+                                                .apexcharts-tooltip-text-label {
+                                                    font-weight: bold;
+                                                    font-family: $open-sans;
+                                                    font-size: 12px;
+                                                    color: #000000;
+                                                }
+                                                .apexcharts-tooltip-text-value {
+                                                    font-weight: bold;
+                                                    font-family: $open-sans;
+                                                    font-size: 12px;
+                                                    color: #000000;
+                                                }
+                                            }
+                                            .apexcharts-svg {
+                                               @include border-radius(0px 0px 8px 0px);
+                                            }
+                                        } 
+                                    }
+                                }
+                            }
+                        }
+                        .next_wrapper {
+                            background-color: rgb(32, 36, 66);
+                            margin-top: 60px;
+                            .next_game {
+                                padding: 20px  25px;
+                                .left_game {
+                                    .titlee {
+                                        font-family: $rubik;
+                                        font-size: 18px;
+                                        line-height: 1.556;
+                                        color: $title-color;
+                                    }
+                                    .time {
+                                        font-family: $open-sans;
+                                        font-size: 14px;
+                                        font-weight: bold;
+                                        line-height: 2;
+                                        color: rgb(125, 136, 193);
+                                        margin-top: 5px;
+                                    }
+                                }
+                                .right_game {
+                                    a {
+                                        text-decoration: none;
+                                        display: inline-block;
+                                        border: none;
+                                        outline: none;
+                                        &:hover {
+                                            text-decoration: none;
+                                            border: none;
+                                        }
+                                        img {
+                                            width: 53px;
+                                            height: 58px;
+                                        }
+                                    }
+                                    p {
+                                        font-family: $open-sans;
+                                        font-size: 14px;
+                                        font-weight: bold;
+                                        line-height: 2;
+                                        color: $title-color;
+                                        margin-top: 5px;
+                                    }
+                                }
+                            }
+                            .labels_wrapper {
+                                padding: 20px 0px;
+                                background-color: $sidebar-bg;
+                                border-top: 1px solid $border-color;
+                                .row {
+                                    .col-md {
+                                        .number {
+                                            font-family: $open-sans;
+                                            font-size: 14px;
+                                            font-weight: 400;
+                                            line-height: 1.714;
+                                            color: $title-color;
+                                        }
+                                        .name {
+                                            font-family: $rubik;
+                                            font-size: 16px;
+                                            line-height: 1.75;
+                                            color: #69c0ff;
+                                        }
+                                        border-right: 1px solid $border-color;
+                                        &:last-child {
+                                            border: none;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .history_wrapper {
+                            margin-top: 60px;
+                            h3 {
+                                font-family: $open-sans;
+                                font-size: 28px;
+                                font-weight: bold;
+                                line-height: 1.357;
+                                color: $title-color;
+                            }
+                            .game_table_wrapper {
+                                margin-top: 30px;
+                                .table_responsive {
+                                    .table {
+                                        thead {
+                                            background-color: $head-bg;
+                                            tr {
+                                                th {
+                                                    padding: 20px 12px;
+                                                    text-align: center;
+                                                    font-family: $rubik;
+                                                    font-size: 14px;
+                                                    line-height: 1.5;
+                                                    color: $title-color;
+                                                    vertical-align: middle;
+                                                    &:first-child {
+                                                        @include border-radius(5px 0px 0px 5px);
+                                                        text-align: left;
+                                                        padding-left: 40px;
+                                                    }
+                                                    &:last-child {
+                                                        @include border-radius(0px 5px 5px 0px);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        tbody {
+                                            tr {
+                                                background-color: #282b52;
+                                                border-bottom: 1px solid rgb(53, 52, 113);
+                                                td {
+                                                    padding: 15px 12px;
+                                                    text-align: center;
+                                                    font-family: $rubik;
+                                                    font-size: 14px;
+                                                    line-height: 1.5;
+                                                    color: $title-color;
+                                                    vertical-align: middle;
+                                                }
+                                                .teams {
+                                                    padding-left: 20px;
+                                                    .d-flex {
+                                                        .club {
+                                                            a {
+                                                                text-decoration: none;
+                                                                display: inline-block;
+                                                                border:none;
+                                                                outline: none;
+                                                                &:hover {
+                                                                    text-decoration: none;
+                                                                    border: none;
+                                                                    outline: none;
+                                                                }
+                                                                img {
+                                                                    width: 55px;
+                                                                    height: 55px;
+                                                                }
+                                                            }
+                                                        }
+                                                        .club_name {
+                                                            margin: 0px 20px;
+                                                            font-family: $rubik;
+                                                            font-size: 14px;
+                                                            line-height: 1.5;
+                                                            color: $title-color;
+                                                        }
+                                                        .date {
+                                                            font-family: $rubik;
+                                                            font-size: 14px;
+                                                            line-height: 1.5;
+                                                            color: $title-color;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .show_wrapper {
+                                padding: 20px 0px;
+                                margin-bottom: 20px;
+                                a {
+                                    text-decoration: none;
+                                    display: inline-block;
+                                    font-family: $open-sans;
+                                    font-size: 18px;
+                                    line-height: 1.556;
+                                    color: rgb(94, 109, 172);
+                                    padding: 7px 30px;
+                                    border: 1px solid rgb(53, 52, 113);
+                                    @include border-radius(30px);
+                                    @include transition(all 0.6s);
+                                    &:hover {
+                                        text-decoration: none;
+                                        color: $title-color;
+                                        border: 1px solid $title-color;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.dark {
+    .page_wrapper {
+        .body_content {
+            .main_content {
+                .row {
+                    .col-xl-9 {
+                        .inner_left {
+                            .profile_cover_wrapper {
+                                @include box-shadow(0px 0px 30px #f0f0f9);
+                                .price_info_wrapper {
+                                    background-color: #fff;
+                                    .hst {
+                                        .row {
+                                            .shares, .price {
+                                                h4 {
+                                                    color: #25294a;
+                                                    span {
+                                                        color: #000000;
+                                                    }
+                                                }
+                                            }
+                                            .btns {
+                                                .btn {
+                                                    color: #25294a;
+                                                    &:hover {
+                                                        color: #fff;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .labels_wrapper {
+                                    background-color: #fff;
+                                    .row {
+                                        .col-md {
+                                            .number {
+                                                color: #25294a;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .fan_price_chart_wrapper {
+                                .row {
+                                    .col-md-6 {
+                                        .fantasy_wrapper {
+                                            background-color: #fff;
+                                            @include box-shadow(0px 0px 30px #f0f0f9); 
+                                            h6 {
+                                                color: #25294a;
+                                            }
+                                  
+                                        }
+                                        .pri_wrapper {
+                                            background-color: #fff;
+                                            @include box-shadow(0px 0px 30px #f0f0f9); 
+                                            h6 {
+                                                color: #25294a;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .next_wrapper {
+                                background-color: #fff;
+                                @include box-shadow(0px 0px 30px #f0f0f9);
+                                .next_game {
+                                    .left_game {
+                                        .titlee {
+                                            color: #25294a;
+                                        }
+                                    }
+                                    .right_game {
+                                        p {
+                                            color: #25294a;
+                                        }
+                                    }
+                                }
+                                .labels_wrapper {
+                                    background-color: #fff;
+                                    border-top: 1px solid #f0f0f9;
+                                    .row {
+                                        .col-md {
+                                            .number {
+                                                color: #25294a;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .history_wrapper {
+                                h3 {
+                                    color: #25294a;
+                                }
+                                .game_table_wrapper {
+                                    .table_responsive {
+                                        .table {
+                                            @include box-shadow(0px 0px 30px #f0f0f9);
+                                            thead {
+                                                background-color: #f0f0f9;
+                                                @include box-shadow(0px 0px 20px #f0f0f9);
+                                                tr {
+                                                    th {
+                                                        color: #25294a;
+                                                    }
+                                                }
+                                            }
+                                            tbody {
+                                                tr {
+                                                    background-color: #fff;
+                                                    border-bottom: 1px solid #f0f0f9;
+                                                    td {
+                                                        color: #25294a;
+                                                    }
+                                                    .teams {
+                                                        .d-flex {
+                                                            .club_name {
+                                                                color: #25294a;
+                                                            }
+                                                            .date {
+                                                                color: #25294a;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .show_wrapper {
+                                    a {
+                                        color: #25294a;
+                                        &:hover {
+                                            color: #25294a;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
