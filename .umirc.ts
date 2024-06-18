@@ -3,7 +3,7 @@ import { defineConfig } from "umi";
 export default defineConfig({
   routes: [
     { path: "/", component: "index" },
-    { path: "/docs", component: "docs" },
+    { path: "/trade", component: "trade" },
   ],
   npmClient: "pnpm",
   title: "Bold Exchange &mdash; Fantasy Sports Stock Exchange HTML Template",

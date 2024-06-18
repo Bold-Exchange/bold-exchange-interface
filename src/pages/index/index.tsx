@@ -488,7 +488,7 @@ export default function HomePage() {
                 </p>
                 <div className="btn_wrapper d-flex align-items-center">
                   <div className="trade_btn">
-                    <a href="trade.html" className="btn btn-primary">
+                    <a href="/trade" className="btn btn-primary">
                       Start Trading
                     </a>
                   </div>
