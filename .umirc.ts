@@ -8,7 +8,6 @@ export default defineConfig({
   npmClient: "pnpm",
   title: "Bold Exchange &mdash; Fantasy Sports Stock Exchange HTML Template",
   metas: [{ name: "keywords", content: "bold exchange" }],
-  favicons: ["/favicon.png"],
   links: [
     { href: "/assets/css/vendor/bootstrap.min.css", rel: "stylesheet" },
     { href: "/assets/icons/font_awesome/css/all.min.css", rel: "stylesheet" },
