@@ -19,7 +19,7 @@ export default defineConfig({
     { href: "/assets/css/vendor/animate.css", rel: "stylesheet" },
     { href: "/assets/css/main.css", rel: "stylesheet" },
   ],
-  scripts: [
+  headScripts: [
     { src: "/assets/js/vendor/jquery-3.6.0.min.js" },
     { src: "/assets/js/vendor/bootstrap.bundle.min.js" },
     { src: "/assets/js/vendor/jquery.waypoints.min.js" },
@@ -28,6 +28,9 @@ export default defineConfig({
     { src: "/assets/js/vendor/jquery.magnific-popup.min.js" },
     { src: "/assets/js/vendor/jquery.nice-select.min.js" },
     { src: "/assets/js/vendor/wow.min.js" },
-    // { src: "/assets/js/main.js" },
   ],
+  history: {
+    type: "hash",
+  },
+  hash: true,
 });

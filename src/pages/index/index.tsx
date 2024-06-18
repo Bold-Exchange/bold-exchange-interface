@@ -314,7 +314,7 @@ export default function HomePage() {
           $("#light").addClass("actives");
           $(".th-t").removeClass("oactive");
           $(".th-o").addClass("oactive");
-          $("#logo").attr("src", "assets/images/logo-dark-n.png");
+          $("#logo").attr("src", "assets/images/Bold_Logo-color.svg");
           $("img[src='assets/images/user/vs.png']").attr(
             "src",
             "assets/images/user/ac-vs.png"
@@ -331,7 +331,7 @@ export default function HomePage() {
           $("#dark").addClass("actives");
           $(".th-o").removeClass("oactive");
           $(".th-t").addClass("oactive");
-          $("#logo").attr("src", "assets/images/logo.png");
+          $("#logo").attr("src", "assets/images/Bold_Logo-color.svg");
           $("img[src='assets/images/user/ac-vs.png']").attr(
             "src",
             "assets/images/user/vs.png"
@@ -374,9 +374,10 @@ export default function HomePage() {
           <div className="container">
             <a className="navbar-brand" href="index.html">
               <img
-                src="assets/images/logo.png"
+                src="assets/images/Bold_Logo-color.svg"
                 alt="Bold Exchange Logo"
                 id="logo"
+                style={{ width: "150px" }}
               />
             </a>
             <div className="d-flex flex-row order-2 order-lg-3 user_info">
@@ -488,7 +489,7 @@ export default function HomePage() {
                 </p>
                 <div className="btn_wrapper d-flex align-items-center">
                   <div className="trade_btn">
-                    <a href="/trade" className="btn btn-primary">
+                    <a href="/#/trade" className="btn btn-primary">
                       Start Trading
                     </a>
                   </div>
