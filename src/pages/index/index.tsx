@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import Tag from "@/components/Tag";
 export default function HomePage() {
   useEffect(() => {
     (function ($) {
