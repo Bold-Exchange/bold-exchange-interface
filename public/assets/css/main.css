@@ -132,7 +132,7 @@ body {
   overflow-x: hidden !important;
 }
 body::-webkit-scrollbar {
-  width: 8px;
+  width: 0px;
 }
 body::-webkit-scrollbar-track {
   background-color: #202442;

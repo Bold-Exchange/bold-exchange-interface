@@ -5,20 +5,19 @@ export default function Layout() {
       <header className="home_nav_two">
         <nav className="navbar fixed-top navbar-expand-lg navbar_two">
           <div className="container">
-            <a className="navbar-brand" href="index.html">
+            <a className="navbar-brand" href="#/">
               <img
-                src="assets/images/Bold_Logo-color.svg"
+                src="assets/images/Bold_Logo-white.svg"
                 alt="Bold Exchange Logo"
-                id="logo"
                 style={{ width: "150px" }}
               />
             </a>
             <div className="d-flex flex-row order-2 order-lg-3 user_info">
               <div className="group_btn d-none d-sm-block">
-                <a href="login.html" className="group_link log_in registration">
+                <a href="#/login" className="group_link log_in registration">
                   LOG IN
                 </a>
-                <a href="signup.html" className="group_link registration hover">
+                <a href="#/register" className="group_link registration hover">
                   SIGN UP
                 </a>
               </div>
@@ -110,6 +109,69 @@ export default function Layout() {
         </nav>
       </header>
       <Outlet />
+      <footer>
+        <div className="container">
+          <div className="row footer_nav d-flex align-items-center">
+            <div className="col-lg-7">
+              <ul className="nav justify-content-center justify-content-sm-start">
+                <li className="nav-item">
+                  <a className="nav-link ml-0" href="contact.html">
+                    CONTACT US
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    TERMS OF USE
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    PRIVACY POLICY
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="col-lg-5">
+              <ul className="nav justify-content-center justify-content-sm-start justify-content-lg-end">
+                <li className="nav-item">
+                  <a className="nav-link ml-0" href="#">
+                    <img
+                      src="assets/images/footer/apple_store.png"
+                      alt="Download from Apple Store"
+                    />
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link mr-0" href="#">
+                    <img
+                      src="assets/images/footer/google_store.png"
+                      alt="Download from Google Play Store"
+                    />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <hr />
+          <div className="row footer_copyright d-flex align-items-center">
+            <div className="col-lg-7 text-center text-sm-start">
+              <p className="para">
+                Copyright &#169; 2021. Made with passion by{" "}
+                <a href="https://themeforest.net/user/Bold Exchange/portfolio">
+                  Bold Exchange
+                </a>
+              </p>
+            </div>
+            <div className="col-lg-5 text-center text-sm-start text-lg-end">
+              <p className="para">All rights reserved</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <a href="#" className="scrollToTop">
+        <i className="flaticon-up-chevron"></i>
+      </a>
     </>
   );
 }

@@ -5,9 +5,21 @@ export default defineConfig({
     {
       path: "/",
       component: "@/layouts/Index",
-      routes: [{ path: "/", component: "index" }],
+      routes: [
+        { path: "/", component: "index" },
+        { path: "/login", component: "login" },
+        { path: "/register", component: "register" },
+      ],
     },
-    { path: "/trade", component: "trade" },
+    {
+      path: "/admin",
+      component: "@/layouts/Admin",
+      routes: [
+        { path: "/admin/trade", component: "trade" },
+        { path: "/admin/portfolio", component: "portfolio" },
+        { path: "/admin/about", component: "about" },
+      ],
+    },
   ],
   npmClient: "pnpm",
   title: "Bold Exchange &mdash; Fantasy Sports Stock Exchange HTML Template",

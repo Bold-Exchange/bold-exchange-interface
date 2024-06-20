@@ -25,7 +25,7 @@ export default function () {
         });
       });
     })(jQuery);
-  });
+  }, []);
   return (
     <div className="loader_wrapper" id="preloader">
       <div className="loader">

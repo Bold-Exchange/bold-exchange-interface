@@ -1,7 +1,7 @@
 import React from "react";
-
+import "./styles.less";
 interface TagProps {
-  type: string;
+  type: "red" | "blue" | "green" | "purple";
   text: React.ReactNode; // 定义 children 属性
 }
 
