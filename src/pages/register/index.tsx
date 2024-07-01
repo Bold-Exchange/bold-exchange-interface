@@ -4,11 +4,6 @@ const DocsPage = () => {
     <section className="form_bg">
       <div className="container">
         <div className="form_container">
-          <div className="form_header">
-            <a href="index.html" className="registration_logo">
-              <img src="assets/images/logo.png" alt="Bold Exchange Logo" />
-            </a>
-          </div>
           <form action="#" method="POST" className="mt-60">
             <h1 className="form_title">Let's Create Your Account</h1>
             <div className="mb-3">

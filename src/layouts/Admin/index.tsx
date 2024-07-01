@@ -1,6 +1,43 @@
-import { Outlet } from "umi";
-import { useEffect } from "react";
-const Layout = () => {
+import { Outlet, history } from "umi";
+import { useEffect, useState } from "react";
+import { Flex, Layout } from "antd";
+
+import Top from "./Top";
+const { Header, Footer, Sider, Content } = Layout;
+const headerStyle: React.CSSProperties = {
+  textAlign: "center",
+  color: "#fff",
+  height: "unset",
+  paddingInline: 0,
+  lineHeight: "64px",
+  backgroundColor: "#4096ff",
+};
+
+const contentStyle: React.CSSProperties = {
+  overflow: "auto",
+  height: "100vh",
+};
+
+const siderStyle: React.CSSProperties = {
+  textAlign: "center",
+  lineHeight: "120px",
+  color: "#fff",
+  backgroundColor: "#1677ff",
+};
+
+const footerStyle: React.CSSProperties = {
+  textAlign: "center",
+  color: "#fff",
+  backgroundColor: "#4096ff",
+};
+
+const layoutStyle = {
+  borderRadius: 8,
+  overflow: "hidden",
+  width: "calc(50% - 8px)",
+  maxWidth: "calc(50% - 8px)",
+};
+const AdminLayout = () => {
   useEffect(() => {
     (function ($) {
       "use strict";
@@ -368,272 +405,213 @@ const Layout = () => {
       });
     })(jQuery);
   });
+  const [isOpen, setIsOpen] = useState(true);
+
   return (
-    <div className="page_wrapper">
-      <div className="sidebar">
-        <div className="brand_wrapper text-center d-flex align-items-center justify-content-around">
-          <a href="index.html" className="brand">
-            <img src="assets/Bold_Logo-white.svg" alt="Bold Exchange Logo" />
-          </a>
-          <div className="close_sidenav d-xxl-none" title="Close Side Bar">
-            <i className="flaticon-back"></i>
-          </div>
-        </div>
-        <div className="user_wrapper">
-          <div className="profile_wrapper text-center">
-            <div className="profile_content">
-              <a href="user-about.html" className="profile">
+    <Flex gap="middle" wrap>
+      <Layout>
+        <Sider width={(isOpen && 320) || 0}>
+          <div className="sidebar">
+            <div className="brand_wrapper text-center d-flex align-items-center justify-content-around">
+              <a href="index.html" className="brand">
                 <img
-                  src="assets/images/user/profile-sm.png"
-                  alt="Profile Picture"
+                  src="assets/Bold_Logo-white.svg"
+                  alt="Bold Exchange Logo"
                 />
               </a>
-              <span className="d-flex align-items-center justify-content-center">
-                12
-              </span>
-            </div>
-            <h5 className="text-center">
-              <a href="user-about.html">ED WALSH</a>
-            </h5>
-          </div>
-          <div className="follow_wrapper d-flex align-items-center justify-content-around">
-            <div className="follower d-flex align-items-center justify-content-between">
-              <div className="icon">
-                <i className="flaticon-user-profile"></i>
-              </div>
-              <div className="amount">
-                <a href="user-about.html">2,239</a>
-                <p>FOLLOWERS</p>
+              <div className="close_sidenav d-xxl-none" title="Close Side Bar">
+                <i className="flaticon-back"></i>
               </div>
             </div>
-            <div className="following d-flex align-items-center justify-content-between">
-              <div className="icon">
-                <i className="flaticon-user-profile"></i>
-              </div>
-              <div className="amount">
-                <a href="user-about.html">5,339</a>
-                <p>FOLLOWING</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="portfolio_wrapper">
-          <ul className="nav flex-column portfolio">
-            <li className="nav-item">
-              <a
-                href="#/admin/portfolio"
-                className="nav-link d-flex align-items-center"
-              >
-                <i className="flaticon-briefcase"></i> My Portfolio
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                href="#/admin/about"
-                className="nav-link d-flex align-items-center"
-              >
-                <i className="flaticon-user"></i> About
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div className="trading_wrapper">
-          <h5>Trading</h5>
-          <ul className="nav flex-column">
-            <li className="nav-item">
-              <a
-                href="league.html"
-                className="nav-link d-flex align-items-center active"
-              >
-                <i className="flaticon-basketball-ball-variant"></i> NBA
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                href="league.html"
-                className="nav-link d-flex align-items-center"
-              >
-                <i className="flaticon-rugby"></i> NFL
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                href="league.html"
-                className="nav-link d-flex align-items-center"
-              >
-                <i className="flaticon-baseball-ball-1"></i> MLB
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                href="league.html"
-                className="nav-link d-flex align-items-center"
-              >
-                <i className="flaticon-ice-hockey"></i> NHL
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                href="league.html"
-                className="nav-link d-flex align-items-center"
-              >
-                <i className="flaticon-football"></i> Soccer
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                href="league.html"
-                className="nav-link d-flex align-items-center"
-              >
-                <i className="flaticon-golf"></i> Golf
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                href="league.html"
-                className="nav-link d-flex align-items-center"
-              >
-                <i className="flaticon-swords"></i> ESports
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div className="affiliate_wrapper">
-          <ul className="nav flex-column affiliate">
-            <li className="nav-item">
-              <a
-                href="affiliate.html"
-                className="nav-link d-flex align-items-center"
-              >
-                <i className="flaticon-affiliate"></i> Affiliate Program
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                href="contact.html"
-                className="nav-link d-flex align-items-center"
-              >
-                <i className="flaticon-chat"></i> Support
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                href="rules.html"
-                className="nav-link d-flex align-items-center"
-              >
-                <i className="flaticon-document"></i> Rules
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div className="sidebar_footer d-flex align-items-center justify-content-around">
-          <div className="left_col">
-            <select name="selectPicker" id="language">
-              <option value="english">English</option>
-              <option value="spain">Spanish</option>
-              <option value="bangla">Bangla</option>
-            </select>
-          </div>
-          <div className="right_col">
-            <div className="switch_wrapper">
-              <button
-                className="btn switcher"
-                id="light"
-                title="Switch to Light Theme"
-              >
-                <i className="fas fa-star-and-crescent"></i>
-              </button>
-              <button
-                className="btn switcher"
-                id="dark"
-                title="Switch to Dark Theme"
-              >
-                <i className="fas fa-adjust"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="body_content">
-        <div className="container-fluid top_bar fixed-top">
-          <div className="top_bar_wrapper d-flex align-items-center justify-content-between">
-            <div className="search_bar d-flex align-items-center">
-              <div className="show_hide d-flex align-items-center">
-                <button type="button" id="click" title="Toggle Side Bar">
-                  <span className="toggle_bar_one"></span>
-                  <span className="toggle_bar_two"></span>
-                  <span className="toggle_bar_three"></span>
-                </button>
-              </div>
-              <div className="form">
-                <form action="#" method="post" id="forSm">
-                  <input
-                    type="search"
-                    name="searchBar"
-                    id="searchPlayers"
-                    placeholder="Search Players"
-                    required
-                  />
-                  <button type="submit">
-                    <i className="flaticon-loupe"></i>
-                  </button>
-                </form>
-                <a
-                  href="javascript:void(0)"
-                  className="search_toggle d-block d-md-none"
-                >
-                  <i className="flaticon-loupe"></i>
-                </a>
-              </div>
-            </div>
-            <div className="user_bar d-flex align-items-center justify-content-end">
-              <div className="search_wrapper">
-                <a href="javascript:void(0)" className="search_sm d-none">
-                  <i className="flaticon-loupe d-flex align-items-center"></i>
-                </a>
-              </div>
-              <div className="dollar_wrapper">
-                <a href="#">$500.00</a>
-              </div>
-              <div className="wallet_wrapper">
-                <a href="#">
-                  <i className="flaticon-wallet-filled-money-tool"></i>
-                </a>
-              </div>
-              <div className="notification_wrapper">
-                <a href="#">
-                  <i className="flaticon-bell"></i>
-                </a>
-              </div>
-              <div className="profile_wrapper d-flex align-items-center">
-                <div className="img_wrapper">
-                  <a href="#">
+            <div className="user_wrapper">
+              <div className="profile_wrapper text-center">
+                <div className="profile_content">
+                  <a href="user-about.html" className="profile">
                     <img
                       src="assets/images/user/profile-sm.png"
                       alt="Profile Picture"
                     />
                   </a>
+                  <span className="d-flex align-items-center justify-content-center">
+                    12
+                  </span>
                 </div>
-                <div className="drop">
-                  <a href="javascript:void(0)" className="profile_link disable">
-                    Ed Walsh <i className="fas fa-caret-down"></i>
-                  </a>
-                  <div className="drop_content">
-                    <a href="user-about.html">Profile</a>
-                    <a href="#">Settings</a>
-                    <a href="#">Log Out</a>
+                <h5 className="text-center">
+                  <a href="user-about.html">ED WALSH</a>
+                </h5>
+              </div>
+              <div className="follow_wrapper d-flex align-items-center justify-content-around">
+                <div className="follower d-flex align-items-center justify-content-between">
+                  <div className="icon">
+                    <i className="flaticon-user-profile"></i>
+                  </div>
+                  <div className="amount">
+                    <a href="user-about.html">2,239</a>
+                    <p>FOLLOWERS</p>
+                  </div>
+                </div>
+                <div className="following d-flex align-items-center justify-content-between">
+                  <div className="icon">
+                    <i className="flaticon-user-profile"></i>
+                  </div>
+                  <div className="amount">
+                    <a href="user-about.html">5,339</a>
+                    <p>FOLLOWING</p>
                   </div>
                 </div>
               </div>
             </div>
+            <div className="portfolio_wrapper">
+              <ul className="nav flex-column portfolio">
+                <li className="nav-item">
+                  <a
+                    href="#/admin/portfolio"
+                    className="nav-link d-flex align-items-center"
+                  >
+                    <i className="flaticon-briefcase"></i> My Portfolio
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    href="#/admin/about"
+                    className="nav-link d-flex align-items-center"
+                  >
+                    <i className="flaticon-user"></i> About
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="trading_wrapper">
+              <h5>Trading</h5>
+              <ul className="nav flex-column">
+                <li className="nav-item">
+                  <a
+                    href="league.html"
+                    className="nav-link d-flex align-items-center active"
+                  >
+                    <i className="flaticon-basketball-ball-variant"></i> NBA
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    href="league.html"
+                    className="nav-link d-flex align-items-center"
+                  >
+                    <i className="flaticon-rugby"></i> NFL
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    href="league.html"
+                    className="nav-link d-flex align-items-center"
+                  >
+                    <i className="flaticon-baseball-ball-1"></i> MLB
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    href="league.html"
+                    className="nav-link d-flex align-items-center"
+                  >
+                    <i className="flaticon-ice-hockey"></i> NHL
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    href="league.html"
+                    className="nav-link d-flex align-items-center"
+                  >
+                    <i className="flaticon-football"></i> Soccer
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    href="league.html"
+                    className="nav-link d-flex align-items-center"
+                  >
+                    <i className="flaticon-golf"></i> Golf
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    href="league.html"
+                    className="nav-link d-flex align-items-center"
+                  >
+                    <i className="flaticon-swords"></i> ESports
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="affiliate_wrapper">
+              <ul className="nav flex-column affiliate">
+                <li className="nav-item">
+                  <a
+                    href="affiliate.html"
+                    className="nav-link d-flex align-items-center"
+                  >
+                    <i className="flaticon-affiliate"></i> Affiliate Program
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    href="contact.html"
+                    className="nav-link d-flex align-items-center"
+                  >
+                    <i className="flaticon-chat"></i> Support
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    href="rules.html"
+                    className="nav-link d-flex align-items-center"
+                  >
+                    <i className="flaticon-document"></i> Rules
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="sidebar_footer d-flex align-items-center justify-content-around">
+              <div className="left_col">
+                <select name="selectPicker" id="language">
+                  <option value="english">English</option>
+                  <option value="spain">Spanish</option>
+                  <option value="bangla">Bangla</option>
+                </select>
+              </div>
+              <div className="right_col">
+                <div className="switch_wrapper">
+                  <button
+                    className="btn switcher"
+                    id="light"
+                    title="Switch to Light Theme"
+                  >
+                    <i className="fas fa-star-and-crescent"></i>
+                  </button>
+                  <button
+                    className="btn switcher"
+                    id="dark"
+                    title="Switch to Dark Theme"
+                  >
+                    <i className="fas fa-adjust"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="container-fluid main_content">
-          <Outlet />
-        </div>
-      </div>
-    </div>
+        </Sider>
+        <Layout>
+          <Content style={{ ...contentStyle, overflow: "hidden" }}>
+            <Header style={headerStyle}>
+              <Top></Top>
+            </Header>
+            <Content style={contentStyle}>
+              <Outlet />
+            </Content>
+          </Content>
+        </Layout>
+      </Layout>
+    </Flex>
   );
 };
 
-export default Layout;
+export default AdminLayout;

@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import Item from "./Item";
+import { history } from "umi";
+import { Button } from "@/components";
+import Tl from "./Tl";
 export default function HomePage() {
   useEffect(() => {
     (function ($) {
@@ -383,11 +386,9 @@ export default function HomePage() {
                   shares of professional athletes as if they were stocks.
                 </p>
                 <div className="btn_wrapper d-flex align-items-center">
-                  <div className="trade_btn">
-                    <a href="/#/admin/trade" className="btn btn-primary">
-                      Start Trading
-                    </a>
-                  </div>
+                  <Button onClick={() => history.push("/admin/trade")}>
+                    Start Trading
+                  </Button>
                   <div className="video_btn">
                     <a
                       href="https://www.youtube.com/watch?v=uCik8-i2Hcc"
@@ -412,29 +413,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div className="theme-option">
-        <a href="javascript:void(0)" id="light" className="out-theme th-o">
-          Light
-        </a>
-        <a
-          href="javascript:void(0)"
-          id="dark"
-          className="out-theme th-t oactive"
-        >
-          Dark
-        </a>
-        <a
-          href="javascript:void(0)"
-          id="cog"
-          className="d-flex align-items-center justify-content-center"
-        >
-          <i className="fas fa-cog fa-spin"></i>
-        </a>
-      </div>
-
       <section className="player_search_wrapper">
         <div className="container">
-          <div className="input_search_wrapper">
+          {/* <div className="input_search_wrapper">
             <form action="#" method="post">
               <input
                 type="text"
@@ -452,11 +433,8 @@ export default function HomePage() {
                 <i className="fab fa-sistrix"></i> Search
               </button>
             </form>
-          </div>
-
-          {data.map(() => (
-            <Item />
-          ))}
+          </div> */}
+          <Tl />
         </div>
       </section>
 
@@ -735,7 +713,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="second_buy">
+      {/* <section className="second_buy">
         <div className="container">
           <div className="buy_wrapper">
             <div className="row buy_row d-flex align-items-center">
@@ -801,9 +779,9 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <section>
+      {/* <section>
         <div className="container">
           <div className="row play_row d-flex align-items-center">
             <div className="col-lg-5">
@@ -887,7 +865,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section>
         <div className="container">

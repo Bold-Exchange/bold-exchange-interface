@@ -49,4 +49,9 @@ export default defineConfig({
     type: "hash",
   },
   hash: true,
+  plugins: ["@umijs/plugins/dist/antd"],
+  antd: {
+    dark: true,
+    compact: true,
+  },
 });
