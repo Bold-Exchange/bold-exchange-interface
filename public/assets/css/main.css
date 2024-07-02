@@ -19497,7 +19497,7 @@ footer .container .footer_copyright .col-lg-5 {
   .activecr {
   display: inherit;
 }
-
+/* 
 @media only screen and (min-width: 1920px) {
   .home_banner_wrapper {
     background-image: url("../images/home_banner/home_banner_lg_bg.png");
@@ -25074,7 +25074,7 @@ footer .container .footer_copyright .col-lg-5 {
     .member_wrapper {
     width: 100%;
   }
-}
+} */
 /*===================main scss sources end================*/
 
 /*# sourceMappingURL=main.css.map */
