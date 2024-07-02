@@ -1,42 +1,17 @@
 import React, { useState } from "react";
-import { Flex, Layout } from "antd";
-
+import { Layout } from "antd";
+import { Outlet } from "umi";
+import classnames from "classnames";
+import Menu from "./Menu";
+import { Game } from "@/components";
+import styles from "./index.less";
+import {
+  CloseOutlined,
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+} from "@ant-design/icons";
+import Top from "./Top";
 const { Header, Footer, Sider, Content } = Layout;
-
-const headerStyle: React.CSSProperties = {
-  textAlign: "center",
-  color: "#fff",
-  height: 64,
-  paddingInline: 48,
-  lineHeight: "64px",
-  backgroundColor: "#4096ff",
-};
-
-const contentStyle: React.CSSProperties = {
-  textAlign: "center",
-  minHeight: 120,
-  lineHeight: "120px",
-  color: "#fff",
-  backgroundColor: "#0958d9",
-};
-
-const siderStyle: React.CSSProperties = {
-  textAlign: "center",
-  lineHeight: "120px",
-  color: "#fff",
-  backgroundColor: "#1677ff",
-};
-
-const footerStyle: React.CSSProperties = {
-  textAlign: "center",
-  color: "#fff",
-  backgroundColor: "#4096ff",
-};
-
-const layoutStyle = {
-  overflow: "hidden",
-  height: "100vh",
-};
 
 const App: React.FC = () => {
   const menuWidth = 320;
@@ -45,30 +20,48 @@ const App: React.FC = () => {
   const [rightVisible, setRightVisible] = useState<boolean>(true);
 
   return (
-    <Layout style={layoutStyle}>
-      <Sider width={(menuVisible && menuWidth) || 0} style={siderStyle}>
-        Sider
+    <Layout className={styles.layout}>
+      <Sider width={(menuVisible && menuWidth) || 0} className={styles.sider}>
+        {/* <div
+          className={styles.closeRight}
+          onClick={() => setMenuVisible(!menuVisible)}
+        >
+          {(!menuVisible && <MenuUnfoldOutlined />) || <CloseOutlined />}
+        </div> */}
+        <Menu />
       </Sider>
       <Layout>
-        <Header
-          onClick={() => setMenuVisible(!menuVisible)}
-          style={headerStyle}
-        >
-          Header
+        <Header className={styles.header}>
+          <Top onToggle={(v: boolean) => setMenuVisible(v)} />
         </Header>
         <Layout>
-          <Layout>
-            <Content style={contentStyle}>Content</Content>
-            <Footer
-              onClick={() => setRightVisible(!rightVisible)}
-              style={footerStyle}
-            >
-              Footer
-            </Footer>
+          <Layout className="overflow-auto scrollbar-0">
+            <Content className={styles.content}>
+              <Outlet />
+            </Content>
+            <Footer className={styles.footer}></Footer>
           </Layout>
 
-          <Sider width={(rightVisible && rightWidth) || 0} style={siderStyle}>
-            Sider
+          <Sider
+            width={(rightVisible && rightWidth) || 0}
+            className={styles.sider}
+            style={{ overflow: "auto" }}
+          >
+            {/* <div
+              className={classnames(styles.closeRight, styles.closeLeft, {
+                [`${styles.closeLeftClose}`]: !rightVisible,
+              })}
+              onClick={() => setRightVisible(!rightVisible)}
+            >
+              {(!rightVisible && <MenuFoldOutlined />) || <CloseOutlined />}
+            </div> */}
+            <Game />
+            <Game />
+            <Game />
+            <Game />
+            <Game />
+            <Game />
+            <Game />
           </Sider>
         </Layout>
       </Layout>

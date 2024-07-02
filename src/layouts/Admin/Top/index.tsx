@@ -1,12 +1,25 @@
+import { useEffect, useState } from "react";
+import classNames from "classnames";
 import "./styles.less";
 import { Button } from "@/components";
-const Top = () => {
+const Top = (props: any) => {
+  const [visible, setVisible] = useState(true);
+
   return (
     <div className="container-fluid top_bar">
       <div className="top_bar_wrapper d-flex align-items-center justify-content-between">
         <div className="search_bar d-flex align-items-center">
           <div className="show_hide d-flex align-items-center">
-            <button type="button" title="Toggle Side Bar">
+            <button
+              type="button"
+              title="Toggle Side Bar"
+              className={classNames({ hambarger_toggle: !visible })}
+              onClick={() => {
+                setVisible(!visible);
+
+                props.onToggle(!visible);
+              }}
+            >
               <span className="toggle_bar_one"></span>
               <span className="toggle_bar_two"></span>
               <span className="toggle_bar_three"></span>
