@@ -144,47 +144,7 @@ import TradingViewWidget, { Themes } from "react-tradingview-widget";
 
 const App = () => (
   <div style={{ display: "flex" }}>
-    <div style={{ width: "30%", height: "500px" }}>
-      <TradingViewWidget
-        symbol="ETHUSD"
-        theme={Themes.DARK}
-        locale="fr"
-        autosize
-      />
-    </div>
-    <div style={{ width: "30%", height: "500px" }}>
-      <TradingViewWidget
-        symbol="USDTUSD"
-        theme={Themes.DARK}
-        locale="fr"
-        autosize
-      />
-    </div>
-    <div style={{ width: "30%", height: "500px" }}>
-      <TradingViewWidget
-        symbol="BTCUSD"
-        theme={Themes.DARK}
-        locale="fr"
-        autosize
-      />
-    </div>
-    <div style={{ width: "30%", height: "500px" }}>
-      <TradingViewWidget
-        symbol="ETHUSD"
-        theme={Themes.DARK}
-        locale="fr"
-        autosize
-      />
-    </div>
-    <div style={{ width: "30%", height: "500px" }}>
-      <TradingViewWidget
-        symbol="USDTUSD"
-        theme={Themes.DARK}
-        locale="fr"
-        autosize
-      />
-    </div>
-    <div style={{ width: "30%", height: "500px" }}>
+    <div style={{ width: "70%", height: "500px" }}>
       <TradingViewWidget
         symbol="BTCUSD"
         theme={Themes.DARK}

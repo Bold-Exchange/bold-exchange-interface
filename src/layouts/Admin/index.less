@@ -1,3 +1,4 @@
+@import url("@/them.less");
 .layout {
   overflow: hidden;
   height: 100vh;
@@ -7,9 +8,9 @@
   color: #fff;
   height: 80px;
   line-height: 80px;
-  background-color: red;
   display: flex;
   padding: 0;
+  background: @bgcolor;
 }
 .content {
   text-align: center;
@@ -17,14 +18,16 @@
   line-height: 120px;
   min-height: unset;
   color: #fff;
+  background: @bgcolor;
 }
 .sider {
   text-align: center;
   color: #c21e1e;
-  background: #4096ff;
+  background: @bgcolor !important;
 }
 .footer {
   color: #fff;
+  background: @bgcolor;
 }
 .closeRight {
   position: absolute;

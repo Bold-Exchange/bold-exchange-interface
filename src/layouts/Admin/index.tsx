@@ -4,11 +4,13 @@ import { Outlet } from "umi";
 import classnames from "classnames";
 import Menu from "./Menu";
 import { Game } from "@/components";
+import Trigger from "./Trigger";
 import styles from "./index.less";
 import {
   CloseOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
+  VerticalLeftOutlined,
 } from "@ant-design/icons";
 import Top from "./Top";
 const { Header, Footer, Sider, Content } = Layout;
@@ -16,12 +18,17 @@ const { Header, Footer, Sider, Content } = Layout;
 const App: React.FC = () => {
   const menuWidth = 320;
   const rightWidth = 320;
-  const [menuVisible, setMenuVisible] = useState<boolean>(true);
-  const [rightVisible, setRightVisible] = useState<boolean>(true);
+  const [menuVisible, setMenuVisible] = useState<boolean>(false);
+  const [rightVisible, setRightVisible] = useState<boolean>(false);
 
   return (
     <Layout className={styles.layout}>
-      <Sider width={(menuVisible && menuWidth) || 0} className={styles.sider}>
+      <Sider
+        collapsed={menuVisible}
+        collapsedWidth={0}
+        width={320}
+        className={styles.sider}
+      >
         {/* <div
           className={styles.closeRight}
           onClick={() => setMenuVisible(!menuVisible)}
@@ -29,10 +36,15 @@ const App: React.FC = () => {
           {(!menuVisible && <MenuUnfoldOutlined />) || <CloseOutlined />}
         </div> */}
         <Menu />
+        <Trigger
+          direction="left"
+          onToggle={() => setMenuVisible(!menuVisible)}
+          isOpen={!menuVisible}
+        />
       </Sider>
       <Layout>
         <Header className={styles.header}>
-          <Top onToggle={(v: boolean) => setMenuVisible(v)} />
+          {/* <Top onToggle={(v: boolean) => setMenuVisible(v)} /> */}
         </Header>
         <Layout>
           <Layout className="overflow-auto scrollbar-0">
@@ -43,25 +55,25 @@ const App: React.FC = () => {
           </Layout>
 
           <Sider
-            width={(rightVisible && rightWidth) || 0}
+            collapsed={rightVisible}
+            collapsedWidth={0}
+            width={320}
             className={styles.sider}
-            style={{ overflow: "auto" }}
           >
-            {/* <div
-              className={classnames(styles.closeRight, styles.closeLeft, {
-                [`${styles.closeLeftClose}`]: !rightVisible,
-              })}
-              onClick={() => setRightVisible(!rightVisible)}
-            >
-              {(!rightVisible && <MenuFoldOutlined />) || <CloseOutlined />}
-            </div> */}
-            <Game />
-            <Game />
-            <Game />
-            <Game />
-            <Game />
-            <Game />
-            <Game />
+            <div>
+              <Game />
+              <Game />
+              <Game />
+              <Game />
+              <Game />
+              <Game />
+              <Game />
+            </div>
+            <Trigger
+              direction="right"
+              onToggle={() => setRightVisible(!rightVisible)}
+              isOpen={!rightVisible}
+            />
           </Sider>
         </Layout>
       </Layout>

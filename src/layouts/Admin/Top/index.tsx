@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import classNames from "classnames";
 import "./styles.less";
 import { Button } from "@/components";
+import { Input } from "antd";
 const Top = (props: any) => {
   const [visible, setVisible] = useState(true);
 
@@ -10,7 +11,7 @@ const Top = (props: any) => {
       <div className="top_bar_wrapper d-flex align-items-center justify-content-between">
         <div className="search_bar d-flex align-items-center">
           <div className="show_hide d-flex align-items-center">
-            <button
+            {/* <button
               type="button"
               title="Toggle Side Bar"
               className={classNames({ hambarger_toggle: !visible })}
@@ -23,28 +24,9 @@ const Top = (props: any) => {
               <span className="toggle_bar_one"></span>
               <span className="toggle_bar_two"></span>
               <span className="toggle_bar_three"></span>
-            </button>
+            </button> */}
           </div>
-          <div className="form">
-            <form action="#" method="post" id="forSm">
-              <input
-                type="search"
-                name="searchBar"
-                id="searchPlayers"
-                placeholder="Search Players"
-                required
-              />
-              <button type="submit">
-                <i className="flaticon-loupe"></i>
-              </button>
-            </form>
-            <a
-              href="javascript:void(0)"
-              className="search_toggle d-block d-md-none"
-            >
-              <i className="flaticon-loupe"></i>
-            </a>
-          </div>
+          <Input />
         </div>
         <div className="user_bar d-flex align-items-center justify-content-end">
           <div className="search_wrapper">

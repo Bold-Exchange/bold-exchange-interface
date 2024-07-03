@@ -1,51 +1,41 @@
-.game_wrapper2 {
-  background-color: #3d447a;
-  padding-top: 40px;
-  border-radius: 5px;
-  box-shadow: 0px 5px 10px 0px rgba(27, 3, 132, 0.3);
-  margin: 25px 0;
-}
+.game {
+  padding: 10px;
+  .cardcontent {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    .one {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      gap: 10px;
+      img {
+        width: 60px;
+        height: 60px;
+      }
+      .text {
+        display: flex;
 
-.game_wrapper2 .game_header {
-  padding-bottom: 25px;
-}
+        align-items: flex-start;
 
-.game_wrapper2 .game_header .text-center img {
-  width: 59px;
-  height: 61px;
-}
+        flex-direction: column;
 
-.game_wrapper2 .game_header .text-center p {
-  margin-top: 10px;
-}
+        flex: 1;
+        max-width: 100%;
+        overflow: hidden;
+        .title {
+          color: rgba(255, 255, 255, 0.48);
+          font-size: 16px;
+        }
+        p {
+          overflow: hidden;
+          text-overflow: ellipsis;
 
-.game_wrapper2 .game_header .text-center p a {
-  text-decoration: none;
-  display: inline-block;
-  font-family: "Open Sans", sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 2;
-  color: #ffffff;
-}
-
-.game_wrapper2 .game_header .middle_col img {
-  width: 24px;
-  height: 40px;
-  margin-top: 10px;
-}
-
-.game_wrapper2 .game_footer {
-  padding: 12px 0px 15px;
-  background-color: rgba(255, 255, 255, 0.051);
-  box-shadow: 0px 5px 10px 0px rgba(27, 3, 132, 0.3);
-}
-
-.game_wrapper2 .game_footer .date,
-.game_wrapper2 .game_footer .time {
-  font-family: "Open Sans", sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 2;
-  color: #ffffff;
+          word-break: break-word;
+          color: rgba(255, 255, 255, 0.64);
+          font-size: 13px;
+        }
+      }
+    }
+  }
 }
