@@ -44,7 +44,7 @@ const App: React.FC = () => {
       </Sider>
       <Layout>
         <Header className={styles.header}>
-          {/* <Top onToggle={(v: boolean) => setMenuVisible(v)} /> */}
+          <Top onToggle={(v: boolean) => setMenuVisible(v)} />
         </Header>
         <Layout>
           <Layout className="overflow-auto scrollbar-0">
@@ -60,7 +60,7 @@ const App: React.FC = () => {
             width={320}
             className={styles.sider}
           >
-            <div>
+            <div style={{ overflow: "auto", height: "100%" }}>
               <Game />
               <Game />
               <Game />

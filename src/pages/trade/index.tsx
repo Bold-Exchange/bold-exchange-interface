@@ -141,16 +141,23 @@
 // TradingViewWidget.jsx
 // TradingViewWidget.jsx
 import TradingViewWidget, { Themes } from "react-tradingview-widget";
+import Tl from "./Tl";
 
 const App = () => (
-  <div style={{ display: "flex" }}>
-    <div style={{ width: "70%", height: "500px" }}>
-      <TradingViewWidget
-        symbol="BTCUSD"
-        theme={Themes.DARK}
-        locale="fr"
-        autosize
-      />
+  <div>
+    <div style={{ display: "flex" }}>
+      <div style={{ width: "65%", height: "500px" }}>
+        <TradingViewWidget
+          symbol="BTCUSD"
+          theme={Themes.DARK}
+          locale="fr"
+          autosize
+        />
+      </div>
+    </div>
+
+    <div>
+      <Tl />
     </div>
   </div>
 );

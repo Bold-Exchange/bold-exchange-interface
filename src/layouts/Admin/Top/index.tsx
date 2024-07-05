@@ -26,7 +26,7 @@ const Top = (props: any) => {
               <span className="toggle_bar_three"></span>
             </button> */}
           </div>
-          <Input />
+          {/* <Input /> */}
         </div>
         <div className="user_bar d-flex align-items-center justify-content-end">
           <div className="search_wrapper">
