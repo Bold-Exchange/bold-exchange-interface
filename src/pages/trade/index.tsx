@@ -141,24 +141,32 @@
 // TradingViewWidget.jsx
 // TradingViewWidget.jsx
 import TradingViewWidget, { Themes } from "react-tradingview-widget";
+import a from "./a.png";
+import b from "./b.png";
+import c from "./c.png";
+
 import Tl from "./Tl";
 
 const App = () => (
   <div>
     <div style={{ display: "flex" }}>
-      <div style={{ width: "65%", height: "500px" }}>
+      <div style={{ width: "75%", height: "500px" }}>
         <TradingViewWidget
           symbol="BTCUSD"
           theme={Themes.DARK}
           locale="fr"
           autosize
         />
+        <img src={c} width="100%" />
+        <Tl />
+      </div>
+      <div style={{ width: "25%", marginLeft: "15px" }}>
+        <img src={b} width="100%" style={{ marginTop: "-5px" }} />
+        <img src={a} width="100%" />
       </div>
     </div>
 
-    <div>
-      <Tl />
-    </div>
+    <div></div>
   </div>
 );
 export default App;

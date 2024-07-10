@@ -59,6 +59,7 @@ const App: React.FC = () => {
             collapsedWidth={0}
             width={320}
             className={styles.sider}
+            style={{ zIndex: 0 }}
           >
             <div style={{ overflow: "auto", height: "100%" }}>
               <Game />

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Drawer, Space, Table, Tag } from "antd";
 import type { DrawerProps, RadioChangeEvent, TableProps } from "antd";
 import { FunnelPlotOutlined, ShareAltOutlined } from "@ant-design/icons";
+import d from "./d.png";
 
 interface DataType {
   key: string;
@@ -229,16 +230,16 @@ const App: React.FC = () => {
         }}
       />
       <Drawer
-        title="
-        Motion
-        $0.0₅44352"
+        title={null}
         placement={placement}
         closable={false}
         onClose={onClose}
         open={open}
         key={placement}
+        width={700}
+        bodyStyle={{ padding: 0 }}
       >
-        <p>Some contents...</p>
+        <img src={d} width={"100%"} />
       </Drawer>
     </>
   );
