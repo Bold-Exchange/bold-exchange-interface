@@ -21,6 +21,7 @@ export default defineConfig({
       ],
     },
   ],
+
   npmClient: "pnpm",
   title: "Bold Exchange &mdash; Fantasy Sports Stock Exchange HTML Template",
   metas: [{ name: "keywords", content: "bold exchange" }],
@@ -33,8 +34,9 @@ export default defineConfig({
     // { href: "/assets/css/vendor/magnific-popup.css", rel: "stylesheet" },
     // { href: "/assets/css/vendor/nice-select.css", rel: "stylesheet" },
     // { href: "/assets/css/vendor/animate.css", rel: "stylesheet" },
-    { href: "/assets/css/main.css", rel: "stylesheet" },
+    // { href: "/assets/css/main.css", rel: "stylesheet" },
   ],
+
   headScripts: [
     { src: "/assets/js/vendor/jquery-3.6.0.min.js" },
     { src: "/assets/js/vendor/bootstrap.bundle.min.js" },
@@ -45,11 +47,12 @@ export default defineConfig({
     { src: "/assets/js/vendor/jquery.nice-select.min.js" },
     { src: "/assets/js/vendor/wow.min.js" },
   ],
+
   history: {
     type: "hash",
   },
   hash: true,
-  plugins: ["@umijs/plugins/dist/antd"],
+  plugins: ["@umijs/plugins/dist/antd", "@umijs/plugins/dist/tailwindcss"],
   antd: {
     dark: true,
     compact: true,
@@ -59,4 +62,5 @@ export default defineConfig({
       },
     },
   },
+  tailwindcss: {},
 });

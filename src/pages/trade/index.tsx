@@ -140,33 +140,73 @@
 
 // TradingViewWidget.jsx
 // TradingViewWidget.jsx
+import { CopyText } from "@/components";
 import TradingViewWidget, { Themes } from "react-tradingview-widget";
 import a from "./a.png";
 import b from "./b.png";
 import c from "./c.png";
 
 import Tl from "./Tl";
+import PoolInfo from "./PoolInfo";
+import DataStatistics from "./DataStatistics";
+import Buy from "./Buy";
+// 测试数据
+const data = [
+  { title: "Total liq", value: "$5,770.94(20.54 SOL)" },
+  { title: "Market cap", value: "$3,09" },
+  { title: "Holders", value: "196" },
+  { title: "Total supply", value: "930.6M" },
+  { title: "Pair", value: <CopyText text={"De9fp22222222han"} /> },
+  {
+    title: "Token creator",
+    value: <CopyText text={"Hr2hz222333333322yiE"} extension="(0SOL)" />,
+  },
+  { title: "Pool created", value: "07/02/2024 19:03" },
+];
+const App = () => {
+  return (
+    <div>
+      <div className="flex">
+        <div className="h-[500px] flex-auto">
+          <TradingViewWidget
+            symbol="BTCUSD"
+            theme={Themes.DARK}
+            locale="fr"
+            autosize
+          />
+          <div className="flex gap-2 my-2">
+            <div className="bg-gray-700 rounded-lg p-1">Activity</div>
+            <div className="opacity-25 bg-gray-800 rounded-lg p-1">
+              Holders(196)
+            </div>
+            <div className="opacity-25 bg-gray-800 rounded-lg p-1">
+              My Postion(0)
+            </div>
+          </div>
+          <div className="flex divide-x divide-gray-600 max-w-max rounded-lg my-2 px-2 border border-gray-800">
+            <div className="bg-zinc-900 p-1">All</div>
+            <div className="bg-zinc-900 p-1 opacity-25">Smart</div>
+            <div className="bg-zinc-900 p-1 opacity-25">KOL/VC</div>
+            <div className="bg-zinc-900 p-1 opacity-25">Whale</div>
+            <div className="bg-zinc-900 p-1 opacity-25">Snipers(1)</div>
+            <div className="bg-zinc-900 p-1 opacity-25">Top</div>
+            <div className="bg-zinc-900 p-1 opacity-25">DEV</div>
+            <div className="bg-zinc-900 p-1 opacity-25">Following</div>
+            <div className="bg-zinc-900 p-1 opacity-25">Insiders(1)</div>
+          </div>
 
-const App = () => (
-  <div>
-    <div style={{ display: "flex" }}>
-      <div style={{ width: "75%", height: "500px" }}>
-        <TradingViewWidget
-          symbol="BTCUSD"
-          theme={Themes.DARK}
-          locale="fr"
-          autosize
-        />
-        <img src={c} width="100%" />
-        <Tl />
-      </div>
-      <div style={{ width: "25%", marginLeft: "15px" }}>
-        <img src={b} width="100%" style={{ marginTop: "-5px" }} />
-        <img src={a} width="100%" />
+          <Tl />
+        </div>
+        <div
+          className="w-[320px] flex flex-col gap-4"
+          style={{ marginLeft: "20px" }}
+        >
+          <Buy />
+          <DataStatistics />
+          <PoolInfo title="Pool Info" data={data} more={<a href="#">-</a>} />
+        </div>
       </div>
     </div>
-
-    <div></div>
-  </div>
-);
+  );
+};
 export default App;

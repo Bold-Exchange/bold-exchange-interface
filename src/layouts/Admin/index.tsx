@@ -18,8 +18,8 @@ const { Header, Footer, Sider, Content } = Layout;
 const App: React.FC = () => {
   const menuWidth = 320;
   const rightWidth = 320;
-  const [menuVisible, setMenuVisible] = useState<boolean>(false);
-  const [rightVisible, setRightVisible] = useState<boolean>(false);
+  const [menuVisible, setMenuVisible] = useState<boolean>(true);
+  const [rightVisible, setRightVisible] = useState<boolean>(true);
 
   return (
     <Layout className={styles.layout}>

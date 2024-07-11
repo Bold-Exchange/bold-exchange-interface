@@ -9,24 +9,11 @@ const Top = (props: any) => {
   return (
     <div className="container-fluid top_bar">
       <div className="top_bar_wrapper d-flex align-items-center justify-content-between">
-        <div className="search_bar d-flex align-items-center">
-          <div className="show_hide d-flex align-items-center">
-            {/* <button
-              type="button"
-              title="Toggle Side Bar"
-              className={classNames({ hambarger_toggle: !visible })}
-              onClick={() => {
-                setVisible(!visible);
-
-                props.onToggle(!visible);
-              }}
-            >
-              <span className="toggle_bar_one"></span>
-              <span className="toggle_bar_two"></span>
-              <span className="toggle_bar_three"></span>
-            </button> */}
-          </div>
-          {/* <Input /> */}
+        <div className="search_bar d-flex align-items-center flex justify-center flex-auto">
+          <Input
+            className="w-1/4 p-2"
+            placeholder="Search token/contract/wallet"
+          />
         </div>
         <div className="user_bar d-flex align-items-center justify-content-end">
           <div className="search_wrapper">
