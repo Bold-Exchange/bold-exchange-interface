@@ -69,6 +69,7 @@ const App: React.FC = () => {
               <Game />
               <Game />
               <Game />
+              <Game />
             </div>
             <Trigger
               direction="right"
