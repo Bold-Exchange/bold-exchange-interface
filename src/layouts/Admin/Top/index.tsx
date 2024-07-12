@@ -47,6 +47,7 @@ const Top = (props: any) => {
               <a href="javascript:void(0)" className="profile_link disable">
                 Ed Walsh <i className="fas fa-caret-down"></i>
               </a>
+
               <div className="drop_content">
                 <a href="user-about.html">Profile</a>
                 <a href="#">Settings</a>
