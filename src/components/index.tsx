@@ -4,4 +4,5 @@ import Game from "./Game";
 import ListMenu from "./ListMenu";
 import CopyText from "./CopyText";
 import InfoItem from "./InfoItem";
-export { Button, Accordion, ListMenu, Game, CopyText, InfoItem };
+import Block from "./Block";
+export { Button, Accordion, ListMenu, Game, CopyText, InfoItem, Block };

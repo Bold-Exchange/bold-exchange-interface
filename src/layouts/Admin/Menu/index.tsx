@@ -1,3 +1,4 @@
+import { history } from "umi";
 import { ListMenu as List } from "@/components";
 import { LogoutOutlined } from "@ant-design/icons";
 import User from "../User";
@@ -16,8 +17,8 @@ const Menu = () => {
       </div>
       <User />
       <div className="portfolio_wrapper">
-        <List>
-          <List.Item value="item1">My Portfolio</List.Item>
+        <List onSelect={(v) => history.push(v)}>
+          <List.Item value="/portfolio">My Portfolio</List.Item>
           <List.Item value="item2">About</List.Item>
         </List>
       </div>

@@ -2,22 +2,22 @@ import { defineConfig } from "umi";
 
 export default defineConfig({
   routes: [
+    // {
+    //   path: "/",
+    //   component: "@/layouts/Index",
+    //   routes: [
+    //     { path: "/", component: "index" },
+    //     { path: "/login", component: "login" },
+    //     { path: "/register", component: "register" },
+    //   ],
+    // },
     {
       path: "/",
-      component: "@/layouts/Index",
-      routes: [
-        { path: "/", component: "index" },
-        { path: "/login", component: "login" },
-        { path: "/register", component: "register" },
-      ],
-    },
-    {
-      path: "/admin",
       component: "@/layouts/Admin",
       routes: [
-        { path: "/admin/trade", component: "trade" },
-        { path: "/admin/portfolio", component: "portfolio" },
-        { path: "/admin/about", component: "about" },
+        { path: "/", component: "trade" },
+        { path: "/portfolio", component: "portfolio" },
+        { path: "/about", component: "about" },
       ],
     },
   ],

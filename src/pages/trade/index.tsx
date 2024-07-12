@@ -142,14 +142,12 @@
 // TradingViewWidget.jsx
 import { CopyText } from "@/components";
 import TradingViewWidget, { Themes } from "react-tradingview-widget";
-import a from "./a.png";
-import b from "./b.png";
-import c from "./c.png";
 
 import Tl from "./Tl";
 import PoolInfo from "./PoolInfo";
 import DataStatistics from "./DataStatistics";
 import Buy from "./Buy";
+import Charts from "./Charts";
 // 测试数据
 const data = [
   { title: "Total liq", value: "$5,770.94(20.54 SOL)" },

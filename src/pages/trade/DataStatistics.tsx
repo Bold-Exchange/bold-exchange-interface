@@ -1,28 +1,11 @@
 import React from "react";
-import { InfoItem } from "@/components";
+import { InfoItem, Block } from "@/components";
 import { CheckOutlined, SunOutlined } from "@ant-design/icons";
 // 测试数据
 const data = [
   { title: "Total liq", value: "$5,770.94(20.54 SOL)" },
   { title: "Market cap", value: "$3,09" },
 ];
-const Block = ({
-  title,
-  hover = false,
-  textAlign = "text-center",
-  children,
-}: any) => {
-  return (
-    <div
-      className={`flex-auto flex-row ${textAlign}  bg-zinc-900 p-2  text-gray-600 ${
-        hover && `hover:bg-zinc-800 group`
-      } `}
-    >
-      <div className="flex-col  group-hover:text-white">{title}</div>
-      <div className="flex-col">{children}</div>
-    </div>
-  );
-};
 
 const DataStatistics = () => {
   return (
