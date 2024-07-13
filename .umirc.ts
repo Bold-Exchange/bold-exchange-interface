@@ -38,14 +38,14 @@ export default defineConfig({
   ],
 
   headScripts: [
-    { src: "/assets/js/vendor/jquery-3.6.0.min.js" },
-    { src: "/assets/js/vendor/bootstrap.bundle.min.js" },
-    { src: "/assets/js/vendor/jquery.waypoints.min.js" },
-    { src: "/assets/js/vendor/jquery.counterup.min.js" },
-    { src: "/assets/js/vendor/owl.carousel.min.js" },
-    { src: "/assets/js/vendor/jquery.magnific-popup.min.js" },
-    { src: "/assets/js/vendor/jquery.nice-select.min.js" },
-    { src: "/assets/js/vendor/wow.min.js" },
+    // { src: "/assets/js/vendor/jquery-3.6.0.min.js" },
+    // { src: "/assets/js/vendor/bootstrap.bundle.min.js" },
+    // { src: "/assets/js/vendor/jquery.waypoints.min.js" },
+    // { src: "/assets/js/vendor/jquery.counterup.min.js" },
+    // { src: "/assets/js/vendor/owl.carousel.min.js" },
+    // { src: "/assets/js/vendor/jquery.magnific-popup.min.js" },
+    // { src: "/assets/js/vendor/jquery.nice-select.min.js" },
+    // { src: "/assets/js/vendor/wow.min.js" },
   ],
 
   history: {
