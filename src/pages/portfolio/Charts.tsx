@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Chart, Line, Point, Tooltip, getTheme } from "bizcharts";
+import { Chart, Line, Point, Tooltip, getTheme, Axis } from "bizcharts";
 
 console.log(getTheme());
 
@@ -42,6 +42,50 @@ const data = [
     year: "1999",
     value: 13,
   },
+  {
+    year: "2000",
+    value: 3,
+  },
+  {
+    year: "2001",
+    value: 4,
+  },
+  {
+    year: "2002",
+    value: 3.5,
+  },
+  {
+    year: "2003",
+    value: 5,
+  },
+  {
+    year: "2004",
+    value: 4.9,
+  },
+  {
+    year: "2005",
+    value: 6,
+  },
+  {
+    year: "2006",
+    value: 7,
+  },
+  {
+    year: "2007",
+    value: 9,
+  },
+  {
+    year: "2008",
+    value: 13,
+  },
+  {
+    year: "2009",
+    value: 3,
+  },
+  {
+    year: "2010",
+    value: 4,
+  },
 ];
 
 export default function Demo() {
@@ -58,9 +102,10 @@ export default function Demo() {
           year: { range: [0, 1] },
         }}
       >
-        <Line position="year*value" />
-        <Point position="year*value" />
-        <Tooltip showCrosshairs follow={false} />
+        <Axis name="value" visible={false} />
+        <Line color={"green"} position="year*value" />
+        <Point color={"green"} shape="circle" position="year*value" />
+        <Tooltip showCrosshairs />
       </Chart>
     </>
   );
