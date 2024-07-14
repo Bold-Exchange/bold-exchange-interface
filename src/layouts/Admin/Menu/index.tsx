@@ -17,9 +17,9 @@ const Menu = () => {
       </div>
       <User />
       <div className="portfolio_wrapper">
-        <List onSelect={(v) => v ?? history.push(v)}>
+        <List onSelect={(v) => v && history.push(v)}>
           <List.Item value="/portfolio">My Portfolio</List.Item>
-          <List.Item value="">About</List.Item>
+          <List.Item value="/">About</List.Item>
         </List>
       </div>
       <div className="trading_wrapper">
