@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 
 interface InfoItemProps {
-  title: string;
+  title: any;
   children: ReactNode;
 }
 
