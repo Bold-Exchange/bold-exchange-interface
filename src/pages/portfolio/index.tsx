@@ -155,7 +155,7 @@ const Docspage = () => {
             >
               <span className="text-red-500">3 (42.86%)</span>
             </InfoItem>
-            <div className="flex rounded-full h-2 w-full bg-gray-700 truncates">
+            <div className="flex rounded-full h-2 w-full bg-gray-700 overflow-hidden">
               <div className="bg-green-900   w-1/2"></div>
               <div className="bg-red-900 w-1/2"></div>
             </div>
