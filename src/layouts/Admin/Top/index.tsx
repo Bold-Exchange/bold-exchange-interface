@@ -22,17 +22,13 @@ const Top = (props: any) => {
             </a>
           </div>
           <div className="dollar_wrapper">
-            <a href="#">$500.00</a>
+            <a href="#">Create Token</a>
           </div>
-          <div className="wallet_wrapper">
-            <a href="#">
-              <i className="flaticon-wallet-filled-money-tool"></i>
-            </a>
+          <div className="dollar_wrapper">
+            <a href="#">Connect</a>
           </div>
-          <div className="notification_wrapper">
-            <a href="#">
-              <i className="flaticon-bell"></i>
-            </a>
+          <div className="dollar_wrapper">
+            <a href="#">0</a>
           </div>
           <div className="profile_wrapper d-flex align-items-center">
             <div className="img_wrapper">
