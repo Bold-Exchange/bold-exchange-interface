@@ -29,11 +29,11 @@ const columns: TableProps<DataType>["columns"] = [
     render: (_) =>
       _ === 0 ? (
         <Tag bordered={false} color="success">
-          买入
+          Buy
         </Tag>
       ) : (
         <Tag bordered={false} color="error">
-          卖出
+          Sell
         </Tag>
       ),
   },

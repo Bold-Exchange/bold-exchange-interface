@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { InfoItem, CopyText } from "@/components";
-import Tl from "./Tl";
+import Tl from "../trade/Tl";
 import { SyncOutlined } from "@ant-design/icons";
 const Docspage = () => {
   return (
