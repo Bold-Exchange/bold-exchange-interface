@@ -94,7 +94,7 @@ export default function Demo() {
       <Chart
         appendPadding={[10, 0, 0, 10]}
         autoFit
-        height={500}
+        height={250}
         data={data}
         onLineClick={console.log}
         scale={{

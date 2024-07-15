@@ -147,7 +147,7 @@ import Tl from "./Tl";
 import PoolInfo from "./PoolInfo";
 import DataStatistics from "./DataStatistics";
 import Buy from "./Buy";
-import Charts from "./Charts";
+import Charts from "../portfolio/Charts";
 import { SyncOutlined } from "@ant-design/icons";
 import { Rate } from "antd";
 // 测试数据

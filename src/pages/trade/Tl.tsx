@@ -7,7 +7,7 @@ import {
   ShareAltOutlined,
 } from "@ant-design/icons";
 import d from "./d.png";
-import Charts from "./Charts";
+import Charts from "../portfolio/Charts";
 import T2 from "./T2";
 import { CopyText, Block } from "@/components";
 interface DataType {
@@ -270,53 +270,64 @@ const App: React.FC = () => {
           </div>
         </div>
         <Charts />
-        <div>
-          <div className="flex gap-2 mt-4">
-            <img width={16} src={"https://gmgn.ai/static/avator_new/42.png"} />
-            <CopyText text={"6oZWfqvU76YvXA7X5QQGowTbxEVTFEU3BqQ46DxBudKY"} />
-          </div>
-          <div className="grid grid-cols-2 mt-4">
-            <Block textAlign="text-left" title="Total Profit:">
-              <span className="text-red-500">-$43.54(-97.97%)</span>
-            </Block>
-            <Block textAlign="text-left" title="Unrealize">
-              <span className="text-red-500 bg-red-100 rounded-lg p-1">
-                Sell All
-              </span>
-            </Block>
-          </div>
-          <div className="grid grid-cols-2 mt-4">
-            <Block textAlign="text-left" title="Balance">
-              $0
-            </Block>
-            <Block textAlign="text-left" title="Position%(0 of 261.9K)">
-              --
-            </Block>
-          </div>
-          <div className="grid grid-cols-2	 mt-4">
-            <Block textAlign="text-left" title="Bought">
-              $44.9
-            </Block>
-            <Block textAlign="text-left" title="Sold">
-              $0.902
-            </Block>
-          </div>
-          <div className="grid grid-cols-2	 mt-4">
-            <Block
-              textAlign="text-left"
-              title="Avg Cost/Sold
+        <div className="p-3">
+          <div>
+            <div className="flex gap-2 mt-4">
+              <img
+                width={16}
+                className="rounded-full"
+                src={"https://gmgn.ai/static/avator_new/42.png"}
+              />
+              <CopyText text={"6oZWfqvU76YvXA7X5QQGowTbxEVTFEU3BqQ46DxBudKY"} />
+            </div>
+            <div className="grid grid-cols-2">
+              <Block textAlign="text-left" title="Total Profit:">
+                <span className="text-red-500 text-sm">-$43.54(-97.97%)</span>
+              </Block>
+              <Block textAlign="text-left" title="Unrealize">
+                <span
+                  className="text-red-500 rounded-sm p-1"
+                  style={{ background: "rgba(240, 72, 102, 0.2)" }}
+                >
+                  Sell All
+                </span>
+              </Block>
+            </div>
+            <div className="grid grid-cols-2">
+              <Block textAlign="text-left" title="Balance">
+                <span className="text-white text-sm"> $0</span>
+              </Block>
+              <Block textAlign="text-left" title="Position%(0 of 261.9K)">
+                <span className="text-white text-sm">--</span>
+              </Block>
+            </div>
+            <div className="grid grid-cols-2">
+              <Block textAlign="text-left" title="Bought">
+                <span className="text-white text-sm"> $44.9</span>
+              </Block>
+              <Block textAlign="text-left" title="Sold">
+                <span className="text-white text-sm">$0.902</span>
+              </Block>
+            </div>
+            <div className="grid grid-cols-2">
+              <Block
+                textAlign="text-left"
+                title="Avg Cost/Sold
 "
-            >
-              $0.00017/$0.0₅34786
-            </Block>
-            <Block textAlign="text-left" title="TXs">
-              <span className="text-green-500">1</span>/
-              <span className="text-red-500">1</span>
-            </Block>
+              >
+                <span className="text-white text-sm">$0.00017/$0.0₅34786</span>
+              </Block>
+              <Block textAlign="text-left" title="TXs">
+                <span className="text-green-500">1</span>/
+                <span className="text-red-500">1</span>
+              </Block>
+            </div>
           </div>
+          <Button className="p-5 text-sm my-3" block>
+            Portfolio
+          </Button>
+          <T2 />
         </div>
-        <Button block>Portfolio</Button>
-        <T2 />
       </Drawer>
     </>
   );

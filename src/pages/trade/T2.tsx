@@ -7,7 +7,7 @@ import {
   ShareAltOutlined,
 } from "@ant-design/icons";
 import d from "./d.png";
-import Charts from "./Charts";
+import Charts from "../portfolio/Charts";
 import { CopyText, Block } from "@/components";
 interface DataType {
   key: string;
@@ -27,11 +27,11 @@ const columns: TableProps<DataType>["columns"] = [
     key: "type",
     render: (_) =>
       _ === 0 ? (
-        <Tag bordered={false} color="success">
+        <Tag className="px-2" bordered={false} color="success">
           Sell
         </Tag>
       ) : (
-        <Tag bordered={false} color="error">
+        <Tag className="px-2" bordered={false} color="error">
           Buy
         </Tag>
       ),
@@ -40,16 +40,37 @@ const columns: TableProps<DataType>["columns"] = [
     title: "Total USD",
     dataIndex: "currency",
     key: "currency",
+    render: (a, _) => (
+      <span
+        className={`${(_.type == 0 && "text-green-500") || "text-red-500"}`}
+      >
+        {a}
+      </span>
+    ),
   },
   {
     title: "Amount",
     dataIndex: "rental",
     key: "rental",
+    render: (a, _) => (
+      <span
+        className={`${(_.type == 0 && "text-green-500") || "text-red-500"}`}
+      >
+        {a}
+      </span>
+    ),
   },
   {
     title: "Price",
     key: "quantity",
     dataIndex: "quantity",
+    render: (a, _) => (
+      <span
+        className={`${(_.type == 0 && "text-green-500") || "text-red-500"}`}
+      >
+        {a}
+      </span>
+    ),
   },
   {
     title: "Time",
