@@ -23,7 +23,7 @@ interface DataType {
 
 const columns: TableProps<DataType>["columns"] = [
   {
-    title: "类型",
+    title: "Type",
     dataIndex: "type",
     key: "type",
     render: (_) =>
@@ -38,32 +38,32 @@ const columns: TableProps<DataType>["columns"] = [
       ),
   },
   {
-    title: "币种",
+    title: "Currency",
     dataIndex: "currency",
     key: "currency",
   },
   {
-    title: "总额SOL",
+    title: "Rental",
     dataIndex: "rental",
     key: "rental",
   },
   {
-    title: "数量",
+    title: "Amount",
     key: "quantity",
     dataIndex: "quantity",
   },
   {
-    title: "价格",
+    title: "Price",
     dataIndex: "price",
     key: "price",
   },
   {
-    title: "利润",
+    title: "Profit",
     dataIndex: "profit",
     key: "profit",
   },
   {
-    title: "时长",
+    title: "Time",
     dataIndex: "duration",
     key: "duration",
   },

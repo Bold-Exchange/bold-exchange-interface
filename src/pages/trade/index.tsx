@@ -318,24 +318,42 @@ const App = () => {
             autosize
           />
           <div className="flex gap-2 my-2">
-            <div className="bg-gray-700 rounded-lg p-1">Activity</div>
-            <div className="opacity-25 bg-gray-800 rounded-lg p-1">
+            <div className="bg-gray-700 rounded-lg p-1 hover:bg-gray-700">
+              Activity
+            </div>
+            <div className="opacity-25 bg-gray-700 rounded-lg p-1 hover:opacity-100">
               Holders(196)
             </div>
-            <div className="opacity-25 bg-gray-800 rounded-lg p-1">
+            <div className="opacity-25 bg-gray-700 rounded-lg p-1 hover:opacity-100">
               My Postion(0)
             </div>
           </div>
           <div className="flex divide-x divide-gray-600 max-w-max rounded-lg my-2 px-2 border border-gray-800">
             <div className="bg-zinc-900 p-1">All</div>
-            <div className="bg-zinc-900 p-1 opacity-25">Smart</div>
-            <div className="bg-zinc-900 p-1 opacity-25">KOL/VC</div>
-            <div className="bg-zinc-900 p-1 opacity-25">Whale</div>
-            <div className="bg-zinc-900 p-1 opacity-25">Snipers(1)</div>
-            <div className="bg-zinc-900 p-1 opacity-25">Top</div>
-            <div className="bg-zinc-900 p-1 opacity-25">DEV</div>
-            <div className="bg-zinc-900 p-1 opacity-25">Following</div>
-            <div className="bg-zinc-900 p-1 opacity-25">Insiders(1)</div>
+            <div className="bg-zinc-900 p-1 opacity-25 hover:opacity-100">
+              Smart
+            </div>
+            <div className="bg-zinc-900 p-1 opacity-25 hover:opacity-100">
+              KOL/VC
+            </div>
+            <div className="bg-zinc-900 p-1 opacity-25 hover:opacity-100">
+              Whale
+            </div>
+            <div className="bg-zinc-900 p-1 opacity-25 hover:opacity-100">
+              Snipers(1)
+            </div>
+            <div className="bg-zinc-900 p-1 opacity-25 hover:opacity-100">
+              Top
+            </div>
+            <div className="bg-zinc-900 p-1 opacity-25 hover:opacity-100">
+              DEV
+            </div>
+            <div className="bg-zinc-900 p-1 opacity-25 hover:opacity-100">
+              Following
+            </div>
+            <div className="bg-zinc-900 p-1 opacity-25 hover:opacity-100">
+              Insiders(1)
+            </div>
           </div>
 
           <Tl />
