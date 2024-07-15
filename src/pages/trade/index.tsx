@@ -148,6 +148,7 @@ import PoolInfo from "./PoolInfo";
 import DataStatistics from "./DataStatistics";
 import Buy from "./Buy";
 import Charts from "./Charts";
+import { SyncOutlined } from "@ant-design/icons";
 // 测试数据
 const data = [
   { title: "Total liq", value: "$5,770.94(20.54 SOL)" },
@@ -164,6 +165,26 @@ const data = [
 const App = () => {
   return (
     <div>
+      <div className="flex items-start mb-4 gap-2">
+        <img
+          width={64}
+          src="https://gmgn.ai/static/avator_new/140.png"
+          className="rounded-full"
+          alt="avatar"
+        />
+        <div className="text-gray-500 text-sm">
+          <p className="text-white text-lg">7DWMy...jwz</p>
+          <p>
+            <CopyText
+              text={"966jE8s7ZYvkndiPF1jbFfPs5T89p7QaFP7FBsEamsAb"}
+              startLength={100}
+            />
+          </p>
+          <p className="my-2">
+            <SyncOutlined /> Updated: 1min ago
+          </p>
+        </div>
+      </div>
       <div className="flex">
         <div className="h-[500px] flex-auto">
           <TradingViewWidget
