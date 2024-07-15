@@ -12,7 +12,7 @@ interface Props {
 // Pool Info面板
 const PoolInfo: React.FC<Props> = ({ title, data, more }) => {
   return (
-    <div className="bg-zinc-900 rounded-sm p-2">
+    <div className="bg-zinc-900 rounded-lg p-3">
       <p className="flex justify-between text-sm">
         <span className="text-white">{title}</span>
         {more && <span className="text-white">{more}</span>}

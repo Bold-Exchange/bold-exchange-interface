@@ -6,7 +6,7 @@ const Game = () => {
     <div className="game">
       <div className="cardcontent">
         <div className="one">
-          <img src="https://cdn.dexscreener.com/cms/images/lEdaZ_dD3M94_Koz?width=160&height=160&fit=crop&quality=95" />
+          <img src="https://gmgn.ai/static/avator_new/140.png" />
           <div className="text">
             <div className="title">$.jacky</div>
             <p>The cutest cat on Solana</p>

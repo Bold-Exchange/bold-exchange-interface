@@ -9,7 +9,7 @@ const data = [
 
 const DataStatistics = () => {
   return (
-    <div className=" bg-zinc-900 flex-row divide-y divide-gray-800">
+    <div className="rounded-lg bg-zinc-900 flex-row divide-y divide-gray-800">
       <div className="flex divide-x divide-gray-800 ">
         <Block hover title={"1m"}>
           0%
