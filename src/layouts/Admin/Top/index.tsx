@@ -2,10 +2,22 @@ import { useEffect, useState } from "react";
 import classNames from "classnames";
 import "./styles.less";
 import { Button } from "@/components";
-import { Input } from "antd";
+import { Input, Modal } from "antd";
 const Top = (props: any) => {
   const [visible, setVisible] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
   return (
     <div className="container-fluid top_bar">
       <div className="top_bar_wrapper d-flex align-items-center justify-content-between">
@@ -22,7 +34,9 @@ const Top = (props: any) => {
             </a>
           </div>
           <div className="dollar_wrapper">
-            <a href="#">Create Token</a>
+            <a href="#" onClick={showModal}>
+              Create Token
+            </a>
           </div>
           <div className="dollar_wrapper">
             <a href="#">Connect</a>
@@ -53,6 +67,14 @@ const Top = (props: any) => {
           </div>
         </div>
       </div>
+      <Modal
+        title="Create Token"
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        width={800}
+        footer={null}
+      ></Modal>
     </div>
   );
 };

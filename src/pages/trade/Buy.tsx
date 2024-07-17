@@ -19,7 +19,9 @@ const PoolInfo: React.FC<Props> = () => {
         <div className="flex-auto text-center text-green-500 bg-gray-600 p-2 rounded-sm">
           Buy
         </div>
-        <div className="flex-auto text-center p-2 rounded-sm">Sell</div>
+        <div className="flex-auto text-center p-2 rounded-sm hover:bg-gray-600">
+          Sell
+        </div>
       </div>
       <Input className="p-2" suffix={"SOL"} defaultValue={0} />
       <InfoItem title={"≈$0(0SOL)"} key={0}>
