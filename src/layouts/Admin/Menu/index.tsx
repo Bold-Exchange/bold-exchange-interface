@@ -7,10 +7,10 @@ const Menu = () => {
   return (
     <div className={styles.sidebar}>
       <div className={styles.logo}>
-        <a href="index.html">
+        <a href="index.html" className="flex justify-center items-center">
           <img
             style={{ height: "40px" }}
-            src="assets/Bold_Logo-white.svg"
+            src="/assets/Bold_Logo-white.svg"
             alt="Bold Exchange Logo"
           />
         </a>
@@ -54,7 +54,6 @@ const Menu = () => {
           <List.Item value="item1">
             <LogoutOutlined className="text-lg mr-2 text-gray-500" /> Logout
           </List.Item>
-          <List.Item value="item2">Update</List.Item>
         </List>
       </div>
     </div>
