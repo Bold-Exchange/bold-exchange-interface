@@ -13,7 +13,9 @@ import {
   VerticalLeftOutlined,
 } from "@ant-design/icons";
 import Top from "./Top";
+import SolanaWallet from "@/components/SolanaWallet";
 const { Header, Footer, Sider, Content } = Layout;
+import "@solana/wallet-adapter-react-ui/styles.css";
 
 const App: React.FC = () => {
   const menuWidth = 320;
@@ -22,6 +24,7 @@ const App: React.FC = () => {
   const [rightVisible, setRightVisible] = useState<boolean>(false);
 
   return (
+    <SolanaWallet>
     <Layout className={styles.layout}>
       <Sider
         collapsed={menuVisible}
@@ -78,8 +81,9 @@ const App: React.FC = () => {
             />
           </Sider>
         </Layout>
+        </Layout>
       </Layout>
-    </Layout>
+    </SolanaWallet>
   );
 };
 

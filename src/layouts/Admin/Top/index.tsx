@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import classNames from "classnames";
 import "./styles.less";
 import { Button } from "@/components";
+import {Link} from "umi";
 import { Input } from "antd";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 const Top = (props: any) => {
   const [visible, setVisible] = useState(true);
 
@@ -22,13 +24,11 @@ const Top = (props: any) => {
             </a>
           </div>
           <div className="dollar_wrapper">
-            <a href="#">Create Token</a>
+          <Link to="/create-token">Create Token</Link>
           </div>
+          <WalletMultiButton />
           <div className="dollar_wrapper">
             <a href="#">Connect</a>
-          </div>
-          <div className="dollar_wrapper">
-            <a href="#">0</a>
           </div>
           <div className="profile_wrapper d-flex align-items-center">
             <div className="img_wrapper">

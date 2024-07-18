@@ -18,6 +18,7 @@ export default defineConfig({
         { path: "/", component: "trade" },
         { path: "/portfolio", component: "portfolio" },
         { path: "/about", component: "about" },
+        { path: "/create-token", component: "create-token" },
       ],
     },
   ],
