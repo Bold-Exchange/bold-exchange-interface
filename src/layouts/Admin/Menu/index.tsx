@@ -7,7 +7,10 @@ const Menu = () => {
   return (
     <div className={styles.sidebar}>
       <div className={styles.logo}>
-        <a href="index.html" className="flex justify-center items-center">
+        <a
+          onClick={() => history.push("/")}
+          className="flex justify-center items-center"
+        >
           <img
             style={{ height: "40px" }}
             src="/assets/Bold_Logo-white.svg"
