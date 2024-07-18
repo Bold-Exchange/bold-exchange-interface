@@ -1,8 +1,28 @@
 import React, { useState } from "react";
-import { Drawer, Space, Table, Tag } from "antd";
+import { history } from "umi";
+import { Button, Drawer, Rate, Space, Table, Tag } from "antd";
 import type { DrawerProps, RadioChangeEvent, TableProps } from "antd";
-import { FunnelPlotOutlined, ShareAltOutlined } from "@ant-design/icons";
+import {
+  BulbOutlined,
+  FunnelPlotOutlined,
+  RightCircleOutlined,
+  ShareAltOutlined,
+} from "@ant-design/icons";
+import d from "./d.png";
+import Charts from "../portfolio/Charts";
+import T2 from "./T2";
+import { CopyText, Block } from "@/components";
+import Token from "./Token";
 
+const Item = ({ children }: any) => {
+  return <div className="flex flex-col">{children}</div>;
+};
+const Title = ({ children, color = "white" }: any) => {
+  return <div className={`text-${color}-500 text-sm`}>{children}</div>;
+};
+const Span = ({ color = "gray", children }: any) => {
+  return <div className={`flex text-${color}-500 text-[12]`}>{children}</div>;
+};
 interface DataType {
   key: string;
   type: number;
@@ -16,60 +36,151 @@ interface DataType {
 
 const columns: TableProps<DataType>["columns"] = [
   {
-    title: "类型",
+    title: "Token",
     dataIndex: "type",
     key: "type",
-    render: (_) =>
-      _ === 0 ? (
-        <Tag bordered={false} color="success">
-          买入
-        </Tag>
-      ) : (
-        <Tag bordered={false} color="error">
-          卖出
-        </Tag>
-      ),
+    render: (_) => <Token />,
   },
   {
-    title: "币种",
+    title: "Created",
     dataIndex: "currency",
     key: "currency",
+    render: () => (
+      <Item>
+        <Title color="green">30d</Title>
+      </Item>
+    ),
   },
   {
-    title: "总额SOL",
+    title: "Liq/MKT Cap",
     dataIndex: "rental",
     key: "rental",
+    render: () => (
+      <Item>
+        <Title color="white">98,032.5🔥</Title>
+
+        <Span>$635.7k</Span>
+      </Item>
+    ),
   },
   {
-    title: "数量",
+    title: "Holders",
     key: "quantity",
     dataIndex: "quantity",
+    render: () => (
+      <Item>
+        <Title color="white">334</Title>
+      </Item>
+    ),
   },
   {
-    title: "价格",
+    title: "1h TXs",
     dataIndex: "price",
     key: "price",
+    render: () => (
+      <Item>
+        <Title color="white">57,533</Title>
+
+        <Span>
+          <Span color="green">35,984</Span>/<Span color="red">20,164</Span>
+        </Span>
+      </Item>
+    ),
   },
   {
-    title: "利润",
+    title: "1h VOl",
     dataIndex: "profit",
     key: "profit",
+    render: () => (
+      <Item>
+        <Title color="white">334</Title>
+      </Item>
+    ),
   },
   {
-    title: "时长",
+    title: "Price",
     dataIndex: "duration",
     key: "duration",
+    render: () => (
+      <Item>
+        <Title color="white">334</Title>
+      </Item>
+    ),
+  },
+  {
+    title: "1m%",
+    dataIndex: "duration",
+    key: "duration",
+    render: () => (
+      <Item>
+        <Title color="green">334</Title>
+      </Item>
+    ),
+  },
+  {
+    title: "5m%",
+    dataIndex: "duration",
+    key: "duration",
+    render: () => (
+      <Item>
+        <Title color="red">334</Title>
+      </Item>
+    ),
+  },
+  {
+    title: "1h%",
+    dataIndex: "duration",
+    key: "duration",
+    render: () => (
+      <Item>
+        <Title color="red">334</Title>
+      </Item>
+    ),
+  },
+  {
+    title: "Degen Audit",
+    dataIndex: "duration",
+    key: "duration",
+    render: () => (
+      <div className="flex gap-1">
+        <Item>
+          <Span color="green">Yes</Span>
+          <Span color="white">NoMint</Span>
+        </Item>
+        <Item>
+          <Span color="green">Yes</Span>
+          <Span color="white">Top10 hold</Span>
+        </Item>
+        <Item>
+          <Span color="green">No</Span>
+          <Span color="white">Blacklist</Span>
+        </Item>
+        <Item>
+          <Span color="green">Yes</Span>
+          <Span color="white">Burnt</Span>
+        </Item>
+      </div>
+    ),
+  },
+  {
+    title: "DEV",
+    dataIndex: "duration",
+    key: "duration",
+    render: () => (
+      <Item>
+        <Title color="green">22.59%</Title>
+        <Span color="white">NoMint</Span>
+      </Item>
+    ),
   },
   {
     title: "",
     key: "action",
     render: (_, record) => (
       <Space size="middle">
-        <a>
-          <ShareAltOutlined />
-        </a>
-        <a>
-          <FunnelPlotOutlined />
+        <a className="text-white px-4 py-2 rounded-md hover:bg-[#7289db]">
+          <BulbOutlined />
+          &nbsp; Buy
         </a>
       </Space>
     ),
@@ -77,6 +188,126 @@ const columns: TableProps<DataType>["columns"] = [
 ];
 
 const data: DataType[] = [
+  {
+    key: "1",
+    type: 0,
+    currency: "RIZZ",
+    rental: 9.92,
+    quantity: "3.2M",
+    price: "$0.00047",
+    profit: "--",
+    duration: "--",
+  },
+  {
+    key: "2",
+    type: 0,
+    currency: "Motion",
+    rental: 1.91,
+    quantity: "12.8M",
+    price: "$0.0₄21978",
+    profit: "--",
+    duration: "--",
+  },
+  {
+    key: "3",
+    type: 0,
+    currency: "Motion",
+    rental: 1.91,
+    quantity: "18.2M",
+    price: "$0.0₄16011",
+    profit: "--",
+    duration: "--",
+  },
+  {
+    key: "1",
+    type: 1,
+    currency: "RIZZ",
+    rental: 9.92,
+    quantity: "3.2M",
+    price: "$0.00047",
+    profit: "--",
+    duration: "--",
+  },
+  {
+    key: "2",
+    type: 0,
+    currency: "Motion",
+    rental: 1.91,
+    quantity: "12.8M",
+    price: "$0.0₄21978",
+    profit: "--",
+    duration: "--",
+  },
+  {
+    key: "3",
+    type: 1,
+    currency: "Motion",
+    rental: 1.91,
+    quantity: "18.2M",
+    price: "$0.0₄16011",
+    profit: "--",
+    duration: "--",
+  },
+  {
+    key: "1",
+    type: 0,
+    currency: "RIZZ",
+    rental: 9.92,
+    quantity: "3.2M",
+    price: "$0.00047",
+    profit: "--",
+    duration: "--",
+  },
+  {
+    key: "2",
+    type: 0,
+    currency: "Motion",
+    rental: 1.91,
+    quantity: "12.8M",
+    price: "$0.0₄21978",
+    profit: "--",
+    duration: "--",
+  },
+  {
+    key: "3",
+    type: 0,
+    currency: "Motion",
+    rental: 1.91,
+    quantity: "18.2M",
+    price: "$0.0₄16011",
+    profit: "--",
+    duration: "--",
+  },
+  {
+    key: "1",
+    type: 1,
+    currency: "RIZZ",
+    rental: 9.92,
+    quantity: "3.2M",
+    price: "$0.00047",
+    profit: "--",
+    duration: "--",
+  },
+  {
+    key: "2",
+    type: 0,
+    currency: "Motion",
+    rental: 1.91,
+    quantity: "12.8M",
+    price: "$0.0₄21978",
+    profit: "--",
+    duration: "--",
+  },
+  {
+    key: "3",
+    type: 1,
+    currency: "Motion",
+    rental: 1.91,
+    quantity: "18.2M",
+    price: "$0.0₄16011",
+    profit: "--",
+    duration: "--",
+  },
   {
     key: "1",
     type: 0,
@@ -223,23 +454,11 @@ const App: React.FC = () => {
         onRow={(record) => {
           return {
             onClick: (event) => {
-              showDrawer();
+              history.push("/trade");
             },
           };
         }}
       />
-      <Drawer
-        title="
-        Motion
-        $0.0₅44352"
-        placement={placement}
-        closable={false}
-        onClose={onClose}
-        open={open}
-        key={placement}
-      >
-        <p>Some contents...</p>
-      </Drawer>
     </>
   );
 };
