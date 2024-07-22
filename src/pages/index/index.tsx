@@ -31,19 +31,6 @@ const items: TabsProps["items"] = [
     label: "All DEXes",
   },
   {
-    key: "2",
-    label: "Raydium",
-    icon: (
-      <img
-        className="inline-block"
-        alt="Raydium"
-        width={20}
-        src="https://dd.dexscreener.com/ds-data/dexes/raydium.png"
-        loading="lazy"
-      />
-    ),
-  },
-  {
     key: "3",
     label: "Raydium",
     icon: (
