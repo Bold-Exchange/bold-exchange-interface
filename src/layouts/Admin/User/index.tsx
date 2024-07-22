@@ -15,7 +15,7 @@ const User = () => {
           </span>
         </div>
         <h5 className="text-center">
-          <a href="user-about.html">ED WALSH</a>
+          <a href="">ED WALSH</a>
         </h5>
       </div>
       <div className="follow_wrapper d-flex align-items-center justify-content-around">
@@ -24,7 +24,7 @@ const User = () => {
             <i className="flaticon-user-profile"></i>
           </div>
           <div className="amount">
-            <a href="user-about.html">2,239</a>
+            <a href="">2,239</a>
             <p>FOLLOWERS</p>
           </div>
         </div>
@@ -33,7 +33,7 @@ const User = () => {
             <i className="flaticon-user-profile"></i>
           </div>
           <div className="amount">
-            <a href="user-about.html">5,339</a>
+            <a href="">5,339</a>
             <p>FOLLOWING</p>
           </div>
         </div>
