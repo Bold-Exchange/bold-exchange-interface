@@ -27,7 +27,7 @@ const Menu = () => {
           </List.Item>
           <List.Item value="/">
             <UserOutlined className="text-lg mr-2 text-gray-500" />
-            About
+            My Follow
           </List.Item>
         </List>
       </div>

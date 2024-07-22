@@ -20,7 +20,11 @@ import {
   ColorPicker,
   Slider,
 } from "antd";
-import { CaretDownOutlined, PlusOutlined } from "@ant-design/icons";
+import {
+  CaretDownOutlined,
+  PlusOutlined,
+  SearchOutlined,
+} from "@ant-design/icons";
 import TextArea from "antd/es/input/TextArea";
 const items: MenuProps["items"] = [
   {
@@ -40,6 +44,7 @@ const items: MenuProps["items"] = [
 const Top = (props: any) => {
   const [visible, setVisible] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const { RangePicker } = DatePicker;
   const { TextArea } = Input;
 
@@ -61,22 +66,28 @@ const Top = (props: any) => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+  const handleLoginCancel = () => {
+    setIsLoginModalOpen(false);
+  };
   return (
-    <div className="container-fluid top_bar">
+    <div className="container-fluid top_bar relative">
+      <div className="absolute w-[300px] inset-x-0 m-auto">
+        <Input
+          prefix={<SearchOutlined />}
+          suffix={<span>⌘K</span>}
+          className="w-full p-2"
+          placeholder="Search token/contract/wallet"
+        />
+      </div>
       <div className="top_bar_wrapper d-flex align-items-center justify-content-between">
-        <div className="search_bar d-flex align-items-center flex justify-center flex-auto gap-10">
-          <ul className="ml-5 text-gray-500 text-lg flex items-center gap-4 cursor-pointer">
-            <li className="text-white">Meme</li>
-            <li className="hover:text-white hover:underline">NewPair</li>
-            <li className="hover:text-white hover:underline">Trending</li>
-            <li className="hover:text-white hover:underline">Discover</li>
-            <li className="hover:text-white hover:underline">Holding</li>
-          </ul>
-          <Input
-            className="w-1/4 p-2"
-            placeholder="Search token/contract/wallet"
-          />
-        </div>
+        <ul className="ml-5 text-gray-500 text-lg flex items-center gap-4 cursor-pointer">
+          <li className="text-white">Meme</li>
+          <li className="hover:text-white hover:underline">New Pair</li>
+          <li className="hover:text-white hover:underline">Trending</li>
+          <li className="hover:text-white hover:underline">Discover</li>
+          <li className="hover:text-white hover:underline">Follow</li>
+        </ul>
+
         <div className="user_bar d-flex align-items-center justify-content-end">
           <div className="search_wrapper">
             <a href="javascript:void(0)" className="search_sm d-none">
@@ -87,10 +98,8 @@ const Top = (props: any) => {
             <Button type="primary" onClick={showModal}>
               Create Token
             </Button>
-            <Button type="default" onClick={showModal}>
-              Connect
-            </Button>
-            <span>Log in</span>
+            <Button type="default">Connect</Button>
+            <span onClick={() => setIsLoginModalOpen(true)}>Log in</span>
             {/* <Dropdown menu={{ items }} placement="bottomLeft">
               <div className="flex items-center gap-1">
                 <img
@@ -132,7 +141,7 @@ const Top = (props: any) => {
           <Form.Item label="Description">
             <Input.TextArea rows={8} />
           </Form.Item>
-          <div className="grid grid-cols-3">
+          <div className="flex gap-4">
             <Form.Item
               label="Icon"
               valuePropName="fileList"
@@ -144,14 +153,16 @@ const Top = (props: any) => {
                 action="/upload.do"
                 listType="picture-card"
               >
-                <button style={{ border: 0, background: "none" }} type="button">
+                <button
+                  style={{ border: 0, background: "none", width: "300px" }}
+                  type="button"
+                >
                   <PlusOutlined />
                   <div style={{ marginTop: 8 }}>Upload</div>
                 </button>
               </Upload>
             </Form.Item>
             <Form.Item
-              className="col-span-2"
               label="Banner"
               valuePropName="fileList"
               getValueFromEvent={normFile}
@@ -165,73 +176,70 @@ const Top = (props: any) => {
             </Form.Item>
           </div>
 
-          <Form.Item label="Select">
-            <Select>
-              <Select.Option value="demo">Demo</Select.Option>
-            </Select>
+          <Form.Item label="Website">
+            <Input />
           </Form.Item>
-          <Form.Item label="TreeSelect">
-            <TreeSelect
-              treeData={[
-                {
-                  title: "Light",
-                  value: "light",
-                  children: [{ title: "Bamboo", value: "bamboo" }],
-                },
-              ]}
-            />
+          <Form.Item label="X(Twitter)">
+            <Input />
           </Form.Item>
-          <Form.Item label="Cascader">
-            <Cascader
-              options={[
-                {
-                  value: "zhejiang",
-                  label: "Zhejiang",
-                  children: [
-                    {
-                      value: "hangzhou",
-                      label: "Hangzhou",
-                    },
-                  ],
-                },
-              ]}
-            />
+          <Form.Item label="Telegram">
+            <Input />
           </Form.Item>
-          <Form.Item label="DatePicker">
-            <DatePicker />
+          <Form.Item label="Discord">
+            <Input />
           </Form.Item>
-          <Form.Item label="RangePicker">
-            <RangePicker />
+          <Form.Item label="Another link">
+            <Input />
           </Form.Item>
-          <Form.Item label="InputNumber">
-            <InputNumber />
-          </Form.Item>
-          <Form.Item label="TextArea">
-            <TextArea rows={4} />
-          </Form.Item>
-          <Form.Item label="Switch" valuePropName="checked">
-            <Switch />
+          <Form.Item label="Anther link">
+            <Input />
           </Form.Item>
           <Form.Item
-            label="Upload"
-            valuePropName="fileList"
-            getValueFromEvent={normFile}
+            label={
+              <div>
+                <p>Initial Buy</p>
+                <p className=" text-xs text-gray-500">
+                  Optional: be the very first person to buy your token!
+                </p>
+              </div>
+            }
           >
-            <Upload action="/upload.do" listType="picture-card">
-              <button style={{ border: 0, background: "none" }} type="button">
-                <PlusOutlined />
-                <div style={{ marginTop: 8 }}>Upload</div>
-              </button>
-            </Upload>
+            <Select defaultValue={"1"}>
+              <Select.Option value="1">
+                <span className="flex items-center">
+                  <img
+                    width={10}
+                    className="w-5 mr-2"
+                    src="icons/solana.webp"
+                  />
+                  Sol
+                </span>
+              </Select.Option>
+            </Select>
           </Form.Item>
-          <Form.Item label="Button">
-            <Button>Button</Button>
+        </Form>
+      </Modal>
+      <Modal
+        title="Login"
+        open={isLoginModalOpen}
+        onOk={handleOk}
+        onCancel={handleLoginCancel}
+      >
+        <Form layout="vertical">
+          {/* <Form.Item label="Checkbox" name="disabled" valuePropName="checked">
+            <Checkbox>Checkbox</Checkbox>
           </Form.Item>
-          <Form.Item label="Slider">
-            <Slider />
+          <Form.Item label="Radio">
+            <Radio.Group>
+              <Radio value="apple"> Apple </Radio>
+              <Radio value="pear"> Pear </Radio>
+            </Radio.Group>
+          </Form.Item> */}
+          <Form.Item label="Email" required>
+            <Input />
           </Form.Item>
-          <Form.Item label="ColorPicker">
-            <ColorPicker />
+          <Form.Item label="Password" required>
+            <Input.Password />
           </Form.Item>
         </Form>
       </Modal>
