@@ -84,7 +84,7 @@ const Top = (props: any) => {
           <li className="text-white">Meme</li>
           <li className="hover:text-white hover:underline">New Pair</li>
           <li className="hover:text-white hover:underline">Trending</li>
-          <li className="hover:text-white hover:underline">Discover</li>
+          <li className="hover:text-white hover:underline">Trade</li>
           <li className="hover:text-white hover:underline">Follow</li>
         </ul>
 
