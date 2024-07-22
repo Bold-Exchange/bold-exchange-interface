@@ -4,7 +4,7 @@ const User = () => {
     <div className="user_wrapper">
       <div className="profile_wrapper text-center">
         <div className="profile_content">
-          <a href="user-about.html" className="profile">
+          <a href="" className="profile">
             <img
               src="assets/images/user/profile-sm.png"
               alt="Profile Picture"

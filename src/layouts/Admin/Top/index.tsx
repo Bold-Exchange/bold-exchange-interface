@@ -67,8 +67,7 @@ const Top = (props: any) => {
         <div className="search_bar d-flex align-items-center flex justify-center flex-auto gap-10">
           <ul className="ml-5 text-gray-500 text-lg flex items-center gap-4 cursor-pointer">
             <li className="text-white">Meme</li>
-            <li className="hover:text-white hover:underline">New</li>
-            <li className="hover:text-white hover:underline">Pair</li>
+            <li className="hover:text-white hover:underline">NewPair</li>
             <li className="hover:text-white hover:underline">Trending</li>
             <li className="hover:text-white hover:underline">Discover</li>
             <li className="hover:text-white hover:underline">Holding</li>
@@ -112,13 +111,10 @@ const Top = (props: any) => {
         onOk={handleOk}
         onCancel={handleCancel}
         footer={null}
+        width={800}
       >
-        <Form
-          labelCol={{ span: 4 }}
-          wrapperCol={{ span: 14 }}
-          layout="horizontal"
-        >
-          <Form.Item label="Checkbox" name="disabled" valuePropName="checked">
+        <Form layout="vertical">
+          {/* <Form.Item label="Checkbox" name="disabled" valuePropName="checked">
             <Checkbox>Checkbox</Checkbox>
           </Form.Item>
           <Form.Item label="Radio">
@@ -126,10 +122,49 @@ const Top = (props: any) => {
               <Radio value="apple"> Apple </Radio>
               <Radio value="pear"> Pear </Radio>
             </Radio.Group>
-          </Form.Item>
-          <Form.Item label="Input">
+          </Form.Item> */}
+          <Form.Item label="Token Symbol" required>
             <Input />
           </Form.Item>
+          <Form.Item label="Token Name" required>
+            <Input />
+          </Form.Item>
+          <Form.Item label="Description">
+            <Input.TextArea rows={8} />
+          </Form.Item>
+          <div className="grid grid-cols-3">
+            <Form.Item
+              label="Icon"
+              valuePropName="fileList"
+              getValueFromEvent={normFile}
+              required
+            >
+              <Upload
+                className="w-full"
+                action="/upload.do"
+                listType="picture-card"
+              >
+                <button style={{ border: 0, background: "none" }} type="button">
+                  <PlusOutlined />
+                  <div style={{ marginTop: 8 }}>Upload</div>
+                </button>
+              </Upload>
+            </Form.Item>
+            <Form.Item
+              className="col-span-2"
+              label="Banner"
+              valuePropName="fileList"
+              getValueFromEvent={normFile}
+            >
+              <Upload action="/upload.do" listType="picture-card">
+                <button style={{ border: 0, background: "none" }} type="button">
+                  <PlusOutlined />
+                  <div style={{ marginTop: 8 }}>Upload</div>
+                </button>
+              </Upload>
+            </Form.Item>
+          </div>
+
           <Form.Item label="Select">
             <Select>
               <Select.Option value="demo">Demo</Select.Option>

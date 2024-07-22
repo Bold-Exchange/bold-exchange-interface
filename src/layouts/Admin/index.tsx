@@ -26,7 +26,7 @@ const App: React.FC = () => {
       <Sider
         collapsed={menuVisible}
         collapsedWidth={0}
-        width={320}
+        width={160}
         className={styles.sider}
       >
         {/* <div

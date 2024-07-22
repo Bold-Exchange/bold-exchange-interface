@@ -1,9 +1,14 @@
 import { Divider, Progress } from "antd";
 import "./styles.less";
 import { TwitterOutlined } from "@ant-design/icons";
+import { history } from "umi";
 const Game = () => {
   return (
-    <div className="game">
+    <div
+      className="game"
+      style={{ cursor: "pointer" }}
+      onClick={() => history.push("/trade")}
+    >
       <div className="cardcontent">
         <div className="one">
           <img src="https://gmgn.ai/static/avator_new/140.png" />
