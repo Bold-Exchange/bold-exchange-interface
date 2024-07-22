@@ -6,4 +6,15 @@ import CopyText from "./CopyText";
 import InfoItem from "./InfoItem";
 import Block from "./Block";
 import Media from "./Media";
-export { Button, Accordion, ListMenu, Game, CopyText, InfoItem, Block, Media };
+import PercentangeSelector from "./PercentangeSelector";
+export {
+  Button,
+  Accordion,
+  ListMenu,
+  Game,
+  CopyText,
+  InfoItem,
+  Block,
+  Media,
+  PercentangeSelector,
+};

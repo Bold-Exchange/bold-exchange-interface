@@ -1,6 +1,7 @@
-import React, { ReactNode } from "react";
-import { InfoItem } from "@/components";
+import React, { ReactNode, useState } from "react";
+import { InfoItem, PercentangeSelector } from "@/components";
 import { Button, Input, Radio, Switch } from "antd";
+import { ShoppingCartOutlined, TagsOutlined } from "@ant-design/icons";
 interface Props {
   title: ReactNode;
   data: {
@@ -12,14 +13,26 @@ interface Props {
 
 // Pool Info面板
 const PoolInfo: React.FC<Props> = () => {
+  const [buy, setBuy] = useState(true);
   return (
     <div className="bg-zinc-900 rounded-lg p-3">
       <p className="text-left text-gray-500">Linked wallet</p>
       <div className="flex justify-between items-center bg-black rounded-sm my-2">
-        <div className="flex-auto text-center text-green-500 bg-gray-600 p-2 rounded-sm">
-          Buy
+        <div
+          className={`flex-auto text-center p-2 rounded-sm ${
+            buy && "text-green-500 bg-gray-700"
+          }`}
+          onClick={() => setBuy(true)}
+        >
+          <ShoppingCartOutlined /> Buy
         </div>
-        <div className="flex-auto text-center p-2 rounded-sm hover:bg-gray-600">
+        <div
+          className={`flex-auto text-center p-2 rounded-sm ${
+            !buy && "text-red-500 bg-gray-700"
+          }`}
+          onClick={() => setBuy(false)}
+        >
+          <TagsOutlined />
           Sell
         </div>
       </div>
@@ -27,23 +40,7 @@ const PoolInfo: React.FC<Props> = () => {
       <InfoItem title={"≈$0(0SOL)"} key={0}>
         Bal:--STASHY
       </InfoItem>
-      <div className="flex justify-between items-center gap-2 text-center">
-        <div className="flex-auto border border-gray-600 rounded-sm p-1">
-          5%
-        </div>
-        <div className="flex-auto border border-gray-600 rounded-sm p-1">
-          15%
-        </div>
-        <div className="flex-auto border border-gray-600 rounded-sm p-1">
-          25%
-        </div>
-        <div className="flex-auto border border-gray-600 rounded-sm p-1">
-          50%
-        </div>
-        <div className="flex-auto border border-gray-600 rounded-sm p-1">
-          100%
-        </div>
-      </div>
+      <PercentangeSelector />
       <Button
         size="large"
         type="default"

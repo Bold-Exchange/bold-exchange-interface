@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import { InfoItem } from "@/components";
 import { Button, Input, Radio, Switch } from "antd";
+import { ShoppingCartOutlined } from "@ant-design/icons";
 interface Props {
   title: ReactNode;
   data: {
@@ -17,7 +18,8 @@ const PoolInfo: React.FC<Props> = () => {
       <p className="text-left text-gray-500">Linked wallet</p>
       <div className="flex justify-between items-center bg-black rounded-sm my-2">
         <div className="flex-auto text-center text-green-500 bg-gray-600 p-2 rounded-sm">
-          Buy
+          <ShoppingCartOutlined />
+          11 Buy
         </div>
         <div className="flex-auto text-center p-2 rounded-sm hover:bg-gray-600">
           Sell
