@@ -7,7 +7,7 @@ const PercentageSelector = () => {
   const percentages = ["5%", "15%", "25%", "50%", "100%"];
 
   return (
-    <div className="flex border justify-between items-center gap-2 text-center">
+    <div className="flex justify-between items-center gap-2 text-center">
       {percentages.map((percentage, index) => (
         <div
           key={index}
