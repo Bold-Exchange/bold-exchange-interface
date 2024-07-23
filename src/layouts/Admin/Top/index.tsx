@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import classNames from "classnames";
+import Web3 from "web3";
 import "./styles.less";
 import {
   Input,
@@ -69,6 +70,22 @@ const Top = (props: any) => {
   const handleLoginCancel = () => {
     setIsLoginModalOpen(false);
   };
+  const [walletAddress, setWalletAddress] = useState("");
+
+  const connectWallet = async () => {
+    if (window.ethereum) {
+      try {
+        const web3 = new Web3(window.ethereum);
+        await window.ethereum.request({ method: "eth_requestAccounts" });
+        const accounts = await web3.eth.getAccounts();
+        setWalletAddress(accounts[0]);
+      } catch (error) {
+        console.error("Error connecting to wallet: ", error);
+      }
+    } else {
+      alert("Please install MetaMask!");
+    }
+  };
   return (
     <div className="container-fluid top_bar relative">
       <div className="absolute w-[300px] inset-x-0 m-auto">
@@ -98,7 +115,14 @@ const Top = (props: any) => {
             <Button type="primary" onClick={showModal}>
               Create Token
             </Button>
-            <Button type="default">Connect</Button>
+            <Button
+              type="default"
+              onClick={() => !walletAddress && connectWallet}
+            >
+              {(walletAddress &&
+                `${walletAddress.slice(0, 3)}...${walletAddress.slice(-4)}`) ||
+                "Connect"}
+            </Button>
             <span onClick={() => setIsLoginModalOpen(true)}>Log in</span>
             {/* <Dropdown menu={{ items }} placement="bottomLeft">
               <div className="flex items-center gap-1">
