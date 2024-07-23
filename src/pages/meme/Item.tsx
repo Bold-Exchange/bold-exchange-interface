@@ -1,8 +1,13 @@
 import { CopyOutlined } from "@ant-design/icons";
-
+import { history } from "umi";
 const Item = () => {
   return (
-    <div className="flex items-center justify-between gap-2 px-2 py-4 border-b border-gray-800">
+    <div
+      className="flex items-center justify-between gap-2 px-2 py-4 border-b border-gray-800 hover:bg-gray-700 cursor-pointer"
+      onClick={() => {
+        history.push("/trade");
+      }}
+    >
       <img
         className=" w-12 rounded-full"
         src="https://node1.irys.xyz/krc_fx_vxBpHUVhHT5sjKpaNzvbD6LZnq8Bw_chObVY"
