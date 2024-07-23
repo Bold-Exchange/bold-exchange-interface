@@ -117,7 +117,7 @@ const Top = (props: any) => {
             </Button>
             <Button
               type="default"
-              onClick={() => !walletAddress && connectWallet}
+              onClick={() => !walletAddress && connectWallet()}
             >
               {(walletAddress &&
                 `${walletAddress.slice(0, 3)}...${walletAddress.slice(-4)}`) ||
