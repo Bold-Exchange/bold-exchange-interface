@@ -5,10 +5,7 @@ const User = () => {
       <div className="profile_wrapper text-center">
         <div className="profile_content">
           <a href="" className="profile">
-            <img
-              src="assets/images/user/profile-sm.png"
-              alt="Profile Picture"
-            />
+            <img src="/images/profile-sm.png" alt="Profile Picture" />
           </a>
           <span className="d-flex align-items-center justify-content-center">
             12
