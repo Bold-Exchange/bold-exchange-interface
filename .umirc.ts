@@ -19,6 +19,7 @@ export default defineConfig({
         { path: "/trade", component: "trade" },
         { path: "/portfolio", component: "portfolio" },
         { path: "/about", component: "about" },
+        { path: "/meme", component: "meme" },
       ],
     },
   ],

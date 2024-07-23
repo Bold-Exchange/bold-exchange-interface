@@ -25,7 +25,7 @@ const Game = () => {
       </div>
       <Divider />
       <div>
-        <div className="aa">
+        <div className="aa text-white">
           <div className="aa2">59.50SOL</div>
           <div>$52K Vol</div>
         </div>

@@ -3,8 +3,8 @@ import { InfoItem, PercentangeSelector } from "@/components";
 import { Button, Input, Radio, Switch } from "antd";
 import { ShoppingCartOutlined, TagsOutlined } from "@ant-design/icons";
 interface Props {
-  title: ReactNode;
-  data: {
+  title?: ReactNode;
+  data?: {
     title: string;
     value: ReactNode;
   }[];

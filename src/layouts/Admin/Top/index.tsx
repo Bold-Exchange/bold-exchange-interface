@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { history } from "umi";
 import classNames from "classnames";
 import Web3 from "web3";
 import "./styles.less";
@@ -98,8 +99,13 @@ const Top = (props: any) => {
       </div>
       <div className="top_bar_wrapper d-flex align-items-center justify-content-between">
         <ul className="ml-5 text-gray-500 text-lg flex items-center gap-4 cursor-pointer">
-          <li className="text-white">Meme</li>
-          <li className="hover:text-white hover:underline">New Pair</li>
+          <li
+            className="hover:text-white hover:underline"
+            onClick={() => history.push("/meme")}
+          >
+            Meme
+          </li>
+          <li className="hover:text-white hover:underline">NewPair</li>
           <li className="hover:text-white hover:underline">Trending</li>
           <li className="hover:text-white hover:underline">Trade</li>
           <li className="hover:text-white hover:underline">Follow</li>

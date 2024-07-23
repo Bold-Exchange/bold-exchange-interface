@@ -3,7 +3,7 @@ import { Media } from "@/components";
 const Token = () => {
   return (
     <div className="flex items-center gap-2">
-      <Rate count={1} />
+      <Rate onChange={(e) => {}} count={1} />
       <div className="flex">
         <img
           className=" rounded-full"

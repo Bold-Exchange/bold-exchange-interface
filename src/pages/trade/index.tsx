@@ -140,7 +140,7 @@
 
 // TradingViewWidget.jsx
 // TradingViewWidget.jsx
-import { CopyText } from "@/components";
+import { CopyText, TagSelector } from "@/components";
 import TradingViewWidget, { Themes } from "react-tradingview-widget";
 
 import Tl from "./Tl";
@@ -328,33 +328,19 @@ const App = () => {
               My Postion(0)
             </div>
           </div>
-          <div className="flex divide-x divide-gray-800 max-w-max rounded-lg my-2 px-2 border border-gray-800">
-            <div className="bg-zinc-900 p-1">All</div>
-            <div className="bg-zinc-900 p-1">
-              <span className="opacity-25 hover:opacity-100">Smart</span>
-            </div>
-            <div className="bg-zinc-900 p-1 hover:opacity-100">
-              <span className="opacity-25 hover:opacity-100">KOL/VC</span>
-            </div>
-            <div className="bg-zinc-900 p-1 hover:opacity-100">
-              <span className="opacity-25 hover:opacity-100">Whale</span>
-            </div>
-            <div className="bg-zinc-900 p-1 hover:opacity-100">
-              <span className="opacity-25 hover:opacity-100">Snipers(1)</span>
-            </div>
-            <div className="bg-zinc-900 p-1 hover:opacity-100">
-              <span className="opacity-25 hover:opacity-100">Top</span>
-            </div>
-            <div className="bg-zinc-900 p-1 hover:opacity-100">
-              <span className="opacity-25 hover:opacity-100">DEV</span>
-            </div>
-            <div className="bg-zinc-900 p-1 hover:opacity-100">
-              <span className="opacity-25 hover:opacity-100">Following</span>
-            </div>
-            <div className="bg-zinc-900 p-1 hover:opacity-100">
-              <span className="opacity-25 hover:opacity-100">Insiders(1)</span>
-            </div>
-          </div>
+          <TagSelector
+            tags={[
+              "All",
+              "Buy",
+              "Sell",
+              "Swap",
+              "Mint",
+              "Burn",
+              "Transfer",
+              "Other",
+            ]}
+            onTagSelect={() => {}}
+          />
 
           <Tl />
         </div>
