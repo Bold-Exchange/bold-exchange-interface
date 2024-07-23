@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const TagSelector = ({ tags, onTagSelect }) => {
-  const [selectedTag, setSelectedTag] = useState(null);
+  const [selectedTag, setSelectedTag] = useState(tags[0]);
 
   const handleTagClick = (tag) => {
     setSelectedTag(tag);

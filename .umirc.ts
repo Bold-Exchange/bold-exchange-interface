@@ -20,6 +20,7 @@ export default defineConfig({
         { path: "/portfolio", component: "portfolio" },
         { path: "/about", component: "about" },
         { path: "/meme", component: "meme" },
+        { path: "/newpair", component: "newpair" },
       ],
     },
   ],

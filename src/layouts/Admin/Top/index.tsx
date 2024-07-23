@@ -105,7 +105,12 @@ const Top = (props: any) => {
           >
             Meme
           </li>
-          <li className="hover:text-white hover:underline">NewPair</li>
+          <li
+            className="hover:text-white hover:underline"
+            onClick={() => history.push("/newpair")}
+          >
+            NewPair
+          </li>
           <li className="hover:text-white hover:underline">Trending</li>
           <li className="hover:text-white hover:underline">Trade</li>
           <li className="hover:text-white hover:underline">Follow</li>
