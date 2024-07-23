@@ -1,0 +1,55 @@
+@accordion-border-color: #ccc;
+@accordion-bg-color: #f7f7f7;
+@accordion-content-bg-color: #fff;
+@accordion-icon-size: 18px;
+@accordion-transition: all 0.3s ease;
+
+.accordion {
+  border: 1px solid @accordion-border-color;
+  border-radius: 5px;
+  margin: 10px 0;
+  overflow: hidden;
+  transition: @accordion-transition;
+
+  &-header {
+    background-color: @accordion-bg-color;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h3 {
+      margin: 0;
+    }
+  }
+
+  &-icon {
+    font-size: @accordion-icon-size;
+    transition: transform 0.2s ease;
+
+    &.open {
+      transform: rotate(180deg);
+    }
+  }
+
+  &-content {
+    overflow: hidden;
+    transition: max-height 0.3s ease, max-width 0.3s ease;
+
+    &.open {
+      max-height: 500px; // 这个值应该足够大以容纳内容
+      max-width: 100%;
+    }
+  }
+
+  &-left .accordion-content,
+  &-right .accordion-content {
+    max-width: 0;
+  }
+
+  &-top .accordion-content,
+  &-bottom .accordion-content {
+    max-height: 0;
+  }
+}

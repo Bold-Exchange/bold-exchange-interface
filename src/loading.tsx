@@ -1,33 +1,7 @@
-import { useEffect } from "react";
+import "./loading.less";
 export default function () {
-  useEffect(() => {
-    (function ($) {
-      "use strict";
-
-      $(document).ready(function () {
-        //preloader
-        $("#preloader")
-          .delay(3500)
-          .animate(
-            {
-              opacity: "0",
-            },
-            500,
-            function () {
-              $("#preloader").css("display", "none");
-            }
-          );
-
-        //preloader counter
-        $(".counterr").counterUp({
-          delay: 10,
-          time: 2900,
-        });
-      });
-    })(jQuery);
-  }, []);
   return (
-    <div className="loader_wrapper" id="preloader">
+    <div className="loader_wrapper">
       <div className="loader">
         <div className="face">
           <div className="circle"></div>
@@ -36,8 +10,7 @@ export default function () {
           <div className="circle sd"></div>
         </div>
         <div className="percent">
-          <span className="counterr">100</span>
-          <span className="per">%</span>
+          <span className="counterr">...</span>
         </div>
       </div>
     </div>

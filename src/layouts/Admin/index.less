@@ -1,10 +1,50 @@
-.navs {
-  ul {
-    padding: 0;
-    list-style: none;
-    display: flex;
+@import url("@/them.less");
+.layout {
+  overflow: hidden;
+  height: 100vh;
+}
+.header {
+  text-align: center;
+  color: #fff;
+  height: 80px;
+  line-height: 80px;
+  display: flex;
+  padding: 0;
+  background: @bgcolor;
+}
+.content {
+  height: auto;
+  min-height: unset;
+  background: @bgcolor;
+  padding: 20px;
+}
+.sider {
+  text-align: center;
+  background: @bgcolor !important;
+  z-index: 10000;
+}
+.footer {
+  color: #fff;
+  background: @bgcolor;
+}
+.closeRight {
+  position: absolute;
+  top: 0;
+  right: -37px;
+  color: #fff;
+  display: flex;
+  margin: 17px 5px;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 2;
+  svg {
+    font-size: 30px;
   }
-  li {
-    margin-right: 1em;
-  }
+}
+.closeLeft {
+  left: 0;
+}
+.closeLeftClose {
+  left: -37px;
+  transform: all 0.6s;
 }

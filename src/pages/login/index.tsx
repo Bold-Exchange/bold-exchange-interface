@@ -4,11 +4,6 @@ const DocsPage = () => {
     <section className="form_bg">
       <div className="container">
         <div className="form_container">
-          <div className="form_header">
-            <a href="index.html" className="registration_logo">
-              <img src="assets/images/logo.png" alt="Bold Exchange Logo" />
-            </a>
-          </div>
           <form
             action="https://pixner.net/Bold Exchange/dark/contact.php"
             method="POST"
