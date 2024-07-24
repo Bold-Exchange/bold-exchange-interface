@@ -24,7 +24,7 @@ export default defineConfig({
       ],
     },
   ],
-
+  svgr: {},
   npmClient: "pnpm",
   title: "Bold Exchange &mdash; Fantasy Sports Stock Exchange HTML Template",
   metas: [{ name: "keywords", content: "bold exchange" }],

@@ -1,7 +1,7 @@
 import { Divider, Progress } from "antd";
 import "./styles.less";
-import { TwitterOutlined } from "@ant-design/icons";
 import { history } from "umi";
+import { Icon } from "@/components";
 const Game = () => {
   return (
     <div
@@ -17,10 +17,13 @@ const Game = () => {
             <p>The cutest cat on Solana</p>
           </div>
         </div>
-        <div style={{ position: "absolute", right: "20px", top: "20px" }}>
-          <TwitterOutlined
-            style={{ color: "rgba(255, 255, 255, 0.3)", width: "13px" }}
-          />
+        <div
+          className="flex"
+          style={{ position: "absolute", right: "20px", top: "20px" }}
+        >
+          <Icon.Twitter color="white" />
+          <Icon.Telegram color="white" />
+          <Icon.Website color="white" />
         </div>
       </div>
       <Divider />

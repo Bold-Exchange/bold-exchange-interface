@@ -154,8 +154,7 @@ const Top = (props: any) => {
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
-        footer={null}
-        width={800}
+        // footer={null}
       >
         <Form layout="vertical">
           {/* <Form.Item label="Checkbox" name="disabled" valuePropName="checked">
@@ -173,9 +172,7 @@ const Top = (props: any) => {
           <Form.Item label="Token Name" required>
             <Input />
           </Form.Item>
-          <Form.Item label="Description">
-            <Input.TextArea rows={8} />
-          </Form.Item>
+
           <div className="flex gap-4">
             <Form.Item
               label="Icon"
@@ -197,17 +194,8 @@ const Top = (props: any) => {
                 </button>
               </Upload>
             </Form.Item>
-            <Form.Item
-              label="Banner"
-              valuePropName="fileList"
-              getValueFromEvent={normFile}
-            >
-              <Upload action="/upload.do" listType="picture-card">
-                <button style={{ border: 0, background: "none" }} type="button">
-                  <PlusOutlined />
-                  <div style={{ marginTop: 8 }}>Upload</div>
-                </button>
-              </Upload>
+            <Form.Item className="flex-1" label="Description">
+              <Input.TextArea rows={4} />
             </Form.Item>
           </div>
 
@@ -218,15 +206,6 @@ const Top = (props: any) => {
             <Input />
           </Form.Item>
           <Form.Item label="Telegram">
-            <Input />
-          </Form.Item>
-          <Form.Item label="Discord">
-            <Input />
-          </Form.Item>
-          <Form.Item label="Another link">
-            <Input />
-          </Form.Item>
-          <Form.Item label="Anther link">
             <Input />
           </Form.Item>
           <Form.Item

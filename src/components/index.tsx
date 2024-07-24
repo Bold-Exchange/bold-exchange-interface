@@ -8,6 +8,7 @@ import Block from "./Block";
 import Media from "./Media";
 import PercentangeSelector from "./PercentangeSelector";
 import TagSelector from "./TagSelector";
+import Icon from "./Icon";
 export {
   Button,
   Accordion,
@@ -19,4 +20,5 @@ export {
   Media,
   PercentangeSelector,
   TagSelector,
+  Icon,
 };
