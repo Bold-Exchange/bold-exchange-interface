@@ -37,11 +37,11 @@ const Menu = () => {
           <StarOutlined className="text-lg mr-2 text-gray-500" />
           WatchList
         </List.Item>
-        <List.Item value="/1">
+        <List.Item value="/alerts">
           <BellOutlined className="text-lg mr-2 text-gray-500" />
           Alerts
         </List.Item>
-        <List.Item value="/2">
+        <List.Item value="/multicharts">
           <ProductOutlined className="text-lg mr-2 text-gray-500" />
           Multicharts
         </List.Item>
