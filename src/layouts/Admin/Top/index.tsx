@@ -97,7 +97,7 @@ const Top = (props: any) => {
           placeholder="Search token/contract/wallet"
         />
       </div>
-      <div className="top_bar_wrapper d-flex align-items-center justify-content-between">
+      <div className="top_bar_wrapper flex items-center justify-between">
         <ul className="ml-5 text-gray-500 text-lg flex items-center gap-4 cursor-pointer">
           <li
             className="hover:text-white hover:underline"
