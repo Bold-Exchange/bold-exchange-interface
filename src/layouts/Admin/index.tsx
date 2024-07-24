@@ -3,7 +3,7 @@ import { Layout } from "antd";
 import { Outlet } from "umi";
 import classnames from "classnames";
 import Menu from "./Menu";
-import { Game } from "@/components";
+import { Game, Icon, TagSelector } from "@/components";
 import Trigger from "./Trigger";
 import styles from "./index.less";
 import {
@@ -13,6 +13,7 @@ import {
   VerticalLeftOutlined,
 } from "@ant-design/icons";
 import Top from "./Top";
+import { calc } from "antd/es/theme/internal";
 const { Header, Footer, Sider, Content } = Layout;
 
 const App: React.FC = () => {
@@ -61,7 +62,32 @@ const App: React.FC = () => {
             className={styles.sider}
             style={{ zIndex: 0 }}
           >
-            <div style={{ overflow: "auto", height: "100%" }}>
+            <div className="bg-gray-700 p-1">
+              <div className="flex items-center gap-2 text-white">
+                <div className="font-bold flex items-center gap-1">
+                  <Icon.Jiaonang />
+                  Pump
+                </div>
+                <div className="font-bold flex items-center gap-1 opacity-50">
+                  <Icon.Moon />
+                  Moonshot
+                </div>
+                <div className="font-bold flex items-center gap-1 opacity-50">
+                  <Icon.Booster width={24} />
+                  Booster
+                </div>
+              </div>
+            </div>
+            <div className="text-white px-2">
+              <TagSelector
+                tags={["Pump", "New Creation", "Completing"]}
+                onTagSelect={(e: string) => {
+                  // setV(e != "Pump");
+                }}
+              />
+            </div>
+
+            <div style={{ overflow: "auto", height: "calc(100% - 60px)" }}>
               <Game />
               <Game />
               <Game />

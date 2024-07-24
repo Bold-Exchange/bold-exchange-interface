@@ -166,51 +166,54 @@ const data = [
 const App = () => {
   return (
     <div>
-      <div className="flex items-center mb-4 gap-2 px-2">
-        <Rate count={1} />
-        <img
-          width={64}
-          src="https://gmgn.ai/static/avator_new/140.png"
-          className="rounded-full"
-          alt="avatar"
-        />
-        <div className="text-gray-500 text-sm">
-          <p className="flex items-center gap-2 text-white text-lg">
-            <span>STASHY</span>
-            <span className="flex items-center gap-1 text-gray-500 text-xs">
-              Mustache Cat
-              <Icon.Jiaonang />
-            </span>
-            <span className="flex items-center gap-1 text-gray-500 text-xs">
-              <Icon.Ads />
-              ads
-            </span>
-            <span className="flex items-center text-gray-500 text-xs">
-              <Icon.Twitter />
-              <Icon.Telegram />
-              <Icon.Website />
-              <Icon.Solana />
-            </span>
-            <div className="flex items-center gap-1 text-gray-500 text-xs border border-gray-500 rounded-lg px-2 py-1">
-              <div className="rounded-lg bg-green-700 p-1 w-1 h-1"></div>
-              Snipers:1/70
-            </div>
-          </p>
-          <p className="flex items-center gap-2">
-            <CopyText text={"966jE8s7ZYvkndiPF1jbFfPs5T89p7QaFP7FBsEamsAb"} />
-            <span className="text-gray-500 text-xs">12d ago</span>
-            <span className="flex items-center gap-1 text-red-500 text-xs">
-              <img
-                width={12}
-                src={"https://gmgn.ai/static/img/creator_run.webp"}
-              />
-              Dev Sell All
-            </span>
-          </p>
-        </div>
-      </div>
       <div className="flex">
         <div className="h-[500px] flex-auto">
+          <div className="flex items-center mb-4 gap-2 px-2">
+            <Rate count={1} />
+            <img
+              width={64}
+              src="https://gmgn.ai/static/avator_new/140.png"
+              className="rounded-full"
+              alt="avatar"
+            />
+            <div className="text-gray-500 text-sm">
+              <p className="flex items-center gap-2 text-white text-lg">
+                <span>STASHY</span>
+                <span className="flex items-center gap-1 text-gray-500 text-xs">
+                  Mustache Cat
+                  <Icon.Jiaonang />
+                </span>
+                <span className="flex items-center gap-1 text-gray-500 text-xs">
+                  <Icon.Ads />
+                  ads
+                </span>
+                <span className="flex items-center text-gray-500 text-xs">
+                  <Icon.Website />
+
+                  <Icon.Twitter />
+                  <Icon.Telegram />
+                  <Icon.Solana />
+                </span>
+              </p>
+              <p className="flex items-center gap-2">
+                <CopyText
+                  text={"966jE8s7ZYvkndiPF1jbFfPs5T89p7QaFP7FBsEamsAb"}
+                />
+                <span className="text-gray-500 text-xs">12d ago</span>
+                <span className="flex items-center gap-1 text-red-500 text-xs">
+                  <img
+                    width={12}
+                    src={"https://gmgn.ai/static/img/creator_run.webp"}
+                  />
+                  Dev Sell All
+                </span>
+                <div className="flex items-center gap-1 text-gray-500 text-xs border border-gray-500 rounded-lg px-2 py-1">
+                  <div className="rounded-lg bg-green-700 p-1 w-1 h-1"></div>
+                  Snipers:1/70
+                </div>
+              </p>
+            </div>
+          </div>
           <TradingViewWidget
             symbol="BTCUSD"
             theme={Themes.DARK}

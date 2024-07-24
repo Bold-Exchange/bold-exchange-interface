@@ -6,6 +6,9 @@ import { ReactComponent as WebIcon } from "./assets/website.svg";
 import { ReactComponent as SolIcon } from "./assets/sol.svg";
 import { ReactComponent as AdsIcon } from "./assets/ads.svg";
 import { ReactComponent as JnIcon } from "./assets/jiaonang.svg";
+import { ReactComponent as BoosterIcon } from "./assets/booster.svg";
+import { ReactComponent as MoonIcon } from "./assets/moon.svg";
+
 // 定义组件的 Props 接口
 interface IconProps {
   type: string;
@@ -13,6 +16,7 @@ interface IconProps {
   size?: string;
   hoverBackground?: boolean;
   onClick?: () => void;
+  [key: string]: any;
 }
 const Wrap = (props: any) => {
   return (
@@ -61,4 +65,21 @@ export const Ads: React.FC<Omit<IconProps, "type">> = (props) => {
 export const Jiaonang: React.FC<Omit<IconProps, "type">> = (props) => {
   return <JnIcon {...props} />;
 };
-export default { Twitter, Telegram, Website, Solana, Ads, Jiaonang };
+//Booster
+export const Booster: React.FC<Omit<IconProps, "type">> = (props) => {
+  return <BoosterIcon {...props} />;
+};
+//Moon
+export const Moon: React.FC<Omit<IconProps, "type">> = (props) => {
+  return <MoonIcon {...props} />;
+};
+export default {
+  Twitter,
+  Telegram,
+  Website,
+  Solana,
+  Ads,
+  Jiaonang,
+  Booster,
+  Moon,
+};
