@@ -9,6 +9,7 @@ import Media from "./Media";
 import PercentangeSelector from "./PercentangeSelector";
 import TagSelector from "./TagSelector";
 import Icon from "./Icon";
+import Ring from "./Ring";
 export {
   Button,
   Accordion,
@@ -21,4 +22,5 @@ export {
   PercentangeSelector,
   TagSelector,
   Icon,
+  Ring,
 };

@@ -1,6 +1,8 @@
 import { CopyOutlined } from "@ant-design/icons";
 import { history } from "umi";
+import { Ring } from "@/components";
 const Item = () => {
+  const color = Math.random() * 100;
   return (
     <div
       className="flex items-center justify-between gap-2 px-2 py-4 border-b border-gray-800 hover:bg-gray-700 cursor-pointer"
@@ -8,10 +10,13 @@ const Item = () => {
         history.push("/trade");
       }}
     >
-      <img
-        className=" w-12 rounded-full"
-        src="https://node1.irys.xyz/krc_fx_vxBpHUVhHT5sjKpaNzvbD6LZnq8Bw_chObVY"
-      />
+      <Ring>
+        <img
+          className=" w-12 rounded-full"
+          src="https://node1.irys.xyz/krc_fx_vxBpHUVhHT5sjKpaNzvbD6LZnq8Bw_chObVY"
+        />
+      </Ring>
+
       <div className="flex-1">
         <div className="flex items-center justify-between">
           <div>
