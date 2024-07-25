@@ -1,9 +1,14 @@
 import { Rate } from "antd";
 import { Media } from "@/components";
+import { StarFilled } from "@ant-design/icons";
 const Token = () => {
   return (
     <div className="flex items-center gap-2">
-      <Rate onChange={(e) => {}} count={1} />
+      <StarFilled
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      />
       <div className="flex">
         <img
           className=" rounded-full"
