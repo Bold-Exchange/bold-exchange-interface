@@ -52,7 +52,7 @@ const App: React.FC = () => {
             <Content className={styles.content}>
               <Outlet />
             </Content>
-            <Footer className={styles.footer}>0</Footer>
+            <Footer className={styles.footer}>1</Footer>
           </Layout>
 
           <Sider
