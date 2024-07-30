@@ -6,8 +6,10 @@ import Menu from "./Menu";
 import { Game, Icon, TagSelector } from "@/components";
 import Trigger from "./Trigger";
 import styles from "./index.less";
+import MM from "@/pages/meme";
 import {
   CloseOutlined,
+  FullscreenOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   VerticalLeftOutlined,
@@ -21,7 +23,7 @@ const App: React.FC = () => {
   const rightWidth = 320;
   const [menuVisible, setMenuVisible] = useState<boolean>(false);
   const [rightVisible, setRightVisible] = useState<boolean>(true);
-
+  const [fullscreen, setFullscreen] = useState<boolean>(false);
   return (
     <Layout className={styles.layout}>
       <Sider
@@ -52,64 +54,84 @@ const App: React.FC = () => {
             <Content className={styles.content}>
               <Outlet />
             </Content>
-            <Footer className={styles.footer}>1212</Footer>
+            <Footer className={styles.footer}></Footer>
           </Layout>
 
           <Sider
             collapsed={rightVisible}
             collapsedWidth={0}
-            width={320}
+            width={(fullscreen && "100%") || 320}
             className={styles.sider}
             style={{ zIndex: 0 }}
           >
-            <div className="bg-gray-700 p-1">
-              <div className="flex items-center gap-2 text-white">
-                <div className="font-bold flex items-center gap-1">
-                  <Icon.Jiaonang />
-                  Pump
+            {(!fullscreen && (
+              <>
+                {" "}
+                <div className="bg-gray-700 p-1 flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-white">
+                    <div className="font-bold flex items-center gap-1">
+                      <Icon.Jiaonang />
+                      Pump
+                    </div>
+                    <div className="font-bold flex items-center gap-1 opacity-50">
+                      <Icon.Moon />
+                      Moonshot
+                    </div>
+                    <div className="font-bold flex items-center gap-1 opacity-50">
+                      <Icon.Booster width={24} />
+                      Booster
+                    </div>
+                  </div>
+                  <FullscreenOutlined
+                    onClick={() => {
+                      setFullscreen(!fullscreen);
+                    }}
+                    className="text-white"
+                  />
                 </div>
-                <div className="font-bold flex items-center gap-1 opacity-50">
-                  <Icon.Moon />
-                  Moonshot
+                <div className="text-white px-2">
+                  <TagSelector
+                    tags={["Pump", "New Creation", "Completing"]}
+                    onTagSelect={(e: string) => {
+                      // setV(e != "Pump");
+                    }}
+                  />
                 </div>
-                <div className="font-bold flex items-center gap-1 opacity-50">
-                  <Icon.Booster width={24} />
-                  Booster
+                <div style={{ overflow: "auto", height: "calc(100% - 60px)" }}>
+                  <Game />
+                  <Game />
+                  <Game />
+                  <Game />
+                  <Game />
+                  <Game />
+                  <Game />
+                  <Game />
+                  <Game />
+                  <Game />
+                  <Game />
+                  <Game />
+                  <Game />
+                  <Game />
+                  <Game />
+                  <Game />
                 </div>
+                <Trigger
+                  direction="right"
+                  onToggle={() => setRightVisible(!rightVisible)}
+                  isOpen={!rightVisible}
+                />
+              </>
+            )) || (
+              <div className="overflow-auto h-full relative">
+                <MM />
+                <FullscreenOutlined
+                  onClick={() => {
+                    setFullscreen(!fullscreen);
+                  }}
+                  className="text-white absolute top-0 right-0"
+                />
               </div>
-            </div>
-            <div className="text-white px-2">
-              <TagSelector
-                tags={["Pump", "New Creation", "Completing"]}
-                onTagSelect={(e: string) => {
-                  // setV(e != "Pump");
-                }}
-              />
-            </div>
-
-            <div style={{ overflow: "auto", height: "calc(100% - 60px)" }}>
-              <Game />
-              <Game />
-              <Game />
-              <Game />
-              <Game />
-              <Game />
-              <Game />
-              <Game />
-              <Game />
-              <Game />
-              <Game />
-              <Game />
-              <Game />
-              <Game />
-              <Game />
-              <Game />
-            </div>
-            <Trigger
-              direction="right"
-              onToggle={() => setRightVisible(!rightVisible)}
-              isOpen={!rightVisible}
-            />
+            )}
           </Sider>
         </Layout>
       </Layout>

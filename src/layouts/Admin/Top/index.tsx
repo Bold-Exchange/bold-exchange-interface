@@ -103,7 +103,7 @@ const Top = (props: any) => {
             className="hover:text-white hover:underline"
             onClick={() => history.push("/meme")}
           >
-            Meme
+            Launcher
           </li>
           <li
             className="hover:text-white hover:underline"
