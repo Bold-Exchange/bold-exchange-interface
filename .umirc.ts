@@ -24,6 +24,8 @@ export default defineConfig({
         { path: "/newpair", component: "newpair" },
         { path: "/alerts", component: "alerts" },
         { path: "/multicharts", component: "multicharts" },
+        { path: "/trending", component: "trending" },
+        { path: "/trader", component: "trader" },
       ],
     },
   ],

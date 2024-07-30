@@ -111,8 +111,18 @@ const Top = (props: any) => {
           >
             NewPair
           </li>
-          <li className="hover:text-white hover:underline">Trending</li>
-          <li className="hover:text-white hover:underline">Trader</li>
+          <li
+            className="hover:text-white hover:underline"
+            onClick={() => history.push("/trending")}
+          >
+            Trending
+          </li>
+          <li
+            className="hover:text-white hover:underline"
+            onClick={() => history.push("/trader")}
+          >
+            Trader
+          </li>
         </ul>
 
         <div className="user_bar d-flex align-items-center justify-content-end">
