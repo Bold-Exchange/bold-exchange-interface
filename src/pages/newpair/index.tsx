@@ -32,9 +32,7 @@ const Meme = () => {
             </div>
           </div>
           <div className="bg-gray-900 rounded-lg">
-            <div className="border-b border-gray-700 p-2">
-              🦅 DEXScreener Spent
-            </div>
+            <div className="border-b border-gray-700 p-2">🦅 Spent</div>
             <div className="overflow-y-auto">
               {Array.from({ length: 8 }).map((_, i) => (
                 <Item key={i} />
