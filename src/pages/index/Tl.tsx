@@ -52,13 +52,21 @@ const columns: TableProps<DataType>["columns"] = [
     ),
   },
   {
-    title: "Liq/MKT Cap",
+    title: "Liquidity",
     dataIndex: "rental",
     key: "rental",
     render: () => (
       <Item>
         <Title color="white">98,032.5🔥</Title>
-
+      </Item>
+    ),
+  },
+  {
+    title: "FDV",
+    dataIndex: "rental",
+    key: "rental",
+    render: () => (
+      <Item>
         <Span>$635.7k</Span>
       </Item>
     ),
