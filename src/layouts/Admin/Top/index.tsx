@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { history } from "umi";
 import classNames from "classnames";
 import Web3 from "web3";
+import request from "@/utils/request";
 import "./styles.less";
 import {
   Input,
@@ -21,6 +22,7 @@ import {
   Switch,
   ColorPicker,
   Slider,
+  message,
 } from "antd";
 import {
   CaretDownOutlined,
@@ -28,6 +30,7 @@ import {
   SearchOutlined,
 } from "@ant-design/icons";
 import TextArea from "antd/es/input/TextArea";
+import { setToken } from "@/utils/auth";
 const items: MenuProps["items"] = [
   {
     key: "1",
@@ -49,7 +52,7 @@ const Top = (props: any) => {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const { RangePicker } = DatePicker;
   const { TextArea } = Input;
-
+  const [messageApi, contextHolder] = message.useMessage();
   const normFile = (e: any) => {
     if (Array.isArray(e)) {
       return e;
@@ -61,8 +64,23 @@ const Top = (props: any) => {
     setIsModalOpen(true);
   };
 
-  const handleOk = () => {
-    setIsModalOpen(false);
+  const handleOk = async () => {
+    try {
+      const response: any = await request.post("/api/login", {
+        username: "a",
+        password: "a",
+      });
+      if (response.code === 200) {
+        setToken(response.data.token);
+      }
+      messageApi.open({
+        type: "success",
+        content: "This is a success message",
+      });
+      handleLoginCancel();
+    } catch (error) {
+      debugger;
+    }
   };
 
   const handleCancel = () => {
@@ -89,6 +107,7 @@ const Top = (props: any) => {
   };
   return (
     <div className="container-fluid top_bar relative">
+      {contextHolder}
       <div className="absolute w-[300px] inset-x-0 m-auto">
         <Input
           prefix={<SearchOutlined />}
@@ -135,14 +154,14 @@ const Top = (props: any) => {
             <Button type="primary" onClick={showModal}>
               Create Token
             </Button>
-            <Button
+            {/* <Button
               type="default"
               onClick={() => !walletAddress && connectWallet()}
             >
               {(walletAddress &&
                 `${walletAddress.slice(0, 3)}...${walletAddress.slice(-4)}`) ||
                 "Connect"}
-            </Button>
+            </Button> */}
             <span onClick={() => setIsLoginModalOpen(true)}>Log in</span>
             {/* <Dropdown menu={{ items }} placement="bottomLeft">
               <div className="flex items-center gap-1">
@@ -161,7 +180,6 @@ const Top = (props: any) => {
       <Modal
         title="Create Token"
         open={isModalOpen}
-        onOk={handleOk}
         onCancel={handleCancel}
         // footer={null}
       >

@@ -71,4 +71,10 @@ export default defineConfig({
     },
   },
   tailwindcss: {},
+  proxy: {
+    "/api": {
+      target: "https://test.jdd001.top",
+      changeOrigin: true,
+    },
+  },
 });
