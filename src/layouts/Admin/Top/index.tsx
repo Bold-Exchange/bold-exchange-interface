@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { history } from "umi";
 import classNames from "classnames";
 import Web3 from "web3";
@@ -31,6 +31,10 @@ import {
 } from "@ant-design/icons";
 import TextArea from "antd/es/input/TextArea";
 import { setToken } from "@/utils/auth";
+import { hooks, metaMask } from "@/connectors/metaMask";
+import { getAddChainParameters } from "@/chains";
+import { FUN_ABI } from "@/abis/fun.sol/Fun";
+import { ethers } from "ethers";
 const items: MenuProps["items"] = [
   {
     key: "1",
@@ -45,7 +49,14 @@ const items: MenuProps["items"] = [
     ),
   },
 ];
-
+const {
+  useChainId,
+  useAccounts,
+  useIsActivating,
+  useIsActive,
+  useProvider,
+  useENSNames,
+} = hooks;
 const Top = (props: any) => {
   const [visible, setVisible] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -53,6 +64,9 @@ const Top = (props: any) => {
   const { RangePicker } = DatePicker;
   const { TextArea } = Input;
   const [messageApi, contextHolder] = message.useMessage();
+  const [desiredChainId, setDesiredChainId] = useState<number>(11155111);
+  const provider = useProvider();
+  const accounts: string[] | undefined = useAccounts();
   const normFile = (e: any) => {
     if (Array.isArray(e)) {
       return e;
@@ -65,22 +79,35 @@ const Top = (props: any) => {
   };
 
   const handleOk = async () => {
-    try {
-      const response: any = await request.post("/api/login", {
-        username: "a",
-        password: "a",
+    const abd = new ethers.Contract(
+      "0xcc8C1B722c5BB7b30252A8Ceb20d48f1C7AD4569",
+      FUN_ABI,
+      provider?.getSigner()
+    );
+    const gasLimit = ethers.utils.hexlify(100000000); // 设置 gas limit，例如 100000
+    abd
+      .createToken("abc", "abc", {
+        gasLimit: gasLimit,
+      })
+      .catch((res: any) => {
+        debugger;
       });
-      if (response.code === 200) {
-        setToken(response.data.token);
-      }
-      messageApi.open({
-        type: "success",
-        content: "This is a success message",
-      });
-      handleLoginCancel();
-    } catch (error) {
-      debugger;
-    }
+    // try {
+    //   const response: any = await request.post("/api/login", {
+    //     username: "a",
+    //     password: "a",
+    //   });
+    //   if (response.code === 200) {
+    //     setToken(response.data.token);
+    //   }
+    //   messageApi.open({
+    //     type: "success",
+    //     content: "This is a success message",
+    //   });
+    //   handleLoginCancel();
+    // } catch (error) {
+    //   debugger;
+    // }
   };
 
   const handleCancel = () => {
@@ -105,6 +132,29 @@ const Top = (props: any) => {
       alert("Please install MetaMask!");
     }
   };
+  const switchChain = useCallback(async (desiredChainId: number) => {
+    setDesiredChainId(desiredChainId);
+    try {
+      // if (
+      //   // If we're already connected to the desired chain, return
+      //   desiredChainId === activeChainId ||
+      //   // If they want to connect to the default chain and we're already connected, return
+      //   (desiredChainId === -1 && activeChainId !== undefined)
+      // ) {
+      //   setError(undefined)
+      //   return
+      // }
+
+      await metaMask.activate(getAddChainParameters(desiredChainId));
+      // localStorage.setItem('chainId',desiredChainId+"");
+      // setError(undefined)
+    } catch (error) {
+      // setError(error)
+    }
+  }, []);
+  useEffect(() => {
+    switchChain(desiredChainId);
+  }, []);
   return (
     <div className="container-fluid top_bar relative">
       {contextHolder}
@@ -154,6 +204,7 @@ const Top = (props: any) => {
             <Button type="primary" onClick={showModal}>
               Create Token
             </Button>
+            {accounts && accounts.length > 0 && <>{accounts[0]}</>}
             {/* <Button
               type="default"
               onClick={() => !walletAddress && connectWallet()}
