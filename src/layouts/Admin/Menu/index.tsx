@@ -22,7 +22,7 @@ const Menu = () => {
         >
           <img
             style={{ height: "40px" }}
-            src="/images/Bold_Logo-white.svg"
+            src="/logo.png"
             alt="Bold Exchange Logo"
           />
         </a>

@@ -70,6 +70,7 @@ export default defineConfig({
       },
     },
   },
+  favicons: ["/favicon.svg"],
   tailwindcss: {},
   proxy: {
     "/api": {

@@ -23,6 +23,7 @@ import {
   ColorPicker,
   Slider,
   message,
+  FormProps,
 } from "antd";
 import {
   CaretDownOutlined,
@@ -35,6 +36,8 @@ import { hooks, metaMask } from "@/connectors/metaMask";
 import { getAddChainParameters } from "@/chains";
 import { FUN_ABI } from "@/abis/fun.sol/Fun";
 import { ethers } from "ethers";
+import { CopyText } from "@/components";
+import T from "./t";
 const items: MenuProps["items"] = [
   {
     key: "1",
@@ -57,6 +60,10 @@ const {
   useProvider,
   useENSNames,
 } = hooks;
+type FieldType = {
+  tokenName?: string;
+  tokenSymbol?: string;
+};
 const Top = (props: any) => {
   const [visible, setVisible] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -67,6 +74,8 @@ const Top = (props: any) => {
   const [desiredChainId, setDesiredChainId] = useState<number>(11155111);
   const provider = useProvider();
   const accounts: string[] | undefined = useAccounts();
+  const abiDecoder = require("abi-decoder"); // NodeJS
+  const [form] = Form.useForm();
   const normFile = (e: any) => {
     if (Array.isArray(e)) {
       return e;
@@ -79,19 +88,6 @@ const Top = (props: any) => {
   };
 
   const handleOk = async () => {
-    const abd = new ethers.Contract(
-      "0xcc8C1B722c5BB7b30252A8Ceb20d48f1C7AD4569",
-      FUN_ABI,
-      provider?.getSigner()
-    );
-    const gasLimit = ethers.utils.hexlify(100000000); // 设置 gas limit，例如 100000
-    abd
-      .createToken("abc", "abc", {
-        gasLimit: gasLimit,
-      })
-      .catch((res: any) => {
-        debugger;
-      });
     // try {
     //   const response: any = await request.post("/api/login", {
     //     username: "a",
@@ -109,8 +105,34 @@ const Top = (props: any) => {
     //   debugger;
     // }
   };
-
+  const handleCreateToken: FormProps<FieldType>["onFinish"] = async (
+    values
+  ) => {
+    console.log("Success:", values);
+    const abd = new ethers.Contract(
+      "0xcc8C1B722c5BB7b30252A8Ceb20d48f1C7AD4569",
+      FUN_ABI,
+      provider?.getSigner()
+    );
+    const gasLimit = ethers.utils.hexlify(100000000); // 设置 gas limit，例如 100000
+    abd
+      .createToken(values.tokenName, values.tokenSymbol, {
+        gasLimit: ethers.utils.hexlify(100000),
+        value: ethers.utils.parseEther("0.001"),
+      })
+      .then((res: any) => {
+        abiDecoder.addABI(FUN_ABI);
+        const decodedData = abiDecoder.decodeMethod(res.data);
+      })
+      .catch((res: any) => {
+        messageApi.open({
+          type: "error",
+          content: res.code || "error",
+        });
+      });
+  };
   const handleCancel = () => {
+    form.resetFields();
     setIsModalOpen(false);
   };
   const handleLoginCancel = () => {
@@ -204,15 +226,18 @@ const Top = (props: any) => {
             <Button type="primary" onClick={showModal}>
               Create Token
             </Button>
-            {accounts && accounts.length > 0 && <>{accounts[0]}</>}
-            {/* <Button
+
+            <Button
               type="default"
               onClick={() => !walletAddress && connectWallet()}
             >
-              {(walletAddress &&
-                `${walletAddress.slice(0, 3)}...${walletAddress.slice(-4)}`) ||
+              {(walletAddress && (
+                <CopyText
+                  text={(accounts && accounts.length > 0 && accounts[0]) || ""}
+                />
+              )) ||
                 "Connect"}
-            </Button> */}
+            </Button>
             <span onClick={() => setIsLoginModalOpen(true)}>Log in</span>
             {/* <Dropdown menu={{ items }} placement="bottomLeft">
               <div className="flex items-center gap-1">
@@ -232,9 +257,9 @@ const Top = (props: any) => {
         title="Create Token"
         open={isModalOpen}
         onCancel={handleCancel}
-        // footer={null}
+        footer={null}
       >
-        <Form layout="vertical">
+        <Form layout="vertical" form={form} onFinish={handleCreateToken}>
           {/* <Form.Item label="Checkbox" name="disabled" valuePropName="checked">
             <Checkbox>Checkbox</Checkbox>
           </Form.Item>
@@ -244,10 +269,18 @@ const Top = (props: any) => {
               <Radio value="pear"> Pear </Radio>
             </Radio.Group>
           </Form.Item> */}
-          <Form.Item label="Token Symbol" required>
+          <Form.Item<FieldType>
+            name="tokenSymbol"
+            label="Token Symbol"
+            rules={[{ required: true }]}
+          >
             <Input />
           </Form.Item>
-          <Form.Item label="Token Name" required>
+          <Form.Item<FieldType>
+            name="tokenName"
+            label="Token Name"
+            rules={[{ required: true }]}
+          >
             <Input />
           </Form.Item>
 
@@ -256,7 +289,7 @@ const Top = (props: any) => {
               label="Icon"
               valuePropName="fileList"
               getValueFromEvent={normFile}
-              required
+              rules={[{ required: true }]}
             >
               <Upload
                 className="w-full"
@@ -308,6 +341,16 @@ const Top = (props: any) => {
                 </span>
               </Select.Option>
             </Select>
+          </Form.Item>
+          <Form.Item>
+            <Space>
+              <Button type="primary" htmlType="submit">
+                Submit
+              </Button>
+              <Button htmlType="button" onClick={handleCancel}>
+                Cancle
+              </Button>
+            </Space>
           </Form.Item>
         </Form>
       </Modal>
