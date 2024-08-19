@@ -26,6 +26,7 @@ export default defineConfig({
         { path: "/multicharts", component: "multicharts" },
         { path: "/trending", component: "trending" },
         { path: "/trader", component: "trader" },
+        { path: "/test", component: "test" },
       ],
     },
   ],
@@ -74,7 +75,7 @@ export default defineConfig({
   tailwindcss: {},
   proxy: {
     "/api": {
-      target: "https://test.jdd001.top",
+      target: "http://localhost:3200",
       changeOrigin: true,
     },
   },

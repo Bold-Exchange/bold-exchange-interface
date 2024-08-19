@@ -11,6 +11,8 @@ import Trigger from "./Trigger";
 import styles from "./index.less";
 import MM from "@/pages/meme";
 import WalletProvider from "@/provider/WalletProvider";
+import SolWalletContextProvider from "@/provider/SolWalletProvider";
+
 import {
   CloseOutlined,
   FullscreenOutlined,
@@ -36,119 +38,124 @@ const App: React.FC = () => {
   return (
     <Web3ReactProvider connectors={connectors}>
       <WalletProvider.Provider value={{ currentChain, switchChain }}>
-        <Layout className={styles.layout}>
-          <Sider
-            collapsed={menuVisible}
-            collapsedWidth={0}
-            width={160}
-            className={styles.sider}
-          >
-            {/* <div
+        <SolWalletContextProvider>
+          <Layout className={styles.layout}>
+            <Sider
+              collapsed={menuVisible}
+              collapsedWidth={0}
+              width={160}
+              className={styles.sider}
+            >
+              {/* <div
           className={styles.closeRight}
           onClick={() => setMenuVisible(!menuVisible)}
         >
           {(!menuVisible && <MenuUnfoldOutlined />) || <CloseOutlined />}
         </div> */}
-            <Menu />
-            <Trigger
-              direction="left"
-              onToggle={() => setMenuVisible(!menuVisible)}
-              isOpen={!menuVisible}
-            />
-          </Sider>
-          <Layout>
-            <Header className={styles.header}>
-              <Top onToggle={(v: boolean) => setMenuVisible(v)} />
-            </Header>
+              <Menu />
+              <Trigger
+                direction="left"
+                onToggle={() => setMenuVisible(!menuVisible)}
+                isOpen={!menuVisible}
+              />
+            </Sider>
             <Layout>
-              <Layout className="overflow-auto scrollbar-0">
-                <Content className={styles.content}>
-                  <Outlet />
-                </Content>
-                <Footer className={styles.footer}></Footer>
-              </Layout>
+              <Header className={styles.header}>
+                <Top onToggle={(v: boolean) => setMenuVisible(v)} />
+              </Header>
+              <Layout>
+                <Layout className="overflow-auto scrollbar-0">
+                  <Content className={styles.content}>
+                    <Outlet />
+                  </Content>
+                  <Footer className={styles.footer}></Footer>
+                </Layout>
 
-              <Sider
-                collapsed={rightVisible}
-                collapsedWidth={0}
-                width={(fullscreen && "100%") || 320}
-                className={styles.sider}
-                style={{ zIndex: 0 }}
-              >
-                {(!fullscreen && (
-                  <>
-                    {" "}
-                    <div className="bg-gray-700 p-1 flex items-center justify-between">
-                      <div className="flex items-center gap-2 text-white">
-                        <div className="font-bold flex items-center gap-1">
-                          <Icon.Jiaonang />
-                          Pump
+                <Sider
+                  collapsed={rightVisible}
+                  collapsedWidth={0}
+                  width={(fullscreen && "100%") || 320}
+                  className={styles.sider}
+                  style={{ zIndex: 0 }}
+                >
+                  {(!fullscreen && (
+                    <>
+                      {" "}
+                      <div className="bg-gray-700 p-1 flex items-center justify-between">
+                        <div className="flex items-center gap-2 text-white">
+                          <div className="font-bold flex items-center gap-1">
+                            <Icon.Jiaonang />
+                            Pump
+                          </div>
+                          <div className="font-bold flex items-center gap-1 opacity-50">
+                            <Icon.Moon />
+                            Moonshot
+                          </div>
+                          <div className="font-bold flex items-center gap-1 opacity-50">
+                            <Icon.Booster width={24} />
+                            Booster
+                          </div>
                         </div>
-                        <div className="font-bold flex items-center gap-1 opacity-50">
-                          <Icon.Moon />
-                          Moonshot
-                        </div>
-                        <div className="font-bold flex items-center gap-1 opacity-50">
-                          <Icon.Booster width={24} />
-                          Booster
-                        </div>
+                        <FullscreenOutlined
+                          onClick={() => {
+                            setFullscreen(!fullscreen);
+                          }}
+                          className="text-white"
+                        />
                       </div>
+                      <div className="text-white px-2">
+                        <TagSelector
+                          tags={["Pump", "New Creation", "Completing"]}
+                          onTagSelect={(e: string) => {
+                            // setV(e != "Pump");
+                          }}
+                        />
+                      </div>
+                      <div
+                        style={{
+                          overflow: "auto",
+                          height: "calc(100% - 60px)",
+                        }}
+                      >
+                        <Game />
+                        <Game />
+                        <Game />
+                        <Game />
+                        <Game />
+                        <Game />
+                        <Game />
+                        <Game />
+                        <Game />
+                        <Game />
+                        <Game />
+                        <Game />
+                        <Game />
+                        <Game />
+                        <Game />
+                        <Game />
+                      </div>
+                      <Trigger
+                        direction="right"
+                        onToggle={() => setRightVisible(!rightVisible)}
+                        isOpen={!rightVisible}
+                      />
+                    </>
+                  )) || (
+                    <div className="overflow-auto h-full relative">
+                      <MM />
                       <FullscreenOutlined
                         onClick={() => {
                           setFullscreen(!fullscreen);
                         }}
-                        className="text-white"
+                        className="text-white absolute top-0 right-0"
                       />
                     </div>
-                    <div className="text-white px-2">
-                      <TagSelector
-                        tags={["Pump", "New Creation", "Completing"]}
-                        onTagSelect={(e: string) => {
-                          // setV(e != "Pump");
-                        }}
-                      />
-                    </div>
-                    <div
-                      style={{ overflow: "auto", height: "calc(100% - 60px)" }}
-                    >
-                      <Game />
-                      <Game />
-                      <Game />
-                      <Game />
-                      <Game />
-                      <Game />
-                      <Game />
-                      <Game />
-                      <Game />
-                      <Game />
-                      <Game />
-                      <Game />
-                      <Game />
-                      <Game />
-                      <Game />
-                      <Game />
-                    </div>
-                    <Trigger
-                      direction="right"
-                      onToggle={() => setRightVisible(!rightVisible)}
-                      isOpen={!rightVisible}
-                    />
-                  </>
-                )) || (
-                  <div className="overflow-auto h-full relative">
-                    <MM />
-                    <FullscreenOutlined
-                      onClick={() => {
-                        setFullscreen(!fullscreen);
-                      }}
-                      className="text-white absolute top-0 right-0"
-                    />
-                  </div>
-                )}
-              </Sider>
+                  )}
+                </Sider>
+              </Layout>
             </Layout>
           </Layout>
-        </Layout>
+        </SolWalletContextProvider>
       </WalletProvider.Provider>
     </Web3ReactProvider>
   );

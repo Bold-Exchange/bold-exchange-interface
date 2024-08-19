@@ -77,6 +77,7 @@ const Top = (props: any) => {
   const abiDecoder = require("abi-decoder"); // NodeJS
   const [form] = Form.useForm();
   const normFile = (e: any) => {
+    // debugger;
     if (Array.isArray(e)) {
       return e;
     }
@@ -108,6 +109,8 @@ const Top = (props: any) => {
   const handleCreateToken: FormProps<FieldType>["onFinish"] = async (
     values
   ) => {
+    debugger;
+    const s = form.getFieldValue("logo");
     console.log("Success:", values);
     const abd = new ethers.Contract(
       "0xcc8C1B722c5BB7b30252A8Ceb20d48f1C7AD4569",
@@ -121,10 +124,12 @@ const Top = (props: any) => {
         value: ethers.utils.parseEther("0.001"),
       })
       .then((res: any) => {
+        debugger;
         abiDecoder.addABI(FUN_ABI);
         const decodedData = abiDecoder.decodeMethod(res.data);
       })
       .catch((res: any) => {
+        debugger;
         messageApi.open({
           type: "error",
           content: res.code || "error",
@@ -283,21 +288,25 @@ const Top = (props: any) => {
           >
             <Input />
           </Form.Item>
-
           <div className="flex gap-4">
             <Form.Item
-              label="Icon"
+              name="icon"
+              label="Logo"
               valuePropName="fileList"
               getValueFromEvent={normFile}
-              rules={[{ required: true }]}
             >
               <Upload
                 className="w-full"
-                action="/upload.do"
+                action="/api/upload"
                 listType="picture-card"
+                multiple
               >
                 <button
-                  style={{ border: 0, background: "none", width: "300px" }}
+                  style={{
+                    border: 0,
+                    background: "none",
+                    width: "300px",
+                  }}
                   type="button"
                 >
                   <PlusOutlined />
