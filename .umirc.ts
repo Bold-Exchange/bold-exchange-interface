@@ -75,7 +75,7 @@ export default defineConfig({
   tailwindcss: {},
   proxy: {
     "/api": {
-      target: "http://test.jdd001.top",
+      target: "http://167.99.123.171:9909",
       changeOrigin: true,
     },
   },

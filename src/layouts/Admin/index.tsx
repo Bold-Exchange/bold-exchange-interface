@@ -71,7 +71,7 @@ const App: React.FC = () => {
                   <Footer className={styles.footer}></Footer>
                 </Layout>
 
-                <Sider
+                {/* <Sider
                   collapsed={rightVisible}
                   collapsedWidth={0}
                   width={(fullscreen && "100%") || 320}
@@ -151,7 +151,7 @@ const App: React.FC = () => {
                       />
                     </div>
                   )}
-                </Sider>
+                </Sider> */}
               </Layout>
             </Layout>
           </Layout>
