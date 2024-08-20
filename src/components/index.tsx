@@ -10,6 +10,7 @@ import PercentangeSelector from "./PercentangeSelector";
 import TagSelector from "./TagSelector";
 import Icon from "./Icon";
 import Ring from "./Ring";
+import UploadImage from "./UploadImage";
 export {
   Button,
   Accordion,
@@ -23,4 +24,5 @@ export {
   TagSelector,
   Icon,
   Ring,
+  UploadImage,
 };

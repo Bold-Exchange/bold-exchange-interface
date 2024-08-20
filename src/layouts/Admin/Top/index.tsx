@@ -36,8 +36,7 @@ import { hooks, metaMask } from "@/connectors/metaMask";
 import { getAddChainParameters } from "@/chains";
 import { FUN_ABI } from "@/abis/fun.sol/Fun";
 import { ethers } from "ethers";
-import { CopyText } from "@/components";
-import T from "./t";
+import { CopyText, UploadImage } from "@/components";
 const items: MenuProps["items"] = [
   {
     key: "1",
@@ -52,6 +51,7 @@ const items: MenuProps["items"] = [
     ),
   },
 ];
+const { Option } = Select;
 const {
   useChainId,
   useAccounts,
@@ -64,6 +64,16 @@ type FieldType = {
   tokenName?: string;
   tokenSymbol?: string;
 };
+const selectBefore = (
+  <Select style={{ width: "100px" }} defaultValue={"1"}>
+    <Select.Option value="1">
+      <span className="flex items-center">
+        <img width={10} className="w-5 mr-2" src="icons/solana.webp" />
+        Sol
+      </span>
+    </Select.Option>
+  </Select>
+);
 const Top = (props: any) => {
   const [visible, setVisible] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -89,27 +99,27 @@ const Top = (props: any) => {
   };
 
   const handleOk = async () => {
-    // try {
-    //   const response: any = await request.post("/api/login", {
-    //     username: "a",
-    //     password: "a",
-    //   });
-    //   if (response.code === 200) {
-    //     setToken(response.data.token);
-    //   }
-    //   messageApi.open({
-    //     type: "success",
-    //     content: "This is a success message",
-    //   });
-    //   handleLoginCancel();
-    // } catch (error) {
-    //   debugger;
-    // }
+    try {
+      const response: any = await request.post("/api/login", {
+        username: "a",
+        password: "a",
+      });
+      if (response.code === 200) {
+        setToken(response.data.token);
+      }
+      messageApi.open({
+        type: "success",
+        content: "This is a success message",
+      });
+      handleLoginCancel();
+    } catch (error) {
+      debugger;
+    }
   };
+
   const handleCreateToken: FormProps<FieldType>["onFinish"] = async (
     values
   ) => {
-    debugger;
     const s = form.getFieldValue("logo");
     console.log("Success:", values);
     const abd = new ethers.Contract(
@@ -124,7 +134,6 @@ const Top = (props: any) => {
         value: ethers.utils.parseEther("0.001"),
       })
       .then((res: any) => {
-        debugger;
         abiDecoder.addABI(FUN_ABI);
         const decodedData = abiDecoder.decodeMethod(res.data);
       })
@@ -135,6 +144,10 @@ const Top = (props: any) => {
           content: res.code || "error",
         });
       });
+    request.post("/api/token", {
+      tokenName: values.tokenName,
+      tokenSymbol: values.tokenSymbol,
+    });
   };
   const handleCancel = () => {
     form.resetFields();
@@ -265,15 +278,6 @@ const Top = (props: any) => {
         footer={null}
       >
         <Form layout="vertical" form={form} onFinish={handleCreateToken}>
-          {/* <Form.Item label="Checkbox" name="disabled" valuePropName="checked">
-            <Checkbox>Checkbox</Checkbox>
-          </Form.Item>
-          <Form.Item label="Radio">
-            <Radio.Group>
-              <Radio value="apple"> Apple </Radio>
-              <Radio value="pear"> Pear </Radio>
-            </Radio.Group>
-          </Form.Item> */}
           <Form.Item<FieldType>
             name="tokenSymbol"
             label="Token Symbol"
@@ -289,30 +293,8 @@ const Top = (props: any) => {
             <Input />
           </Form.Item>
           <div className="flex gap-4">
-            <Form.Item
-              name="icon"
-              label="Logo"
-              valuePropName="fileList"
-              getValueFromEvent={normFile}
-            >
-              <Upload
-                className="w-full"
-                action="/api/upload"
-                listType="picture-card"
-                multiple
-              >
-                <button
-                  style={{
-                    border: 0,
-                    background: "none",
-                    width: "300px",
-                  }}
-                  type="button"
-                >
-                  <PlusOutlined />
-                  <div style={{ marginTop: 8 }}>Upload</div>
-                </button>
-              </Upload>
+            <Form.Item name="icon" label="Logo">
+              <UploadImage />
             </Form.Item>
             <Form.Item className="flex-1" label="Description">
               <Input.TextArea rows={4} />
@@ -338,18 +320,7 @@ const Top = (props: any) => {
               </div>
             }
           >
-            <Select defaultValue={"1"}>
-              <Select.Option value="1">
-                <span className="flex items-center">
-                  <img
-                    width={10}
-                    className="w-5 mr-2"
-                    src="icons/solana.webp"
-                  />
-                  Sol
-                </span>
-              </Select.Option>
-            </Select>
+            <Input addonBefore={selectBefore} defaultValue="0" />
           </Form.Item>
           <Form.Item>
             <Space>
