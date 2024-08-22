@@ -20,7 +20,7 @@ const Trigger: React.FC<TriggerProps> = ({ direction, isOpen, onToggle }) => {
     <span
       className={`ant-layout-sider-zero-width-trigger ant-layout-sider-zero-width-trigger-${direction}`}
       onClick={onToggle}
-      style={{ top: "25px" }}
+      style={{ top: "25px", backgroundColor: "transparent" }}
     >
       {getIcon()}
     </span>
