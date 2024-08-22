@@ -213,9 +213,9 @@ const Top = (props: any) => {
             className="hover:text-white hover:underline"
             onClick={() => history.push("/meme")}
           >
-            Launcher
+            Market
           </li>
-          <li
+          {/* <li
             className="hover:text-white hover:underline"
             onClick={() => history.push("/newpair")}
           >
@@ -226,7 +226,7 @@ const Top = (props: any) => {
             onClick={() => history.push("/trending")}
           >
             Trending
-          </li>
+          </li> */}
           <li
             className="hover:text-white hover:underline"
             onClick={() => history.push("/trader")}
