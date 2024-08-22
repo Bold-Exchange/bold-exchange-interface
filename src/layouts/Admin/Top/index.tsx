@@ -127,7 +127,7 @@ const Top = (props: any) => {
       FUN_ABI,
       provider?.getSigner()
     );
-    const gasLimit = ethers.utils.hexlify(100000000); // 设置 gas limit，例如 100000
+    const gasLimit = ethers.utils.hexlify(100000); // 设置 gas limit，例如 100000
     abd
       .createToken(values.tokenName, values.tokenSymbol, {
         gasLimit: ethers.utils.hexlify(100000),
@@ -145,8 +145,9 @@ const Top = (props: any) => {
         });
       });
     request.post("/api/token", {
-      tokenName: values.tokenName,
-      tokenSymbol: values.tokenSymbol,
+      tokenname: values.tokenName,
+      tokensymbol: values.tokenSymbol,
+      initialbuy: 0,
     });
   };
   const handleCancel = () => {
