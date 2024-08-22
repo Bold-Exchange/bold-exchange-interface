@@ -68,8 +68,8 @@ const selectBefore = (
   <Select style={{ width: "100px" }} defaultValue={"1"}>
     <Select.Option value="1">
       <span className="flex items-center">
-        <img width={10} className="w-5 mr-2" src="icons/solana.webp" />
-        Sol
+        <img width={10} className="w-5 mr-2" src="icons/ether.webp" />
+        Eth
       </span>
     </Select.Option>
   </Select>
