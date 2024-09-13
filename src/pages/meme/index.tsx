@@ -4,6 +4,7 @@ import { CopyOutlined, RightOutlined } from '@ant-design/icons';
 import T1 from '../trade/T1';
 import Item from './Item';
 import { useState } from 'react';
+import { Select } from 'antd';
 const TokenItem = () => {
   return (
     <div className="flex items-center rounded-md justify-between py-2 hover:bg-gray-700 p-2">
@@ -74,6 +75,13 @@ const Meme = () => {
           <Icon.Booster width={24} />
           Booster
         </div>
+        <Select
+          defaultValue="lucy"
+          style={{ width: 120 }}
+          allowClear
+          options={[{ value: 'Orca', label: 'Orca' },{ value: 'Raydium', label: 'Raydium' }]}
+          placeholder="ALL DEX"
+        />
         <TagSelector
           tags={['Pump', 'New Creation', 'Completing']}
           onTagSelect={(e: string) => {
