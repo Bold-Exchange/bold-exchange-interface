@@ -19,7 +19,7 @@ export default defineConfig({
         { path: "/trade", component: "trade" },
         { path: "/portfolio", component: "portfolio" },
         { path: "/about", component: "about" },
-        { path: "/meme", component: "meme" },
+        { path: "/markets", component: "meme" },
         { path: "/newpair", component: "newpair" },
         { path: "/newpair", component: "newpair" },
         { path: "/alerts", component: "alerts" },
@@ -75,7 +75,8 @@ export default defineConfig({
   tailwindcss: {},
   proxy: {
     "/api": {
-      target: "http://167.99.123.171:9909",
+      // target: "http://167.99.123.171:9909",
+      target: "http://localhost:3200",
       changeOrigin: true,
     },
   },

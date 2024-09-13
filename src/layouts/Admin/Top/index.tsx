@@ -37,6 +37,7 @@ import { getAddChainParameters } from "@/chains";
 import { FUN_ABI } from "@/abis/fun.sol/Fun";
 import { ethers } from "ethers";
 import { CopyText, UploadImage } from "@/components";
+import { devUseWarning } from "antd/es/_util/warning";
 const items: MenuProps["items"] = [
   {
     key: "1",
@@ -101,8 +102,8 @@ const Top = (props: any) => {
   const handleOk = async () => {
     try {
       const response: any = await request.post("/api/login", {
-        username: "a",
-        password: "a",
+        username: "doctor",
+        password: "wz123456",
       });
       if (response.code === 200) {
         setToken(response.data.token);
@@ -123,32 +124,33 @@ const Top = (props: any) => {
     const s = form.getFieldValue("logo");
     console.log("Success:", values);
     const abd = new ethers.Contract(
-      "0xcc8C1B722c5BB7b30252A8Ceb20d48f1C7AD4569",
+      "0x1267F5dF76c308ea17AD7E5C8Df7A386d4E233fc",
       FUN_ABI,
       provider?.getSigner()
     );
+    debugger;
     const gasLimit = ethers.utils.hexlify(100000); // 设置 gas limit，例如 100000
     abd
       .createToken(values.tokenName, values.tokenSymbol, {
-        gasLimit: ethers.utils.hexlify(100000),
+        // gasLimit: ethers.utils.hexlify(2000000),
         value: ethers.utils.parseEther("0.001"),
       })
       .then((res: any) => {
+        debugger;
         abiDecoder.addABI(FUN_ABI);
         const decodedData = abiDecoder.decodeMethod(res.data);
       })
       .catch((res: any) => {
-        debugger;
         messageApi.open({
           type: "error",
           content: res.code || "error",
         });
       });
-    request.post("/api/token", {
-      tokenname: values.tokenName,
-      tokensymbol: values.tokenSymbol,
-      initialbuy: 0,
-    });
+    // request.post("/api/token", {
+    //   tokenname: values.tokenName,
+    //   tokensymbol: values.tokenSymbol,
+    //   initialbuy: 0,
+    // });
   };
   const handleCancel = () => {
     form.resetFields();
@@ -160,18 +162,19 @@ const Top = (props: any) => {
   const [walletAddress, setWalletAddress] = useState("");
 
   const connectWallet = async () => {
-    if (window.ethereum) {
-      try {
-        const web3 = new Web3(window.ethereum);
-        await window.ethereum.request({ method: "eth_requestAccounts" });
-        const accounts = await web3.eth.getAccounts();
-        setWalletAddress(accounts[0]);
-      } catch (error) {
-        console.error("Error connecting to wallet: ", error);
-      }
-    } else {
-      alert("Please install MetaMask!");
-    }
+    switchChain(desiredChainId);
+    // if (window.ethereum) {
+    //   try {
+    //     const web3 = new Web3(window.ethereum);
+    //     await window.ethereum.request({ method: "eth_requestAccounts" });
+    //     const accounts = await web3.eth.getAccounts();
+    //     setWalletAddress(accounts[0]);
+    //   } catch (error) {
+    //     console.error("Error connecting to wallet: ", error);
+    //   }
+    // } else {
+    //   alert("Please install MetaMask!");
+    // }
   };
   const switchChain = useCallback(async (desiredChainId: number) => {
     setDesiredChainId(desiredChainId);
@@ -211,9 +214,9 @@ const Top = (props: any) => {
         <ul className="ml-5 text-gray-500 text-lg flex items-center gap-4 cursor-pointer">
           <li
             className="hover:text-white hover:underline"
-            onClick={() => history.push("/meme")}
+            onClick={() => history.push("/markets")}
           >
-            Market
+            Markets
           </li>
           {/* <li
             className="hover:text-white hover:underline"
@@ -250,9 +253,9 @@ const Top = (props: any) => {
               type="default"
               onClick={() => !walletAddress && connectWallet()}
             >
-              {(walletAddress && (
+              {(accounts && accounts.length > 0 && accounts[0] && (
                 <CopyText
-                  text={(accounts && accounts.length > 0 && accounts[0]) || ""}
+                  text={accounts[0]}
                 />
               )) ||
                 "Connect"}
