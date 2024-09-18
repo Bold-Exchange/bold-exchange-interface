@@ -28,7 +28,7 @@ const Menu = () => {
         </a>
       </div>
       {/* <User /> */}
-      <List onSelect={(v) => v && history.push(v)}>
+      {/* <List onSelect={(v) => v && history.push(v)}>
         <List.Item value="/portfolio">
           <WalletOutlined className="text-lg mr-2 text-gray-500" />
           Portfolio
@@ -45,7 +45,7 @@ const Menu = () => {
           <ProductOutlined className="text-lg mr-2 text-gray-500" />
           Multicharts
         </List.Item>
-      </List>
+      </List> */}
       <List>
         <List.Item value="item1">
           <img className="w-5 mr-2" src="icons/ether.webp" /> ETH
@@ -80,7 +80,7 @@ const Menu = () => {
         </List.Item>
       </List>
 
-      <div className={styles.affiliate_wrapper}>
+      {/* <div className={styles.affiliate_wrapper}>
         <List>
           <List.Item value="item1">
             <SettingOutlined className="text-lg mr-2 text-gray-500" /> Setting
@@ -89,7 +89,7 @@ const Menu = () => {
             <LogoutOutlined className="text-lg mr-2 text-gray-500" /> Logout
           </List.Item>
         </List>
-      </div>
+      </div> */}
     </div>
   );
 };
