@@ -260,7 +260,8 @@ const Top = (props: any) => {
               )) ||
                 "Connect"}
             </Button>
-            <span onClick={() => setIsLoginModalOpen(true)}>Log in</span>
+            <img src="/images/profile-sm.png" width={20}/>
+            {/* <span onClick={() => setIsLoginModalOpen(true)}>Log in</span> */}
             {/* <Dropdown menu={{ items }} placement="bottomLeft">
               <div className="flex items-center gap-1">
                 <img
