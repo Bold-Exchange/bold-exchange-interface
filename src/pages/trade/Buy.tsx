@@ -16,11 +16,10 @@ const PoolInfo: React.FC<Props> = () => {
   const [buy, setBuy] = useState(true);
   return (
     <div className="bg-zinc-900 rounded-lg p-3">
-      <p className="text-left text-gray-500">Linked wallet</p>
-      <div className="flex justify-between items-center bg-black rounded-sm my-2">
+      <div className="flex justify-between items-center bg-black rounded-sm my-2 p-1">
         <div
           className={`flex-auto text-center p-2 rounded-sm ${
-            buy && "text-green-500 bg-gray-700"
+            buy && "bg-green-500 bg-gray-700"
           }`}
           onClick={() => setBuy(true)}
         >
@@ -28,7 +27,7 @@ const PoolInfo: React.FC<Props> = () => {
         </div>
         <div
           className={`flex-auto text-center p-2 rounded-sm ${
-            !buy && "text-red-500 bg-gray-700"
+            !buy && "bg-red-500 bg-gray-700"
           }`}
           onClick={() => setBuy(false)}
         >

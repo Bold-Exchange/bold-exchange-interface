@@ -40,25 +40,25 @@ const App: React.FC = () => {
       <WalletProvider.Provider value={{ currentChain, switchChain }}>
         <SolWalletContextProvider>
           <Layout className={styles.layout}>
-            <Sider
+            {/* <Sider
               collapsed={menuVisible}
               collapsedWidth={0}
               width={160}
               className={styles.sider}
-            >
+            > */}
               {/* <div
           className={styles.closeRight}
           onClick={() => setMenuVisible(!menuVisible)}
         >
           {(!menuVisible && <MenuUnfoldOutlined />) || <CloseOutlined />}
         </div> */}
-              <Menu />
+              {/* <Menu />
               <Trigger
                 direction="left"
                 onToggle={() => setMenuVisible(!menuVisible)}
                 isOpen={!menuVisible}
-              />
-            </Sider>
+              /> */}
+            {/* </Sider> */}
             <Layout>
               <Header className={styles.header}>
                 <Top onToggle={(v: boolean) => setMenuVisible(v)} />

@@ -15,7 +15,6 @@ interface Props {
 const PoolInfo: React.FC<Props> = () => {
   return (
     <div className="bg-zinc-900 rounded-lg p-3">
-      <p className="text-left text-gray-500">Linked wallet</p>
       <div className="flex justify-between items-center bg-black rounded-sm my-2">
         <div className="flex-auto text-center text-green-500 bg-gray-600 p-2 rounded-sm">
           <ShoppingCartOutlined />

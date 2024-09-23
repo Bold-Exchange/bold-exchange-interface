@@ -29,6 +29,7 @@ import {
   CaretDownOutlined,
   PlusOutlined,
   SearchOutlined,
+  UserOutlined,
 } from "@ant-design/icons";
 import TextArea from "antd/es/input/TextArea";
 import { setToken } from "@/utils/auth";
@@ -200,17 +201,22 @@ const Top = (props: any) => {
     switchChain(desiredChainId);
   }, []);
   return (
-    <div className="container-fluid top_bar relative">
+    <div className="container-fluid top_bar relative flex  items-center">
       {contextHolder}
-      <div className="absolute w-[300px] inset-x-0 m-auto">
-        <Input
-          prefix={<SearchOutlined />}
-          suffix={<span>⌘K</span>}
-          className="w-full p-2"
-          placeholder="Search token/contract/wallet"
-        />
+      <div>
+        <a
+          onClick={() => history.push("/")}
+          className="flex justify-center items-center"
+        >
+          <img
+            style={{ height: "40px" }}
+            src="/logo.png"
+            alt="Bold Exchange Logo"
+          />
+        </a>
       </div>
-      <div className="top_bar_wrapper flex items-center justify-between">
+      
+      <div className="top_bar_wrapper flex items-center justify-between flex-auto">
         <ul className="ml-5 text-gray-500 text-lg flex items-center gap-4 cursor-pointer">
           <li
             className="hover:text-white hover:underline"
@@ -245,9 +251,9 @@ const Top = (props: any) => {
             </a>
           </div>
           <Space size="large">
-            <Button type="primary" onClick={showModal}>
+            {/* <Button type="primary" onClick={showModal}>
               Create Token
-            </Button>
+            </Button> */}
 
             <Button
               type="default"
@@ -260,7 +266,8 @@ const Top = (props: any) => {
               )) ||
                 "Connect"}
             </Button>
-            <span onClick={() => setIsLoginModalOpen(true)}>Log in</span>
+            <UserOutlined />
+            {/* <span onClick={() => setIsLoginModalOpen(true)}>Log in</span> */}
             {/* <Dropdown menu={{ items }} placement="bottomLeft">
               <div className="flex items-center gap-1">
                 <img
@@ -274,6 +281,14 @@ const Top = (props: any) => {
             </Dropdown> */}
           </Space>
         </div>
+      </div>
+      <div className="absolute w-[300px] inset-x-0 m-auto">
+        <Input
+          prefix={<SearchOutlined />}
+          suffix={<span>⌘K</span>}
+          className="w-full p-2"
+          placeholder="Search token/contract/wallet"
+        />
       </div>
       <Modal
         title="Create Token"

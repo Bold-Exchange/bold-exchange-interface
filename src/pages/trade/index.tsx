@@ -1,6 +1,6 @@
 import { CopyText, TagSelector, Icon } from "@/components";
 import TradingViewWidget, { Themes } from "react-tradingview-widget";
-
+import { createChart, ColorType } from 'lightweight-charts';
 import Tl from "./Tl";
 import PoolInfo from "./PoolInfo";
 import DataStatistics from "./DataStatistics";
@@ -87,6 +87,7 @@ const App = () => {
             theme={Themes.DARK}
             locale="fr"
             autosize
+          layout={{background:{type:ColorType.Solid,color:'red'}}}
           />
           <div className="flex gap-2 my-2">
             <div className="bg-gray-700 rounded-lg p-1 hover:bg-gray-700">

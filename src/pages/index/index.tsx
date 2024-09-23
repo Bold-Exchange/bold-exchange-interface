@@ -11,7 +11,9 @@ import {
   AppleOutlined,
   SyncOutlined,
 } from "@ant-design/icons";
-import { Rate, Tabs } from "antd";
+import { Layout, Rate, Tabs } from "antd";
+import Menu from "@/components/Menu";
+import Sider from "antd/es/layout/Sider";
 // 测试数据
 const data = [
   { title: "Total liq", value: "$5,770.94(20.54 SOL)" },
@@ -98,10 +100,20 @@ const items: TabsProps["items"] = [
 ];
 const App = () => {
   return (
-    <div>
+    <Layout style={{padding:0}}>
+      <Sider
+       style={{background:'transparent'}}
+              collapsedWidth={0}
+              width={160}
+            >
+      <Menu />
+      </Sider>
+      <Layout>
       <Tabs defaultActiveKey="1" items={items} />
       <Tl />
-    </div>
+      </Layout>
+      
+    </Layout>
   );
 };
 export default App;
