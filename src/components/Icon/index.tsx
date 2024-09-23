@@ -18,7 +18,7 @@ interface IconProps {
   onClick?: () => void;
   [key: string]: any;
 }
-const Wrap = (props: any) => {
+export const Wrap = (props: any) => {
   return (
     <div className="p-1 rounded-full cursor-pointer hover:bg-gray-700">
       {props.children}
@@ -82,4 +82,5 @@ export default {
   Jiaonang,
   Booster,
   Moon,
+  Wrap
 };

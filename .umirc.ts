@@ -27,6 +27,7 @@ export default defineConfig({
         { path: "/trending", component: "trending" },
         { path: "/trader", component: "trader" },
         { path: "/test", component: "test" },
+        { path: "/profile", component: "profile" },
       ],
     },
   ],

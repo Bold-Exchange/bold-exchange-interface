@@ -1,6 +1,6 @@
 import { CopyText, TagSelector, Icon } from "@/components";
 import TradingViewWidget, { Themes } from "react-tradingview-widget";
-import { createChart, ColorType } from 'lightweight-charts';
+import { createChart, ColorType } from "lightweight-charts";
 import Tl from "./Tl";
 import PoolInfo from "./PoolInfo";
 import DataStatistics from "./DataStatistics";
@@ -85,9 +85,21 @@ const App = () => {
           <TradingViewWidget
             symbol="BTCUSD"
             theme={Themes.DARK}
-            locale="fr"
+            locale="fr" 
             autosize
-          layout={{background:{type:ColorType.Solid,color:'red'}}}
+            backgroundColor="#000000"
+            toolbar_bg="#000000"
+            // 设置图表详细颜色参数
+            overrides={{
+              "paneProperties.background": "#000000",
+              // 图表区域背景色
+              "paneProperties.vertGridProperties.color": "#333333",
+              // 垂直网格线颜色
+              "paneProperties.horzGridProperties.color": "#333333",
+              // 水平网格线颜色
+              "scalesProperties.textColor": "#D3D3D3",
+              // 轴标签文本颜色
+            }}
           />
           <div className="flex gap-2 my-2">
             <div className="bg-gray-700 rounded-lg p-1 hover:bg-gray-700">

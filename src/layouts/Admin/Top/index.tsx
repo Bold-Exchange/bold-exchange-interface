@@ -3,7 +3,6 @@ import { history } from "umi";
 import classNames from "classnames";
 import Web3 from "web3";
 import request from "@/utils/request";
-import "./styles.less";
 import {
   Input,
   Modal,
@@ -37,7 +36,7 @@ import { hooks, metaMask } from "@/connectors/metaMask";
 import { getAddChainParameters } from "@/chains";
 import { FUN_ABI } from "@/abis/fun.sol/Fun";
 import { ethers } from "ethers";
-import { CopyText, UploadImage } from "@/components";
+import { CopyText, UploadImage, Icon } from "@/components";
 import { devUseWarning } from "antd/es/_util/warning";
 const items: MenuProps["items"] = [
   {
@@ -201,7 +200,7 @@ const Top = (props: any) => {
     switchChain(desiredChainId);
   }, []);
   return (
-    <div className="container-fluid top_bar relative flex  items-center">
+    <div className="flex items-center justify-between w-full bg-[#101014]">
       {contextHolder}
       <div>
         <a
@@ -215,8 +214,8 @@ const Top = (props: any) => {
           />
         </a>
       </div>
-      
-      <div className="top_bar_wrapper flex items-center justify-between flex-auto">
+
+      <div className="flex items-center justify-between flex-auto">
         <ul className="ml-5 text-gray-500 text-lg flex items-center gap-4 cursor-pointer">
           <li
             className="hover:text-white hover:underline"
@@ -244,31 +243,27 @@ const Top = (props: any) => {
           </li>
         </ul>
 
-        <div className="user_bar d-flex align-items-center justify-content-end">
-          <div className="search_wrapper">
-            <a href="javascript:void(0)" className="search_sm d-none">
-              <i className="flaticon-loupe d-flex align-items-center"></i>
-            </a>
-          </div>
-          <Space size="large">
-            {/* <Button type="primary" onClick={showModal}>
+        <div className="flex items-center gap-2">
+          {/* <Button type="primary" onClick={showModal}>
               Create Token
             </Button> */}
 
-            <Button
-              type="default"
-              onClick={() => !walletAddress && connectWallet()}
-            >
-              {(accounts && accounts.length > 0 && accounts[0] && (
-                <CopyText
-                  text={accounts[0]}
-                />
-              )) ||
-                "Connect"}
-            </Button>
+          <Button
+            type="default"
+            onClick={() => !walletAddress && connectWallet()}
+          >
+            {(accounts && accounts.length > 0 && accounts[0] && (
+              <CopyText text={accounts[0]} />
+            )) ||
+              "Connect"}
+          </Button>
+          <div onClick={()=>history.push('/profile')} className="flex items-center justify-center rounded-full cursor-pointer hover:bg-gray-700" style={{width:'28px',height:'28px'}}> 
             <UserOutlined />
-            {/* <span onClick={() => setIsLoginModalOpen(true)}>Log in</span> */}
-            {/* <Dropdown menu={{ items }} placement="bottomLeft">
+          </div>
+         
+
+          {/* <span onClick={() => setIsLoginModalOpen(true)}>Log in</span> */}
+          {/* <Dropdown menu={{ items }} placement="bottomLeft">
               <div className="flex items-center gap-1">
                 <img
                   width={40}
@@ -279,7 +274,6 @@ const Top = (props: any) => {
                 <CaretDownOutlined />
               </div>
             </Dropdown> */}
-          </Space>
         </div>
       </div>
       <div className="absolute w-[300px] inset-x-0 m-auto">
