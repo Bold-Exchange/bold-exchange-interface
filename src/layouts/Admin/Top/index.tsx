@@ -240,7 +240,7 @@ const Top = (props: any) => {
           </li> */}
           <li
             className="hover:text-white hover:underline"
-            onClick={() => history.push("/trader")}
+            onClick={() => history.push("/trade")}
           >
             Trade
           </li>

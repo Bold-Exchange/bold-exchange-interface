@@ -42,8 +42,8 @@ const PoolInfo: React.FC<Props> = () => {
       <PercentangeSelector />
       <Button
         size="large"
-        type="default"
-        className="w-full mt-2 bg-white text-black"
+        type="primary"
+        className="w-full mt-2"
       >
         Connect wallet
       </Button>

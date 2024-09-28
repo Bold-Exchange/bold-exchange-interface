@@ -11,7 +11,7 @@ const Block = ({
       } `}
     >
       <div className="flex-col  group-hover:text-white">{title}</div>
-      <div className="flex-col">{children}</div>
+      <div className="flex-col text-[14px]">{children}</div>
     </div>
   );
 };

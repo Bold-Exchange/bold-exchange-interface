@@ -8,7 +8,7 @@ const copyToClipboard = (text) => {
 };
 
 // Custom CopyText component
-const CopyText = ({ text, extension = "", startLength = 5, endLength = 3 }) => {
+const CopyText = ({ text, extension = "", startLength = 5, endLength = 4 }) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
