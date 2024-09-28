@@ -1,4 +1,4 @@
-import { CopyText, TagSelector, Icon } from "@/components";
+import { CopyText, TagSelector, Icon, Block } from "@/components";
 import TradingViewWidget, { Themes } from "react-tradingview-widget";
 import { createChart, ColorType } from "lightweight-charts";
 import Tl from "./Tl";
@@ -34,7 +34,7 @@ const App = () => {
   const accounts: string[] | undefined = useAccounts();
   return (
     <div>
-      <div className="flex">
+      <div className="flex p-2">
         <div className="h-[500px] flex-auto">
           <div className="flex items-center mb-4 gap-2 px-2">
             <Rate count={1} />
@@ -81,11 +81,41 @@ const App = () => {
                 </div>
               </p>
             </div>
+            <div className="flex">
+              <Block textAlign="text-left" title={"FDV"}>
+                <span className="text-white"> $3,3362.12</span>
+              </Block>
+              <Block title={"MKT Cap"}>
+                <span className="text-white"> $3,3362.12</span>
+              </Block>
+              <Block title={"24 Vol"}>
+                <span className="text-white"> $42.97</span>
+              </Block>
+              <Block textAlign="text-right" title={"Holders"}>
+                <span className="text-white"> 236</span>
+              </Block>
+              <Block textAlign="text-left" title={"Pair"}>
+          <p className="text-white"> STASHY</p>
+          <p className="text-white">SOL</p>
+        </Block>
+        <Block title={"Liq/Initial"}>
+          <p className="text-white"> 866.6M/206.9M(22.23%)</p>
+          <p className="text-white">
+            {" "}
+            <span className="text-red-500">20.54</span>/79.01{" "}
+            <span className="text-red-500">(-74.01%)</span>
+          </p>
+        </Block>
+        <Block textAlign="text-right" title={"Value"}>
+          <span className="text-white"> $42456.97</span>
+          <span className="text-white"> $4222.97</span>
+        </Block>
+            </div>
           </div>
           <TradingViewWidget
             symbol="BTCUSD"
             theme={Themes.DARK}
-            locale="fr" 
+            locale="fr"
             autosize
             backgroundColor="#000000"
             toolbar_bg="#000000"
@@ -133,7 +163,7 @@ const App = () => {
           style={{ marginLeft: "20px" }}
         >
           <Buy />
-          <DataStatistics />
+          {/* <DataStatistics /> */}
           <PoolInfo title="Pool Info" data={data} more={<a href="#">-</a>} />
         </div>
       </div>

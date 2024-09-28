@@ -38,6 +38,8 @@ import { FUN_ABI } from "@/abis/fun.sol/Fun";
 import { ethers } from "ethers";
 import { CopyText, UploadImage, Icon } from "@/components";
 import { devUseWarning } from "antd/es/_util/warning";
+import styles from "./styles.less";
+import Tl from '@/pages/index/Tl';
 const items: MenuProps["items"] = [
   {
     key: "1",
@@ -78,6 +80,7 @@ const selectBefore = (
 const Top = (props: any) => {
   const [visible, setVisible] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [visibleChain, setVisibleChain] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const { RangePicker } = DatePicker;
   const { TextArea } = Input;
@@ -257,10 +260,13 @@ const Top = (props: any) => {
             )) ||
               "Connect"}
           </Button>
-          <div onClick={()=>history.push('/profile')} className="flex items-center justify-center rounded-full cursor-pointer hover:bg-gray-700" style={{width:'28px',height:'28px'}}> 
+          <div
+            onClick={() => history.push("/profile")}
+            className="flex items-center justify-center rounded-full cursor-pointer hover:bg-gray-700"
+            style={{ width: "28px", height: "28px" }}
+          >
             <UserOutlined />
           </div>
-         
 
           {/* <span onClick={() => setIsLoginModalOpen(true)}>Log in</span> */}
           {/* <Dropdown menu={{ items }} placement="bottomLeft">
@@ -282,6 +288,7 @@ const Top = (props: any) => {
           suffix={<span>⌘K</span>}
           className="w-full p-2"
           placeholder="Search token/contract/wallet"
+          onClick={() => setVisibleChain(true)}
         />
       </div>
       <Modal
@@ -370,6 +377,45 @@ const Top = (props: any) => {
             <Input.Password />
           </Form.Item>
         </Form>
+      </Modal>
+      <Modal
+        open={visibleChain}
+        onCancel={() => setVisibleChain(false)}
+        footer={null}
+        className={styles.chains}
+      >
+        <div className={styles.con}>
+          <div className="m-auto max-w-[400px] py-2">
+            <Input
+              prefix={<SearchOutlined />}
+              suffix={<span>⌘K</span>}
+              className="w-full p-2"
+              placeholder="Search token/contract/wallet"
+            />
+          </div>
+          <div className="flex max-w-[1000px] m-auto">
+            <div className="min-w-[150px]">
+              <div className="text-xl text-center mb-4">Chains</div>
+              <div className="flex flex-col justify-center gap-3">
+                <div className="flex items-center justify-center border rounded-full p-1 border-gray-500 gap-1">
+                  <img className="w-[24px]" src="/icons/bsc.svg" />
+                  BNB chain (18460)
+                </div>
+                <div className="flex items-center justify-center border rounded-full p-1 border-gray-500 gap-1">
+                  <img className="w-[24px]" src="/icons/bsc.svg" />
+                  BNB chain (18460)
+                </div>
+                <div className="flex items-center justify-center border rounded-full p-1 border-gray-500 gap-1">
+                  <img className="w-[24px]" src="/icons/bsc.svg" />
+                  BNB chain (18460)
+                </div>
+              </div>
+            </div>
+            <div className="flex-auto overflow-auto h-[800px] px-4">
+              <Tl />
+            </div>
+          </div>
+        </div>
       </Modal>
     </div>
   );

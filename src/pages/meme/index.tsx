@@ -51,9 +51,9 @@ const TopItem = ({title}) => {
 const Meme = () => {
   const [v, setV] = useState(false);
   return (
-    <div className="flex flex-col">
-      <div className="flex items-center gap-2 mb-4">
-        <div className="font-bold  text-2xl">Markets Overview</div>
+    <div className="flex flex-col max-w-[1000px] m-auto">
+      <div className="flex items-center gap-2 mb-4 mt-2">
+        <div className="font-bold  text-xl">Markets Overview</div>
         <div className="font-bold  text-1xl text-gray-600">Trading Data</div>
       </div>
       <div className="flex gap-2 w-full overflow-auto">
