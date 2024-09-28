@@ -7,8 +7,9 @@ import DataStatistics from "./DataStatistics";
 import Buy from "./Buy";
 import Charts from "../portfolio/Charts";
 import { SyncOutlined } from "@ant-design/icons";
-import { Rate } from "antd";
+import { Button, Rate } from "antd";
 import { hooks, metaMask } from "@/connectors/metaMask";
+import { ReactComponent as IconCreate } from "./createApi.svg";
 const {
   useChainId,
   useAccounts,
@@ -86,7 +87,7 @@ const App = () => {
               <Block title={"Price"}>
                 <span className="text-gray-300 text-[16px]"> $42.97</span>
               </Block>
-              <Block title={"24 Change"}>
+              <Block title={"24h Change"}>
                 <span className="text-green-500"> 1.01%</span>
               </Block>
               <Block textAlign="text-left" title={"FDV"}>
@@ -102,14 +103,14 @@ const App = () => {
                 <p className="text-gray-300"> 866.6M</p>
               </Block>
               <Block title={"Pair"}>
-                <span className="text-gray-300">
+                <span className="text-gray-300 text-[12px]">
                   <CopyText
                     text={"fr8jE8s7ZYvkndiPF1jbFfPs5T89p7QaFP7FBsEam"}
                   />
                 </span>
               </Block>
               <Block title={"Coin"}>
-                <span className="text-gray-300">
+                <span className="text-gray-300 text-[12px]">
                   <CopyText
                     text={"966jE8s7ZYvkndiPF1jbFfPs5T89p7QaFP7FBsEamsAb"}
                   />
@@ -170,6 +171,24 @@ const App = () => {
           <Buy />
           {/* <DataStatistics /> */}
           {/* <PoolInfo title="Pool Info" data={data} more={<a href="#">-</a>} /> */}
+          <div className="flex bg-zinc-900 rounded-lg p-3">
+            <div className="flex-auto">
+              <p className="text-[18px]">Grid Trading Bot</p>
+              <p className="text-gray-400 mt-4">24/7 buy low and sell high</p>
+            </div>
+            <div>
+              <Button type="primary">Create Now <IconCreate style={{width:'12px',fill:'#fff'}}/></Button>
+            </div>
+          </div>
+          <div className="flex bg-zinc-900 rounded-lg p-3">
+            <div className="flex-auto">
+              <p className="text-[18px]">Grid Trading Bot</p>
+              <p className="text-gray-400 mt-4">24/7 buy low and sell high</p>
+            </div>
+            <div>
+              <Button type="primary">Create Now <IconCreate style={{width:'12px',fill:'#fff'}}/></Button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
