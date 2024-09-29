@@ -29,7 +29,15 @@ const Profile = () => {
         </div>
       </div>
       <Tabs defaultActiveKey="1" items={items} />
-      <Tl />
+    <div>
+      <div className="flex">
+        <img src="/icons/bsc.svg"/>
+        <div>
+          <p>BNB Chain</p>
+          <p><span className="">$38,791</span><span>99%</span></p>
+        </div>
+      </div>
+    </div>
     </div>
   );
 };
