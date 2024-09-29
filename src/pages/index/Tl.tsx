@@ -37,9 +37,9 @@ interface DataType {
 const columns: TableProps<DataType>["columns"] = [
   {
     title: "Token",
-    dataIndex: "type",
+    dataIndex: "img",
     key: "type",
-    render: (_) => <Token />,
+    render: (_) => <Token img={_} />,
   },
   {
     title: "Created",
@@ -199,7 +199,7 @@ const data: DataType[] = [
   {
     key: "1",
     type: 0,
-    currency: "RIZZ",
+    img: "/images/whbles.png",
     rental: 9.92,
     quantity: "3.2M",
     price: "$0.00047",

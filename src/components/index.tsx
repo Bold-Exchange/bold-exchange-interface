@@ -12,6 +12,7 @@ import Icon from "./Icon";
 import Ring from "./Ring";
 import UploadImage from "./UploadImage";
 import Heart from './Heart'
+import Chains from "./Chains";
 export {
   Button,
   Accordion,
@@ -26,5 +27,6 @@ export {
   Icon,
   Ring,
   UploadImage,
-  Heart
+  Heart,
+  Chains
 };

@@ -224,7 +224,7 @@ const Top = (props: any) => {
             className="hover:text-white hover:underline"
             onClick={() => history.push("/markets")}
           >
-            Markets
+            Lauchpad
           </li>
         
           {/* <li

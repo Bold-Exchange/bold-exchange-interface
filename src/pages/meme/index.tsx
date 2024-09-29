@@ -1,4 +1,4 @@
-import { Icon, TagSelector } from '@/components';
+import { Icon, TagSelector,Chains } from '@/components';
 import Tl from '../index/Tl';
 import { CopyOutlined, RightOutlined } from '@ant-design/icons';
 import T1 from '../trade/T1';
@@ -19,7 +19,7 @@ const TokenItem = () => {
 };
 const TopItem = ({title}) => {
   return (
-    <div className="rounded-lg border border-gray-700  p-2 flex-1">
+    <div className="rounded-lg bg-zinc-900  p-2 flex-1">
       <div className="flex items-center justify-between p-2">
         <div>{title}</div>
         <div>
@@ -50,11 +50,11 @@ const TopItem = ({title}) => {
 };
 const Meme = () => {
   const [v, setV] = useState(false);
+  const [ch, setCh] = useState(0);
   return (
-    <div className="flex flex-col max-w-[1000px] m-auto">
+    <div className="flex flex-col p-4">
       <div className="flex items-center gap-2 mb-4 mt-2">
         <div className="font-bold  text-xl">Markets Overview</div>
-        <div className="font-bold  text-1xl text-gray-600">Trading Data</div>
       </div>
       <div className="flex gap-2 w-full overflow-auto">
         <TopItem title="Trending"/>
@@ -62,8 +62,17 @@ const Meme = () => {
         <TopItem title="Top Gainer Coin"/>
         <TopItem title="Top Volume Coin"/>
       </div>
-      <div className="flex items-center gap-2">
-        <div className="font-bold flex items-center gap-1">
+      <div className='pt-4'>
+      <Chains onChange={(v)=>{
+        debugger;
+setCh(v)
+      }}/>
+
+      </div>
+      <div className="flex items-center gap-4 mb-2 bg-zinc-900 p-1 rounded-lg">
+        {
+          ch==0&&<>
+           <div className="font-bold flex items-center gap-1">
           <Icon.Jiaonang />
           Pump
         </div>
@@ -75,19 +84,14 @@ const Meme = () => {
           <Icon.Booster width={24} />
           Booster
         </div>
-        <Select
-          defaultValue="lucy"
-          style={{ width: 120 }}
-          allowClear
-          options={[{ value: 'Orca', label: 'Orca' },{ value: 'Raydium', label: 'Raydium' }]}
-          placeholder="ALL DEX"
-        />
-        <TagSelector
-          tags={['Pump', 'New Creation', 'Completing']}
-          onTagSelect={(e: string) => {
-            setV(e != 'Pump');
-          }}
-        />
+          </>
+        }
+       {
+       
+        ch==3&& <div className="font-bold flex items-center gap-1"><img src="https://www.dx.fun/images/small_logo.svg" style={{width:'20px'}}/>Dx.fun</div>
+       }
+        
+        
       </div>
       <Tl />
       {/* {(v && <Tl />) || (
