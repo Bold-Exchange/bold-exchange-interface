@@ -226,13 +226,8 @@ const Top = (props: any) => {
           >
             Markets
           </li>
+        
           {/* <li
-            className="hover:text-white hover:underline"
-            onClick={() => history.push("/newpair")}
-          >
-            NewPair
-          </li>
-          <li
             className="hover:text-white hover:underline"
             onClick={() => history.push("/trending")}
           >
@@ -243,6 +238,12 @@ const Top = (props: any) => {
             onClick={() => history.push("/trade")}
           >
             Trade
+          </li>
+          <li
+            className="hover:text-white hover:underline"
+            onClick={() => history.push("/discover")}
+          >
+            Discover
           </li>
         </ul>
 

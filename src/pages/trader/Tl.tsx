@@ -41,6 +41,12 @@ const columns: TableProps<DataType>["columns"] = [
     key: "type",
     render: (_) => <Token />,
   },
+  {
+    title: "Balance",
+    dataIndex: "type",
+    key: "type",
+    render: (_) => <span>80,593,485</span>,
+  },
 
   {
     title: "1D Pnl",
@@ -102,7 +108,11 @@ const columns: TableProps<DataType>["columns"] = [
       </Item>
     ),
   },
-
+  {
+    title: "7D Profit",
+    dataIndex: "duration",
+    key: "duration",
+  },
   {
     title: "7D Token Distribution",
     dataIndex: "duration",
@@ -129,17 +139,7 @@ const columns: TableProps<DataType>["columns"] = [
     ),
   },
   {
-    title: "7D Avg Cost",
-    dataIndex: "duration",
-    key: "duration",
-    render: () => (
-      <Item>
-        <Title color="white">22.59%</Title>
-      </Item>
-    ),
-  },
-  {
-    title: "Last Time",
+    title: "Last Trade",
     dataIndex: "duration",
     key: "duration",
     render: () => (

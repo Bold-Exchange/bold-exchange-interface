@@ -11,7 +11,8 @@ const copyToClipboard = (text) => {
 const CopyText = ({ text, extension = "", startLength = 5, endLength = 4 }) => {
   const [copied, setCopied] = useState(false);
 
-  const handleCopy = () => {
+  const handleCopy = (e) => {
+    e.stopPropagation()
     copyToClipboard(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000); // Reset copied state after 2 seconds
@@ -29,7 +30,7 @@ const CopyText = ({ text, extension = "", startLength = 5, endLength = 4 }) => {
       </span>
 
       {copied ? (
-        <CheckOutlined className="text-green-300" />
+        <CheckOutlined style={{color:'#5865f2'}} />
       ) : (
         <CopyOutlined onClick={handleCopy} />
       )}

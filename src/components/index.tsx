@@ -11,6 +11,7 @@ import TagSelector from "./TagSelector";
 import Icon from "./Icon";
 import Ring from "./Ring";
 import UploadImage from "./UploadImage";
+import Heart from './Heart'
 export {
   Button,
   Accordion,
@@ -25,4 +26,5 @@ export {
   Icon,
   Ring,
   UploadImage,
+  Heart
 };

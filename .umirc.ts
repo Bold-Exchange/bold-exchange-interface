@@ -25,7 +25,7 @@ export default defineConfig({
         { path: "/alerts", component: "alerts" },
         { path: "/multicharts", component: "multicharts" },
         { path: "/trending", component: "trending" },
-        { path: "/trader", component: "trader" },
+        { path: "/discover", component: "trader" },
         { path: "/test", component: "test" },
         { path: "/profile", component: "profile" },
       ],
@@ -68,7 +68,8 @@ export default defineConfig({
     compact: true,
     theme: {
       token: {
-        colorPrimary: "#7289db",
+        colorPrimary: "#5865f2",
+        colorPrimaryHover:"#4851c4"
       },
     },
   },

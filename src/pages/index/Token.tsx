@@ -11,9 +11,9 @@ const Token = () => {
       />
       <div className="flex">
         <img
-          className=" rounded-full"
+          className=" rounded-1"
           width={32}
-          src="https://dd.dexscreener.com/ds-data/tokens/solana/5qArTiQY4hhudpN6rMYitG7AmMNRtW9XcVwNXc8Gpump.png"
+          src="https://images.blur.io/_blur-prod/0xbd3531da5cf5857e7cfaa92426877b022e612cf8/4142-e95a5f542b67c752?w=64"
         />
       </div>
       <div className="flex flex-col gap-1">

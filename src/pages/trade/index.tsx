@@ -56,7 +56,7 @@ const App = () => {
             <Rate count={1} />
             <img
               width={40}
-              src="https://s2.coinmarketcap.com/static/img/coins/64x64/24478.png"
+              src="https://images.blur.io/_blur-prod/0xbd3531da5cf5857e7cfaa92426877b022e612cf8/4142-e95a5f542b67c752?w=64"
               className="rounded-full"
               alt="avatar"
             />
