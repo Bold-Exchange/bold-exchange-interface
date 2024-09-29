@@ -64,7 +64,7 @@ const App: React.FC = () => {
                 <Top onToggle={(v: boolean) => setMenuVisible(v)} />
               </Header>
               <Layout>
-                <Layout className="overflow-auto scrollbar-0">
+                <Layout className={`overflow-auto scrollbar-0 ${styles.bg}`}>
                   <Content className={styles.content}>
                     <Outlet />
                   </Content>

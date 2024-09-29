@@ -63,25 +63,17 @@ const App = () => {
             <div className="text-gray-500 text-sm">
               <p className="flex items-center gap-2 text-white text-lg">
                 <span>PEPE</span>
-
-                <span className="flex items-center gap-1 text-gray-300 text-xs">
-                  pepe
-                </span>
-
                 <span className="flex items-center text-gray-500 text-xs">
                   <Icon.Website />
-
                   <Icon.Twitter />
                   <Icon.Telegram />
                 </span>
               </p>
-
-              {/* <p className="flex items-center gap-1 text-[12px]">
-                <span className="text-gray-500 text-[14px]">Pair:</span>
-                <CopyText
-                  text={"966jE8s7ZYvkndiPF1jbFfPs5T89p7QaFP7FBsEamsAb"}
-                />
-              </p> */}
+              <p className="flex items-center gap-1 text-[12px]">
+                <span className="flex items-center gap-1 text-gray-300 text-xs">
+                  pepe
+                </span>
+              </p>
             </div>
             <div className="flex">
               <Block title={"Price"}>
@@ -137,6 +129,7 @@ const App = () => {
               // 轴标签文本颜色
             }}
           />
+          <div className="pl-4">
           <div className="flex gap-2 my-2">
             <div className="bg-gray-700 rounded-lg p-1 hover:bg-gray-700">
               Activity
@@ -163,6 +156,8 @@ const App = () => {
           />
 
           <Tl />
+          </div>
+        
         </div>
         <div
           className="w-[320px] flex flex-col gap-4"
@@ -171,22 +166,28 @@ const App = () => {
           <Buy />
           {/* <DataStatistics /> */}
           {/* <PoolInfo title="Pool Info" data={data} more={<a href="#">-</a>} /> */}
-          <div className="flex bg-zinc-900 rounded-lg p-3">
+          <div className="flex bg-zinc-900 rounded-lg p-3 items-end">
             <div className="flex-auto">
               <p className="text-[18px]">Grid Trading Bot</p>
               <p className="text-gray-400 mt-4">24/7 buy low and sell high</p>
             </div>
             <div>
-              <Button type="primary">Create Now <IconCreate style={{width:'12px',fill:'#fff'}}/></Button>
+              <Button type="primary">
+                <IconCreate style={{ width: "12px", fill: "#fff" }} />
+                Create
+              </Button>
             </div>
           </div>
-          <div className="flex bg-zinc-900 rounded-lg p-3">
+          <div className="flex bg-zinc-900 rounded-lg p-3 items-end">
             <div className="flex-auto">
               <p className="text-[18px]">Grid Trading Bot</p>
               <p className="text-gray-400 mt-4">24/7 buy low and sell high</p>
             </div>
             <div>
-              <Button type="primary">Create Now <IconCreate style={{width:'12px',fill:'#fff'}}/></Button>
+              <Button type="primary">
+                <IconCreate style={{ width: "12px", fill: "#fff" }} />
+                Create
+              </Button>
             </div>
           </div>
         </div>
