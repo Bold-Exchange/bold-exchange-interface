@@ -417,7 +417,7 @@ const App: React.FC = () => {
         onRow={(record) => {
           return {
             onClick: (event) => {
-              history.push("/trade");
+              history.push("/portfolio");
             },
           };
         }}

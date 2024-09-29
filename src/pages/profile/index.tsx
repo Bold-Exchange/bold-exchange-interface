@@ -9,7 +9,7 @@ const Profile = () => {
       label: "Stream",
     },
     {
-      key: "1",
+      key: "2",
       label: "Portfolio",
     },
   ];
@@ -17,7 +17,7 @@ const Profile = () => {
     <div className="p-2 max-w-[1000px] m-auto">
       <div className="flex flex-row gap-2 ">
         <img src="/images/header.svg" />
-        <div>
+        <div className='flex flex-col gap-1'>
           <div>NO ID</div>
           <div>
             <CopyText
