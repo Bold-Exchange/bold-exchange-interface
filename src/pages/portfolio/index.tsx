@@ -47,7 +47,7 @@ const Docspage = () => {
           </div>
 
         </div>
-<Chains />
+<Chains onChange={(id)=>console.log(id)}/>
         <div className="grid grid-cols-3 justify-between mb-4 gap-2">
           <div className="flex-auto bg-zinc-900  rounded-md p-2">
             <div className="flex justify-end">
