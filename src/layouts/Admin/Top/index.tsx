@@ -219,12 +219,12 @@ const Top = (props: any) => {
       </div>
 
       <div className="flex items-center justify-between flex-auto">
-        <ul className="ml-5 text-gray-500 text-lg flex items-center gap-4 cursor-pointer">
+        <ul className="m-0 ml-5 text-gray-500 text-lg flex items-center gap-4 cursor-pointer">
           <li
             className="hover:text-white hover:underline"
             onClick={() => history.push("/markets")}
           >
-            Lauchpad
+            Launchpad
           </li>
         
           {/* <li
@@ -262,8 +262,8 @@ const Top = (props: any) => {
               "Connect"}
           </Button>
           <div
-            onClick={() => history.push("/profile")}
-            className="flex items-center justify-center rounded-full cursor-pointer hover:bg-gray-700"
+            onClick={() => history.push("/portfolio")}
+            className="flex items-center justify-center rounded cursor-pointer hover:bg-gray-700"
             style={{ width: "28px", height: "28px" }}
           >
             <UserOutlined />

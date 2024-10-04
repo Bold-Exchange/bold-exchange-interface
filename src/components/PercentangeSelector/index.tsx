@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 
-const PercentageSelector = ({percentages=["5%", "15%", "25%", "50%", "100%"]}) => {
+const PercentageSelector = ({onChange,percentages=["5%", "15%", "25%", "50%", "100%"]}) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   // 列表项以及其显示值
   // const percentages = ["5%", "15%", "25%", "50%", "100%"];
 
   return (
-    <div className="flex justify-between items-center gap-2 text-center">
+    <div className="flex justify-between items-center text-center w-full">
       {percentages.map((percentage, index) => (
         <div
           key={index}
-          className={`flex-auto  rounded-sm p-1 cursor-pointer ${
+          className={`flex-auto  rounded-sm p-1 cursor-pointer flex-auto ${
             selectedIndex === index ? "bg-zinc-800" : ""
           }`}
-          onClick={() => setSelectedIndex(index)}
+          onClick={() =>{ setSelectedIndex(index);
+            onChange&&onChange(index)
+          }}
         >
           {percentage}
         </div>

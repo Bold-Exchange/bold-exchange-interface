@@ -1,13 +1,14 @@
-import { useEffect,useState } from "react";
-import { InfoItem, CopyText, Heart,Chains } from "@/components";
+import { useEffect, useState } from "react";
+import { InfoItem, CopyText, Heart, Chains } from "@/components";
 import Tl from "../trade/Tl";
+import T2 from "../index/Tl";
 import { SyncOutlined } from "@ant-design/icons";
 import { ReactComponent as IconCopy } from "./copy.svg";
 import { ReactComponent as IconShare } from "./share.svg";
 import { Button, Rate, Tabs } from "antd";
 import PercentageSelector from "@/components/PercentangeSelector";
 const Docspage = () => {
-
+const [showInfo,setInfoShow]=useState(0)
   return (
     <div className="p-2">
       <div className=" p-2">
@@ -37,7 +38,7 @@ const Docspage = () => {
             Copy Trade
           </Button>
         </div>
-      
+
         <div className="flex items-center mb-2 gap-2">
           <div className="w-[100px] border border-zinc-800">
             <PercentageSelector percentages={["7d", "30d"]} />
@@ -47,25 +48,25 @@ const Docspage = () => {
           </div>
 
         </div>
-<Chains onChange={(id)=>console.log(id)}/>
+        <Chains onChange={(id) => console.log(id)} />
         <div className="grid grid-cols-3 justify-between mb-4 gap-2">
           <div className="flex-auto bg-zinc-900  rounded-md p-2">
             <div className="flex justify-end">
               <IconShare style={{ fill: "#fff", width: "14px" }} />
             </div>
             <InfoItem
-              title={<span className="text-white text-sm">7D PnL</span>}
+              title={<span className=" text-sm">7D PnL</span>}
             >
               <span className="text-red-500 text-lg">-1.33%</span>{" "}
               <span className="text-lg">(-$898.2)</span>
             </InfoItem>
             <InfoItem
-              title={<span className="text-white text-sm">Win Rate</span>}
+              title={<span className="text-sm">Win Rate</span>}
             >
               <span className="text-white text-lg">33%</span>
             </InfoItem>
             <InfoItem
-              title={<span className="text-white text-sm">Balance</span>}
+              title={<span className="text-sm">Balance</span>}
             >
               <span className="text-white text-lg">$1,555.98</span>
             </InfoItem>
@@ -169,7 +170,14 @@ const Docspage = () => {
           </div>
         </div>
       </div>
-      <Tl />
+      <div className="flex items-center mb-2 gap-2">
+        <div className="w-[200px] border border-zinc-800">
+          <PercentageSelector onChange={(index)=>setInfoShow(index)} percentages={["Recent Pnl", "Holdings(196)", "Activity"]} />
+        </div>
+      </div>
+      {showInfo==2&&<Tl />}
+      {showInfo==0&&<T2 />}
+      {showInfo==1&&<T2 />}
     </div>
   );
 };

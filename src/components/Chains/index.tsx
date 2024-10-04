@@ -15,25 +15,25 @@ const chains: Chain[] = [
   { id: 6, name: "Linea", icon: "icons/linea.svg", price: "$38,890.01" },
   { id: 7, name: "Blast", icon: "icons/blast.webp", price: "$38,890.01" },
 ];
-const Item : React.FC<{ chain: Chain;noPrice:boolean; isActive: boolean; onClick: () => void }>= ({ chain, isActive,noPrice, onClick }) => {
+const Item: React.FC<{ chain: Chain; noPrice: boolean; isActive: boolean; onClick: () => void }> = ({ chain, isActive, noPrice, onClick }) => {
   return (
     <div
-      className="  
+      className={`  
   p-1 cursor-pointer flex items-center justify-center
-   gap-2 p-2 min-w-[120px]"
+   gap-2 p-2 min-w-[120px] ${isActive && 'text-white'}`}
       style={{ zIndex: 1 }}
       onClick={onClick}
     >
       <img width={30} src={chain.icon} />
       <div className="flex flex-col gap-1">
-        <div className="text-gray-500">{chain.name}</div>
-        {!noPrice&&<span className=" text-gray-500">{chain.price}</span>}
+        <div className={` ${isActive && 'text-white' || 'text-gray-500'}`}>{chain.name}</div>
+        {!noPrice && <span className={` ${isActive && 'text-white' || 'text-gray-500'}`}>{chain.price}</span>}
       </div>
     </div>
   );
 };
 
-const Chains = ({ onChange,noPrice=false }) => {
+const Chains = ({ onChange, noPrice = false }) => {
   const [index, setIndex] = useState(0);
   const handleTabClick = (idx: number) => {
     setIndex(idx);
