@@ -76,5 +76,45 @@ const TradeType =
                 index: 'insiders',
             },
         ]
+    },
+    {
+        lable: 'My Position(0)',
+        index: 'myposition',
+        children: [
+            {
+                lable: 'All',
+                index: 'all',
+            },
+            {
+                lable: 'Smart',
+                index: 'smart',
+            }, {
+                lable: 'Fresh',
+                index: 'fresh',
+            },{
+                lable: 'Insiders',
+                index: 'insiders',
+            },
+        ]
+    },
+    {
+        lable: 'Limit Orders(0)',
+        index: 'limitorders',
+        children: [
+            {
+                lable: 'All',
+                index: 'all',
+            },
+            {
+                lable: 'Smart',
+                index: 'smart',
+            }, {
+                lable: 'Fresh',
+                index: 'fresh',
+            },{
+                lable: 'Insiders',
+                index: 'insiders',
+            },
+        ]
     }
     ]
