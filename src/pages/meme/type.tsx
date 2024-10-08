@@ -1,4 +1,4 @@
-const TradeType =
+export const TradeType =
     [{
         lable: 'Activity',
         index: 'activity',

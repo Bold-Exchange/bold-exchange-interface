@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { history } from "umi";
 import { Button, Drawer, Rate, Space, Table, Tag } from "antd";
 import type { DrawerProps, RadioChangeEvent, TableProps } from "antd";
@@ -36,53 +36,66 @@ interface DataType {
 
 const columns: TableProps<DataType>["columns"] = [
   {
-    title: "Token",
-    dataIndex: "img",
+    title: "Wallet/SOL Bal",
+    dataIndex: "type",
     key: "type",
-    render: (_) => <Token img={_} />,
+    render: (_) => <Token />,
   },
   {
-    title: "Created",
-    dataIndex: "currency",
-    key: "currency",
-    render: () => (
-      <Item>
-        <Title color="green">30d</Title>
-      </Item>
-    ),
+    title: "Balance",
+    dataIndex: "type",
+    key: "type",
+    render: (_) => <span>80,593,485</span>,
   },
+
   {
-    title: "Liquidity",
+    title: "1D Pnl",
     dataIndex: "rental",
     key: "rental",
     render: () => (
       <Item>
-        <Title color="white">98,032.5🔥</Title>
+        <Title color="green">+5920.38%</Title>
+
+        <Span color="green">$635.7k</Span>
       </Item>
     ),
   },
   {
-    title: "FDV",
+    title: "7D Pnl",
     dataIndex: "rental",
     key: "rental",
     render: () => (
       <Item>
-        <Span>$635.7k</Span>
+        <Title color="green">+120.38%</Title>
+
+        <Span color="green">$65.7k</Span>
       </Item>
     ),
   },
   {
-    title: "Holders",
+    title: "30D Pnl",
+    dataIndex: "rental",
+    key: "rental",
+    render: () => (
+      <Item>
+        <Title color="green">+120.38%</Title>
+
+        <Span color="green">$65.7k</Span>
+      </Item>
+    ),
+  },
+  {
+    title: "7D Win Rate",
     key: "quantity",
     dataIndex: "quantity",
     render: () => (
       <Item>
-        <Title color="white">334</Title>
+        <Title color="white">10%</Title>
       </Item>
     ),
   },
   {
-    title: "1h TXs",
+    title: "7D TXs",
     dataIndex: "price",
     key: "price",
     render: () => (
@@ -96,101 +109,43 @@ const columns: TableProps<DataType>["columns"] = [
     ),
   },
   {
-    title: "1h VOl",
-    dataIndex: "profit",
-    key: "profit",
-    render: () => (
-      <Item>
-        <Title color="white">334</Title>
-      </Item>
-    ),
-  },
-  {
-    title: "Price",
+    title: "7D Profit",
     dataIndex: "duration",
     key: "duration",
-    render: () => (
-      <Item>
-        <Title color="white">334</Title>
-      </Item>
-    ),
   },
   {
-    title: "1m%",
-    dataIndex: "duration",
-    key: "duration",
-    render: () => (
-      <Item>
-        <Title color="green">334</Title>
-      </Item>
-    ),
-  },
-  {
-    title: "5m%",
-    dataIndex: "duration",
-    key: "duration",
-    render: () => (
-      <Item>
-        <Title color="red">334</Title>
-      </Item>
-    ),
-  },
-  {
-    title: "1h%",
-    dataIndex: "duration",
-    key: "duration",
-    render: () => (
-      <Item>
-        <Title color="red">334</Title>
-      </Item>
-    ),
-  },
-  {
-    title: "Degen Audit",
+    title: "7D Token Distribution",
     dataIndex: "duration",
     key: "duration",
     render: () => (
       <div className="flex gap-1">
         <Item>
-          <Span color="green">Yes</Span>
-          <Span color="white">NoMint</Span>
+          <Span color="green">1</Span>
+          <Span color="white">{`>500%`}</Span>
         </Item>
         <Item>
-          <Span color="green">Yes</Span>
-          <Span color="white">Top10 hold</Span>
+          <Span color="green">1</Span>
+          <Span color="white">0-500%</Span>
         </Item>
         <Item>
-          <Span color="green">No</Span>
-          <Span color="white">Blacklist</Span>
+          <Span color="green">0</Span>
+          <Span color="white">{`<-50%`}</Span>
         </Item>
         <Item>
-          <Span color="green">Yes</Span>
-          <Span color="white">Burnt</Span>
+          <Span color="green">0</Span>
+          <Span color="white">{`>-50%`}</Span>
         </Item>
       </div>
     ),
   },
   {
-    title: "DEV",
+    title: "Last Trade",
     dataIndex: "duration",
     key: "duration",
     render: () => (
       <Item>
-        <Title color="green">22.59%</Title>
-        <Span color="white">NoMint</Span>
+        <Title color="white">4d ago</Title>
       </Item>
-    ),
-  },
-  {
-    title: "",
-    key: "action",
-    render: (_, record) => (
-      <Space size="middle">
-        <a className="text-white px-4 py-2 rounded-md hover:bg-[#7289db]">
-          <BulbOutlined />
-          &nbsp; Buy
-        </a>
-      </Space>
     ),
   },
 ];
@@ -199,7 +154,7 @@ const data: DataType[] = [
   {
     key: "1",
     type: 0,
-    img: "/images/whbles.png",
+    currency: "RIZZ",
     rental: 9.92,
     quantity: "3.2M",
     price: "$0.00047",
@@ -438,8 +393,8 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = ({idata}) => {
- const [open, setOpen] = useState(false);
+const App: React.FC = () => {
+  const [open, setOpen] = useState(false);
   const [placement, setPlacement] = useState<DrawerProps["placement"]>("right");
 
   const showDrawer = () => {
@@ -453,20 +408,16 @@ const App: React.FC = ({idata}) => {
   const onChange = (e: RadioChangeEvent) => {
     setPlacement(e.target.value);
   };
-  useEffect(() => {
-    // 在数据变化时执行的逻辑
-    console.log('Data changed:', idata);
-  }, [idata]);
   return (
     <>
       <Table
         columns={columns}
-        dataSource={idata||data.sort(() => Math.random() - 0.5)}
+        dataSource={data}
         pagination={false}
         onRow={(record) => {
           return {
             onClick: (event) => {
-              history.push("/trade");
+              history.push("/portfolio");
             },
           };
         }}

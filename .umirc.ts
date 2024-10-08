@@ -28,6 +28,7 @@ export default defineConfig({
         { path: "/discover", component: "trader" },
         { path: "/test", component: "test" },
         { path: "/profile", component: "profile" },
+        { path: "/follow", component: "follow" },
       ],
     },
   ],

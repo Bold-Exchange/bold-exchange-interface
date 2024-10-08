@@ -13,7 +13,7 @@ const [showInfo,setInfoShow]=useState(0)
     <div className="p-2">
       <div className=" p-2">
 
-        <div className="flex items-center justify-between mb-4 gap-2">
+        <div className="flex items-center justify-between mb-1 gap-2">
           <div className="flex items-start gap-2">
             <img
               width={54}
@@ -38,7 +38,11 @@ const [showInfo,setInfoShow]=useState(0)
             Copy Trade
           </Button>
         </div>
-
+        <div className="flex gap-2 my-2">
+        <div>0 <a href="#/follow"><span className="text-gray-500">Following </span></a></div>
+        <div>2,568 <a href="#/follow"><span className="text-gray-500">Followers</span></a> </div>
+        </div>
+        
         <div className="flex items-center mb-2 gap-2">
           <div className="w-[100px] border border-zinc-800">
             <PercentageSelector percentages={["7d", "30d"]} />
@@ -171,7 +175,7 @@ const [showInfo,setInfoShow]=useState(0)
         </div>
       </div>
       <div className="flex items-center mb-2 gap-2">
-        <div className="w-[200px] border border-zinc-800">
+        <div className="w-[300px] border border-zinc-800">
           <PercentageSelector onChange={(index)=>setInfoShow(index)} percentages={["Recent Pnl", "Holdings(196)", "Activity"]} />
         </div>
       </div>
