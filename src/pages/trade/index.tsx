@@ -10,6 +10,8 @@ import { SyncOutlined } from "@ant-design/icons";
 import { Button, Rate } from "antd";
 import { hooks, metaMask } from "@/connectors/metaMask";
 import { ReactComponent as IconCreate } from "./createApi.svg";
+import { TradeType } from "../meme/type";
+import { useState } from "react";
 const {
   useChainId,
   useAccounts,
@@ -19,20 +21,85 @@ const {
   useENSNames,
 } = hooks;
 // 测试数据
-const data = [
-  { title: "Total liq", value: "$5,770.94(20.54 SOL)" },
-  { title: "Market cap", value: "$3,09" },
-  { title: "Holders", value: "196" },
-  { title: "Total supply", value: "930.6M" },
-  { title: "Pair", value: <CopyText text={"De9fp22222222han"} /> },
-  {
-    title: "Token creator",
-    value: <CopyText text={"Hr2hz222333333322yiE"} extension="(0SOL)" />,
-  },
-  { title: "Pool created", value: "07/02/2024 19:03" },
-];
+const generateRandomData = () => {
+  const baseData = [
+    {
+      key: "1",
+      type: 0,
+      img: "/images/whbles.png",
+      rental: 9.92,
+      quantity: "3.2M",
+      price: "$0.00047",
+      profit: "--",
+      duration: "--",
+    },
+    {
+      key: "2",
+      type: 0,
+      currency: "Motion",
+      rental: 1.91,
+      quantity: "12.8M",
+      price: "$0.0₄21978",
+      profit: "--",
+      duration: "--",
+    },
+    {
+      key: "3",
+      type: 0,
+      currency: "Motion",
+      rental: 1.91,
+      quantity: "18.2M",
+      price: "$0.0₄16011",
+      profit: "--",
+      duration: "--",
+    },
+    {
+      key: "1",
+      type: 1,
+      currency: "RIZZ",
+      rental: 9.92,
+      quantity: "3.2M",
+      price: "$0.00047",
+      profit: "--",
+      duration: "--",
+    },
+    {
+      key: "2",
+      type: 0,
+      currency: "Motion",
+      rental: 1.91,
+      quantity: "12.8M",
+      price: "$0.0₄21978",
+      profit: "--",
+      duration: "--",
+    },
+    {
+      key: "3",
+      type: 1,
+      currency: "Motion",
+      rental: 1.91,
+      quantity: "18.2M",
+      price: "$0.0₄16011",
+      profit: "--",
+      duration: "--",
+    },
+  ];
+
+  const randomLength = Math.floor(Math.random() * 10) + 15; // 生成15到25之间的随机长度
+  let data = [];
+
+  for (let i = 0; i < randomLength; i++) {
+    const randomIndex = Math.floor(Math.random() * baseData.length);
+    data.push({ ...baseData[randomIndex], key: `${i + 1}` });
+  }
+
+  return data;
+};
+
+const data = generateRandomData();
 const App = () => {
   const accounts: string[] | undefined = useAccounts();
+  const [active,setActive]=useState(0)
   return (
     <div>
       <div className="flex p-1">
@@ -131,31 +198,18 @@ const App = () => {
           />
           <div className="pl-4">
           <div className="flex gap-2 my-2">
-            <div className="bg-gray-700 rounded-lg p-1 hover:bg-gray-700">
-              Activity
-            </div>
-            <div className="opacity-25 bg-gray-700 rounded-lg p-1 hover:opacity-100">
-              Holders(196)
-            </div>
-            <div className="opacity-25 bg-gray-700 rounded-lg p-1 hover:opacity-100">
-              My Postion(0)
-            </div>
+        {TradeType.map((item,index) => (
+          <div className={`${index!==active&&'opacity-25'}  bg-gray-700 rounded-lg p-1 cursor-pointer hover:bg-gray-700`} onClick={()=>{setActive(index);}}>
+            {item.lable}
           </div>
-          <TagSelector
-            tags={[
-              "All",
-              "Buy",
-              "Sell",
-              "Swap",
-              "Mint",
-              "Burn",
-              "Transfer",
-              "Other",
-            ]}
-            onTagSelect={() => {}}
-          />
+        ))}
+      </div>
+      <TagSelector
+        tags={TradeType[active].children.map(item=>item.lable)}
+        onTagSelect={(index) => {}}
+      />
 
-          <Tl />
+<Tl idata={data.sort(() => Math.random() - 0.5).slice(0, Math.floor(Math.random() * data.length))}/>
           </div>
         
         </div>

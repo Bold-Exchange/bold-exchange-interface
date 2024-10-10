@@ -212,17 +212,20 @@ const Meme = () => {
           </>
         )}
       </div>
-      <div className="flex gap-2 my-2">
-        {TradeType.map((item,index) => (
-          <div className={`${index!==active&&'opacity-25'}  bg-gray-700 rounded-lg p-1 cursor-pointer hover:bg-gray-700`} onClick={()=>{setActive(index);}}>
-            {item.lable}
-          </div>
-        ))}
-      </div>
+      
       <TagSelector
-        tags={TradeType[active].children.map(item=>item.lable)}
-        onTagSelect={(index) => {}}
-      />
+            tags={[
+              "All",
+              "Buy",
+              "Sell",
+              "Swap",
+              "Mint",
+              "Burn",
+              "Transfer",
+              "Other",
+            ]}
+            onTagSelect={() => {}}
+          />
       <Tl idata={data.sort(() => Math.random() - 0.5).slice(0, Math.floor(Math.random() * data.length))}/>
       {/* {(v && <Tl />) || (
         <div className="grid gap-4 grid-cols-3 flex-1">
