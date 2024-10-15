@@ -5,7 +5,7 @@ import { CopyOutlined, RightOutlined } from "@ant-design/icons";
 import Item from "./Item";
 import { useState } from "react";
 const Meme = () => {
-  const [v, setV] = useState(false);
+  const [v, setV] = useState('Gem');
   const TokenItem = () => {
     return (
       <div className="flex items-center rounded-md justify-between py-2 hover:bg-gray-700 p-2">
@@ -38,7 +38,7 @@ const Meme = () => {
           <TokenItem />
           <TokenItem />
           <TokenItem />
-          <TokenItem />
+          <TokenItem />·
           <TokenItem />
           <TokenItem />
           <TokenItem />
