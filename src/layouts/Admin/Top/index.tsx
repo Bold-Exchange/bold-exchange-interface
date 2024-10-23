@@ -39,7 +39,7 @@ import { ethers } from "ethers";
 import { CopyText, UploadImage, Icon } from "@/components";
 import { devUseWarning } from "antd/es/_util/warning";
 import styles from "./styles.less";
-import Tl from '@/pages/index/Tl';
+import Tl from './Tl';
 const items: MenuProps["items"] = [
   {
     key: "1",
@@ -394,7 +394,13 @@ const Top = (props: any) => {
               placeholder="Search token/contract/wallet"
             />
           </div>
-          <div className="flex max-w-[1000px] m-auto">
+            <div className="w-[1024px] m-auto">
+              <div className="bg-[#1f1f1f] rounded-l p-2">
+                <span className="mr-4">History</span>
+                <span className="text-gray-500">Nothing to see here...</span>
+                </div>
+            </div>
+          {/* <div className="flex max-w-[1000px] m-auto">
             <div className="min-w-[150px]">
               <div className="text-xl text-center mb-4">Chains</div>
               <div className="flex flex-col justify-center gap-3">
@@ -415,7 +421,7 @@ const Top = (props: any) => {
             <div className="flex-auto overflow-auto h-[800px] px-4">
               <Tl />
             </div>
-          </div>
+          </div> */}
         </div>
       </Modal>
     </div>

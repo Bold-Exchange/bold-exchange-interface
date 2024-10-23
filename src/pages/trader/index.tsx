@@ -133,7 +133,7 @@ const Meme = () => {
                       <div className="flex flex-col gap-1 items-center">
                         <img
                           className="w-[44px] rounded-[5px]"
-                          src="https://dd.dexscreener.com/ds-data/tokens/ethereum/0xc06caead870d3a8af2504637b6c5b7248bed6116.png"
+                          src="https://cdn.dexscreener.com/cms/images/q4erGcjBPJaLPcU8?width=256&height=256&fit=crop&quality=95&format=auto"
                         />
                         <p>0x596...49c</p>
 
@@ -163,7 +163,7 @@ const Meme = () => {
                       <div className="flex items-center gap-2">
                         <img
                           className="w-[44px] rounded-full"
-                          src="https://dd.dexscreener.com/ds-data/tokens/ethereum/0xc06caead870d3a8af2504637b6c5b7248bed6116.png"
+                          src="https://cdn.dexscreener.com/cms/images/q4erGcjBPJaLPcU8?width=256&height=256&fit=crop&quality=95&format=auto"
                         />
                         <div>
                           <p>SPX</p>
