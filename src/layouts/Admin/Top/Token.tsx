@@ -11,7 +11,7 @@ const Token = ({img}) => {
       />
       <div className="flex">
         <img
-          className=" rounded-1"
+          className=" rounded-full"
           width={32}
           src={img||"https://images.blur.io/_blur-prod/0xbd3531da5cf5857e7cfaa92426877b022e612cf8/4142-e95a5f542b67c752?w=64"}
         />

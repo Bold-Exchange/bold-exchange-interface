@@ -36,10 +36,10 @@ import { hooks, metaMask } from "@/connectors/metaMask";
 import { getAddChainParameters } from "@/chains";
 import { FUN_ABI } from "@/abis/fun.sol/Fun";
 import { ethers } from "ethers";
-import { CopyText, UploadImage, Icon } from "@/components";
+import { CopyText, UploadImage, Icon, TagSelector } from "@/components";
 import { devUseWarning } from "antd/es/_util/warning";
 import styles from "./styles.less";
-import Tl from './Tl';
+import Tl from "./Tl";
 const items: MenuProps["items"] = [
   {
     key: "1",
@@ -226,7 +226,7 @@ const Top = (props: any) => {
           >
             Launchpad
           </li>
-        
+
           {/* <li
             className="hover:text-white hover:underline"
             onClick={() => history.push("/trending")}
@@ -386,35 +386,325 @@ const Top = (props: any) => {
         className={styles.chains}
       >
         <div className={styles.con}>
-          <div className="m-auto max-w-[400px] py-2">
+          <div className="m-auto max-w-[1024px] py-2">
             <Input
               prefix={<SearchOutlined />}
-              suffix={<span>⌘K</span>}
-              className="w-full p-2"
+              className="w-full p-2 m-0 text-sm"
               placeholder="Search token/contract/wallet"
             />
           </div>
-            <div className="w-[1024px] m-auto">
-              <div className="bg-[#1f1f1f] rounded-l p-2">
-                <span className="mr-4">History</span>
-                <span className="text-gray-500">Nothing to see here...</span>
+          <div className="w-[1024px] m-auto">
+            <div className="flex items-center bg-[#1f1f1f] rounded-l p-1">
+              <span className="mr-4">History</span>
+              <div className="flex gap-2 items-center">
+                <div className="flex items-center gap-1 bg-zinc-900 p-1">
+                  <img
+                    className="w-[15px]"
+                    src="https://cdn.dexscreener.com/cms/images/Q5rKmhs4FGIgTnJ8?width=56&height=56&fit=crop&quality=95&format=auto"
+                  />
+                  BOGUS
+                </div>{" "}
+                <div className="flex items-center gap-1 bg-zinc-900 p-1">
+                  <img
+                    className="w-[15px] rounded-full"
+                    src="https://cdn.dexscreener.com/cms/images/Q5rKmhs4FGIgTnJ8?width=56&height=56&fit=crop&quality=95&format=auto"
+                  />
+                  BOGUS
+                </div>{" "}
+                <div className="flex items-center gap-1 bg-zinc-900 p-1">
+                  <img
+                    className="w-[15px]"
+                    src="https://cdn.dexscreener.com/cms/images/Q5rKmhs4FGIgTnJ8?width=56&height=56&fit=crop&quality=95&format=auto"
+                  />
+                  BOGUS
+                </div>{" "}
+                <div className="flex items-center gap-1 bg-zinc-900 p-1">
+                  <img
+                    className="w-[15px]"
+                    src="https://cdn.dexscreener.com/cms/images/Q5rKmhs4FGIgTnJ8?width=56&height=56&fit=crop&quality=95&format=auto"
+                  />
+                  BOGUS
+                </div>{" "}
+                <div className="flex items-center gap-1 bg-zinc-900 p-1">
+                  <img
+                    className="w-[15px]"
+                    src="https://cdn.dexscreener.com/cms/images/Q5rKmhs4FGIgTnJ8?width=56&height=56&fit=crop&quality=95&format=auto"
+                  />
+                  BOGUS
                 </div>
+              </div>
             </div>
+            <div className="my-2 flex items-center gap-3">
+              <div className="font-bold flex items-center gap-1">
+                <Icon.Moon />
+                Moonshot
+              </div>
+              <TagSelector
+                tags={["Finalized", "Trending", "Top", "Rising", "New"]}
+                onTagSelect={(v) => {}}
+              />
+            </div>
+            <div className="flex items-center gap-4">
+              <div className="bg-[#1f1f1f] flex items-center gap-2 p-2 flex-auto">
+                <img
+                  className="w-[40px] rounded-full"
+                  src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                />
+                <div>
+                  <p className="p-0 text-[12px]">Uranus</p>
+                  <p className="p-0 text-[10px] text-gray-500">$2.0M 18d</p>
+                </div>
+              </div>
+              <div className="bg-[#1f1f1f] flex items-center gap-2 p-2 flex-auto">
+                <img
+                  className="w-[40px]"
+                  src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                />
+                <div>
+                  <p className="p-0 text-[12px]">Uranus</p>
+                  <p className="p-0 text-[10px] text-gray-500">$2.0M 18d</p>
+                </div>
+              </div>
+              <div className="bg-[#1f1f1f] flex items-center gap-2 p-2 flex-auto">
+                <img
+                  className="w-[40px] rounded-full"
+                  src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                />
+                <div>
+                  <p className="p-0 text-[12px]">Uranus</p>
+                  <p className="p-0 text-[10px] text-gray-500">$2.0M 18d</p>
+                </div>
+              </div>
+              <div className="bg-[#1f1f1f] flex items-center gap-2 p-2 flex-auto">
+                <img
+                  className="w-[40px]"
+                  src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                />
+                <div>
+                  <p className="p-0 text-[12px]">Uranus</p>
+                  <p className="p-0 text-[10px] text-gray-500">$2.0M 18d</p>
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 mt-4">
+              <div className="bg-[#1f1f1f] flex items-center gap-2 p-2 flex-auto">
+                <img
+                  className="w-[40px]"
+                  src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                />
+                <div>
+                  <p className="p-0 text-[12px]">Uranus</p>
+                  <p className="p-0 text-[10px] text-gray-500">$2.0M 18d</p>
+                </div>
+              </div>
+              <div className="bg-[#1f1f1f] flex items-center gap-2 p-2 flex-auto">
+                <img
+                  className="w-[40px]"
+                  src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                />
+                <div>
+                  <p className="p-0 text-[12px]">Uranus</p>
+                  <p className="p-0 text-[10px] text-gray-500">$2.0M 18d</p>
+                </div>
+              </div>
+              <div className="bg-[#1f1f1f] flex items-center gap-2 p-2 flex-auto">
+                <img
+                  className="w-[40px]"
+                  src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                />
+                <div>
+                  <p className="p-0 text-[12px]">Uranus</p>
+                  <p className="p-0 text-[10px] text-gray-500">$2.0M 18d</p>
+                </div>
+              </div>
+              <div className="bg-[#1f1f1f] flex items-center gap-2 p-2 flex-auto">
+                <img
+                  className="w-[40px]"
+                  src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                />
+                <div>
+                  <p className="p-0 text-[12px]">Uranus</p>
+                  <p className="p-0 text-[10px] text-gray-500">$2.0M 18d</p>
+                </div>
+              </div>
+            </div>
+            <img className="mt-4" src="images/demo.png" />
+            <div></div>
+            <div className="mt-4  flex">
+              <div className="bg-zinc-900 px-1 flex items-center">
+                <img className="w-[15px]" src="icons/user.svg" /> Traders 
+              </div>
+              <div className="bg-[#e4e932] px-1 text-[#000] flex items-center">
+                <img  className="w-[15px]" src="icons/token.svg" /> Tokens
+              </div>
+            </div>
+            <div className="flex items-center gap-4 mt-4">
+              <div className="bg-[#1f1f1f] flex items-center gap-2 p-2 flex-auto">
+                <img
+                  className="w-[60px]"
+                  src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                />
+                <div>
+                  <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                  <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                    <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                  </p>
+                  <p>X</p>
+                </div>
+              </div>
+              <div className="bg-[#1f1f1f] flex items-center gap-2 p-2 flex-auto">
+                <img
+                  className="w-[60px]"
+                  src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                />
+                <div>
+                  <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                  <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                    <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                  </p>
+                  <p>X</p>
+                </div>
+              </div>
+              <div className="bg-[#1f1f1f] flex items-center gap-2 p-2 flex-auto">
+                <img
+                  className="w-[60px]"
+                  src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                />
+                <div>
+                  <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                  <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                    <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                  </p>
+                  <p>X</p>
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 mt-4">
+              <div className="bg-[#1f1f1f] flex items-center gap-2 p-2 flex-auto">
+                <img
+                  className="w-[60px]"
+                  src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                />
+                <div>
+                  <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                  <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                    <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                  </p>
+                  <p>X</p>
+                </div>
+              </div>
+              <div className="bg-[#1f1f1f] flex items-center gap-2 p-2 flex-auto">
+                <img
+                  className="w-[60px]"
+                  src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                />
+                <div>
+                  <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                  <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                    <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                  </p>
+                  <p>X</p>
+                </div>
+              </div>
+              <div className="bg-[#1f1f1f] flex items-center gap-2 p-2 flex-auto">
+                <img
+                  className="w-[60px]"
+                  src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                />
+                <div>
+                  <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                  <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                    <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                  </p>
+                  <p>X</p>
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 mt-4">
+              <div className="bg-[#1f1f1f] flex items-center gap-2 p-2 flex-auto">
+                <img
+                  className="w-[60px]"
+                  src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                />
+                <div>
+                  <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                  <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                    <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                  </p>
+                  <p>X</p>
+                </div>
+              </div>
+              <div className="bg-[#1f1f1f] flex items-center gap-2 p-2 flex-auto">
+                <img
+                  className="w-[60px]"
+                  src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                />
+                <div>
+                  <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                  <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                    <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                  </p>
+                  <p>X</p>
+                </div>
+              </div>
+              <div className="bg-[#1f1f1f] flex items-center gap-2 p-2 flex-auto">
+                <img
+                  className="w-[60px]"
+                  src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                />
+                <div>
+                  <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                  <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                    <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                  </p>
+                  <p>X</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
           {/* <div className="flex max-w-[1000px] m-auto">
-            <div className="min-w-[150px]">
+            <div className="min-w-[170px] bg-zinc-900 p-1 rounded-xl">
               <div className="text-xl text-center mb-4">Chains</div>
-              <div className="flex flex-col justify-center gap-3">
-                <div className="flex items-center justify-center border rounded-full p-1 border-gray-500 gap-1">
-                  <img className="w-[24px]" src="/icons/bsc.svg" />
-                  BNB chain (18460)
+              <div className="flex flex-col justify-center gap-3 ">
+                <div className=" flex items-center justify-between p-1 gap-1 relative bg-gray-800">
+                  <div className="flex items-center gap-1">
+                    <img className="w-[32px]" src="/icons/bsc.svg" />
+                    <div>
+                      <p className="p-0 text-[12px]">BNB chain</p>
+                      <p className="p-0 text-[10px] text-gray-500">180 tokens</p>
+                    </div>
+                  </div>
+                  <div className="w-[20px]">
+                    <img
+                      className="opacity-100 hover:opacity-100"
+                      src="/icons/check.svg"
+                    />
+                  </div>
                 </div>
-                <div className="flex items-center justify-center border rounded-full p-1 border-gray-500 gap-1">
-                  <img className="w-[24px]" src="/icons/bsc.svg" />
-                  BNB chain (18460)
+                <div className=" flex items-center justify-center p-1 gap-1 relative hover:bg-gray-800">
+                  <div className="flex-auto flex justify-start items-center gap-1">
+                    <img className="w-[24px]" src="/icons/solana.webp" />
+                    Solana (18460)
+                  </div>
+                  <div className="w-[20px]">
+                    <img
+                      className="opacity-0 hover:opacity-100"
+                      src="/icons/check.svg"
+                    />
+                  </div>
                 </div>
-                <div className="flex items-center justify-center border rounded-full p-1 border-gray-500 gap-1">
-                  <img className="w-[24px]" src="/icons/bsc.svg" />
-                  BNB chain (18460)
+                <div className=" flex items-center justify-center p-1 gap-1 relative hover:bg-gray-800">
+                  <div className="flex-auto flex justify-start items-center gap-1">
+                    <img className="w-[24px]" src="/icons/ether.webp" />
+                    ETH (18460)
+                  </div>
+                  <div className="w-[20px]">
+                    <img
+                      className="opacity-0 hover:opacity-100"
+                      src="/icons/check.svg"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
