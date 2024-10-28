@@ -79,7 +79,7 @@ const selectBefore = (
   </Select>
 );
 const Top = (props: any) => {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [visibleChain, setVisibleChain] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
