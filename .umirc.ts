@@ -70,7 +70,7 @@ export default defineConfig({
     theme: {
       token: {
         colorPrimary: "#e4e932",
-        colorPrimaryHover:"#e4e932"
+        colorPrimaryHover:"#e4e932",
       },
     },
   },

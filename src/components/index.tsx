@@ -13,6 +13,8 @@ import Ring from "./Ring";
 import UploadImage from "./UploadImage";
 import Heart from './Heart'
 import Chains from "./Chains";
+import Head from "./Head";
+import SemiCircle from "./SemiCircle";
 export {
   Button,
   Accordion,
@@ -28,5 +30,7 @@ export {
   Ring,
   UploadImage,
   Heart,
-  Chains
+  Chains,
+  Head,
+  SemiCircle,
 };
