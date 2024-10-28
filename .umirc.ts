@@ -69,8 +69,8 @@ export default defineConfig({
     compact: true,
     theme: {
       token: {
-        colorPrimary: "#e4e932",
-        colorPrimaryHover:"#e4e932",
+        colorPrimary: "#fff200",
+        colorPrimaryHover:"#fff200",
       },
     },
   },
