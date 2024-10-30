@@ -142,7 +142,7 @@ const Meme = () => {
                       <div className="flex flex-col items-center gap-1">
 
                        
-                        <Button className="p-1" type="primary" size="middle">
+                        <Button className="p-1 text-[#fff]" size="middle">
                           <IconCopy style={{ width: "14px", fill: "#fff" }} />
                           Copy Trade
                         </Button>

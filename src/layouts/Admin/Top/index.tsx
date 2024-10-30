@@ -36,7 +36,7 @@ import { hooks, metaMask } from "@/connectors/metaMask";
 import { getAddChainParameters } from "@/chains";
 import { FUN_ABI } from "@/abis/fun.sol/Fun";
 import { ethers } from "ethers";
-import { CopyText, UploadImage, Icon, TagSelector } from "@/components";
+import { CopyText, UploadImage, Icon, TagSelector, Media } from "@/components";
 import { devUseWarning } from "antd/es/_util/warning";
 import styles from "./styles.less";
 import Tl from "./Tl";
@@ -80,6 +80,7 @@ const selectBefore = (
 );
 const Top = (props: any) => {
   const [visible, setVisible] = useState(false);
+  const[showmore,setShowmore]=useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [visibleChain, setVisibleChain] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -530,13 +531,104 @@ const Top = (props: any) => {
                   </div>
                 </div>
               </div>
+              
+              {
+               showmore &&<>
+                 <div className="flex items-center gap-2">
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-2 p-2 flex-auto">
+                  <img
+                    className="w-[40px] rounded-full"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Uranus</p>
+                    <p className="p-0 text-[10px] text-gray-500">$2.0M 18d</p>
+                  </div>
+                </div>
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-2 p-2 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Uranus</p>
+                    <p className="p-0 text-[10px] text-gray-500">$2.0M 18d</p>
+                  </div>
+                </div>
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-2 p-2 flex-auto">
+                  <img
+                    className="w-[40px] rounded-full"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Uranus</p>
+                    <p className="p-0 text-[10px] text-gray-500">$2.0M 18d</p>
+                  </div>
+                </div>
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-2 p-2 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Uranus</p>
+                    <p className="p-0 text-[10px] text-gray-500">$2.0M 18d</p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 mt-2">
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-2 p-2 flex-auto">
+                  <img
+                    className="w-[40px] rounded-full"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Uranus</p>
+                    <p className="p-0 text-[10px] text-gray-500">$2.0M 18d</p>
+                  </div>
+                </div>
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-2 p-2 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Uranus</p>
+                    <p className="p-0 text-[10px] text-gray-500">$2.0M 18d</p>
+                  </div>
+                </div>
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-2 p-2 flex-auto">
+                  <img
+                    className="w-[40px] rounded-full"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Uranus</p>
+                    <p className="p-0 text-[10px] text-gray-500">$2.0M 18d</p>
+                  </div>
+                </div>
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-2 p-2 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Uranus</p>
+                    <p className="p-0 text-[10px] text-gray-500">$2.0M 18d</p>
+                  </div>
+                </div>
+              </div></>
+              }
+              <div onClick={()=>setShowmore(!showmore)} className="mt-1 text-right text-[12px] text-gray-500 pointercase-bold cursor-pointer">
+              {!showmore &&  'show more'||'show less'}
+              </div>
               <img className="mt-4" src="images/tt.png" />
               <div></div>
               <div className="mt-4  flex">
-                <div className="bg-zinc-900 px-1 flex items-center">
+                <div className=" bg-[#fff200] px-1 text-[#000] flex items-center">
                   <img className="w-[15px]" src="icons/user.svg" /> Traders
                 </div>
-                <div className="bg-[#fff200] px-1 text-[#000] flex items-center">
+                <div className="bg-zinc-900 px-1 flex items-center">
                   <img className="w-[15px]" src="icons/token.svg" /> Tokens
                 </div>
               </div>
@@ -551,7 +643,7 @@ const Top = (props: any) => {
                     <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
                       <img className="w-[15px]" src="icons/solana.webp" /> Solana
                     </p>
-                    <p>X</p>
+                    <p> <Media /></p>
                   </div>
                 </div>
                 <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
@@ -564,7 +656,7 @@ const Top = (props: any) => {
                     <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
                       <img className="w-[15px]" src="icons/solana.webp" /> Solana
                     </p>
-                    <p>X</p>
+                    <p> <Media /></p>
                   </div>
                 </div>
                 <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
@@ -577,7 +669,7 @@ const Top = (props: any) => {
                     <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
                       <img className="w-[15px]" src="icons/solana.webp" /> Solana
                     </p>
-                    <p>X</p>
+                    <p> <Media /></p>
                   </div>
                 </div>
                 <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
@@ -590,61 +682,7 @@ const Top = (props: any) => {
                     <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
                       <img className="w-[15px]" src="icons/solana.webp" /> Solana
                     </p>
-                    <p>X</p>
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-center gap-2 mt-2">
-                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
-                  <img
-                    className="w-[40px]"
-                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
-                  />
-                  <div>
-                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
-                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
-                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
-                    </p>
-                    <p>X</p>
-                  </div>
-                </div>
-                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
-                  <img
-                    className="w-[40px]"
-                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
-                  />
-                  <div>
-                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
-                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
-                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
-                    </p>
-                    <p>X</p>
-                  </div>
-                </div>
-                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
-                  <img
-                    className="w-[40px]"
-                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
-                  />
-                  <div>
-                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
-                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
-                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
-                    </p>
-                    <p>X</p>
-                  </div>
-                </div>
-                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
-                  <img
-                    className="w-[40px]"
-                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
-                  />
-                  <div>
-                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
-                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
-                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
-                    </p>
-                    <p>X</p>
+                    <p> <Media /></p>
                   </div>
                 </div>
               </div>
@@ -659,7 +697,7 @@ const Top = (props: any) => {
                     <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
                       <img className="w-[15px]" src="icons/solana.webp" /> Solana
                     </p>
-                    <p>X</p>
+                    <p> <Media /></p>
                   </div>
                 </div>
                 <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
@@ -672,7 +710,7 @@ const Top = (props: any) => {
                     <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
                       <img className="w-[15px]" src="icons/solana.webp" /> Solana
                     </p>
-                    <p>X</p>
+                    <p> <Media /></p>
                   </div>
                 </div>
                 <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
@@ -685,7 +723,7 @@ const Top = (props: any) => {
                     <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
                       <img className="w-[15px]" src="icons/solana.webp" /> Solana
                     </p>
-                    <p>X</p>
+                    <p> <Media /></p>
                   </div>
                 </div>
                 <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
@@ -698,7 +736,7 @@ const Top = (props: any) => {
                     <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
                       <img className="w-[15px]" src="icons/solana.webp" /> Solana
                     </p>
-                    <p>X</p>
+                    <p> <Media /></p>
                   </div>
                 </div>
               </div>
@@ -713,7 +751,7 @@ const Top = (props: any) => {
                     <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
                       <img className="w-[15px]" src="icons/solana.webp" /> Solana
                     </p>
-                    <p>X</p>
+                    <p> <Media /></p>
                   </div>
                 </div>
                 <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
@@ -726,7 +764,7 @@ const Top = (props: any) => {
                     <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
                       <img className="w-[15px]" src="icons/solana.webp" /> Solana
                     </p>
-                    <p>X</p>
+                    <p> <Media /></p>
                   </div>
                 </div>
                 <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
@@ -739,7 +777,7 @@ const Top = (props: any) => {
                     <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
                       <img className="w-[15px]" src="icons/solana.webp" /> Solana
                     </p>
-                    <p>X</p>
+                    <p> <Media /></p>
                   </div>
                 </div>
                 <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
@@ -752,7 +790,385 @@ const Top = (props: any) => {
                     <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
                       <img className="w-[15px]" src="icons/solana.webp" /> Solana
                     </p>
-                    <p>X</p>
+                    <p> <Media /></p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 mt-2">
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                    </p>
+                    <p> <Media /></p>
+                  </div>
+                </div>
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                    </p>
+                    <p> <Media /></p>
+                  </div>
+                </div>
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                    </p>
+                    <p> <Media /></p>
+                  </div>
+                </div>
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                    </p>
+                    <p> <Media /></p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 mt-2">
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                    </p>
+                    <p> <Media /></p>
+                  </div>
+                </div>
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                    </p>
+                    <p> <Media /></p>
+                  </div>
+                </div>
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                    </p>
+                    <p> <Media /></p>
+                  </div>
+                </div>
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                    </p>
+                    <p> <Media /></p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 mt-2">
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                    </p>
+                    <p> <Media /></p>
+                  </div>
+                </div>
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                    </p>
+                    <p> <Media /></p>
+                  </div>
+                </div>
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                    </p>
+                    <p> <Media /></p>
+                  </div>
+                </div>
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                    </p>
+                    <p> <Media /></p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 mt-2">
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                    </p>
+                    <p> <Media /></p>
+                  </div>
+                </div>
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                    </p>
+                    <p> <Media /></p>
+                  </div>
+                </div>
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                    </p>
+                    <p> <Media /></p>
+                  </div>
+                </div>
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                    </p>
+                    <p> <Media /></p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 mt-2">
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                    </p>
+                    <p> <Media /></p>
+                  </div>
+                </div>
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                    </p>
+                    <p> <Media /></p>
+                  </div>
+                </div>
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                    </p>
+                    <p> <Media /></p>
+                  </div>
+                </div>
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                    </p>
+                    <p> <Media /></p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 mt-2">
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                    </p>
+                    <p> <Media /></p>
+                  </div>
+                </div>
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                    </p>
+                    <p> <Media /></p>
+                  </div>
+                </div>
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                    </p>
+                    <p> <Media /></p>
+                  </div>
+                </div>
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                    </p>
+                    <p> <Media /></p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 mt-2">
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                    </p>
+                    <p> <Media /></p>
+                  </div>
+                </div>
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                    </p>
+                    <p> <Media /></p>
+                  </div>
+                </div>
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                    </p>
+                    <p> <Media /></p>
+                  </div>
+                </div>
+                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
+                  />
+                  <div>
+                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
+                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
+                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
+                    </p>
+                    <p> <Media /></p>
                   </div>
                 </div>
               </div>

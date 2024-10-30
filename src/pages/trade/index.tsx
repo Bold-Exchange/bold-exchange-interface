@@ -199,7 +199,7 @@ const App = () => {
           <div className="pl-4">
           <div className="flex gap-2 my-2">
         {TradeType.map((item,index) => (
-          <div className={`${index!==active&&'opacity-25'}  bg-gray-700 rounded-lg p-1 cursor-pointer hover:bg-gray-700`} onClick={()=>{setActive(index);}}>
+          <div className={`${index==active&&'bg-[#fff200] text-black'}   rounded-lg p-1 cursor-pointer hover:bg-[#fff200] hover:text-black`} onClick={()=>{setActive(index);}}>
             {item.lable}
           </div>
         ))}
@@ -226,7 +226,7 @@ const App = () => {
               <p className="text-gray-400 mt-4">24/7 buy low and sell high</p>
             </div>
             <div>
-              <Button type="primary">
+              <Button>
                 <IconCreate style={{ width: "12px", fill: "#fff" }} />
                 Create
               </Button>
@@ -238,7 +238,31 @@ const App = () => {
               <p className="text-gray-400 mt-4">24/7 buy low and sell high</p>
             </div>
             <div>
-              <Button type="primary">
+              <Button>
+                <IconCreate style={{ width: "12px", fill: "#fff" }} />
+                Create
+              </Button>
+            </div>
+          </div>
+          <div className="flex bg-zinc-900 rounded-lg p-3 items-end">
+            <div className="flex-auto">
+              <p className="text-[18px]">Grid Trading Bot</p>
+              <p className="text-gray-400 mt-4">24/7 buy low and sell high</p>
+            </div>
+            <div>
+              <Button>
+                <IconCreate style={{ width: "12px", fill: "#fff" }} />
+                Create
+              </Button>
+            </div>
+          </div>
+          <div className="flex bg-zinc-900 rounded-lg p-3 items-end">
+            <div className="flex-auto">
+              <p className="text-[18px]">Grid Trading Bot</p>
+              <p className="text-gray-400 mt-4">24/7 buy low and sell high</p>
+            </div>
+            <div>
+              <Button>
                 <IconCreate style={{ width: "12px", fill: "#fff" }} />
                 Create
               </Button>

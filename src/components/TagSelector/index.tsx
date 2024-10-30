@@ -15,22 +15,22 @@ const TagSelector = ({ tags, onTagSelect }) => {
       {tags.map((tag, index) => (
         <div
           key={index}
-          className={`bg-zinc-900 p-1 cursor-pointer ${
+          className={`bg-zinc-900 cursor-pointer ${
             selectedTag === tag
-              ? "opacity-100 bg-gray-500"
+              ? "opacity-100 bg-[#fff200]"
               : "hover:opacity-100"
           }`}
           onClick={() => handleTagClick(tag)}
         >
-          <span
+          <div
             className={`${
               selectedTag === tag
-                ? "opacity-100"
+                ? "opacity-100  bg-[#fff200] text-[#000]"
                 : "opacity-25 hover:opacity-100"
-            }`}
+            } p-1`}
           >
             {tag}
-          </span>
+          </div>
         </div>
       ))}
     </div>

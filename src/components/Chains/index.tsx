@@ -51,7 +51,7 @@ const Chains = ({ onChange, noPrice = false }) => {
         />
       ))}
       <div
-        className="bg-zinc-800 border-l-4 border-[#5865f2] w-[120px] h-[48px] absolute ml-2"
+        className="bg-zinc-800 border-l-4 border-[#fff200] w-[120px] h-[48px] absolute ml-2"
         style={{
           left: 0,
           transition: "all 0.3s",

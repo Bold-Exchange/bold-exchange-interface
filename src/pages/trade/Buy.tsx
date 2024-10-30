@@ -42,7 +42,6 @@ const PoolInfo: React.FC<Props> = () => {
       <PercentangeSelector />
       <Button
         size="large"
-        type="primary"
         className="w-full mt-2"
       >
         Connect wallet
@@ -51,7 +50,7 @@ const PoolInfo: React.FC<Props> = () => {
         -
       </InfoItem>
       <InfoItem title={"Boost mode(Anti-MEV)"} key={1}>
-        <Switch defaultChecked />
+        <Switch />
       </InfoItem>
 
       <InfoItem title={"Slippage"} key={2}>

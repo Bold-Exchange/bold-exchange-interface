@@ -38,7 +38,7 @@ const Pool=()=>{
 const Swap=()=>{
     return <div className='flex items-center gap-2'>
         {/* <SemiCircle percentage={50} /> */}
-        <Button style={{color:'#000'}} type="primary"><SwapOutlined />Swap</Button>
+        <Button style={{color:'#fff'}}><SwapOutlined />Swap</Button>
         <Rate count={1} defaultValue={1} />
     </div>
 }
