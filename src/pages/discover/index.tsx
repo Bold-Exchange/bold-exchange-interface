@@ -1,11 +1,13 @@
 import { TagSelector } from "@/components";
 import ListCard from "@/components/ListCard";
 import Tl from "./Tl";
+import Gems from "./Gems";
 import { CopyOutlined, RightOutlined } from "@ant-design/icons";
 import Item from "./Item";
 import { useState } from "react";
 import { Button } from "antd";
 import { ReactComponent as IconCopy } from "./copy.svg";
+import TokenItem3 from "./TokenItem";
 const Meme = () => {
   const [v, setV] = useState("Gems");
   const TokenItem = () => {
@@ -195,6 +197,7 @@ const Meme = () => {
                   </div>
 
                 </div>
+                <Gems />
               </div>
             </div>
 
@@ -213,8 +216,13 @@ const Meme = () => {
                     />
                   </div>
                 </div>
-                <div className="text-gray-500 h-[300px]">
-                  Data is being calculated.
+                <div className="text-gray-500 h-[300px] flex flex-col gap-2">
+                <TokenItem3 />
+                <TokenItem3 />
+                <TokenItem3 />
+                <TokenItem3 />
+                <TokenItem3 />
+                <TokenItem3 />
                 </div>
                 <Button className="w-full">Sell All</Button>
               </div>
@@ -223,8 +231,13 @@ const Meme = () => {
                   <div>Following</div>
 
                 </div>
-                <div className="text-gray-500 h-[300px]">
-                  Data is being calculated.
+                <div className="text-gray-500 h-[300px] flex flex-col gap-2">
+                <TokenItem3 />
+                <TokenItem3 />
+                <TokenItem3 />
+                <TokenItem3 />
+                <TokenItem3 />
+                <TokenItem3 />
                 </div>
               </div>
             </div>
