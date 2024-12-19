@@ -1,39 +1,19 @@
-import { CopyText } from "@/components";
-import TradingViewWidget, { Themes } from "react-tradingview-widget";
-
 import Tl from "./Tl";
-import PoolInfo from "./PoolInfo";
-import DataStatistics from "./DataStatistics";
-import Buy from "./Buy";
-import Charts from "../portfolio/Charts";
-import {
-  AndroidOutlined,
-  AppleOutlined,
-  SyncOutlined,
-} from "@ant-design/icons";
-import { Layout, Rate, Tabs } from "antd";
+import { Layout, Tabs, TabsProps } from "antd";
 import Menu from "@/components/Menu";
 import Sider from "antd/es/layout/Sider";
-// 测试数据
-const data = [
-  { title: "Total liq", value: "$5,770.94(20.54 SOL)" },
-  { title: "Market cap", value: "$3,09" },
-  { title: "Holders", value: "196" },
-  { title: "Total supply", value: "930.6M" },
-  { title: "Pair", value: <CopyText text={"De9fp22222222han"} /> },
-  {
-    title: "Token creator",
-    value: <CopyText text={"Hr2hz222333333322yiE"} extension="(0SOL)" />,
-  },
-  { title: "Pool created", value: "07/02/2024 19:03" },
-];
+import { useEffect, useState } from "react";
+import { PoolData, PoolsResponse } from "@/api/types";
+import { api } from "@/api";
+
+
 const items: TabsProps["items"] = [
   {
-    key: "1",
+    key: "all",
     label: "All DEXes",
   },
   {
-    key: "3",
+    key: "raydium",
     label: "Raydium",
     icon: (
       <img
@@ -46,7 +26,7 @@ const items: TabsProps["items"] = [
     ),
   },
   {
-    key: "4",
+    key: "orca",
     label: "Orca",
     icon: (
       <img
@@ -59,7 +39,7 @@ const items: TabsProps["items"] = [
     ),
   },
   {
-    key: "5",
+    key: "meteora",
     label: "Meteora",
     icon: (
       <img
@@ -72,7 +52,7 @@ const items: TabsProps["items"] = [
     ),
   },
   {
-    key: "6",
+    key: "fluxbeam",
     label: "FluxBeam",
     icon: (
       <img
@@ -85,7 +65,7 @@ const items: TabsProps["items"] = [
     ),
   },
   {
-    key: "7",
+    key: "1nitro",
     label: "1INTRO",
     icon: (
       <img
@@ -99,20 +79,51 @@ const items: TabsProps["items"] = [
   },
 ];
 const App = () => {
+  const [pools, setPools] = useState<PoolData[]>([]);
+  const [filteredPools, setFilteredPools] = useState<PoolData[]>([]);
+
+  useEffect(() => {
+    const fetchPools = async () => {
+      try {
+        const { data } = await api.getTrendingPools({ network: 'solana' });
+        setPools(data.data);
+        setFilteredPools(data.data);
+      } catch (error) {
+        console.error('Failed to fetch pools:', error);
+      }
+    };
+
+    fetchPools();
+  }, []);
+
+  const handleTabChange = (activeKey: string) => {
+    if (activeKey === 'all') {
+      setFilteredPools(pools);
+      return;
+    }
+
+    const filtered = pools.filter(pool => {
+      const dexId = pool.relationships.dex.data.id.toLowerCase();
+      return dexId === activeKey ||
+        (activeKey === 'raydium' && dexId === 'raydium-clmm');
+    });
+    setFilteredPools(filtered);
+  };
+
   return (
-    <Layout style={{padding:0}}>
+    <Layout style={{ padding: 0 }}>
       <Sider
-       style={{background:'transparent'}}
-              collapsedWidth={0}
-              width={160}
-            >
-      <Menu />
+        style={{ background: 'transparent' }}
+        collapsedWidth={0}
+        width={160}
+      >
+        <Menu />
       </Sider>
       <Layout>
-      <Tabs defaultActiveKey="1" items={items} />
-      <Tl />
+        <Tabs defaultActiveKey="all" items={items} onChange={handleTabChange} />
+        <Tl pools={filteredPools} />
       </Layout>
-      
+
     </Layout>
   );
 };

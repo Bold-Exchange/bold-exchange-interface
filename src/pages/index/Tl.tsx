@@ -1,18 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { history } from "umi";
-import { Button, Drawer, Rate, Space, Table, Tag } from "antd";
+import { Space, Table } from "antd";
 import type { DrawerProps, RadioChangeEvent, TableProps } from "antd";
 import {
   BulbOutlined,
-  FunnelPlotOutlined,
-  RightCircleOutlined,
-  ShareAltOutlined,
 } from "@ant-design/icons";
-import d from "./d.png";
-import Charts from "../portfolio/Charts";
-import T2 from "./T2";
-import { CopyText, Block } from "@/components";
-import Token from "./Token";
+import { PoolData } from "@/api/types";
 
 const Item = ({ children }: any) => {
   return <div className="flex flex-col">{children}</div>;
@@ -23,132 +16,129 @@ const Title = ({ children, color = "white" }: any) => {
 const Span = ({ color = "gray", children }: any) => {
   return <div className={`flex text-${color}-500 text-[12]`}>{children}</div>;
 };
-interface DataType {
-  key: string;
-  type: number;
-  currency: string;
-  rental: number;
-  quantity: number | string;
-  price: number | string;
-  profit: string;
-  duration: string;
-}
 
-const columns: TableProps<DataType>["columns"] = [
+const columns: TableProps<PoolData>["columns"] = [
   {
     title: "Token",
-    dataIndex: "img",
-    key: "type",
-    render: (_) => <Token img={_} />,
-  },
-  {
-    title: "Created",
-    dataIndex: "currency",
-    key: "currency",
-    render: () => (
+    dataIndex: ["attributes", "name"],
+    key: "name",
+    render: (name) => (
       <Item>
-        <Title color="green">30d</Title>
+        <Title color="white">{name}</Title>
       </Item>
     ),
   },
   {
+    title: "Created",
+    dataIndex: ["attributes", "pool_created_at"],
+    key: "created",
+    render: (created) => {
+      const daysAgo = Math.floor((Date.now() - new Date(created).getTime()) / (1000 * 60 * 60 * 24));
+      return (
+        <Item>
+          <Title color="green">{daysAgo}d ago</Title>
+        </Item>
+      );
+    },
+  },
+  {
     title: "Liquidity",
-    dataIndex: "rental",
-    key: "rental",
-    render: () => (
+    dataIndex: ["attributes", "reserve_in_usd"],
+    key: "liquidity",
+    render: (liquidity) => (
       <Item>
-        <Title color="white">98,032.5🔥</Title>
+        <Title color="white">{`$ ${Number(liquidity).toLocaleString()}🔥`}</Title>
       </Item>
     ),
   },
   {
     title: "FDV",
-    dataIndex: "rental",
-    key: "rental",
-    render: () => (
+    dataIndex: ["attributes", "fdv_usd"],
+    key: "fdv",
+    render: (fdv) => (
       <Item>
-        <Span>$635.7k</Span>
+        <Span>{`$${Number(fdv).toLocaleString()}`}</Span>
       </Item>
     ),
   },
-  {
+  /*{
     title: "Holders",
     key: "quantity",
-    dataIndex: "quantity",
+    dataIndex: ["attributes", "holders"],
     render: () => (
       <Item>
         <Title color="white">334</Title>
       </Item>
     ),
-  },
+  },*/
   {
     title: "1h TXs",
-    dataIndex: "price",
-    key: "price",
-    render: () => (
+    dataIndex: ["attributes", "transactions", "h1"],
+    key: "1h_txs",
+    render: (h1) => (
       <Item>
-        <Title color="white">57,533</Title>
+        <Title color="white">{h1.buys + h1.sells}</Title>
 
         <Span>
-          <Span color="green">35,984</Span>/<Span color="red">20,164</Span>
+          <Span color="green">{h1.buys}</Span>/<Span color="red">{h1.sells}</Span>
         </Span>
       </Item>
     ),
   },
   {
     title: "1h VOl",
-    dataIndex: "profit",
-    key: "profit",
-    render: () => (
+    dataIndex: ["attributes", "volume_usd", "h1"],
+    key: "1h_vol",
+    render: (h1) => (
       <Item>
-        <Title color="white">334</Title>
+        <Title color="white">${Number(h1).toLocaleString()}</Title>
       </Item>
     ),
   },
   {
     title: "Price",
-    dataIndex: "duration",
-    key: "duration",
-    render: () => (
+    dataIndex: ["attributes", "base_token_price_usd"],
+    key: "price",
+    render: (price) => (
       <Item>
-        <Title color="white">334</Title>
+        <Title color="white">${Number(price).toLocaleString()}</Title>
       </Item>
     ),
   },
   {
-    title: "1m%",
-    dataIndex: "duration",
-    key: "duration",
-    render: () => (
+    title: "1H%",
+    dataIndex: ["attributes", "price_change_percentage", "h1"],
+    key: "price_change_percentage_h1",
+    render: (h1) => (
       <Item>
-        <Title color="green">334</Title>
+        <Title color={Number(h1) > 0 ? "green" : "red"}>{h1}%</Title>
       </Item>
     ),
   },
   {
-    title: "5m%",
-    dataIndex: "duration",
-    key: "duration",
-    render: () => (
+    title: "6H%",
+    dataIndex: ["attributes", "price_change_percentage", "h6"],
+    key: "price_change_percentage_h6",
+    render: (h6) => (
       <Item>
-        <Title color="red">334</Title>
+        <Title color={Number(h6) > 0 ? "green" : "red"}>{h6}%</Title>
       </Item>
     ),
   },
   {
-    title: "1h%",
-    dataIndex: "duration",
-    key: "duration",
-    render: () => (
+    title: "24H%",
+    dataIndex: ["attributes", "price_change_percentage", "h24"],
+    key: "price_change_percentage_h24",
+    render: (h24) => (
       <Item>
-        <Title color="red">334</Title>
+        <Title color={Number(h24) > 0 ? "green" : "red"}>{h24}%</Title>
       </Item>
     ),
   },
-  {
+  /*{
     title: "Degen Audit",
-    dataIndex: "duration",
-    key: "duration",
+    dataIndex: ["attributes", "degens"],
+    key: "degens",
     render: () => (
       <div className="flex gap-1">
         <Item>
@@ -172,15 +162,15 @@ const columns: TableProps<DataType>["columns"] = [
   },
   {
     title: "DEV",
-    dataIndex: "duration",
-    key: "duration",
+    dataIndex: ["attributes", "dev_percent"],
+    key: "dev_percent",
     render: () => (
       <Item>
         <Title color="green">22.59%</Title>
         <Span color="white">NoMint</Span>
       </Item>
     ),
-  },
+  },*/
   {
     title: "",
     key: "action",
@@ -195,253 +185,10 @@ const columns: TableProps<DataType>["columns"] = [
   },
 ];
 
-const data: DataType[] = [
-  {
-    key: "1",
-    type: 0,
-    img: "/images/whbles.png",
-    rental: 9.92,
-    quantity: "3.2M",
-    price: "$0.00047",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "2",
-    type: 0,
-    currency: "Motion",
-    rental: 1.91,
-    quantity: "12.8M",
-    price: "$0.0₄21978",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "3",
-    type: 0,
-    currency: "Motion",
-    rental: 1.91,
-    quantity: "18.2M",
-    price: "$0.0₄16011",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "1",
-    type: 1,
-    currency: "RIZZ",
-    rental: 9.92,
-    quantity: "3.2M",
-    price: "$0.00047",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "2",
-    type: 0,
-    currency: "Motion",
-    rental: 1.91,
-    quantity: "12.8M",
-    price: "$0.0₄21978",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "3",
-    type: 1,
-    currency: "Motion",
-    rental: 1.91,
-    quantity: "18.2M",
-    price: "$0.0₄16011",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "1",
-    type: 0,
-    currency: "RIZZ",
-    rental: 9.92,
-    quantity: "3.2M",
-    price: "$0.00047",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "2",
-    type: 0,
-    currency: "Motion",
-    rental: 1.91,
-    quantity: "12.8M",
-    price: "$0.0₄21978",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "3",
-    type: 0,
-    currency: "Motion",
-    rental: 1.91,
-    quantity: "18.2M",
-    price: "$0.0₄16011",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "1",
-    type: 1,
-    currency: "RIZZ",
-    rental: 9.92,
-    quantity: "3.2M",
-    price: "$0.00047",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "2",
-    type: 0,
-    currency: "Motion",
-    rental: 1.91,
-    quantity: "12.8M",
-    price: "$0.0₄21978",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "3",
-    type: 1,
-    currency: "Motion",
-    rental: 1.91,
-    quantity: "18.2M",
-    price: "$0.0₄16011",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "1",
-    type: 0,
-    currency: "RIZZ",
-    rental: 9.92,
-    quantity: "3.2M",
-    price: "$0.00047",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "2",
-    type: 0,
-    currency: "Motion",
-    rental: 1.91,
-    quantity: "12.8M",
-    price: "$0.0₄21978",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "3",
-    type: 0,
-    currency: "Motion",
-    rental: 1.91,
-    quantity: "18.2M",
-    price: "$0.0₄16011",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "1",
-    type: 1,
-    currency: "RIZZ",
-    rental: 9.92,
-    quantity: "3.2M",
-    price: "$0.00047",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "2",
-    type: 0,
-    currency: "Motion",
-    rental: 1.91,
-    quantity: "12.8M",
-    price: "$0.0₄21978",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "3",
-    type: 1,
-    currency: "Motion",
-    rental: 1.91,
-    quantity: "18.2M",
-    price: "$0.0₄16011",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "1",
-    type: 0,
-    currency: "RIZZ",
-    rental: 9.92,
-    quantity: "3.2M",
-    price: "$0.00047",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "2",
-    type: 0,
-    currency: "Motion",
-    rental: 1.91,
-    quantity: "12.8M",
-    price: "$0.0₄21978",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "3",
-    type: 0,
-    currency: "Motion",
-    rental: 1.91,
-    quantity: "18.2M",
-    price: "$0.0₄16011",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "1",
-    type: 1,
-    currency: "RIZZ",
-    rental: 9.92,
-    quantity: "3.2M",
-    price: "$0.00047",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "2",
-    type: 0,
-    currency: "Motion",
-    rental: 1.91,
-    quantity: "12.8M",
-    price: "$0.0₄21978",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "3",
-    type: 1,
-    currency: "Motion",
-    rental: 1.91,
-    quantity: "18.2M",
-    price: "$0.0₄16011",
-    profit: "--",
-    duration: "--",
-  },
-];
-
-const App: React.FC = ({idata}) => {
- const [open, setOpen] = useState(false);
+const Tl: React.FC = ({pools}: {pools?: PoolData[]}) => {
+  const [open, setOpen] = useState(false);
   const [placement, setPlacement] = useState<DrawerProps["placement"]>("right");
-
+  
   const showDrawer = () => {
     setOpen(true);
   };
@@ -453,26 +200,21 @@ const App: React.FC = ({idata}) => {
   const onChange = (e: RadioChangeEvent) => {
     setPlacement(e.target.value);
   };
-  useEffect(() => {
-    // 在数据变化时执行的逻辑
-    console.log('Data changed:', idata);
-  }, [idata]);
+
   return (
     <>
       <Table
         columns={columns}
-        dataSource={idata||data.sort(() => Math.random() - 0.5)}
+        dataSource={pools || []}
         pagination={false}
-        onRow={(record) => {
-          return {
-            onClick: (event) => {
-              history.push("/trade");
-            },
-          };
-        }}
+        onRow={(record) => ({
+          onClick: () => {
+            history.push("/trade");
+          },
+        })}
       />
     </>
   );
 };
 
-export default App;
+export default Tl;

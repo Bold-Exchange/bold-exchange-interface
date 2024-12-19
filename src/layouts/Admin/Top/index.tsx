@@ -106,7 +106,7 @@ const Top = (props: any) => {
 
   const handleOk = async () => {
     try {
-      const response: any = await request.post("/api/login", {
+      const response: any = await request.private.post("/api/login", {
         username: "doctor",
         password: "wz123456",
       });
@@ -119,43 +119,51 @@ const Top = (props: any) => {
       });
       handleLoginCancel();
     } catch (error) {
-      debugger;
+      console.error(error);
     }
   };
 
   const handleCreateToken: FormProps<FieldType>["onFinish"] = async (
     values
   ) => {
-    const s = form.getFieldValue("logo");
-    console.log("Success:", values);
-    const abd = new ethers.Contract(
-      "0x1267F5dF76c308ea17AD7E5C8Df7A386d4E233fc",
-      FUN_ABI,
-      provider?.getSigner()
-    );
-    debugger;
-    const gasLimit = ethers.utils.hexlify(100000); // 设置 gas limit，例如 100000
-    abd
-      .createToken(values.tokenName, values.tokenSymbol, {
-        // gasLimit: ethers.utils.hexlify(2000000),
-        value: ethers.utils.parseEther("0.001"),
-      })
-      .then((res: any) => {
-        debugger;
-        abiDecoder.addABI(FUN_ABI);
-        const decodedData = abiDecoder.decodeMethod(res.data);
-      })
-      .catch((res: any) => {
-        messageApi.open({
-          type: "error",
-          content: res.code || "error",
-        });
+    try {
+      // Use private endpoint for token creation
+      await request.private.post("/api/token", {
+        tokenname: values.tokenName,
+        tokensymbol: values.tokenSymbol,
+        initialbuy: 0,
       });
-    // request.post("/api/token", {
-    //   tokenname: values.tokenName,
-    //   tokensymbol: values.tokenSymbol,
-    //   initialbuy: 0,
-    // });
+      const s = form.getFieldValue("logo");
+      console.log("Success:", values);
+      const abd = new ethers.Contract(
+        "0x1267F5dF76c308ea17AD7E5C8Df7A386d4E233fc",
+        FUN_ABI,
+        provider?.getSigner()
+      );
+      debugger;
+      const gasLimit = ethers.utils.hexlify(100000); // 设置 gas limit，例如 100000
+      abd
+        .createToken(values.tokenName, values.tokenSymbol, {
+          // gasLimit: ethers.utils.hexlify(2000000),
+          value: ethers.utils.parseEther("0.001"),
+        })
+        .then((res: any) => {
+          debugger;
+          abiDecoder.addABI(FUN_ABI);
+          const decodedData = abiDecoder.decodeMethod(res.data);
+        })
+        .catch((res: any) => {
+          messageApi.open({
+            type: "error",
+            content: res.code || "error",
+          });
+        });
+    } catch (error) {
+      messageApi.open({
+        type: "error",
+        content: "Failed to create token",
+      });
+    }
   };
   const handleCancel = () => {
     form.resetFields();

@@ -8,38 +8,59 @@ import axios, {
 } from "axios";
 import { getToken } from "../utils/auth";
 
-const axiosInstance = axios.create({
-  baseURL: "", // 替换为你的 API 基础 URL
-  timeout: 10000, // 请求超时时间
-});
+// Create two axios instances - one for public and one for private endpoints
+const createAxiosInstance = (isPrivate: boolean = false) => {
+  const instance = axios.create({
+    baseURL: "", // Replace with your API base URL
+    timeout: 10000,
+  });
 
-// 请求拦截器
-axiosInstance.interceptors.request.use(
-  (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
-    const token = getToken();
-    if (token && config.headers) {
-      config.headers["Authorization"] = `Bearer ${token}`;
+  // Request interceptor
+  instance.interceptors.request.use(
+    (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
+      // Only add token for private endpoints
+      if (isPrivate) {
+        const token = getToken();
+        if (token && config.headers) {
+          config.headers["Authorization"] = `Bearer ${token}`;
+        }
+      }
+      return config;
+    },
+    (error: AxiosError): Promise<AxiosError> => {
+      return Promise.reject(error);
     }
-    return config;
-  },
-  (error: AxiosError): Promise<AxiosError> => {
-    return Promise.reject(error);
-  }
-);
+  );
 
-// 响应拦截器
-axiosInstance.interceptors.response.use(
-  (response: AxiosResponse): AxiosResponse => {
-    return response.data;
-  },
-  (error: AxiosError): Promise<AxiosError> => {
-    if (error.response && error.response.status === 401) {
-      // 处理 401 未授权错误，例如重定向到登录页面
-      // window.location.href = '/login';
-      console.error("Unauthorized, redirecting to login...");
+  // Response interceptor
+  instance.interceptors.response.use(
+    (response: AxiosResponse): AxiosResponse => {
+      return response.data;
+    },
+    (error: AxiosError): Promise<AxiosError> => {
+      if (error.response?.status === 401 && isPrivate) {
+        // Handle unauthorized access for private endpoints
+        console.error("Unauthorized, redirecting to login...");
+        // Add your redirect logic here
+      }
+      return Promise.reject(error);
     }
-    return Promise.reject(error);
-  }
-);
+  );
 
-export default axiosInstance;
+  return instance;
+};
+
+// Create instances
+const publicRequest = createAxiosInstance();
+const privateRequest = createAxiosInstance(true);
+
+// Export a unified request object with both instances
+export default {
+  public: publicRequest,
+  private: privateRequest,
+  // Helper methods
+  get: publicRequest.get, // Default to public
+  post: publicRequest.post,
+  put: publicRequest.put,
+  delete: publicRequest.delete,
+};
