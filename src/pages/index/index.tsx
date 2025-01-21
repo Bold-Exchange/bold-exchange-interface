@@ -79,13 +79,14 @@ const items: TabsProps["items"] = [
   },
 ];
 const App = () => {
+  const [network, setNetwork] = useState<string>('eth');
   const [pools, setPools] = useState<PoolData[]>([]);
   const [filteredPools, setFilteredPools] = useState<PoolData[]>([]);
 
   useEffect(() => {
     const fetchPools = async () => {
       try {
-        const { data } = await api.getTrendingPools({ network: 'solana' });
+        const { data } = await api.getTrendingPools({ network });
         setPools(data.data);
         setFilteredPools(data.data);
       } catch (error) {
@@ -94,7 +95,7 @@ const App = () => {
     };
 
     fetchPools();
-  }, []);
+  }, [network]);
 
   const handleTabChange = (activeKey: string) => {
     if (activeKey === 'all') {
@@ -117,7 +118,7 @@ const App = () => {
         collapsedWidth={0}
         width={160}
       >
-        <Menu />
+        <Menu setNetwork={setNetwork} />
       </Sider>
       <Layout>
         <Tabs defaultActiveKey="all" items={items} onChange={handleTabChange} />

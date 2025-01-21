@@ -5,6 +5,7 @@ import React, {
   cloneElement,
   createContext,
   useContext,
+  useEffect,
 } from "react";
 import classNames from "classnames";
 import styles from "./styles.less"; // 引入样式文件
@@ -12,6 +13,7 @@ import styles from "./styles.less"; // 引入样式文件
 interface ListProps {
   children: ReactNode;
   onSelect?: (value: string) => void;
+  defaultValue?: string;
 }
 
 interface ListItemProps {
@@ -33,13 +35,20 @@ const ListContext = createContext<ListContextType>({
 const List: React.FC<ListProps> & { Item: React.FC<ListItemProps> } = ({
   children,
   onSelect,
+  defaultValue,
 }) => {
-  const [selectedValue, setSelectedValue] = useState<string | null>(null);
+  const [selectedValue, setSelectedValue] = useState<string | null>(defaultValue || null);
 
   const handleSelect = (value: string) => {
     setSelectedValue(value);
     onSelect && onSelect(value);
   };
+
+  useEffect(() => {
+    if (defaultValue && onSelect) {
+      onSelect(defaultValue);
+    }
+  }, []);
 
   return (
     <ListContext.Provider value={{ selectedValue, handleSelect }}>

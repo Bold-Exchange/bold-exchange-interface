@@ -1,21 +1,23 @@
-import { history } from "umi";
 import { ListMenu as List } from "@/components";
-import {
-  BankOutlined,
-  BellOutlined,
-  LogoutOutlined,
-  ProductOutlined,
-  SettingOutlined,
-  StarOutlined,
-  UserOutlined,
-  WalletOutlined,
-} from "@ant-design/icons";
 import styles from "./styles.less";
-const Menu = () => {
+const Menu = ({ setNetwork }: any) => {
+  const handleSelect = (value: string) => {
+    const networkMap: { [key: string]: string } = {
+      item1: 'eth',
+      item2: 'solana',
+      item3: 'blast',
+      item4: 'base',
+      item5: 'bsc',
+      item6: 'ton',
+      item7: 'arbitrum',
+      item8: 'linea'
+    };
+    setNetwork(networkMap[value]);
+  };
+
   return (
     <div className={styles.sidebar}>
-      
-      <List>
+      <List onSelect={handleSelect} defaultValue="item1">
         <List.Item value="item1">
           <img className="w-5 mr-2" src="icons/ether.webp" /> ETH
         </List.Item>

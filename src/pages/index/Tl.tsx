@@ -6,6 +6,7 @@ import {
   BulbOutlined,
 } from "@ant-design/icons";
 import { PoolData } from "@/api/types";
+import Token from "./Token";
 
 const Item = ({ children }: any) => {
   return <div className="flex flex-col">{children}</div>;
@@ -17,8 +18,18 @@ const Span = ({ color = "gray", children }: any) => {
   return <div className={`flex text-${color}-500 text-[12]`}>{children}</div>;
 };
 
+interface TlProps {
+  pools: PoolData[];
+}
+
 const columns: TableProps<PoolData>["columns"] = [
   {
+    title: "Token",
+    dataIndex: "attributes",
+    key: "type",
+    render: (attributes) => <Token address={attributes.address} name={attributes.name} />,
+  },
+  /*{
     title: "Token",
     dataIndex: ["attributes", "name"],
     key: "name",
@@ -27,7 +38,7 @@ const columns: TableProps<PoolData>["columns"] = [
         <Title color="white">{name}</Title>
       </Item>
     ),
-  },
+  },*/
   {
     title: "Created",
     dataIndex: ["attributes", "pool_created_at"],
@@ -185,7 +196,7 @@ const columns: TableProps<PoolData>["columns"] = [
   },
 ];
 
-const Tl: React.FC = ({pools}: {pools?: PoolData[]}) => {
+const Tl: React.FC<TlProps> = ({pools}) => {
   const [open, setOpen] = useState(false);
   const [placement, setPlacement] = useState<DrawerProps["placement"]>("right");
   
