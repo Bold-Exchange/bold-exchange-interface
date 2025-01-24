@@ -25,7 +25,7 @@ const News = () => {
         </p>
         <h2> 1. Real-time Market Analysis</h2>
 
-        <p> With TradingView's professional candlestick charts and technical indicators, users can easily track cryptocurrency price trends and optimize trading strategies. For example, by using the BTC/USD price trend chart, users can clearly understand the price changes and market dynamics of different cryptocurrencies, helping to formulate more strategic trading plans.
+        <p> With TradingView's professional candlestick charts and technical indicators, users can easily track cryptocurrency price trends and optimize trading strategies. For example, by using the <a style={{color:'blue'}} target='_blank' href='https://www.tradingview.com/symbols/BTCUSD/'>BTC/USD</a> price trend chart, users can clearly understand the price changes and market dynamics of different cryptocurrencies, helping to formulate more strategic trading plans.
         </p>
         <h2>2. Backtesting Functionality</h2>
         <p>
