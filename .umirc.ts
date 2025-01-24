@@ -29,6 +29,7 @@ export default defineConfig({
         { path: "/test", component: "test" },
         { path: "/profile", component: "profile" },
         { path: "/follow", component: "follow" },
+        { path: "/news", component: "news" },
       ],
     },
   ],
