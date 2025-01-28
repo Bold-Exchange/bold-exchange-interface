@@ -11,7 +11,7 @@ import type {
   OHLCVResponse
 } from './types';
 
-const BASE_URL = 'http://localhost:8080/api';
+const BASE_URL = 'https://api.bold.exchange/api';
 
 export const api = {
   // Public endpoints
