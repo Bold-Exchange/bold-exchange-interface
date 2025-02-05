@@ -68,7 +68,10 @@ const App: React.FC = () => {
                   <Content className={styles.content}>
                     <Outlet />
                   </Content>
-                  <Footer className={styles.footer}></Footer>
+                  <Footer className={`${styles.footer} flex justify-center items-center gap-4`}>
+                    <span>Bold © 2025</span>
+                    <a target="_blank" href="/#/news?id=2025012484958">News</a>
+                     </Footer>
                 </Layout>
 
                 {/* <Sider
