@@ -5,7 +5,7 @@ import Sider from "antd/es/layout/Sider";
 import { useEffect, useState, useCallback } from "react";
 import { Network, Pool } from "@/api/api_types";
 import { api } from "@/api";
-import { useInView } from 'react-intersection-observer';
+import { useInView } from "react-intersection-observer";
 import TimeFrame from "@/components/TimeFrame";
 import { TimeFrameType } from "@/api/param_types";
 
@@ -82,57 +82,71 @@ const items: TabsProps["items"] = [
 ];
 
 const App = () => {
-  const [network, setNetwork] = useState<Network>('eth');
+  const [network, setNetwork] = useState<Network>("eth");
   const [pools, setPools] = useState<Pool[]>([]);
   const [filteredPools, setFilteredPools] = useState<Pool[]>([]);
   const [tokenImages, setTokenImages] = useState<Record<string, string>>({});
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
-  const [selectedTimeFrame, setSelectedTimeFrame] = useState<TimeFrameType>('5m');
+  const [selectedTimeFrame, setSelectedTimeFrame] =
+    useState<TimeFrameType>("5m");
 
   const { ref, inView } = useInView({
     threshold: 0,
   });
 
-  const fetchPools = useCallback(async (pageNum: number, shouldAppend = false) => {
-    if (loading) return;
-    
-    try {
-      setLoading(true);
-      const response = await api.getTrendingPools({ network }, { page: pageNum }, 'base_token', selectedTimeFrame);
-      const poolsData = Array.isArray(response.data.data) ? response.data.data : [response.data.data];
-      
-      if (poolsData.length === 0) {
-        setHasMore(false);
-        return;
-      }
+  const fetchPools = useCallback(
+    async (pageNum: number, shouldAppend = false) => {
+      if (loading) return;
 
-      // Create a mapping of token IDs to their image URLs from the included data
-      const newTokenImages = (response.data.included || []).reduce((acc, item) => {
-        if (item.attributes?.image_url) {
-          acc[item.id] = item.attributes.image_url;
+      try {
+        setLoading(true);
+        const response = await api.getTrendingPools(
+          { network },
+          { page: pageNum },
+          "base_token",
+          selectedTimeFrame
+        );
+        const poolsData = Array.isArray(response.data.data)
+          ? response.data.data
+          : [response.data.data];
+
+        if (poolsData.length === 0) {
+          setHasMore(false);
+          return;
         }
-        return acc;
-      }, {} as Record<string, string>);
 
-      if (shouldAppend) {
-        setPools(prev => [...prev, ...poolsData]);
-        setFilteredPools(prev => [...prev, ...poolsData]);
-        setTokenImages(prev => ({ ...prev, ...newTokenImages }));
-      } else {
-        setPools(poolsData);
-        setFilteredPools(poolsData);
-        setTokenImages(newTokenImages);
-        setPage(1);
-        setHasMore(true);
+        // Create a mapping of token IDs to their image URLs from the included data
+        const newTokenImages = (response.data.included || []).reduce(
+          (acc, item) => {
+            if (item.attributes?.image_url) {
+              acc[item.id] = item.attributes.image_url;
+            }
+            return acc;
+          },
+          {} as Record<string, string>
+        );
+
+        if (shouldAppend) {
+          setPools((prev) => [...prev, ...poolsData]);
+          setFilteredPools((prev) => [...prev, ...poolsData]);
+          setTokenImages((prev) => ({ ...prev, ...newTokenImages }));
+        } else {
+          setPools(poolsData);
+          setFilteredPools(poolsData);
+          setTokenImages(newTokenImages);
+          setPage(1);
+          setHasMore(true);
+        }
+      } catch (error) {
+        console.error("Failed to fetch pools:", error);
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      console.error('Failed to fetch pools:', error);
-    } finally {
-      setLoading(false);
-    }
-  }, [network, loading, selectedTimeFrame]);
+    },
+    [network, loading, selectedTimeFrame]
+  );
 
   // Initial load and auto-refresh
   useEffect(() => {
@@ -140,7 +154,7 @@ const App = () => {
     setPage(1);
     setHasMore(true);
     fetchPools(1, false);
-    
+
     // Set up auto-refresh every 5 seconds
     const intervalId = setInterval(() => {
       fetchPools(1, false);
@@ -159,15 +173,17 @@ const App = () => {
   }, [inView, hasMore, loading, fetchPools, page]);
 
   const handleTabChange = (activeKey: string) => {
-    if (activeKey === 'all') {
+    if (activeKey === "all") {
       setFilteredPools(pools);
       return;
     }
 
-    const filtered = pools.filter(pool => {
+    const filtered = pools.filter((pool) => {
       const dexId = pool.relationships.dex.data.id.toLowerCase();
-      return dexId === activeKey ||
-        (activeKey === 'raydium' && dexId === 'raydium-clmm');
+      return (
+        dexId === activeKey ||
+        (activeKey === "raydium" && dexId === "raydium-clmm")
+      );
     });
     setFilteredPools(filtered);
   };
@@ -175,7 +191,7 @@ const App = () => {
   return (
     <Layout style={{ padding: 0 }}>
       <Sider
-        style={{ background: 'transparent' }}
+        style={{ background: "transparent" }}
         collapsedWidth={0}
         width={160}
       >
@@ -183,9 +199,12 @@ const App = () => {
       </Sider>
       <Layout>
         <Tabs defaultActiveKey="all" items={items} onChange={handleTabChange} />
-        <TimeFrame onTimeFrameChange={setSelectedTimeFrame} selectedTimeFrame={selectedTimeFrame} />
+        <TimeFrame
+          onTimeFrameChange={setSelectedTimeFrame}
+          selectedTimeFrame={selectedTimeFrame}
+        />
         <Tl pools={filteredPools} network={network} tokenImages={tokenImages} />
-        <div ref={ref} style={{ height: '20px' }} />
+        {pools.length > 0 && <div ref={ref} style={{ height: "20px" }} />}
       </Layout>
     </Layout>
   );

@@ -9,3 +9,5 @@
 .swc
 pnpm-lock.yaml
 .DS_Store
+.env*
+!.env.example

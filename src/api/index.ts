@@ -1,8 +1,12 @@
 import request from "@/utils/request";
 import type { Pool, PoolResponse } from "./api_types";
-import type { PaginationParams, NetworkParams, TimeFrameType } from "./param_types";
+import type {
+  PaginationParams,
+  NetworkParams,
+  TimeFrameType,
+} from "./param_types";
 
-const BASE_URL = "http://localhost:8080/api";
+const BASE_URL = `${process.env.UMI_APP_API_URL}/api`;
 
 export const api = {
   // Public endpoints

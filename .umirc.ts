@@ -33,6 +33,9 @@ export default defineConfig({
       ],
     },
   ],
+  define: {
+    'API_URL': process.env.UMI_APP_API_URL,
+  },
   svgr: {},
   npmClient: "pnpm",
   title: "Bold Exchange &mdash; Fantasy Sports Stock Exchange HTML Template",

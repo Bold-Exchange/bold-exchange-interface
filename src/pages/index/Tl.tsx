@@ -167,6 +167,7 @@ const Tl: React.FC<TlProps> = ({ pools, network, tokenImages }) => {
     <>
       <Table
         columns={columns}
+        rowKey={(record) => record.id}
         dataSource={pools || []}
         pagination={false}
         onRow={(record) => ({
