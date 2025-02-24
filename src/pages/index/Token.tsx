@@ -5,9 +5,10 @@ import { StarFilled } from "@ant-design/icons";
 interface TokenProps {
   address: string;
   name: string;
+  imageUrl?: string;
 }
 
-const Token = ({address, name}: TokenProps) => {
+const Token: React.FC<TokenProps> = ({ address, name, imageUrl }) => {
   return (
     <div className="flex items-center gap-2">
       <StarFilled
@@ -16,11 +17,12 @@ const Token = ({address, name}: TokenProps) => {
         }}
       />
       <div className="flex">
-        {/*<img
+        <img
           className=" rounded-full"
           width={32}
-          src={img||"https://images.blur.io/_blur-prod/0xbd3531da5cf5857e7cfaa92426877b022e612cf8/4142-e95a5f542b67c752?w=64"}
-        />*/}
+          src={imageUrl}
+          alt={name}
+        />
       </div>
       <div className="flex flex-col">
         <p className="flex items-center gap-1 m-0">
@@ -34,4 +36,5 @@ const Token = ({address, name}: TokenProps) => {
     </div>
   );
 };
+
 export default Token;

@@ -16,7 +16,7 @@ export default defineConfig({
       component: "@/layouts/Admin",
       routes: [
         { path: "/", component: "index" },
-        { path: "/trade", component: "trade" },
+        { path: "/trade/:chain/:address", component: "trade" },
         { path: "/portfolio", component: "portfolio" },
         { path: "/about", component: "about" },
         { path: "/markets", component: "meme" },

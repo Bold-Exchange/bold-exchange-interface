@@ -3,15 +3,15 @@ import { CopyOutlined } from "@ant-design/icons";
 import React, { useState } from "react";
 
 // Utility function to handle text copy
-const copyToClipboard = (text) => {
+const copyToClipboard = (text: string) => {
   navigator.clipboard.writeText(text);
 };
 
 // Custom CopyText component
-const CopyText = ({ text, extension = "", startLength = 5, endLength = 4 }) => {
+const CopyText = ({ text, extension = "", startLength = 5, endLength = 4 }: { text: string, extension?: string, startLength?: number, endLength?: number }) => {
   const [copied, setCopied] = useState(false);
 
-  const handleCopy = (e) => {
+  const handleCopy = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation()
     copyToClipboard(text);
     setCopied(true);

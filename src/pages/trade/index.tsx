@@ -11,7 +11,10 @@ import { Button, Rate } from "antd";
 import { hooks, metaMask } from "@/connectors/metaMask";
 import { ReactComponent as IconCreate } from "./createApi.svg";
 import { TradeType } from "../meme/type";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "umi";
+import { PoolData } from "@/api/api_types";
+import { api } from "@/api";
 const {
   useChainId,
   useAccounts,
@@ -97,9 +100,22 @@ const generateRandomData = () => {
 };
 
 const data = generateRandomData();
+
 const App = () => {
+  const params = useParams();
+  const [poolInfo, setPoolInfo] = useState<PoolData>();
+
   const accounts: string[] | undefined = useAccounts();
   const [active,setActive]=useState(0)
+
+  useEffect(() => {
+    if (params.chain && params.address) {
+      api.getPool({ network: params.chain, address: params.address }).then((res) => {
+        setPoolInfo(res.data.data.filter((item: PoolData) => !item.attributes.symbol.match("SOL"))[0]);
+      });
+    }
+  }, [params]);
+
   return (
     <div>
       <div className="flex p-1">
@@ -121,15 +137,15 @@ const App = () => {
           </div>
           <div className="flex items-center mb-2 gap-2 px-2">
             <Rate count={1} />
-            <img
+            {/*<img
               width={40}
               src="https://images.blur.io/_blur-prod/0xbd3531da5cf5857e7cfaa92426877b022e612cf8/4142-e95a5f542b67c752?w=64"
               className="rounded-full"
               alt="avatar"
-            />
+            />*/}
             <div className="text-gray-500 text-sm">
               <p className="flex items-center gap-2 text-white text-lg">
-                <span>PEPE</span>
+                <span>{poolInfo?.attributes?.name}</span>
                 <span className="flex items-center text-gray-500 text-xs">
                   <Icon.Website />
                   <Icon.Twitter />
@@ -138,7 +154,7 @@ const App = () => {
               </p>
               <p className="flex items-center gap-1 text-[12px]">
                 <span className="flex items-center gap-1 text-gray-300 text-xs">
-                  pepe
+                  {poolInfo?.attributes?.symbol}
                 </span>
               </p>
             </div>
@@ -164,21 +180,22 @@ const App = () => {
               <Block title={"Pair"}>
                 <span className="text-gray-300 text-[12px]">
                   <CopyText
-                    text={"fr8jE8s7ZYvkndiPF1jbFfPs5T89p7QaFP7FBsEam"}
+                    text={params.address || ""}
                   />
                 </span>
               </Block>
               <Block title={"Coin"}>
                 <span className="text-gray-300 text-[12px]">
                   <CopyText
-                    text={"966jE8s7ZYvkndiPF1jbFfPs5T89p7QaFP7FBsEamsAb"}
+                    text={poolInfo?.attributes.address || ""}
                   />
                 </span>
               </Block>
             </div>
           </div>
           <TradingViewWidget
-            symbol="BTCUSD"
+            src="https://dexscreener.com/solana/2tge3aeuqxsrmtbzk1vqavj2hvvutuu82fcapptvdsdn"
+            //symbol="BTCUSD"
             theme={Themes.DARK}
             locale="fr"
             autosize
