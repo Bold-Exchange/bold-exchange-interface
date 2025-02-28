@@ -108,33 +108,22 @@ const App = () => {
           "base_token",
           selectedTimeFrame
         );
-        const poolsData = Array.isArray(response.data.data)
-          ? response.data.data
-          : [response.data.data];
-
-        if (poolsData.length === 0) {
-          setHasMore(false);
-          return;
-        }
 
         // Create a mapping of token IDs to their image URLs from the included data
-        const newTokenImages = (response.data.included || []).reduce(
-          (acc, item) => {
-            if (item.attributes?.image_url) {
-              acc[item.id] = item.attributes.image_url;
-            }
-            return acc;
-          },
-          {} as Record<string, string>
-        );
+        const newTokenImages = (response.included || []).reduce((acc, item) => {
+          if (item.attributes?.image_url) {
+            acc[item.id] = item.attributes.image_url;
+          }
+          return acc;
+        }, {} as Record<string, string>);
 
         if (shouldAppend) {
-          setPools((prev) => [...prev, ...poolsData]);
-          setFilteredPools((prev) => [...prev, ...poolsData]);
+          setPools((prev) => [...prev, ...response.data]);
+          setFilteredPools((prev) => [...prev, ...response.data]);
           setTokenImages((prev) => ({ ...prev, ...newTokenImages }));
         } else {
-          setPools(poolsData);
-          setFilteredPools(poolsData);
+          setPools(response.data);
+          setFilteredPools(response.data);
           setTokenImages(newTokenImages);
           setPage(1);
           setHasMore(true);

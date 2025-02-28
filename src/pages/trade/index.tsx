@@ -1,29 +1,15 @@
 import { CopyText, TagSelector, Icon, Block } from "@/components";
 import TradingViewWidget, { Themes } from "react-tradingview-widget";
-import { createChart, ColorType } from "lightweight-charts";
 import Tl from "./Tl";
-import PoolInfo from "./PoolInfo";
-import DataStatistics from "./DataStatistics";
 import Buy from "./Buy";
-import Charts from "../portfolio/Charts";
-import { SyncOutlined } from "@ant-design/icons";
 import { Button, Rate } from "antd";
-import { hooks, metaMask } from "@/connectors/metaMask";
 import { ReactComponent as IconCreate } from "./createApi.svg";
 import { TradeType } from "../meme/type";
 import { useState, useEffect } from "react";
 import { useParams } from "umi";
-import { PoolData } from "@/api/api_types";
+import { PoolResponse, Pool, Trade } from "@/api/api_types";
 import { api } from "@/api";
-const {
-  useChainId,
-  useAccounts,
-  useIsActivating,
-  useIsActive,
-  useProvider,
-  useENSNames,
-} = hooks;
-// 测试数据
+
 const generateRandomData = () => {
   const baseData = [
     {
@@ -103,16 +89,31 @@ const data = generateRandomData();
 
 const App = () => {
   const params = useParams();
-  const [poolInfo, setPoolInfo] = useState<PoolData>();
+  const [poolInfo, setPoolInfo] = useState<PoolResponse<Pool>>();
+  const [trades, setTrades] = useState<Trade[]>([]);
 
-  const accounts: string[] | undefined = useAccounts();
-  const [active,setActive]=useState(0)
+  const [active, setActive] = useState(0);
 
   useEffect(() => {
     if (params.chain && params.address) {
-      api.getPool({ network: params.chain, address: params.address }).then((res) => {
-        setPoolInfo(res.data.data.filter((item: PoolData) => !item.attributes.symbol.match("SOL"))[0]);
-      });
+      api
+        .getPool({
+          network: params.chain,
+          address: params.address,
+          include: "base_token",
+        })
+        .then((res) => {
+          setPoolInfo(res);
+        });
+
+      api
+        .getPoolTrades({
+          network: params.chain,
+          address: params.address,
+        })
+        .then((res) => {
+          setTrades(res.data);
+        });
     }
   }, [params]);
 
@@ -137,15 +138,15 @@ const App = () => {
           </div>
           <div className="flex items-center mb-2 gap-2 px-2">
             <Rate count={1} />
-            {/*<img
+            <img
               width={40}
-              src="https://images.blur.io/_blur-prod/0xbd3531da5cf5857e7cfaa92426877b022e612cf8/4142-e95a5f542b67c752?w=64"
+              src={poolInfo?.included?.[0]?.attributes?.image_url ?? ""}
               className="rounded-full"
               alt="avatar"
-            />*/}
+            />
             <div className="text-gray-500 text-sm">
               <p className="flex items-center gap-2 text-white text-lg">
-                <span>{poolInfo?.attributes?.name}</span>
+                <span>{poolInfo?.included?.[0]?.attributes?.name}</span>
                 <span className="flex items-center text-gray-500 text-xs">
                   <Icon.Website />
                   <Icon.Twitter />
@@ -154,40 +155,56 @@ const App = () => {
               </p>
               <p className="flex items-center gap-1 text-[12px]">
                 <span className="flex items-center gap-1 text-gray-300 text-xs">
-                  {poolInfo?.attributes?.symbol}
+                  {poolInfo?.data.attributes?.name}
                 </span>
               </p>
             </div>
             <div className="flex">
               <Block title={"Price"}>
-                <span className="text-gray-300 text-[16px]"> $42.97</span>
+                <span className="text-gray-300 text-[16px]">
+                  {" "}
+                  ${poolInfo?.data.attributes?.base_token_price_usd}
+                </span>
               </Block>
               <Block title={"24h Change"}>
-                <span className="text-green-500"> 1.01%</span>
+                <span className="text-green-500">
+                  {" "}
+                  {poolInfo?.data.attributes?.price_change_percentage.h24}%
+                </span>
               </Block>
               <Block textAlign="text-left" title={"FDV"}>
-                <span className="text-gray-300"> $3,3362.12</span>
+                <span className="text-gray-300">
+                  {" "}
+                  ${poolInfo?.data.attributes?.fdv_usd}
+                </span>
               </Block>
               <Block title={"24 Vol"}>
-                <span className="text-gray-300"> $42.97</span>
+                <span className="text-gray-300">
+                  {" "}
+                  ${poolInfo?.data.attributes?.volume_usd.h24}
+                </span>
               </Block>
               <Block title={"Holders"}>
-                <span className="text-gray-300"> 236</span>
+                <span className="text-gray-300">
+                  {" "}
+                  {poolInfo?.data.attributes?.transactions.h24?.buyers}
+                </span>
               </Block>
               <Block title={"Liquidity"}>
-                <p className="text-gray-300"> 866.6M</p>
+                <span className="text-gray-300">
+                  {" "}
+                  ${poolInfo?.data.attributes?.reserve_in_usd}
+                </span>
               </Block>
               <Block title={"Pair"}>
                 <span className="text-gray-300 text-[12px]">
-                  <CopyText
-                    text={params.address || ""}
-                  />
+                  <CopyText text={poolInfo?.data.attributes?.address || ""} />
                 </span>
               </Block>
               <Block title={"Coin"}>
                 <span className="text-gray-300 text-[12px]">
                   <CopyText
-                    text={poolInfo?.attributes.address || ""}
+                    text={poolInfo?.included?.[0]?.attributes?.address || ""}
                   />
                 </span>
               </Block>
@@ -214,21 +231,27 @@ const App = () => {
             }}
           />
           <div className="pl-4">
-          <div className="flex gap-2 my-2">
-        {TradeType.map((item,index) => (
-          <div className={`${index==active&&'bg-[#fff200] text-black'}   rounded-lg p-1 cursor-pointer hover:bg-[#fff200] hover:text-black`} onClick={()=>{setActive(index);}}>
-            {item.lable}
-          </div>
-        ))}
-      </div>
-      <TagSelector
-        tags={TradeType[active].children.map(item=>item.lable)}
-        onTagSelect={(index) => {}}
-      />
+            <div className="flex gap-2 my-2">
+              {TradeType.map((item, index) => (
+                <div
+                  className={`${
+                    index == active && "bg-[#fff200] text-black"
+                  }   rounded-lg p-1 cursor-pointer hover:bg-[#fff200] hover:text-black`}
+                  onClick={() => {
+                    setActive(index);
+                  }}
+                >
+                  {item.lable}
+                </div>
+              ))}
+            </div>
+            <TagSelector
+              tags={TradeType[active].children.map((item) => item.lable)}
+              onTagSelect={(index) => {}}
+            />
 
-<Tl idata={data.sort(() => Math.random() - 0.5).slice(0, Math.floor(Math.random() * data.length))}/>
+            <Tl data={trades} />
           </div>
-        
         </div>
         <div
           className="w-[320px] flex flex-col gap-4"

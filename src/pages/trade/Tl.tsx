@@ -10,203 +10,9 @@ import d from "./d.png";
 import Charts from "../portfolio/Charts";
 import T2 from "./T2";
 import { CopyText, Block } from "@/components";
-interface DataType {
-  key: string;
-  type: number;
-  currency: string;
-  rental: number;
-  quantity: number | string;
-  price: number | string;
-  profit: string;
-  duration: string;
-}
+import { Trade } from "@/api/api_types";
 
-const columns: TableProps<DataType>["columns"] = [
-  {
-    title: "Type",
-    dataIndex: "type",
-    key: "type",
-    render: (_) =>
-      _ === 0 ? (
-        <Tag bordered={false} color="success">
-          Buy
-        </Tag>
-      ) : (
-        <Tag bordered={false} color="error">
-          Sell
-        </Tag>
-      ),
-  },
-  {
-    title: "Currency",
-    dataIndex: "currency",
-    key: "currency",
-  },
-  {
-    title: "Rental",
-    dataIndex: "rental",
-    key: "rental",
-  },
-  {
-    title: "Amount",
-    key: "quantity",
-    dataIndex: "quantity",
-  },
-  {
-    title: "Price",
-    dataIndex: "price",
-    key: "price",
-  },
-  {
-    title: "Profit",
-    dataIndex: "profit",
-    key: "profit",
-  },
-  {
-    title: "Time",
-    dataIndex: "duration",
-    key: "duration",
-  },
-  {
-    title: "",
-    key: "action",
-    render: (_, record) => (
-      <Space size="middle">
-        <a>
-          <ShareAltOutlined />
-        </a>
-        <a>
-          <FunnelPlotOutlined />
-        </a>
-      </Space>
-    ),
-  },
-];
-
-const data: DataType[] = [
-  {
-    key: "1",
-    type: 0,
-    currency: "RIZZ",
-    rental: 9.92,
-    quantity: "3.2M",
-    price: "$0.00047",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "2",
-    type: 0,
-    currency: "Motion",
-    rental: 1.91,
-    quantity: "12.8M",
-    price: "$0.0₄21978",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "3",
-    type: 0,
-    currency: "Motion",
-    rental: 1.91,
-    quantity: "18.2M",
-    price: "$0.0₄16011",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "1",
-    type: 1,
-    currency: "RIZZ",
-    rental: 9.92,
-    quantity: "3.2M",
-    price: "$0.00047",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "2",
-    type: 0,
-    currency: "Motion",
-    rental: 1.91,
-    quantity: "12.8M",
-    price: "$0.0₄21978",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "3",
-    type: 1,
-    currency: "Motion",
-    rental: 1.91,
-    quantity: "18.2M",
-    price: "$0.0₄16011",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "1",
-    type: 0,
-    currency: "RIZZ",
-    rental: 9.92,
-    quantity: "3.2M",
-    price: "$0.00047",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "2",
-    type: 0,
-    currency: "Motion",
-    rental: 1.91,
-    quantity: "12.8M",
-    price: "$0.0₄21978",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "3",
-    type: 0,
-    currency: "Motion",
-    rental: 1.91,
-    quantity: "18.2M",
-    price: "$0.0₄16011",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "1",
-    type: 1,
-    currency: "RIZZ",
-    rental: 9.92,
-    quantity: "3.2M",
-    price: "$0.00047",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "2",
-    type: 0,
-    currency: "Motion",
-    rental: 1.91,
-    quantity: "12.8M",
-    price: "$0.0₄21978",
-    profit: "--",
-    duration: "--",
-  },
-  {
-    key: "3",
-    type: 1,
-    currency: "Motion",
-    rental: 1.91,
-    quantity: "18.2M",
-    price: "$0.0₄16011",
-    profit: "--",
-    duration: "--",
-  },
-];
-
-const App: React.FC = () => {
+const App: React.FC<{ data: Trade[] }> = ({ data: trades }) => {
   const [open, setOpen] = useState(false);
   const [placement, setPlacement] = useState<DrawerProps["placement"]>("right");
 
@@ -221,15 +27,118 @@ const App: React.FC = () => {
   const onChange = (e: RadioChangeEvent) => {
     setPlacement(e.target.value);
   };
+
+  const columns: TableProps<Trade>["columns"] = [
+    {
+      title: "Date",
+      dataIndex: ["attributes", "block_timestamp"],
+      key: "date",
+      render: (date) => {
+        const daysAgo = Math.floor(
+          (Date.now() - new Date(date).getTime()) / (1000 * 60 * 60 * 24)
+        );
+        return <p>{daysAgo}d ago</p>;
+      },
+    },
+    {
+      title: "Type",
+      dataIndex: ["attributes", "kind"],
+      key: "type",
+      render: (kind) =>
+        kind === "buy" ? (
+          <Tag bordered={false} color="success">
+            Buy
+          </Tag>
+        ) : (
+          <Tag bordered={false} color="error">
+            Sell
+          </Tag>
+        ),
+    },
+    {
+      title: "USD",
+      dataIndex: ["attributes"],
+      key: "usd",
+      render: (attributes) => {
+        return <p>{attributes.volume_in_usd}</p>;
+      },
+    },
+    {
+      title: "Token",
+      dataIndex: ["attributes"],
+      key: "token",
+      render: (attributes) => {
+        return (
+          <p>
+            {attributes.kind === "buy"
+              ? attributes.to_token_amount
+              : attributes.from_token_amount}
+          </p>
+        );
+      },
+    },
+    {
+      title: "Amount Currency Token",
+      dataIndex: ["attributes"],
+      key: "quantity",
+      render: (attributes) => {
+        return (
+          <p>
+            {attributes.kind === "buy"
+              ? attributes.from_token_amount
+              : attributes.to_token_amount}
+          </p>
+        );
+      },
+    },
+    {
+      title: "Price Currency Token",
+      dataIndex: ["attributes"],
+      key: "price",
+      render: (attributes) => {
+        return (
+          <p>
+            {attributes.kind === "buy"
+              ? attributes.price_to_in_currency_token
+              : attributes.price_from_in_currency_token}{" "}
+            /{" "}
+            {attributes.kind === "buy"
+              ? attributes.price_to_in_usd
+              : attributes.price_from_in_usd}
+          </p>
+        );
+      },
+    },
+    {
+      title: "",
+      key: "action",
+      render: (_, record) => (
+        <Space size="middle">
+          <a>
+            <ShareAltOutlined
+              onClick={() => {
+                navigator.clipboard.writeText(record.attributes.tx_hash);
+              }}
+            />
+          </a>
+          <a>
+            <FunnelPlotOutlined />
+          </a>
+        </Space>
+      ),
+    },
+  ];
+
   return (
     <>
       <Table
         columns={columns}
-        dataSource={data}
+        rowKey={(trade) => trade.id}
+        dataSource={trades}
         pagination={false}
-        onRow={(record) => {
+        onRow={() => {
           return {
-            onClick: (event) => {
+            onClick: () => {
               showDrawer();
             },
           };

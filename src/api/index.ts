@@ -1,5 +1,5 @@
 import request from "@/utils/request";
-import type { Pool, PoolResponse } from "./api_types";
+import type { Pool, PoolResponse, Trade } from "./api_types";
 import type {
   PaginationParams,
   NetworkParams,
@@ -15,8 +15,8 @@ export const api = {
     { page = 1 }: PaginationParams = {},
     include?: string,
     duration?: TimeFrameType
-  ) => {
-    return request.public.get<PoolResponse>(
+  ): Promise<PoolResponse<Pool[]>> => {
+    return request.public.get<PoolResponse<Pool[]>>(
       `${BASE_URL}/networks/${network}/trending_pools`,
       {
         params: { page, include, duration },
@@ -28,17 +28,45 @@ export const api = {
     { network }: NetworkParams,
     { page = 1 }: PaginationParams = {}
   ) => {
-    return request.public.get<Pool[]>(`${BASE_URL}/networks/${network}/pools`, {
-      params: { page },
-    });
+    return request.public.get<PoolResponse<Pool[]>>(
+      `${BASE_URL}/networks/${network}/pools`,
+      {
+        params: { page },
+      }
+    );
   },
 
   getPool: async ({
     network,
     address,
-  }: NetworkParams & { address: string }) => {
-    return request.public.get<Pool>(
-      `${BASE_URL}/networks/${network}/pools/${address}/info`
+    include,
+  }: NetworkParams & { address: string; include?: string }) => {
+    return request.public.get<PoolResponse<Pool>>(
+      `${BASE_URL}/networks/${network}/pools/${address}`,
+      {
+        params: { include },
+      }
+    );
+  },
+
+  getPoolTrades: async ({
+    network,
+    address,
+    trade_volume_in_usd_greater_than,
+    token,
+  }: NetworkParams & {
+    address: string;
+    trade_volume_in_usd_greater_than?: number;
+    token?: string;
+  }) => {
+    return request.public.get<{ data: Trade[] }>(
+      `${BASE_URL}/networks/${network}/pools/${address}/trades`,
+      {
+        params: {
+          trade_volume_in_usd_greater_than,
+          token,
+        },
+      }
     );
   },
 

@@ -49,34 +49,63 @@ export interface IncludedToken {
 }
 
 // Update Pool interface to handle included resources
-export interface PoolResponse {
-    data: Pool | Pool[];
+export interface PoolResponse<T extends Pool | Pool[]> {
+    data: T;
     included?: IncludedToken[];
 }
 
-// Update the Pool interface
-export interface Pool {
+export interface PriceChangePercentage {
+    m5?: string;
+    h1?: string;
+    h6?: string;
+    h24?: string;
+  }
+  
+  export interface TransactionMetrics {
+    buys: number;
+    sells: number;
+    buyers: number;
+    sellers: number;
+  }
+  
+  export interface TransactionsByTimeframe {
+    m5?: TransactionMetrics;
+    m15?: TransactionMetrics;
+    m30?: TransactionMetrics;
+    h1?: TransactionMetrics;
+    h24?: TransactionMetrics;
+  }
+  
+  export interface VolumeUSD {
+    m5?: string;
+    h1?: string;
+    h6?: string;
+    h24?: string;
+  }
+  
+  // Update the Pool interface attributes
+  export interface Pool {
     id: string;
     type: string;
     attributes: {
-        name: string;
-        address: string;
-        base_token_price_usd?: string;
-        quote_token_price_usd?: string;
-        base_token_price_native_currency?: string;
-        quote_token_price_native_currency?: string;
-        base_token_price_quote_token?: string;
-        quote_token_price_base_token?: string;
-        pool_created_at?: string;
-        reserve_in_usd?: string;
-        fdv_usd?: string;
-        market_cap_usd?: string;
-        price_change_percentage: object;
-        transactions: object;
-        volume_usd: object;
+      name: string;
+      address: string;
+      base_token_price_usd?: string;
+      quote_token_price_usd?: string;
+      base_token_price_native_currency?: string;
+      quote_token_price_native_currency?: string;
+      base_token_price_quote_token?: string;
+      quote_token_price_base_token?: string;
+      pool_created_at?: string;
+      reserve_in_usd?: string;
+      fdv_usd?: string;
+      market_cap_usd?: string;
+      price_change_percentage: PriceChangePercentage;
+      transactions: TransactionsByTimeframe;
+      volume_usd: VolumeUSD;
     };
     relationships: PoolRelationships;
-}
+  }
 
 export interface TokenRelationship {
     data: {
