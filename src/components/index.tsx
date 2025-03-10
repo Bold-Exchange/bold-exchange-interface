@@ -15,6 +15,8 @@ import Heart from './Heart'
 import Chains from "./Chains";
 import Head from "./Head";
 import SemiCircle from "./SemiCircle";
+import Menu from "./Menu";
+
 export {
   Button,
   Accordion,
@@ -33,4 +35,5 @@ export {
   Chains,
   Head,
   SemiCircle,
+  Menu,
 };

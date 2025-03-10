@@ -9,78 +9,6 @@ import { useInView } from "react-intersection-observer";
 import TimeFrame from "@/components/TimeFrame";
 import { TimeFrameType } from "@/api/param_types";
 
-const items: TabsProps["items"] = [
-  {
-    key: "all",
-    label: "All DEXes",
-  },
-  {
-    key: "raydium",
-    label: "Raydium",
-    icon: (
-      <img
-        className="inline-block"
-        alt="Raydium"
-        width={20}
-        src="https://dd.dexscreener.com/ds-data/dexes/raydium.png"
-        loading="lazy"
-      />
-    ),
-  },
-  {
-    key: "orca",
-    label: "Orca",
-    icon: (
-      <img
-        className="inline-block"
-        alt="Raydium"
-        width={20}
-        src="https://dd.dexscreener.com/ds-data/dexes/orca.png"
-        loading="lazy"
-      />
-    ),
-  },
-  {
-    key: "meteora",
-    label: "Meteora",
-    icon: (
-      <img
-        className="inline-block"
-        alt="Raydium"
-        width={20}
-        src="https://dd.dexscreener.com/ds-data/dexes/meteora.png"
-        loading="lazy"
-      />
-    ),
-  },
-  {
-    key: "fluxbeam",
-    label: "FluxBeam",
-    icon: (
-      <img
-        className="inline-block"
-        alt="Raydium"
-        width={20}
-        src="https://dd.dexscreener.com/ds-data/dexes/fluxbeam.png"
-        loading="lazy"
-      />
-    ),
-  },
-  {
-    key: "1nitro",
-    label: "1INTRO",
-    icon: (
-      <img
-        className="inline-block"
-        alt="Raydium"
-        width={20}
-        src="https://dd.dexscreener.com/ds-data/dexes/1intro.png"
-        loading="lazy"
-      />
-    ),
-  },
-];
-
 const App = () => {
   const [network, setNetwork] = useState<Network>("eth");
   const [pools, setPools] = useState<Pool[]>([]);
@@ -91,6 +19,7 @@ const App = () => {
   const [hasMore, setHasMore] = useState(true);
   const [selectedTimeFrame, setSelectedTimeFrame] =
     useState<TimeFrameType>("5m");
+  const [dexes, setDexes] = useState<{ key: string; label: string }[]>([]);
 
   const { ref, inView } = useInView({
     threshold: 0,
@@ -161,6 +90,12 @@ const App = () => {
     }
   }, [inView, hasMore, loading, fetchPools, page]);
 
+  useEffect(() => {
+    api.getDexes({ network }).then((dexes) => {
+      setDexes(dexes);
+    });
+  }, [network]);
+
   const handleTabChange = (activeKey: string) => {
     if (activeKey === "all") {
       setFilteredPools(pools);
@@ -187,7 +122,7 @@ const App = () => {
         <Menu setNetwork={setNetwork} />
       </Sider>
       <Layout>
-        <Tabs defaultActiveKey="all" items={items} onChange={handleTabChange} />
+        <Tabs defaultActiveKey="all" items={dexes} onChange={handleTabChange} />
         <TimeFrame
           onTimeFrameChange={setSelectedTimeFrame}
           selectedTimeFrame={selectedTimeFrame}

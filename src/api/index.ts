@@ -10,6 +10,22 @@ const BASE_URL = `${process.env.UMI_APP_API_URL}/api`;
 
 export const api = {
   // Public endpoints
+  getDexes: async ({ network }: NetworkParams) => {
+    const data = await request.public.get<{ data: Dex[] }>(
+      `${BASE_URL}/networks/${network}/dexes`
+    );
+
+    return [
+      {
+        key: "all",
+        label: "All DEXes",
+      },
+      ...data.data.slice(0, 5).map((dex) => ({
+        key: dex.id,
+        label: dex.attributes.name,
+      })),
+    ];
+  },
   getTrendingPools: async (
     { network }: NetworkParams,
     { page = 1 }: PaginationParams = {},

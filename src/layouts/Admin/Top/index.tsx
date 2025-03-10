@@ -1,61 +1,32 @@
 import { useCallback, useEffect, useState } from "react";
 import { history } from "umi";
-import classNames from "classnames";
-import Web3 from "web3";
 import request from "@/utils/request";
 import {
   Input,
   Modal,
   Button,
   Space,
-  Dropdown,
-  Form,
-  Checkbox,
-  Radio,
   Select,
-  TreeSelect,
-  Cascader,
   DatePicker,
-  InputNumber,
-  Upload,
-  Switch,
-  ColorPicker,
-  Slider,
   message,
+  Form,
   FormProps,
 } from "antd";
 import {
-  CaretDownOutlined,
-  PlusOutlined,
   SearchOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import TextArea from "antd/es/input/TextArea";
 import { setToken } from "@/utils/auth";
 import { hooks, metaMask } from "@/connectors/metaMask";
 import { getAddChainParameters } from "@/chains";
 import { FUN_ABI } from "@/abis/fun.sol/Fun";
 import { ethers } from "ethers";
-import { CopyText, UploadImage, Icon, TagSelector, Media } from "@/components";
-import { devUseWarning } from "antd/es/_util/warning";
+import { CopyText, UploadImage, TagSelector, Media, Menu } from "@/components";
 import styles from "./styles.less";
-import Tl from "./Tl";
 import TokenSearch from "./TokenSearch";
-const items: MenuProps["items"] = [
-  {
-    key: "1",
-    label: (
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://www.antgroup.com"
-      >
-        login out
-      </a>
-    ),
-  },
-];
-const { Option } = Select;
+import ChainList from "./ChainList";
+import WalletModal from "@/components/WalletModal";
+
 const {
   useChainId,
   useAccounts,
@@ -89,19 +60,17 @@ const Top = (props: any) => {
   const [messageApi, contextHolder] = message.useMessage();
   const [desiredChainId, setDesiredChainId] = useState<number>(11155111);
   const provider = useProvider();
-  const accounts: string[] | undefined = useAccounts();
+  
   const abiDecoder = require("abi-decoder"); // NodeJS
   const [form] = Form.useForm();
+  const [isNetworkModalOpen, setIsNetworkModalOpen] = useState(false);
+
   const normFile = (e: any) => {
     // debugger;
     if (Array.isArray(e)) {
       return e;
     }
     return e?.fileList;
-  };
-
-  const showModal = () => {
-    setIsModalOpen(true);
   };
 
   const handleOk = async () => {
@@ -179,7 +148,7 @@ const Top = (props: any) => {
     // if (window.ethereum) {
     //   try {
     //     const web3 = new Web3(window.ethereum);
-    //     await window.ethereum.request({ method: "eth_requestAccounts" });
+    //     await window.ethereum.request({ method: "eth_requestAccounts"x });
     //     const accounts = await web3.eth.getAccounts();
     //     setWalletAddress(accounts[0]);
     //   } catch (error) {
@@ -212,6 +181,7 @@ const Top = (props: any) => {
   useEffect(() => {
     switchChain(desiredChainId);
   }, []);
+
   return (
     <div className="flex items-center justify-between w-full bg-[#101014]">
       {contextHolder}
@@ -262,15 +232,7 @@ const Top = (props: any) => {
               Create Token
             </Button> */}
 
-          <Button
-            type="default"
-            onClick={() => !walletAddress && connectWallet()}
-          >
-            {(accounts && accounts.length > 0 && accounts[0] && (
-              <CopyText text={accounts[0]} />
-            )) ||
-              "Connect"}
-          </Button>
+         <WalletModal/>
           <div
             onClick={() => history.push("/portfolio")}
             className="flex items-center justify-center rounded cursor-pointer hover:bg-gray-700"
@@ -452,7 +414,7 @@ const Top = (props: any) => {
                 </div>
                 <TagSelector
                   tags={["Finalized", "Trending", "Top", "Rising", "New"]}
-                  onTagSelect={(v) => { }}
+                  onTagSelect={()=>{}}
                 />
               </div>
               <div className="flex items-center gap-2">
@@ -638,114 +600,6 @@ const Top = (props: any) => {
                 </div>
                 <div className="bg-zinc-900 px-1 flex items-center">
                   <img className="w-[15px]" src="icons/token.svg" /> Tokens
-                </div>
-              </div>
-              <div className="flex items-center gap-2 mt-2">
-                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
-                  <img
-                    className="w-[40px]"
-                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
-                  />
-                  <div>
-                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
-                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
-                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
-                    </p>
-                    <p> <Media /></p>
-                  </div>
-                </div>
-                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
-                  <img
-                    className="w-[40px]"
-                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
-                  />
-                  <div>
-                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
-                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
-                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
-                    </p>
-                    <p> <Media /></p>
-                  </div>
-                </div>
-                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
-                  <img
-                    className="w-[40px]"
-                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
-                  />
-                  <div>
-                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
-                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
-                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
-                    </p>
-                    <p> <Media /></p>
-                  </div>
-                </div>
-                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
-                  <img
-                    className="w-[40px]"
-                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
-                  />
-                  <div>
-                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
-                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
-                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
-                    </p>
-                    <p> <Media /></p>
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-center gap-2 mt-2">
-                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
-                  <img
-                    className="w-[40px]"
-                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
-                  />
-                  <div>
-                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
-                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
-                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
-                    </p>
-                    <p> <Media /></p>
-                  </div>
-                </div>
-                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
-                  <img
-                    className="w-[40px]"
-                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
-                  />
-                  <div>
-                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
-                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
-                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
-                    </p>
-                    <p> <Media /></p>
-                  </div>
-                </div>
-                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
-                  <img
-                    className="w-[40px]"
-                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
-                  />
-                  <div>
-                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
-                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
-                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
-                    </p>
-                    <p> <Media /></p>
-                  </div>
-                </div>
-                <div className="rounded bg-[#1f1f1f] flex items-center gap-1 p-1 flex-auto">
-                  <img
-                    className="w-[40px]"
-                    src="https://cdn.dexscreener.com/cms/images/S0D-k9hn9FLJp7bp?width=256&height=256&fit=crop&quality=95&format=auto"
-                  />
-                  <div>
-                    <p className="p-0 text-[12px]">Trump WIF Space X</p>
-                    <p className="p-0 text-[10px] text-gray-500 flex items-center gap-2">
-                      <img className="w-[15px]" src="icons/solana.webp" /> Solana
-                    </p>
-                    <p> <Media /></p>
-                  </div>
                 </div>
               </div>
               <div className="flex items-center gap-2 mt-2">
