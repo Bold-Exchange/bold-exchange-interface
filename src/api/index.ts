@@ -1,9 +1,10 @@
 import request from "@/utils/request";
-import type { Pool, PoolResponse, Trade } from "./api_types";
+import type { OHLCVData, Pool, PoolResponse, Trade } from "./api_types";
 import type {
   PaginationParams,
   NetworkParams,
   TimeFrameType,
+  OHLCVParams,
 } from "./param_types";
 
 const BASE_URL = `${process.env.UMI_APP_API_URL}/api`;
@@ -82,6 +83,21 @@ export const api = {
           trade_volume_in_usd_greater_than,
           token,
         },
+      }
+    );
+  },
+
+  getOHLCV: async ({
+    network,
+    pool_address,
+    timeframe,
+    limit,
+    before_timestamp,
+  }: OHLCVParams & { limit?: string, before_timestamp?: string}) => {
+    return request.public.get<OHLCVData>(
+      `${BASE_URL}/networks/${network}/pools/${pool_address}/ohlcv/${timeframe}`,
+      {
+        params: { limit, before_timestamp },
       }
     );
   },

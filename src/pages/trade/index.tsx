@@ -1,5 +1,5 @@
 import { CopyText, TagSelector, Icon, Block } from "@/components";
-import TradingViewWidget, { Themes } from "react-tradingview-widget";
+//import TradingViewWidget, { Themes } from "react-tradingview-widget";
 import Tl from "./Tl";
 import Buy from "./Buy";
 import { Button, Rate } from "antd";
@@ -9,6 +9,8 @@ import { useState, useEffect } from "react";
 import { useParams } from "umi";
 import { PoolResponse, Pool, Trade } from "@/api/api_types";
 import { api } from "@/api";
+import { TVChartContainer } from "./TVChartContainer";
+import { version } from "../../charting_library";
 
 const generateRandomData = () => {
   const baseData = [
@@ -210,7 +212,7 @@ const App = () => {
               </Block>
             </div>
           </div>
-          <TradingViewWidget
+          {/* <TradingViewWidget
             src="https://dexscreener.com/solana/2tge3aeuqxsrmtbzk1vqavj2hvvutuu82fcapptvdsdn"
             //symbol="BTCUSD"
             theme={Themes.DARK}
@@ -229,7 +231,11 @@ const App = () => {
               "scalesProperties.textColor": "#D3D3D3",
               // 轴标签文本颜色
             }}
-          />
+          /> */}
+          <TVChartContainer name={poolInfo?.data.attributes?.name || ""} network={params.chain || ""} address={poolInfo?.data.attributes?.address || ""} />
+          <h1>
+					TradingView Charting Library and React Integration Example { version() }
+				</h1>
           <div className="pl-4">
             <div className="flex gap-2 my-2">
               {TradeType.map((item, index) => (

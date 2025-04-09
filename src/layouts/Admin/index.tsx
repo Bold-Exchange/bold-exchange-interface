@@ -46,13 +46,13 @@ const App: React.FC = () => {
               width={160}
               className={styles.sider}
             > */}
-              {/* <div
+            {/* <div
           className={styles.closeRight}
           onClick={() => setMenuVisible(!menuVisible)}
         >
           {(!menuVisible && <MenuUnfoldOutlined />) || <CloseOutlined />}
         </div> */}
-              {/* <Menu />
+            {/* <Menu />
               <Trigger
                 direction="left"
                 onToggle={() => setMenuVisible(!menuVisible)}
@@ -68,10 +68,14 @@ const App: React.FC = () => {
                   <Content className={styles.content}>
                     <Outlet />
                   </Content>
-                  <Footer className={`${styles.footer} flex justify-center items-center gap-4`}>
+                  {/* <Footer
+                    className={`${styles.footer} flex justify-center items-center gap-4`}
+                  >
                     <span>Bold © 2025</span>
-                    <a target="_blank" href="/#/news?id=2025012484958">News</a>
-                     </Footer>
+                    <a target="_blank" href="/#/news?id=2025012484958">
+                      News
+                    </a>
+                  </Footer>*/}
                 </Layout>
 
                 {/* <Sider

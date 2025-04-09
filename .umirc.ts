@@ -34,7 +34,7 @@ export default defineConfig({
     },
   ],
   define: {
-    'API_URL': process.env.UMI_APP_API_URL,
+    API_URL: process.env.UMI_APP_API_URL,
   },
   svgr: {},
   npmClient: "pnpm",
@@ -53,6 +53,7 @@ export default defineConfig({
   ],
 
   headScripts: [
+    {src: "/public/datafeeds/udf/dist/bundle.js"},
     // { src: "/assets/js/vendor/jquery-3.6.0.min.js" },
     // { src: "/assets/js/vendor/bootstrap.bundle.min.js" },
     // { src: "/assets/js/vendor/jquery.waypoints.min.js" },
@@ -74,7 +75,7 @@ export default defineConfig({
     theme: {
       token: {
         colorPrimary: "#fff200",
-        colorPrimaryHover:"#fff200",
+        colorPrimaryHover: "#fff200",
       },
     },
   },
