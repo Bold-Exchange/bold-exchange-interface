@@ -105,7 +105,7 @@ const App = () => {
           include: "base_token",
         })
         .then((res) => {
-          setPoolInfo(res);
+          setPoolInfo(res.data);
         });
 
       api
@@ -114,7 +114,7 @@ const App = () => {
           address: params.address,
         })
         .then((res) => {
-          setTrades(res.data);
+          setTrades(res.data.data);
         });
     }
   }, [params]);
@@ -232,10 +232,12 @@ const App = () => {
               // 轴标签文本颜色
             }}
           /> */}
-          <TVChartContainer name={poolInfo?.data.attributes?.name || ""} network={params.chain || ""} address={poolInfo?.data.attributes?.address || ""} />
-          <h1>
-					TradingView Charting Library and React Integration Example { version() }
-				</h1>
+          <TVChartContainer
+            name={poolInfo?.data.attributes?.name || ""}
+            network={params.chain || ""}
+            address={poolInfo?.data.attributes?.address || ""}
+          />
+          
           <div className="pl-4">
             <div className="flex gap-2 my-2">
               {TradeType.map((item, index) => (

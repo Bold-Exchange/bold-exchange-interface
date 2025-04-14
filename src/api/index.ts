@@ -1,5 +1,5 @@
 import request from "@/utils/request";
-import type { OHLCVData, Pool, PoolResponse, Trade } from "./api_types";
+import type { OHLCVData, Pool, PoolResponse, Trade, Network } from "./api_types";
 import type {
   PaginationParams,
   NetworkParams,
@@ -11,8 +11,13 @@ const BASE_URL = `${process.env.UMI_APP_API_URL}/api`;
 
 export const api = {
   // Public endpoints
+  getNetworks: async ({page = 1}: PaginationParams = {}) => {
+    return request.public.get<{data: Network[], links: {first: string, last: string, prev: string, next: string}}>(`${BASE_URL}/networks`, {
+      params: { page },
+    });
+  },
   getDexes: async ({ network }: NetworkParams) => {
-    const data = await request.public.get<{ data: Dex[] }>(
+    const response = await request.public.get<{ data: Dex[] }>(
       `${BASE_URL}/networks/${network}/dexes`
     );
 
@@ -21,7 +26,7 @@ export const api = {
         key: "all",
         label: "All DEXes",
       },
-      ...data.data.slice(0, 5).map((dex) => ({
+      ...response.data.data.map((dex) => ({
         key: dex.id,
         label: dex.attributes.name,
       })),
@@ -32,7 +37,7 @@ export const api = {
     { page = 1 }: PaginationParams = {},
     include?: string,
     duration?: TimeFrameType
-  ): Promise<PoolResponse<Pool[]>> => {
+  ) => {
     return request.public.get<PoolResponse<Pool[]>>(
       `${BASE_URL}/networks/${network}/trending_pools`,
       {

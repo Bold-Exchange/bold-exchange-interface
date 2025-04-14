@@ -35,7 +35,7 @@ const createAxiosInstance = (isPrivate: boolean = false) => {
   // Response interceptor
   instance.interceptors.response.use(
     (response: AxiosResponse): AxiosResponse => {
-      return response.data;
+      return response;  // Return the full response instead of just data
     },
     (error: AxiosError): Promise<AxiosError> => {
       if (error.response?.status === 401 && isPrivate) {

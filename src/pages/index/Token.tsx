@@ -21,7 +21,7 @@ const Token: React.FC<TokenProps> = ({ address, name, imageUrl }) => {
           className=" rounded-full"
           width={32}
           src={imageUrl}
-          alt={name}
+          alt=""
         />
       </div>
       <div className="flex flex-col">

@@ -214,14 +214,23 @@ export interface GeckoErrorResponse {
   errors: GeckoError[];
 }
 
-export type Network =
+/*export type Network =
   | "eth"
   | "solana"
   | "base"
   | "bsc"
   | "ton"
   | "arbitrum"
-  | "linea";
+  | "linea";*/
+
+export type Network = {
+  id: string;
+  type: string;
+  attributes: {
+    name: string;
+    coingecko_asset_platform_id: string;
+  };
+};
 
 export interface DexResponse {
   data: {

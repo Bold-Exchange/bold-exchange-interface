@@ -1,56 +1,60 @@
 import { ListMenu as List } from "@/components";
 import styles from "./styles.less";
-const Menu = ({ setNetwork }: any) => {
+import { Network } from "@/api/api_types";
+import { useEffect, useState } from "react";
+
+const Menu = ({
+  networks,
+  setNetwork,
+}: {
+  networks: Network[];
+  setNetwork: (network: string) => void;
+}) => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredNetworks, setFilteredNetworks] = useState<Network[]>([]);
+
   const handleSelect = (value: string) => {
-    const networkMap: { [key: string]: string } = {
-      item1: 'eth',
-      item2: 'solana',
-      item3: 'blast',
-      item4: 'base',
-      item5: 'bsc',
-      item6: 'ton',
-      item7: 'arbitrum',
-      item8: 'linea'
-    };
-    setNetwork(networkMap[value]);
+    setNetwork(value);
   };
+
+  useEffect(() => {
+    if (networks.length > 0) {
+      setNetwork(networks[0].id);
+      setFilteredNetworks(networks);
+    }
+  }, [networks]);
+
+  useEffect(() => {
+    const filtered = networks.filter((network) =>
+      network.attributes.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredNetworks(filtered);
+  }, [searchTerm, networks]);
 
   return (
     <div className={styles.sidebar}>
-      <List onSelect={handleSelect} defaultValue="item1">
-        <List.Item value="item1">
-          <img className="w-5 mr-2" src="icons/ether.webp" /> ETH
-        </List.Item>
-        <List.Item value="item2">
-          <img className="w-5 mr-2" src="icons/solana.webp" />
-          SOL
-        </List.Item>
-        <List.Item value="item4">
-          <img className="w-5 mr-2" src="icons/base.webp" />
-          Base
-        </List.Item>
-        <List.Item value="item3">
-          <img className="w-5 mr-2" src="icons/blast.webp" />
-          Blast
-        </List.Item>
-        <List.Item value="item5">
-          <img className="w-5 mr-2" src="icons/bsc.svg" />
-          BNB
-        </List.Item>
-        <List.Item value="item6">
-          <img className="w-5 mr-2" src="icons/ton.webp" />
-          TON
-        </List.Item>
-        <List.Item value="item7">
-          <img className="w-5 mr-2" src="icons/arbitrum.svg" />
-          Arbitrum
-        </List.Item>
-        <List.Item value="item8">
-          <img className="w-5 mr-2" src="icons/linea.svg" />
-          Linea
-        </List.Item>
-      </List>
+      <div className={styles.searchContainer}>
+        <input
+          type="text"
+          placeholder="Search a network"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className={styles.searchInput}
+        />
+      </div>
+      {filteredNetworks.length > 0 ? (
+        <List onSelect={handleSelect} defaultValue={filteredNetworks[0].id}>
+          {filteredNetworks.map((network) => (
+            <List.Item key={network.id} value={network.id}>
+              {network.attributes.name}
+            </List.Item>
+          ))}
+        </List>
+      ) : (
+        <div className={styles.noResults}>No networks found</div>
+      )}
     </div>
   );
 };
+
 export default Menu;

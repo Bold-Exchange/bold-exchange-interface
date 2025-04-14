@@ -10,7 +10,8 @@ import TimeFrame from "@/components/TimeFrame";
 import { TimeFrameType } from "@/api/param_types";
 
 const App = () => {
-  const [network, setNetwork] = useState<Network>("eth");
+  const [networks, setNetworks] = useState<Network[]>([]);
+  const [network, setNetwork] = useState<string>("");
   const [pools, setPools] = useState<Pool[]>([]);
   const [filteredPools, setFilteredPools] = useState<Pool[]>([]);
   const [tokenImages, setTokenImages] = useState<Record<string, string>>({});
@@ -39,7 +40,7 @@ const App = () => {
         );
 
         // Create a mapping of token IDs to their image URLs from the included data
-        const newTokenImages = (response.included || []).reduce((acc, item) => {
+        const newTokenImages = (response.data.included || []).reduce((acc, item) => {
           if (item.attributes?.image_url) {
             acc[item.id] = item.attributes.image_url;
           }
@@ -47,12 +48,12 @@ const App = () => {
         }, {} as Record<string, string>);
 
         if (shouldAppend) {
-          setPools((prev) => [...prev, ...response.data]);
-          setFilteredPools((prev) => [...prev, ...response.data]);
+          setPools((prev) => [...prev, ...response.data.data]);
+          setFilteredPools((prev) => [...prev, ...response.data.data]);
           setTokenImages((prev) => ({ ...prev, ...newTokenImages }));
         } else {
-          setPools(response.data);
-          setFilteredPools(response.data);
+          setPools(response.data.data);
+          setFilteredPools(response.data.data);
           setTokenImages(newTokenImages);
           setPage(1);
           setHasMore(true);
@@ -91,6 +92,24 @@ const App = () => {
   }, [inView, hasMore, loading, fetchPools, page]);
 
   useEffect(() => {
+    const fetchAllNetworks = async (pageNum: number = 1) => {
+      try {
+        const response = await api.getNetworks({ page: pageNum });
+        setNetworks(prevNetworks => [...prevNetworks, ...response.data.data]);
+        
+        // If there's a next page, continue fetching
+        if (response.data.links.next) {
+          await fetchAllNetworks(pageNum + 1);
+        }
+      } catch (error) {
+        console.error("Failed to fetch networks:", error);
+      }
+    };
+
+    fetchAllNetworks();
+  }, []);
+
+  useEffect(() => {
     api.getDexes({ network }).then((dexes) => {
       setDexes(dexes);
     });
@@ -117,9 +136,9 @@ const App = () => {
       <Sider
         style={{ background: "transparent" }}
         collapsedWidth={0}
-        width={160}
+        width={185}
       >
-        <Menu setNetwork={setNetwork} />
+        <Menu networks={networks} setNetwork={setNetwork} />
       </Sider>
       <Layout>
         <Tabs defaultActiveKey="all" items={dexes} onChange={handleTabChange} />

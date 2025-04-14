@@ -14,8 +14,12 @@ const WalletModal: React.FC = () => {
 
   return (
     <div>
-      <Button type="default" onClick={() => setIsNetworkModalOpen(true)}>
+      {/*<Button type="default" onClick={() => setIsNetworkModalOpen(true)}>
         {accounts?.[0] ? <CopyText text={displayAddress} /> : displayAddress}
+      </Button>*/}
+
+      <Button type="default" onClick={() => setIsNetworkModalOpen(true)}>
+        Connect
       </Button>
 
       <Modal

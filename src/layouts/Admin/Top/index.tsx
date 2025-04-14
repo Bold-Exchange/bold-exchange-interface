@@ -178,9 +178,9 @@ const Top = (props: any) => {
       // setError(error)
     }
   }, []);
-  useEffect(() => {
+  /*useEffect(() => {
     switchChain(desiredChainId);
-  }, []);
+  }, []);*/
 
   return (
     <div className="flex items-center justify-between w-full bg-[#101014]">
@@ -207,12 +207,12 @@ const Top = (props: any) => {
             Memepad
           </li>
 
-          {/* <li
+          <li
             className="hover:text-white hover:underline"
-            onClick={() => history.push("/trending")}
+            onClick={() => history.push("/")}
           >
             Trending
-          </li> */}
+          </li>
           <li
             className="hover:text-white hover:underline"
             onClick={() => history.push("/trade")}
@@ -233,13 +233,13 @@ const Top = (props: any) => {
             </Button> */}
 
          <WalletModal/>
-          <div
+          {/*<div
             onClick={() => history.push("/portfolio")}
             className="flex items-center justify-center rounded cursor-pointer hover:bg-gray-700"
             style={{ width: "28px", height: "28px" }}
           >
             <UserOutlined />
-          </div>
+          </div>*/}
 
           {/* <span onClick={() => setIsLoginModalOpen(true)}>Log in</span> */}
           {/* <Dropdown menu={{ items }} placement="bottomLeft">
